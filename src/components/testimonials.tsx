@@ -41,6 +41,34 @@ export default function Testimonials() {
       role: "CTO, Quasar Cybersecurity",
       image: "/images/lee.jpg",
     },
+    {
+      quote:
+        "Since implementing Plexicus, we've seen a dramatic improvement in our security posture with minimal effort from our team. The AI-driven approach to vulnerability remediation is truly revolutionary.",
+      name: "Alejandro Acosta",
+      role: "CTO, Wandari",
+      image: "/images/sanchez.png",
+    },
+    {
+      quote:
+        "Plexicus's powerful vulnerability management allows us at Puffin Security to deliver more advanced cybersecurity services to our clients, creating a perfect security partnership.",
+      name: "Ricardo Stefanescu",
+      role: "CEO, Puffin Security",
+      image: "/images/stefanescu.jpeg",
+    },
+    {
+      quote:
+        "As pioneers in cloud security, we've found Plexicus to be remarkably innovative in the vulnerability remediation space. The fact that they've integrated Prowler as one of their connectors demonstrates their commitment to leveraging the best open-source tools while adding significant value through their AI-powered remediation capabilities.",
+      name: "Toni de la Fuente",
+      role: "Founder, Prowler",
+      image: "/images/toni-delafuente.jpeg",
+    },
+    {
+      quote:
+        "As one of Plexicus's first customers, we've witnessed firsthand how their platform has evolved into an indispensable security solution. Their AI-powered remediation has dramatically reduced our vulnerability management overhead and allowed our security team to focus on strategic initiatives instead of repetitive fixes.",
+      name: "Jose Fernando Dominguez",
+      role: "CISO, Ironchip",
+      image: "/images/jose-fernando-dominguez.png",
+    },
   ]
 
   // Use intersection observer to only animate when visible
