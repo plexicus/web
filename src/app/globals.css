@@ -1,8 +1,5 @@
-@import "../styles/animations.css";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.js";
 
 :root {
   --background: 0 0% 100%;
@@ -11,19 +8,22 @@
   --card-foreground: 240 10% 3.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 240 10% 3.9%;
-  --primary: 267 59% 28%; /* Checkmarx purple */
+  --primary: 267 59% 28%;
+  /* Checkmarx purple */
   --primary-foreground: 0 0% 98%;
   --secondary: 240 5.9% 90%;
   --secondary-foreground: 240 5.9% 10%;
   --muted: 240 4.8% 95.9%;
   --muted-foreground: 240 3.8% 46.1%;
-  --accent: 267 59% 28%; /* Checkmarx purple accent */
+  --accent: 267 59% 28%;
+  /* Checkmarx purple accent */
   --accent-foreground: 0 0% 98%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
   --border: 240 5.9% 90%;
   --input: 240 5.9% 90%;
-  --ring: 267 59% 28%; /* Checkmarx purple ring */
+  --ring: 267 59% 28%;
+  /* Checkmarx purple ring */
   --radius: 0.5rem;
 
   /* Checkmarx specific colors */
@@ -43,25 +43,29 @@
   --card-foreground: 0 0% 98%;
   --popover: 240 10% 3.9%;
   --popover-foreground: 0 0% 98%;
-  --primary: 267 59% 50%; /* Brighter purple for dark mode */
+  --primary: 267 59% 50%;
+  /* Brighter purple for dark mode */
   --primary-foreground: 0 0% 98%;
   --secondary: 240 3.7% 15.9%;
   --secondary-foreground: 0 0% 98%;
   --muted: 240 3.7% 15.9%;
   --muted-foreground: 240 5% 64.9%;
-  --accent: 267 59% 50%; /* Brighter purple accent for dark mode */
+  --accent: 267 59% 50%;
+  /* Brighter purple accent for dark mode */
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
-  --ring: 267 59% 50%; /* Brighter purple ring for dark mode */
+  --ring: 267 59% 50%;
+  /* Brighter purple ring for dark mode */
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-poppins);
@@ -107,12 +111,12 @@
 
 /* Button with Checkmarx style */
 .btn-primary {
-  @apply bg-primary text-white py-2 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300;
+  @apply bg-primary text-white py-2 px-6 rounded-md hover:opacity-90 transition-all duration-300;
   background-image: linear-gradient(135deg, hsl(var(--purple-gradient-start)) 0%, hsl(var(--purple-gradient-end)) 100%);
 }
 
 .btn-secondary {
-  @apply bg-white text-primary py-2 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300 border border-primary;
+  @apply bg-white text-primary py-2 px-6 rounded-md hover:opacity-90 transition-all duration-300 border border-primary;
 }
 
 /* Colorful cards inspired by Checkmarx */
@@ -136,6 +140,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -151,10 +156,11 @@
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 45px rgba(255, 255, 255, 0.4),
       0 0 60px rgba(130, 32, 255, 0.3);
   }
+
   50% {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.6), 0
-      0 80px rgba(130, 32, 255, 0.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.6), 0 0 80px rgba(130, 32, 255, 0.5);
   }
+
   100% {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 45px rgba(255, 255, 255, 0.4),
       0 0 60px rgba(130, 32, 255, 0.3);
@@ -166,9 +172,11 @@
   0% {
     opacity: 0.3;
   }
+
   50% {
     opacity: 0.6;
   }
+
   100% {
     opacity: 0.3;
   }
