@@ -578,22 +578,20 @@ export default function Integrations() {
           <div className="inline-flex rounded-md shadow-md" role="group">
             <button
               type="button"
-              className={`px-4 py-2 text-sm font-medium rounded-l-lg ${
-                activeTab === "connectors"
-                  ? "bg-[#8220ff] text-white shadow-[0_0_15px_rgba(130,32,255,0.5)]"
-                  : "bg-white text-gray-700 hover:bg-[#f5f0ff]"
-              } border border-[#8220ff]/20`}
+              className={`px-4 py-2 text-sm font-medium rounded-l-lg ${activeTab === "connectors"
+                ? "bg-[#8220ff] text-white shadow-[0_0_15px_rgba(130,32,255,0.5)]"
+                : "bg-white text-gray-700 hover:bg-[#f5f0ff]"
+                } border border-[#8220ff]/20`}
               onClick={() => setActiveTab("connectors")}
             >
               Mystical Connectors
             </button>
             <button
               type="button"
-              className={`px-4 py-2 text-sm font-medium rounded-r-lg ${
-                activeTab === "providers"
-                  ? "bg-[#8220ff] text-white shadow-[0_0_15px_rgba(130,32,255,0.5)]"
-                  : "bg-white text-gray-700 hover:bg-[#f5f0ff]"
-              } border border-[#8220ff]/20 border-l-0`}
+              className={`px-4 py-2 text-sm font-medium rounded-r-lg ${activeTab === "providers"
+                ? "bg-[#8220ff] text-white shadow-[0_0_15px_rgba(130,32,255,0.5)]"
+                : "bg-white text-gray-700 hover:bg-[#f5f0ff]"
+                } border border-[#8220ff]/20 border-l-0`}
               onClick={() => setActiveTab("providers")}
             >
               Arcane Providers
@@ -606,18 +604,16 @@ export default function Integrations() {
           {activeIntegrations.map((integration) => (
             <div
               key={integration.name}
-              className={`relative ${
-                selectedCard === integration.name ? "transform scale-105" : "transform hover:scale-102"
-              } transition-all duration-300 cursor-pointer perspective-500`}
+              className={`relative ${selectedCard === integration.name ? "transform scale-105" : "transform hover:scale-102"
+                } transition-all duration-300 cursor-pointer perspective-500`}
               onClick={() => setSelectedCard(selectedCard === integration.name ? null : integration.name)}
             >
               {/* Card with standard hover effect */}
               <div
                 className={`rounded-lg overflow-hidden border-2 ${getCardBorderColor(
                   integration.color,
-                )} ${getCardBackground(integration.color)} ${
-                  selectedCard === integration.name ? "shadow-xl ring-2 ring-[#8220ff]" : "shadow-md"
-                } h-[420px] transform transition-all duration-300 hover:shadow-lg hover:translate-y-[-4px]`}
+                )} ${getCardBackground(integration.color)} ${selectedCard === integration.name ? "shadow-xl ring-2 ring-[#8220ff]" : "shadow-md"
+                  } h-[420px] transform transition-all duration-300 hover:shadow-lg hover:translate-y-[-4px]`}
               >
                 {/* Title bar */}
                 <div className={`p-3 ${getTitleBarColor(integration.color)} flex items-center justify-between`}>
@@ -695,7 +691,7 @@ export default function Integrations() {
                           alt={`${tool} logo`}
                           className="w-full h-full object-contain"
                           onError={(e) => {
-                            ;(e.target as HTMLImageElement).src = "/placeholder.svg?height=24&width=24"
+                            ; (e.target as HTMLImageElement).src = "/placeholder.svg?height=24&width=24"
                           }}
                         />
                       </div>
@@ -722,6 +718,85 @@ export default function Integrations() {
             </div>
           ))}
         </div>
+
+        {/* Selected card details */}
+        {selectedCard && (
+          <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200 mt-8 animate-fadeIn">
+            {activeIntegrations
+              .filter((integration) => integration.name === selectedCard)
+              .map((integration) => (
+                <div key={`detail-${integration.name}`} className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div
+                        className={`w-10 h-10 ${getTitleBarColor(integration.color)} rounded-full flex items-center justify-center mr-3`}
+                      >
+                        {integration.icon}
+                      </div>
+                      <h3 className="text-2xl font-bold">{integration.name}</h3>
+                    </div>
+                    <p className="text-gray-700 mb-4">{integration.description}</p>
+                    <div
+                      className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${integration.rarity === "Common"
+                        ? "bg-gray-200 text-gray-800"
+                        : integration.rarity === "Uncommon"
+                          ? "bg-blue-200 text-blue-800"
+                          : integration.rarity === "Uncommon"
+                            ? "bg-blue-200 text-blue-800"
+                            : integration.rarity === "Rare"
+                              ? "bg-yellow-200 text-yellow-800"
+                              : "bg-orange-200 text-orange-800"
+                        }`}
+                    >
+                      {integration.rarity}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Supported Tools</h4>
+                    <div className="grid grid-cols-2 gap-2">
+                      {integration.tools.map((tool, index) => (
+                        <div key={index} className="flex items-center p-2 bg-gray-50 rounded">
+                          <div className="w-6 h-6 relative mr-2">
+                            <img
+                              src={getToolLogo(tool) || "/placeholder.svg"}
+                              alt={`${tool} logo`}
+                              className="w-full h-full object-contain"
+                              onError={(e) => {
+                                ; (e.target as HTMLImageElement).src = "/placeholder.svg?height=24&width=24"
+                              }}
+                            />
+                          </div>
+                          <span className="text-sm">{tool}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-4 flex justify-between">
+                      <div className="w-1/2">
+                        <h4 className="font-semibold mb-2">Power Rating</h4>
+                        <div className="w-full bg-gray-200 rounded-full h-4">
+                          <div
+                            className="bg-red-500 h-4 rounded-full"
+                            style={{ width: `${integration.power * 10}%` }}
+                          ></div>
+                        </div>
+                        <div className="text-right text-sm mt-1">{integration.power}/10</div>
+                      </div>
+                      <div className="w-1/2 pl-4">
+                        <h4 className="font-semibold mb-2">Defense Rating</h4>
+                        <div className="w-full bg-gray-200 rounded-full h-4">
+                          <div
+                            className="bg-blue-500 h-4 rounded-full"
+                            style={{ width: `${integration.defense * 10}%` }}
+                          ></div>
+                        </div>
+                        <div className="text-right text-sm mt-1">{integration.defense}/10</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        )}
 
         {/* Custom CSS for card effects */}
         <style jsx>{`

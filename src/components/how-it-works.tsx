@@ -346,14 +346,12 @@ export default function HowItWorks() {
                       {/* Top part: Number and title */}
                       <button
                         onClick={() => setActiveStep(step)}
-                        className={`px-4 py-3 text-left text-sm font-medium rounded-t-md transition-all duration-200 flex items-center ${
-                          activeStep === step ? "bg-[#8220ff] text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
-                        }`}
+                        className={`px-4 py-3 text-left text-sm font-medium rounded-t-md transition-all duration-200 flex items-center ${activeStep === step ? "bg-[#8220ff] text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+                          }`}
                       >
                         <div
-                          className={`w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3 ${
-                            activeStep === step ? "bg-white text-[#8220ff]" : "bg-gray-200 text-gray-500"
-                          }`}
+                          className={`w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3 ${activeStep === step ? "bg-white text-[#8220ff]" : "bg-gray-200 text-gray-500"
+                            }`}
                         >
                           {step + 1}
                         </div>
@@ -364,16 +362,14 @@ export default function HowItWorks() {
 
                       {/* Bottom part: Icon and description */}
                       <div
-                        className={`px-4 py-3 rounded-b-md flex items-start transition-all duration-200 ${
-                          activeStep === step
+                        className={`px-4 py-3 rounded-b-md flex items-start transition-all duration-200 ${activeStep === step
                             ? "bg-[#8220ff]/10 border-t border-[#8220ff]/20"
                             : "bg-gray-50/80 border-t border-gray-100"
-                        }`}
+                          }`}
                       >
                         <div
-                          className={`w-12 h-12 rounded-md overflow-hidden flex items-center justify-center p-1 mr-3 ${
-                            activeStep === step ? "bg-white/60" : "bg-gray-100"
-                          }`}
+                          className={`w-12 h-12 rounded-md overflow-hidden flex items-center justify-center p-1 mr-3 ${activeStep === step ? "bg-white/60" : "bg-gray-100"
+                            }`}
                         >
                           {step === 0 && (
                             // Discover - Magnifying glass
