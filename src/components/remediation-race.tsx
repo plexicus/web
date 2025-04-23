@@ -9,6 +9,7 @@ export default function RemediationRace() {
   const animationRef = useRef<number | null>(null)
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+  const [hasAnimated, setHasAnimated] = useState(false)
 
   const [hourlyRate, setHourlyRate] = useState(50)
   const [selectedPlan, setSelectedPlan] = useState({ id: "professional", name: "Professional", price: 8 })
@@ -16,8 +17,8 @@ export default function RemediationRace() {
 
   // Actualizar los tiempos de los pasos de remediación
   const remediationSteps = [
-    { name: "Initial Detection", traditionalTime: 35, plexicusTime: 1 },
-    { name: "Triage", traditionalTime: 45, plexicusTime: 1 },
+    { name: "Initial Detection", traditionalTime: 35, plexicusTime: 5 },
+    { name: "Triage", traditionalTime: 45, plexicusTime: 5 },
     { name: "Analysis", traditionalTime: 45, plexicusTime: 3 },
     { name: "Fix Development", traditionalTime: 175, plexicusTime: 10 },
     // Testing eliminado
@@ -128,7 +129,8 @@ export default function RemediationRace() {
 
   // Iniciar o detener la animación basado en la visibilidad
   useEffect(() => {
-    if (isVisible) {
+    if (isVisible && !hasAnimated) {
+      setHasAnimated(true)
       startAnimation()
     } else {
       if (animationRef.current) {
@@ -143,7 +145,7 @@ export default function RemediationRace() {
         animationRef.current = null
       }
     }
-  }, [isVisible])
+  }, [isVisible,hasAnimated])
 
   // Modificar la función formatTime para mostrar todo en minutos
   const formatTime = (minutes: number) => {
@@ -283,12 +285,13 @@ export default function RemediationRace() {
                   <div className="flex justify-between items-center mb-1">
                     <div className="flex items-center">
                       <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${isStepCompleted(index, true)
-                          ? "bg-green-100 text-green-600"
-                          : isStepActive(index, true)
-                            ? "bg-yellow-100 text-yellow-600 animate-pulse"
-                            : "bg-gray-100 text-gray-400"
-                          }`}
+                        className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
+                          isStepCompleted(index, true)
+                            ? "bg-green-100 text-green-600"
+                            : isStepActive(index, true)
+                              ? "bg-yellow-100 text-yellow-600 animate-pulse"
+                              : "bg-gray-100 text-gray-400"
+                        }`}
                       >
                         {isStepCompleted(index, true) ? (
                           <svg
@@ -309,23 +312,25 @@ export default function RemediationRace() {
                         )}
                       </div>
                       <span
-                        className={`font-medium ${isStepActive(index, true)
-                          ? "text-gray-900"
-                          : isStepCompleted(index, true)
-                            ? "text-gray-700"
-                            : "text-gray-400"
-                          }`}
+                        className={`font-medium ${
+                          isStepActive(index, true)
+                            ? "text-gray-900"
+                            : isStepCompleted(index, true)
+                              ? "text-gray-700"
+                              : "text-gray-400"
+                        }`}
                       >
                         {step.name}
                       </span>
                     </div>
                     <span
-                      className={`text-sm font-mono ${isStepCompleted(index, true)
-                        ? "text-green-600"
-                        : isStepActive(index, true)
-                          ? "text-yellow-600"
-                          : "text-gray-400"
-                        }`}
+                      className={`text-sm font-mono ${
+                        isStepCompleted(index, true)
+                          ? "text-green-600"
+                          : isStepActive(index, true)
+                            ? "text-yellow-600"
+                            : "text-gray-400"
+                      }`}
                     >
                       {formatTime(step.traditionalTime)}
                     </span>
@@ -451,12 +456,13 @@ export default function RemediationRace() {
                   <div className="ml-11">
                     <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
                       <div
-                        className={`h-full transition-all duration-300 ease-out ${isStepCompleted(index, true)
-                          ? "bg-green-500"
-                          : isStepActive(index, true)
-                            ? "bg-yellow-500"
-                            : "bg-gray-200"
-                          }`}
+                        className={`h-full transition-all duration-300 ease-out ${
+                          isStepCompleted(index, true)
+                            ? "bg-green-500"
+                            : isStepActive(index, true)
+                              ? "bg-yellow-500"
+                              : "bg-gray-200"
+                        }`}
                         style={{
                           width: `${isStepActive(index, true) ? getStepProgress(index, true) : isStepCompleted(index, true) ? 100 : 0}%`,
                         }}
@@ -506,12 +512,13 @@ export default function RemediationRace() {
                   <div className="flex justify-between items-center mb-1">
                     <div className="flex items-center">
                       <div
-                        className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${isStepCompleted(index, false)
-                          ? "bg-green-100 text-green-600"
-                          : isStepActive(index, false)
-                            ? "bg-[#8220ff]/10 text-[#8220ff] animate-pulse"
-                            : "bg-gray-100 text-gray-400"
-                          }`}
+                        className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
+                          isStepCompleted(index, false)
+                            ? "bg-green-100 text-green-600"
+                            : isStepActive(index, false)
+                              ? "bg-[#8220ff]/10 text-[#8220ff] animate-pulse"
+                              : "bg-gray-100 text-gray-400"
+                        }`}
                       >
                         {isStepCompleted(index, false) ? (
                           <svg
@@ -532,23 +539,25 @@ export default function RemediationRace() {
                         )}
                       </div>
                       <span
-                        className={`font-medium ${isStepActive(index, false)
-                          ? "text-gray-900"
-                          : isStepCompleted(index, false)
-                            ? "text-gray-700"
-                            : "text-gray-400"
-                          }`}
+                        className={`font-medium ${
+                          isStepActive(index, false)
+                            ? "text-gray-900"
+                            : isStepCompleted(index, false)
+                              ? "text-gray-700"
+                              : "text-gray-400"
+                        }`}
                       >
                         {step.name}
                       </span>
                     </div>
                     <span
-                      className={`text-sm font-mono ${isStepCompleted(index, false)
-                        ? "text-green-600"
-                        : isStepActive(index, false)
-                          ? "text-[#8220ff]"
-                          : "text-gray-400"
-                        }`}
+                      className={`text-sm font-mono ${
+                        isStepCompleted(index, false)
+                          ? "text-green-600"
+                          : isStepActive(index, false)
+                            ? "text-[#8220ff]"
+                            : "text-gray-400"
+                      }`}
                     >
                       {formatTime(step.plexicusTime)}
                     </span>
@@ -699,12 +708,13 @@ export default function RemediationRace() {
                   <div className="ml-11">
                     <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
                       <div
-                        className={`h-full transition-all duration-300 ease-out ${isStepCompleted(index, false)
-                          ? "bg-green-500"
-                          : isStepActive(index, false)
-                            ? "bg-[#8220ff]"
-                            : "bg-gray-200"
-                          }`}
+                        className={`h-full transition-all duration-300 ease-out ${
+                          isStepCompleted(index, false)
+                            ? "bg-green-500"
+                            : isStepActive(index, false)
+                              ? "bg-[#8220ff]"
+                              : "bg-gray-200"
+                        }`}
                         style={{
                           width: `${isStepActive(index, false) ? getStepProgress(index, false) : isStepCompleted(index, false) ? 100 : 0}%`,
                         }}
@@ -932,7 +942,7 @@ export default function RemediationRace() {
                         {/* Savings row */}
                         <div className="flex border-b border-gray-200 text-xs bg-[#8220ff]/5">
                           <div className="w-1/3 p-2 border-r border-gray-200 font-bold">Savings</div>
-                          <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold" colSpan="2">
+                          <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold" >
                             $
                             {(
                               (calculateTraditionalCost() - calculatePlexicusCost()) *
@@ -944,7 +954,7 @@ export default function RemediationRace() {
                         {/* Percentage row */}
                         <div className="flex text-xs bg-[#8220ff]/10">
                           <div className="w-1/3 p-2 border-r border-gray-200 font-bold">% Saved</div>
-                          <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold" colSpan="2">
+                          <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold">
                             {calculateSavingsPercentage()}%
                           </div>
                         </div>

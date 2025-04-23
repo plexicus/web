@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  srcDir:'src',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -9,6 +10,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  
 }
 
 export default nextConfig

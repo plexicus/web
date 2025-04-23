@@ -192,8 +192,8 @@ export default function HowItWorks() {
       return id
     }
 
-      // Make createTrackedTimeout available to other effects if needed
-      ; (window as any).createTrackedTimeout = createTrackedTimeout
+    // Make createTrackedTimeout available to other effects if needed
+    ;(window as any).createTrackedTimeout = createTrackedTimeout
 
     // Clean up all tracked timeouts
     return () => {
@@ -445,8 +445,9 @@ export default function HowItWorks() {
             <div className="relative h-[600px] bg-white rounded-xl shadow-lg overflow-hidden">
               {/* Scene 1: Discover */}
               <div
-                className={`absolute inset-0 transition-opacity duration-1000 flex items-center justify-center p-8 ${activeStep === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
-                  }`}
+                className={`absolute inset-0 transition-opacity duration-1000 flex items-center justify-center p-8 ${
+                  activeStep === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
               >
                 <div className="grid md:grid-cols-3 gap-8 items-center">
                   <div className="space-y-4 md:col-span-1">
@@ -517,8 +518,9 @@ export default function HowItWorks() {
                     <div className="bg-gray-100 rounded-lg p-6 shadow-inner">
                       {/* Command 1 - Git Clone */}
                       <div
-                        className={`flex items-start mb-4 transition-opacity duration-500 ${discoverStep >= 1 ? "opacity-100" : "opacity-0"
-                          }`}
+                        className={`flex items-start mb-4 transition-opacity duration-500 ${
+                          discoverStep >= 1 ? "opacity-100" : "opacity-0"
+                        }`}
                       >
                         <div className="mr-4 mt-1">
                           <svg
@@ -546,8 +548,9 @@ export default function HowItWorks() {
 
                       {/* Command 2 - Scan */}
                       <div
-                        className={`flex items-start mb-4 transition-opacity duration-500 ${discoverStep >= 2 ? "opacity-100" : "opacity-0"
-                          }`}
+                        className={`flex items-start mb-4 transition-opacity duration-500 ${
+                          discoverStep >= 2 ? "opacity-100" : "opacity-0"
+                        }`}
                       >
                         <div>
                           <div className="font-mono text-sm bg-gray-800 text-green-400 p-2 rounded">
@@ -558,8 +561,9 @@ export default function HowItWorks() {
 
                       {/* Code with vulnerability */}
                       <div
-                        className={`border border-gray-200 rounded-lg p-4 bg-white relative transition-opacity duration-500 ${discoverStep >= 2 ? "opacity-100" : "opacity-0"
-                          }`}
+                        className={`border border-gray-200 rounded-lg p-4 bg-white relative transition-opacity duration-500 ${
+                          discoverStep >= 2 ? "opacity-100" : "opacity-0"
+                        }`}
                       >
                         <div className="font-mono text-sm overflow-x-auto">
                           <pre className="text-red-500">
@@ -638,8 +642,9 @@ export default function HowItWorks() {
 
               {/* Scene 2: Enrich */}
               <div
-                className={`absolute inset-0 transition-opacity duration-1000 flex items-center justify-center p-8 ${activeStep === 1 ? "opacity-100 z-10" : "opacity-0 z-0"
-                  }`}
+                className={`absolute inset-0 transition-opacity duration-1000 flex items-center justify-center p-8 ${
+                  activeStep === 1 ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
               >
                 <div className="grid md:grid-cols-3 gap-8 items-center">
                   <div className="space-y-4 md:col-span-1">
@@ -866,8 +871,9 @@ export default function HowItWorks() {
 
               {/* Scene 3: Remediate */}
               <div
-                className={`absolute inset-0 transition-opacity duration-1000 flex items-center justify-center p-8 ${activeStep === 2 ? "opacity-100 z-10" : "opacity-0 z-0"
-                  }`}
+                className={`absolute inset-0 transition-opacity duration-1000 flex items-center justify-center p-8 ${
+                  activeStep === 2 ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
               >
                 <div className="grid md:grid-cols-3 gap-8 items-center">
                   <div className="space-y-4 md:col-span-1">
