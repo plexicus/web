@@ -294,13 +294,12 @@ export default function RemediationRace() {
                     <div className="flex justify-between items-center mb-1">
                       <div className="flex items-center">
                         <div
-                          className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
-                            isStepCompleted(index, true)
-                              ? "bg-green-100 text-green-600"
-                              : isStepActive(index, true)
-                                ? "bg-yellow-100 text-yellow-600"
-                                : "bg-gray-100 text-gray-400"
-                          }`}
+                          className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${isStepCompleted(index, true)
+                            ? "bg-green-100 text-green-600"
+                            : isStepActive(index, true)
+                              ? "bg-yellow-100 text-yellow-600"
+                              : "bg-gray-100 text-gray-400"
+                            }`}
                         >
                           {isStepCompleted(index, true) ? (
                             <svg
@@ -321,25 +320,23 @@ export default function RemediationRace() {
                           )}
                         </div>
                         <span
-                          className={`font-medium ${
-                            isStepActive(index, true)
-                              ? "text-gray-900"
-                              : isStepCompleted(index, true)
-                                ? "text-gray-700"
-                                : "text-gray-400"
-                          }`}
+                          className={`font-medium ${isStepActive(index, true)
+                            ? "text-gray-900"
+                            : isStepCompleted(index, true)
+                              ? "text-gray-700"
+                              : "text-gray-400"
+                            }`}
                         >
                           {step.name}
                         </span>
                       </div>
                       <span
-                        className={`text-sm font-mono ${
-                          isStepCompleted(index, true)
-                            ? "text-green-600"
-                            : isStepActive(index, true)
-                              ? "text-yellow-600"
-                              : "text-gray-400"
-                        }`}
+                        className={`text-sm font-mono ${isStepCompleted(index, true)
+                          ? "text-green-600"
+                          : isStepActive(index, true)
+                            ? "text-yellow-600"
+                            : "text-gray-400"
+                          }`}
                       >
                         {formatTime(step.traditionalTime)}
                       </span>
@@ -364,7 +361,7 @@ export default function RemediationRace() {
                                   strokeLinejoin="round"
                                   className="text-red-500"
                                 >
-                                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 4 21h16a2 2 0 0 1.73-3Z"></path>
+                                  <path d="M21.73 18L13.73 4A2 2 0 0 0 11.73 4L3.73 18A2 2 0 0 0 5.73 20H21.73A2 2 0 0 0 21.73 18Z"></path>
                                   <line x1="12" y1="9" x2="12" y2="13"></line>
                                   <line x1="12" y1="17" x2="12.01" y2="17"></line>
                                 </svg>
@@ -391,7 +388,7 @@ export default function RemediationRace() {
                                   strokeLinejoin="round"
                                   className="text-yellow-500"
                                 >
-                                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                  <path d="M14.5 2H6A2 2 0 0 0 4 4V20A2 2 0 0 0 6 22H18A2 2 0 0 0 20 20V7.5L14.5 2Z"></path>
                                   <polyline points="14 2 14 8 20 8"></polyline>
                                   <line x1="16" y1="13" x2="8" y2="13"></line>
                                   <line x1="16" y1="17" x2="8" y2="17"></line>
@@ -465,13 +462,12 @@ export default function RemediationRace() {
                     <div className="ml-11">
                       <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
                         <div
-                          className={`h-full ${
-                            isStepCompleted(index, true)
-                              ? "bg-green-500"
-                              : isStepActive(index, true)
-                                ? "bg-yellow-500"
-                                : "bg-gray-200"
-                          }`}
+                          className={`h-full ${isStepCompleted(index, true)
+                            ? "bg-green-500"
+                            : isStepActive(index, true)
+                              ? "bg-yellow-500"
+                              : "bg-gray-200"
+                            }`}
                           style={{
                             width: `${isStepActive(index, true) ? getStepProgress(index, true) : isStepCompleted(index, true) ? 100 : 0}%`,
                             transition: "width 0.3s ease-out",
@@ -525,13 +521,12 @@ export default function RemediationRace() {
                     <div className="flex justify-between items-center mb-1">
                       <div className="flex items-center">
                         <div
-                          className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
-                            isStepCompleted(index, false)
-                              ? "bg-green-100 text-green-600"
-                              : isStepActive(index, false)
-                                ? "bg-[#8220ff]/10 text-[#8220ff]"
-                                : "bg-gray-100 text-gray-400"
-                          }`}
+                          className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${isStepCompleted(index, false)
+                            ? "bg-green-100 text-green-600"
+                            : isStepActive(index, false)
+                              ? "bg-[#8220ff]/10 text-[#8220ff]"
+                              : "bg-gray-100 text-gray-400"
+                            }`}
                         >
                           {isStepCompleted(index, false) ? (
                             <svg
@@ -552,25 +547,23 @@ export default function RemediationRace() {
                           )}
                         </div>
                         <span
-                          className={`font-medium ${
-                            isStepActive(index, false)
-                              ? "text-gray-900"
-                              : isStepCompleted(index, false)
-                                ? "text-gray-700"
-                                : "text-gray-400"
-                          }`}
+                          className={`font-medium ${isStepActive(index, false)
+                            ? "text-gray-900"
+                            : isStepCompleted(index, false)
+                              ? "text-gray-700"
+                              : "text-gray-400"
+                            }`}
                         >
                           {step.name}
                         </span>
                       </div>
                       <span
-                        className={`text-sm font-mono ${
-                          isStepCompleted(index, false)
-                            ? "text-green-600"
-                            : isStepActive(index, false)
-                              ? "text-[#8220ff]"
-                              : "text-gray-400"
-                        }`}
+                        className={`text-sm font-mono ${isStepCompleted(index, false)
+                          ? "text-green-600"
+                          : isStepActive(index, false)
+                            ? "text-[#8220ff]"
+                            : "text-gray-400"
+                          }`}
                       >
                         {formatTime(step.plexicusTime)}
                       </span>
@@ -595,7 +588,7 @@ export default function RemediationRace() {
                                   strokeLinejoin="round"
                                   className="text-[#8220ff]"
                                 >
-                                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 4 21h16a2 2 0 0 1.73-3Z"></path>
+                                  <path d="M21.73 18L13.73 4A2 2 0 0 0 11.73 4L3.73 18A2 2 0 0 0 5.73 20H21.73A2 2 0 0 0 21.73 18Z"></path>
                                   <line x1="12" y1="9" x2="12" y2="13"></line>
                                   <line x1="12" y1="17" x2="12.01" y2="17"></line>
                                 </svg>
@@ -622,7 +615,7 @@ export default function RemediationRace() {
                                   strokeLinejoin="round"
                                   className="text-[#8220ff]"
                                 >
-                                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                                  <path d="M14.5 2H6A2 2 0 0 0 4 4V20A2 2 0 0 0 6 22H18A2 2 0 0 0 20 20V7.5L14.5 2Z"></path>
                                   <polyline points="14 2 14 8 20 8"></polyline>
                                   <line x1="16" y1="13" x2="8" y2="13"></line>
                                   <line x1="16" y1="17" x2="8" y2="17"></line>
@@ -696,13 +689,12 @@ export default function RemediationRace() {
                     <div className="ml-11">
                       <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
                         <div
-                          className={`h-full ${
-                            isStepCompleted(index, false)
-                              ? "bg-green-500"
-                              : isStepActive(index, false)
-                                ? "bg-[#8220ff]"
-                                : "bg-gray-200"
-                          }`}
+                          className={`h-full ${isStepCompleted(index, false)
+                            ? "bg-green-500"
+                            : isStepActive(index, false)
+                              ? "bg-[#8220ff]"
+                              : "bg-gray-200"
+                            }`}
                           style={{
                             width: `${isStepActive(index, false) ? getStepProgress(index, false) : isStepCompleted(index, false) ? 100 : 0}%`,
                             transition: "width 0.3s ease-out",
@@ -927,7 +919,7 @@ export default function RemediationRace() {
                           {/* Savings row */}
                           <div className="flex border-b border-gray-200 text-xs bg-[#8220ff]/5">
                             <div className="w-1/3 p-2 border-r border-gray-200 font-bold">Savings</div>
-                            <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold" colSpan="2">
+                            <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold">
                               $
                               {(
                                 (calculateTraditionalCost() - calculatePlexicusCost()) *
@@ -939,7 +931,7 @@ export default function RemediationRace() {
                           {/* Percentage row */}
                           <div className="flex text-xs bg-[#8220ff]/10">
                             <div className="w-1/3 p-2 border-r border-gray-200 font-bold">% Saved</div>
-                            <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold" colSpan="2">
+                            <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold">
                               {calculateSavingsPercentage()}%
                             </div>
                           </div>
