@@ -1,21 +1,24 @@
 name: Deploy Blog to GitHub Pages
-on: push:
-  paths:
-    - 'blog/**'
-    - '.github/workflows/deploy-blog.yml'
+on: 
+    push:
+    pull_request:
+    paths:
+        - 'blog/**'
+        - '.github/workflows/deploy-blog.yml'
+    branches: [ main ]
 jobs:
   build-and-deploy:
-runs-on: ubuntu-latest
-steps:
-    - uses: actions/checkout@v3
-    - run: |
-            cd blog
-            npm ci
-    - run: |
-            cd blog
-            npm run build
-    - uses: peaceiris/actions-gh-pages@v3
-            with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: blog/dist
-            cname: blog.plexicus.ai
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+        - run: |
+                cd blog
+                npm ci
+        - run: |
+                cd blog
+                npm run build
+        - uses: peaceiris/actions-gh-pages@v3
+                with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: blog/dist
+                cname: blog.plexicus.ai

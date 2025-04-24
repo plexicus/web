@@ -2,7 +2,9 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Navbar from '../components/navbar'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import '../styles/global.css';
 ---
 
 <!doctype html>
@@ -10,8 +12,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
-		<Header />
+	<body class="h-[2000px]">
+		<Navbar client:load/>
 		<main>
 			<h1>🧑‍🚀 Hello, Astronaut!</h1>
 			<p>
