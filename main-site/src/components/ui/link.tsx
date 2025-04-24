@@ -1,21 +1,24 @@
-// src/components/Link.tsx
-
 import type { FC, ReactNode, MouseEventHandler } from 'react';
+
 interface LinkProps {
   href: string;
   children: ReactNode;
   className?: string;
   target?: string;
   rel?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>; // Add onClick here
 }
 
-const Link: FC<LinkProps> = ({ href, children, className = '', target = '_self', rel = 'noopener noreferrer' }) => {
-  // Optional: You can handle client-side navigation logic here if needed (SPA-like behavior)
+const Link: FC<LinkProps> = ({ href, children, className = '', target = '_self', rel = 'noopener noreferrer', onClick }) => {
   const handleClick: MouseEventHandler<HTMLAnchorElement> = (e) => {
-    // If not opening in a new tab, intercept click for client-side navigation (similar to Next.js)
+    // If not opening in a new tab, intercept click for client-side navigation (SPA-like behavior)
     if (target !== '_blank') {
       e.preventDefault();
       window.location.href = href; // Simple page navigation
+    }
+    // Call the onClick handler if provided
+    if (onClick) {
+      onClick(e); // Optional: You can call a custom onClick handler if passed
     }
   };
 
@@ -25,7 +28,7 @@ const Link: FC<LinkProps> = ({ href, children, className = '', target = '_self',
       className={className}
       target={target}
       rel={rel}
-      onClick={handleClick}
+      onClick={handleClick} // Attach the handleClick function here
       aria-label={typeof children === 'string' ? children : undefined}
     >
       {children}
