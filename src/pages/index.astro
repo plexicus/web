@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Navbar from "../components/navbar"
 import HeroSection from "../components/hero-section"
 import RemediationRace from "../components/remediation-race"
 import HowItWorks from "../components/how-it-works"
@@ -8,12 +7,10 @@ import Partners from "../components/partners"
 import Integrations from "../components/integrations"
 import Testimonials from "../components/testimonials"
 import ContactSection from "../components/contact-section"
-import Footer from "../components/footer"
 ---
 
 <Layout>
 	<div class="flex min-h-screen flex-col">
-		<Navbar client:load/>
 		<main>
 			<HeroSection />
 			<RemediationRace  client:load/>
@@ -23,6 +20,5 @@ import Footer from "../components/footer"
 			<Testimonials />
 			<ContactSection />
 		</main>
-		<Footer />
 	</div>
 </Layout>
