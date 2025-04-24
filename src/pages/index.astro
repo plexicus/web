@@ -1,5 +1,5 @@
 ---
-import "../styles/globals.css";
+import Layout from "../layouts/Layout.astro"
 import Navbar from "../components/navbar"
 import HeroSection from "../components/hero-section"
 import RemediationRace from "../components/remediation-race"
@@ -9,26 +9,20 @@ import Integrations from "../components/integrations"
 import Testimonials from "../components/testimonials"
 import ContactSection from "../components/contact-section"
 import Footer from "../components/footer"
-
 ---
 
-
-    <div class="flex min-h-screen flex-col">
-    	<!-- <Navbar /> -->
-    	<main>
-    		<HeroSection />
-    		<RemediationRace />
-    		<HowItWorks />
-
-    		<Partners />
-
-    		<Integrations />
-
-    		<Testimonials />
-
-
-    		<ContactSection />
-    	</main>
-
-    	<Footer />
-    </div>
+<Layout>
+	<div class="flex min-h-screen flex-col">
+		<Navbar />
+		<main>
+			<HeroSection />
+			<RemediationRace />
+			<HowItWorks />
+			<Partners />
+			<Integrations />
+			<Testimonials />
+			<ContactSection />
+		</main>
+		<Footer />
+	</div>
+</Layout>
