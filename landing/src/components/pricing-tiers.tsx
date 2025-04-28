@@ -1,12 +1,12 @@
-"use client"
+'use client';
 
-import { Button } from "./ui/button"
-import { Check, X } from "lucide-react"
+import { Button } from './ui/button';
+import { Check, X } from 'lucide-react';
 
 export function PricingTiers() {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-      {/* Free Trial */}
+      { /* Free Trial */ }
       <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col">
         <div className="p-6 bg-gray-50 border-b border-gray-200">
           <h3 className="text-xl font-bold text-gray-900">Free Trial</h3>
@@ -39,7 +39,7 @@ export function PricingTiers() {
         </div>
       </div>
 
-      {/* Professional */}
+      { /* Professional */ }
       <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-[#8220ff]/30 flex flex-col relative">
         <div className="absolute top-0 right-0 bg-[#8220ff] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
           POPULAR
@@ -84,7 +84,7 @@ export function PricingTiers() {
         </div>
       </div>
 
-      {/* Enterprise */}
+      { /* Enterprise */ }
       <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col">
         <div className="p-6 bg-gray-50 border-b border-gray-200">
           <h3 className="text-xl font-bold text-gray-900">Enterprise</h3>
@@ -126,7 +126,7 @@ export function PricingTiers() {
         </div>
       </div>
 
-      {/* Custom */}
+      { /* Custom */ }
       <div className="bg-gradient-to-br from-[#8220ff]/10 to-[#8220ff]/5 rounded-xl shadow-md overflow-hidden border border-[#8220ff]/20 flex flex-col">
         <div className="p-6 bg-[#8220ff]/20 border-b border-[#8220ff]/20">
           <h3 className="text-xl font-bold text-gray-900">Custom</h3>
@@ -166,7 +166,7 @@ export function PricingTiers() {
         </div>
       </div>
 
-      {/* FAQ Section */}
+      { /* FAQ Section */ }
       <div className="md:col-span-2 lg:col-span-4 mt-12">
         <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 p-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
@@ -202,5 +202,5 @@ export function PricingTiers() {
         </div>
       </div>
     </div>
-  )
+  );
 }

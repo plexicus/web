@@ -3,7 +3,7 @@
  */
 
 // Image format options
-export type ImageFormat = "webp" | "avif" | "png" | "jpeg"
+export type ImageFormat = 'webp' | 'avif' | 'png' | 'jpeg';
 
 // Image size presets
 export const imageSizes = {
@@ -12,7 +12,7 @@ export const imageSizes = {
   medium: { width: 800, height: 600 },
   large: { width: 1200, height: 900 },
   hero: { width: 1920, height: 1080 },
-}
+};
 
 // Image quality presets
 export const imageQualities = {
@@ -20,7 +20,7 @@ export const imageQualities = {
   medium: 75,
   high: 85,
   max: 100,
-}
+};
 
 /**
  * Get optimized image path for different formats and sizes
@@ -28,7 +28,7 @@ export const imageQualities = {
  */
 export function getOptimizedImagePath(
   originalPath: string,
-  format: ImageFormat = "webp",
+  format: ImageFormat = 'webp',
   width?: number,
   height?: number,
   quality: number = imageQualities.high,
@@ -36,19 +36,19 @@ export function getOptimizedImagePath(
   // This is just a placeholder - in Astro, you'd use the built-in image optimization
   // For now, we'll just return the path to our manually optimized images
 
-  if (originalPath.includes(".")) {
-    const pathParts = originalPath.split(".")
-    const extension = pathParts.pop()
-    const basePath = pathParts.join(".")
+  if (originalPath.includes('.')) {
+    const pathParts = originalPath.split('.');
+    const extension = pathParts.pop();
+    const basePath = pathParts.join('.');
 
     // If we've already created optimized versions, use those
-    if (format === "webp" && originalPath.includes("/images/")) {
-      return `${basePath}.webp`
+    if (format === 'webp' && originalPath.includes('/images/')) {
+      return `${basePath}.webp`;
     }
   }
 
   // Otherwise return the original path
-  return originalPath
+  return originalPath;
 }
 
 /**

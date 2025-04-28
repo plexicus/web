@@ -1,63 +1,63 @@
-"use client"
+'use client';
 
 
-import { useState, useEffect } from "react"
-import { Button } from "./ui/button"
-import { Check, HelpCircle } from "lucide-react"
+import { useState, useEffect } from 'react';
+import { Button } from './ui/button';
+import { Check, HelpCircle } from 'lucide-react';
 
-type PlanType = "professional" | "enterprise"
+type PlanType = 'professional' | 'enterprise';
 
 interface PlanDetails {
-  id: PlanType
-  name: string
-  basePrice: number
-  remediationMultiplier: number
+  id: PlanType;
+  name: string;
+  basePrice: number;
+  remediationMultiplier: number;
 }
 
 export function PricingCalculator() {
   // Plan options
   const plans: PlanDetails[] = [
-    { id: "professional", name: "Professional", basePrice: 50, remediationMultiplier: 2 },
-    { id: "enterprise", name: "Enterprise", basePrice: 70, remediationMultiplier: 3 },
-  ]
+    { id: 'professional', name: 'Professional', basePrice: 50, remediationMultiplier: 2 },
+    { id: 'enterprise', name: 'Enterprise', basePrice: 70, remediationMultiplier: 3 },
+  ];
 
   // State
-  const [selectedPlan, setSelectedPlan] = useState<PlanDetails>(plans[0])
-  const [developers, setDevelopers] = useState<number>(20)
-  const [isYearly, setIsYearly] = useState<boolean>(false)
-  const [customDevelopers, setCustomDevelopers] = useState<string>("20")
+  const [selectedPlan, setSelectedPlan] = useState<PlanDetails>(plans[0]);
+  const [developers, setDevelopers] = useState<number>(20);
+  const [isYearly, setIsYearly] = useState<boolean>(false);
+  const [customDevelopers, setCustomDevelopers] = useState<string>('20');
 
   // Calculate prices
-  const monthlyPrice = selectedPlan.basePrice * developers
-  const yearlyPrice = monthlyPrice * 12 * 0.9 // 10% discount
-  const totalPrice = isYearly ? yearlyPrice : monthlyPrice
-  const billingPeriod = isYearly ? "year" : "month"
-  const savings = isYearly ? monthlyPrice * 12 - yearlyPrice : 0
+  const monthlyPrice = selectedPlan.basePrice * developers;
+  const yearlyPrice = monthlyPrice * 12 * 0.9; // 10% discount
+  const totalPrice = isYearly ? yearlyPrice : monthlyPrice;
+  const billingPeriod = isYearly ? 'year' : 'month';
+  const savings = isYearly ? monthlyPrice * 12 - yearlyPrice : 0;
 
   // Handle custom developer input
   const handleCustomDevelopersChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    setCustomDevelopers(value)
+    const value = e.target.value;
+    setCustomDevelopers(value);
 
-    const numValue = Number.parseInt(value, 10)
+    const numValue = Number.parseInt(value, 10);
     if (!isNaN(numValue) && numValue >= 20) {
-      setDevelopers(numValue)
+      setDevelopers(numValue);
     }
-  }
+  };
 
   // Apply custom developers when input is blurred
   const handleCustomDevelopersBlur = () => {
-    const numValue = Number.parseInt(customDevelopers, 10)
+    const numValue = Number.parseInt(customDevelopers, 10);
     if (isNaN(numValue) || numValue < 20) {
-      setCustomDevelopers("20")
-      setDevelopers(20)
+      setCustomDevelopers('20');
+      setDevelopers(20);
     }
-  }
+  };
 
   // Update custom developers input when slider changes
   useEffect(() => {
-    setCustomDevelopers(developers.toString())
-  }, [developers])
+    setCustomDevelopers(developers.toString());
+  }, [developers]);
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -68,38 +68,38 @@ export function PricingCalculator() {
         </div>
 
         <div className="p-6">
-          {/* Plan Selection */}
+          { /* Plan Selection */ }
           <div className="mb-8">
             <h4 className="text-lg font-semibold text-gray-900 mb-4">Select Plan</h4>
             <div className="grid grid-cols-2 gap-4">
-              {plans.map((plan) => (
+              { plans.map((plan) => (
                 <div
                   key={plan.id}
                   className={`border rounded-lg p-4 cursor-pointer transition-all duration-200 ${
                     selectedPlan.id === plan.id
-                      ? "border-[#8220ff] bg-[#8220ff]/5 shadow-md"
-                      : "border-gray-200 hover:border-[#8220ff]/50"
+                      ? 'border-[#8220ff] bg-[#8220ff]/5 shadow-md'
+                      : 'border-gray-200 hover:border-[#8220ff]/50'
                   }`}
                   onClick={() => setSelectedPlan(plan)}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <h5 className="font-semibold">{plan.name}</h5>
+                    <h5 className="font-semibold">{ plan.name }</h5>
                     <div
                       className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                        selectedPlan.id === plan.id ? "border-[#8220ff]" : "border-gray-300"
+                        selectedPlan.id === plan.id ? 'border-[#8220ff]' : 'border-gray-300'
                       }`}
                     >
-                      {selectedPlan.id === plan.id && <div className="w-3 h-3 rounded-full bg-[#8220ff]"></div>}
+                      { selectedPlan.id === plan.id && <div className="w-3 h-3 rounded-full bg-[#8220ff]"></div> }
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600">${plan.basePrice}/developer/month</p>
-                  <p className="text-sm text-gray-600 mt-1">{plan.remediationMultiplier}x remediation multiplier</p>
+                  <p className="text-sm text-gray-600">${ plan.basePrice }/developer/month</p>
+                  <p className="text-sm text-gray-600 mt-1">{ plan.remediationMultiplier }x remediation multiplier</p>
                 </div>
-              ))}
+              )) }
             </div>
           </div>
 
-          {/* Number of Developers */}
+          { /* Number of Developers */ }
           <div className="mb-8">
             <div className="flex justify-between items-center mb-4">
               <h4 className="text-lg font-semibold text-gray-900">Number of Developers</h4>
@@ -143,14 +143,14 @@ export function PricingCalculator() {
             </div>
           </div>
 
-          {/* Billing Cycle */}
+          { /* Billing Cycle */ }
           <div className="mb-8">
             <h4 className="text-lg font-semibold text-gray-900 mb-4">Billing Cycle</h4>
             <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
               <div>
-                <span className={`font-medium ${isYearly ? "text-gray-500" : "text-gray-900"}`}>Monthly</span>
+                <span className={`font-medium ${isYearly ? 'text-gray-500' : 'text-gray-900'}`}>Monthly</span>
                 <span className="mx-2 text-gray-400">|</span>
-                <span className={`font-medium ${isYearly ? "text-gray-900" : "text-gray-500"}`}>Yearly (Save 10%)</span>
+                <span className={`font-medium ${isYearly ? 'text-gray-900' : 'text-gray-500'}`}>Yearly (Save 10%)</span>
               </div>
               <div className="flex items-center space-x-2">
                 <label className="inline-flex items-center cursor-pointer">
@@ -167,34 +167,34 @@ export function PricingCalculator() {
             </div>
           </div>
 
-          {/* Price Summary */}
+          { /* Price Summary */ }
           <div className="bg-gray-50 rounded-lg p-6">
             <div className="flex justify-between items-center mb-4">
               <h4 className="text-lg font-semibold text-gray-900">Summary</h4>
-              <div className="text-sm text-gray-500">{selectedPlan.name} Plan</div>
+              <div className="text-sm text-gray-500">{ selectedPlan.name } Plan</div>
             </div>
 
             <div className="space-y-2 mb-4">
               <div className="flex justify-between">
                 <span className="text-gray-600">Base price</span>
                 <span className="font-medium">
-                  ${selectedPlan.basePrice}/developer/{isYearly ? "month" : "month"}
+                  ${ selectedPlan.basePrice }/developer/{ isYearly ? 'month' : 'month' }
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Number of developers</span>
-                <span className="font-medium">{developers}</span>
+                <span className="font-medium">{ developers }</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Billing cycle</span>
-                <span className="font-medium">{isYearly ? "Yearly" : "Monthly"}</span>
+                <span className="font-medium">{ isYearly ? 'Yearly' : 'Monthly' }</span>
               </div>
-              {isYearly && (
+              { isYearly && (
                 <div className="flex justify-between text-green-600">
                   <span>Yearly discount</span>
                   <span>10%</span>
                 </div>
-              )}
+              ) }
             </div>
 
             <div className="border-t border-gray-200 pt-4 mb-4">
@@ -202,24 +202,24 @@ export function PricingCalculator() {
                 <span className="text-lg font-semibold text-gray-900">Total price</span>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-[#8220ff]">
-                    ${isYearly ? Math.round(yearlyPrice).toLocaleString() : Math.round(monthlyPrice).toLocaleString()}
+                    ${ isYearly ? Math.round(yearlyPrice).toLocaleString() : Math.round(monthlyPrice).toLocaleString() }
                   </div>
-                  <div className="text-sm text-gray-500">per {billingPeriod}</div>
+                  <div className="text-sm text-gray-500">per { billingPeriod }</div>
                 </div>
               </div>
-              {isYearly && savings > 0 && (
+              { isYearly && savings > 0 && (
                 <div className="mt-2 text-sm text-green-600 text-right">
-                  You save ${Math.round(savings).toLocaleString()} per year
+                  You save ${ Math.round(savings).toLocaleString() } per year
                 </div>
-              )}
+              ) }
             </div>
 
-            <Button className="w-full bg-[#8220ff] hover:bg-[#6010df]">Get Started with {selectedPlan.name}</Button>
+            <Button className="w-full bg-[#8220ff] hover:bg-[#6010df]">Get Started with { selectedPlan.name }</Button>
           </div>
         </div>
       </div>
 
-      {/* Feature comparison */}
+      { /* Feature comparison */ }
       <div className="mt-12 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
         <div className="p-6 border-b border-gray-100">
           <h3 className="text-2xl font-bold text-gray-900">Plan Comparison</h3>
@@ -331,5 +331,5 @@ export function PricingCalculator() {
         </div>
       </div>
     </div>
-  )
+  );
 }
