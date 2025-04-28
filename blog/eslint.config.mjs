@@ -97,19 +97,6 @@ export default defineConfig([
 			},
 		},
 		rules: {
-			// Astro-specific cleanups
-			"astro/html-self-closing": [
-				"error",
-				{
-					html: {
-						void: "always",
-						normal: "never",
-						component: "always",
-					},
-					svg: "always",
-					math: "always",
-				},
-			],
 			"astro/prefer-class-list-directive": "warn",
 			"astro/prefer-object-class-list": "warn",
 
@@ -122,4 +109,5 @@ export default defineConfig([
 			"array-bracket-spacing": ["error", "never"],
 		},
 	},
+	globalIgnores(['/.astro', '/node_modules'])
 ]);
