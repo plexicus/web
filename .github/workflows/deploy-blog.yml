@@ -25,6 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: sleep 30 # Wait 30 seconds to avoid concurrency issues
       - run: |
           cd blog
           npm ci
