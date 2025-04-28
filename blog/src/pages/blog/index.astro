@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Link from "../../components/ui/link";
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 import Navbar from "../../components/navbar";
 
 const posts = (await getCollection("blog")).sort(
@@ -96,7 +96,6 @@ const posts = (await getCollection("blog")).sort(
           {posts.map((post, index) => (
 				  <li
               class:list={[`
-					  
                transition-transform duration-300 hover:scale-[1.02]`,{ "md:col-span-2 mb-8 md:text-center": index === 0 }]}
 				  >
               <Link
