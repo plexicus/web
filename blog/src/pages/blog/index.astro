@@ -5,6 +5,9 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import Link from '../../components/ui/link';
+import Image from 'astro/components/Image.astro';
+import Navbar from '../../components/navbar';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -86,26 +89,50 @@ const posts = (await getCollection('blog')).sort(
 		</style>
 	</head>
 	<body>
-		<Header />
-		<main>
+		<Navbar client:load/>
+		<main class="container mx-auto px-4 py-24 max-w-6xl">
 			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
+			  <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				{posts.map((post, index) => (
+				  <li
+					class={`${
+					  index === 0 ? "md:col-span-2 mb-8 md:text-center" : ""
+					} transition-transform duration-300 hover:scale-[1.02]`}
+				  >
+					<Link
+					  href={`/blog/${post.id}`}
+					  className="block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+					>
+					  <div class="relative">
+						<Image
+						  src={post.data.heroImage || "/placeholder.svg"}
+						  alt=""
+						  width={index === 0 ? 1440 : 720}
+						  height={index === 0 ? 720 : 360}
+						  class="w-full h-auto object-cover transition-transform duration-300 hover:opacity-90"
+						/>
+						<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+					  </div>
+	
+					  <div class="p-6">
+						<h4
+						  class={`font-bold text-slate-800 mb-2 transition-colors duration-300 hover:text-[#8220ff] ${
+							index === 0 ? "text-3xl md:text-4xl" : "text-xl md:text-2xl"
+						  }`}
+						>
+						  {post.data.title}
+						</h4>
+	
+						<p class="text-slate-500 transition-colors duration-300 group-hover:text-[#8220ff]/70">
+						  <FormattedDate date={post.data.pubDate} />
+						</p>
+					  </div>
+					</Link>
+				  </li>
+				))}
+			  </ul>
 			</section>
-		</main>
+		  </main>
 		<Footer />
 	</body>
 </html>
