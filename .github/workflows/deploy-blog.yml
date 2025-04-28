@@ -10,6 +10,16 @@ on:
     paths:
       - "blog/**"
       - ".github/workflows/deploy-blog.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-blog"
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -26,3 +36,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: blog/dist
           cname: blog.plexicus.ai
+          publish_branch: gh-pages
