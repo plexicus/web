@@ -1,5 +1,5 @@
-"use client"
-import { IntegratedPricingTiers } from "./integrated-pricing-tiers"
+'use client';
+import { IntegratedPricingTiers } from './integrated-pricing-tiers';
 
 export default function PricingSection() {
   return (
@@ -15,5 +15,5 @@ export default function PricingSection() {
         <IntegratedPricingTiers hideRemediationMultiplier={true} professionalPrice={50} enterprisePrice={70} />
       </div>
     </section>
-  )
+  );
 }

@@ -1,237 +1,237 @@
-"use client"
+'use client';
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef } from 'react';
 
 export default function RemediationRace() {
-  const [animationStep, setAnimationStep] = useState(0)
-  const [traditionalTime, setTraditionalTime] = useState(0)
-  const [plexicusTime, setPlexicusTime] = useState(0)
-  const animationRef = useRef<number | null>(null)
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
-  const [hasAnimated, setHasAnimated] = useState(false)
+  const [animationStep, setAnimationStep] = useState(0);
+  const [traditionalTime, setTraditionalTime] = useState(0);
+  const [plexicusTime, setPlexicusTime] = useState(0);
+  const animationRef = useRef<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
-  const [hourlyRate, setHourlyRate] = useState(50)
-  const [selectedPlan, setSelectedPlan] = useState({ id: "professional", name: "Professional", price: 8 })
-  const [vulnerabilityCount, setVulnerabilityCount] = useState(10)
+  const [hourlyRate, setHourlyRate] = useState(50);
+  const [selectedPlan, setSelectedPlan] = useState({ id: 'professional', name: 'Professional', price: 8 });
+  const [vulnerabilityCount, setVulnerabilityCount] = useState(10);
 
   // Actualizar los tiempos de los pasos de remediación
   const remediationSteps = [
-    { name: "Initial Detection", traditionalTime: 35, plexicusTime: 5 },
-    { name: "Triage", traditionalTime: 45, plexicusTime: 5 },
-    { name: "Analysis", traditionalTime: 45, plexicusTime: 3 },
-    { name: "Fix Development", traditionalTime: 175, plexicusTime: 10 },
+    { name: 'Initial Detection', traditionalTime: 35, plexicusTime: 5 },
+    { name: 'Triage', traditionalTime: 45, plexicusTime: 5 },
+    { name: 'Analysis', traditionalTime: 45, plexicusTime: 3 },
+    { name: 'Fix Development', traditionalTime: 175, plexicusTime: 10 },
     // Testing eliminado
-  ]
+  ];
 
   // Calcular el tiempo total
-  const totalTraditionalTime = remediationSteps.reduce((acc, step) => acc + step.traditionalTime, 0)
-  const totalPlexicusTime = remediationSteps.reduce((acc, step) => acc + step.plexicusTime, 0)
+  const totalTraditionalTime = remediationSteps.reduce((acc, step) => acc + step.traditionalTime, 0);
+  const totalPlexicusTime = remediationSteps.reduce((acc, step) => acc + step.plexicusTime, 0);
 
   // Función para iniciar la animación
   const startAnimation = () => {
     // Reiniciar los contadores
-    setTraditionalTime(0)
-    setPlexicusTime(0)
-    setAnimationStep(0)
+    setTraditionalTime(0);
+    setPlexicusTime(0);
+    setAnimationStep(0);
 
     // Iniciar la secuencia de animación
-    let currentStep = 0
-    let traditionalCounter = 0
-    let plexicusCounter = 0
+    let currentStep = 0;
+    let traditionalCounter = 0;
+    let plexicusCounter = 0;
 
-    let lastTimestamp = 0
-    let animationFrameId: number
+    let lastTimestamp = 0;
+    let animationFrameId: number;
 
     const animate = (timestamp: number) => {
       // Update at most 20 times per second (50ms)
       if (timestamp - lastTimestamp >= 50) {
-        lastTimestamp = timestamp
+        lastTimestamp = timestamp;
         // Incrementing state values
         if (traditionalCounter < totalTraditionalTime) {
-          traditionalCounter += 1
-          setTraditionalTime(traditionalCounter)
+          traditionalCounter += 1;
+          setTraditionalTime(traditionalCounter);
         }
 
         if (plexicusCounter < totalPlexicusTime) {
-          plexicusCounter += 1
-          setPlexicusTime(plexicusCounter)
+          plexicusCounter += 1;
+          setPlexicusTime(plexicusCounter);
         }
 
         // Determine the step based on time
-        let traditionalStepTime = 0
-        let plexicusStepTime = 0
-        let newStep = 0
+        let traditionalStepTime = 0;
+        let plexicusStepTime = 0;
+        let newStep = 0;
 
         for (let i = 0; i < remediationSteps.length; i++) {
-          traditionalStepTime += remediationSteps[i].traditionalTime
-          plexicusStepTime += remediationSteps[i].plexicusTime
+          traditionalStepTime += remediationSteps[i].traditionalTime;
+          plexicusStepTime += remediationSteps[i].plexicusTime;
 
           if (traditionalCounter <= traditionalStepTime || plexicusCounter <= plexicusStepTime) {
-            newStep = i
-            break
+            newStep = i;
+            break;
           }
         }
 
         // Update step if changed
         if (newStep !== currentStep) {
-          currentStep = newStep
-          setAnimationStep(currentStep)
+          currentStep = newStep;
+          setAnimationStep(currentStep);
         }
 
         // Stop animation when both counters reach the end
         if (traditionalCounter >= totalTraditionalTime && plexicusCounter >= totalPlexicusTime) {
-          cancelAnimationFrame(animationFrameId)
+          cancelAnimationFrame(animationFrameId);
 
           // Restart animation after a delay
           setTimeout(() => {
-            startAnimation()
-          }, 5000)
+            startAnimation();
+          }, 5000);
 
-          return
+          return;
         }
       }
 
       // Continue animation
-      animationFrameId = requestAnimationFrame(animate)
-    }
+      animationFrameId = requestAnimationFrame(animate);
+    };
 
     // Start the animation
-    animationFrameId = requestAnimationFrame(animate)
+    animationFrameId = requestAnimationFrame(animate);
 
     // Store the ID for cleanup
-    animationRef.current = animationFrameId
-  }
+    animationRef.current = animationFrameId;
+  };
 
   // Observador de intersección para iniciar la animación cuando la sección sea visible
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         } else {
-          setIsVisible(false)
+          setIsVisible(false);
         }
       },
       { threshold: 0.3 },
-    )
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+        observer.unobserve(sectionRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   // Iniciar o detener la animación basado en la visibilidad
   useEffect(() => {
     if (isVisible && !hasAnimated) {
-      setHasAnimated(true)
-      startAnimation()
+      setHasAnimated(true);
+      startAnimation();
     } else {
       if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current)
-        animationRef.current = null
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
       }
     }
 
     return () => {
       if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current)
-        animationRef.current = null
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
       }
-    }
-  }, [isVisible,hasAnimated])
+    };
+  }, [isVisible,hasAnimated]);
 
   // Modificar la función formatTime para mostrar todo en minutos
   const formatTime = (minutes: number) => {
-    return `${minutes}min`
-  }
+    return `${minutes}min`;
+  };
 
   // Calcular el progreso para cada paso
   const getStepProgress = (stepIndex: number, isTraditional: boolean) => {
-    const currentTime = isTraditional ? traditionalTime : plexicusTime
-    const steps = remediationSteps
+    const currentTime = isTraditional ? traditionalTime : plexicusTime;
+    const steps = remediationSteps;
 
-    let timeBeforeStep = 0
+    let timeBeforeStep = 0;
     for (let i = 0; i < stepIndex; i++) {
-      timeBeforeStep += isTraditional ? steps[i].traditionalTime : steps[i].plexicusTime
+      timeBeforeStep += isTraditional ? steps[i].traditionalTime : steps[i].plexicusTime;
     }
 
-    const stepTime = isTraditional ? steps[stepIndex].traditionalTime : steps[stepIndex].plexicusTime
-    const stepProgress = Math.min(100, Math.max(0, ((currentTime - timeBeforeStep) / stepTime) * 100))
+    const stepTime = isTraditional ? steps[stepIndex].traditionalTime : steps[stepIndex].plexicusTime;
+    const stepProgress = Math.min(100, Math.max(0, ((currentTime - timeBeforeStep) / stepTime) * 100));
 
-    return stepProgress
-  }
+    return stepProgress;
+  };
 
   // Verificar si un paso está activo
   const isStepActive = (stepIndex: number, isTraditional: boolean) => {
-    const currentTime = isTraditional ? traditionalTime : plexicusTime
-    const steps = remediationSteps
+    const currentTime = isTraditional ? traditionalTime : plexicusTime;
+    const steps = remediationSteps;
 
-    let timeBeforeStep = 0
+    let timeBeforeStep = 0;
     for (let i = 0; i < stepIndex; i++) {
-      timeBeforeStep += isTraditional ? steps[i].traditionalTime : steps[i].plexicusTime
+      timeBeforeStep += isTraditional ? steps[i].traditionalTime : steps[i].plexicusTime;
     }
 
-    const stepTime = isTraditional ? steps[stepIndex].traditionalTime : steps[stepIndex].plexicusTime
+    const stepTime = isTraditional ? steps[stepIndex].traditionalTime : steps[stepIndex].plexicusTime;
 
-    return currentTime >= timeBeforeStep && currentTime <= timeBeforeStep + stepTime
-  }
+    return currentTime >= timeBeforeStep && currentTime <= timeBeforeStep + stepTime;
+  };
 
   // Verificar si un paso está completado
   const isStepCompleted = (stepIndex: number, isTraditional: boolean) => {
-    const currentTime = isTraditional ? traditionalTime : plexicusTime
-    const steps = remediationSteps
+    const currentTime = isTraditional ? traditionalTime : plexicusTime;
+    const steps = remediationSteps;
 
-    let timeBeforeStep = 0
+    let timeBeforeStep = 0;
     for (let i = 0; i <= stepIndex; i++) {
-      timeBeforeStep += isTraditional ? steps[i].traditionalTime : steps[i].plexicusTime
+      timeBeforeStep += isTraditional ? steps[i].traditionalTime : steps[i].plexicusTime;
     }
 
-    return currentTime >= timeBeforeStep
-  }
+    return currentTime >= timeBeforeStep;
+  };
 
   const calculateTraditionalCost = () => {
     // Calculate the time total in minutes for a single vulnerability
-    const totalTimeMinutes = remediationSteps.reduce((acc, step) => acc + step.traditionalTime, 0)
+    const totalTimeMinutes = remediationSteps.reduce((acc, step) => acc + step.traditionalTime, 0);
 
     // Convert to hours
-    const totalTimeHours = totalTimeMinutes / 60
+    const totalTimeHours = totalTimeMinutes / 60;
 
     // Calculate the cost (using the hourly rate)
-    return Math.round(totalTimeHours * hourlyRate)
-  }
+    return Math.round(totalTimeHours * hourlyRate);
+  };
 
   const calculatePlexicusCost = () => {
     // Fixed price of $10 per vulnerability with Plexicus
-    return 10
-  }
+    return 10;
+  };
 
   const calculateSavingsPercentage = () => {
-    const traditionalCost = calculateTraditionalCost()
-    const plexicusCost = calculatePlexicusCost()
+    const traditionalCost = calculateTraditionalCost();
+    const plexicusCost = calculatePlexicusCost();
 
-    if (traditionalCost <= 0) return 0
+    if (traditionalCost <= 0) return 0;
 
     // Cálculo básico del porcentaje de ahorro
-    let percentage = ((traditionalCost - plexicusCost) / traditionalCost) * 100
+    let percentage = ((traditionalCost - plexicusCost) / traditionalCost) * 100;
 
     // Para grandes cantidades de vulnerabilidades, AUMENTAMOS el porcentaje de ahorro
     // ya que Plexicus se vuelve más eficiente a escala
     if (vulnerabilityCount > 50) {
       // Factor de aumento basado en la cantidad de vulnerabilidades
       // Máximo aumento del 10% para cantidades muy grandes
-      const scaleFactor = Math.min(0.1, (vulnerabilityCount - 50) / 500)
-      percentage = Math.min(99, percentage * (1 + scaleFactor))
+      const scaleFactor = Math.min(0.1, (vulnerabilityCount - 50) / 500);
+      percentage = Math.min(99, percentage * (1 + scaleFactor));
     }
 
-    return Math.round(percentage)
-  }
+    return Math.round(percentage);
+  };
 
   return (
     <section ref={sectionRef} className="py-16 bg-white" id="remediation-race">
@@ -247,8 +247,8 @@ export default function RemediationRace() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Traditional Method */}
-          <div className="bg-white rounded-xl shadow-md overflow-hidden" style={{ minHeight: "590px" }}>
+          { /* Traditional Method */ }
+          <div className="bg-white rounded-xl shadow-md overflow-hidden" style={{ minHeight: '590px' }}>
             <div className="bg-gray-800 text-white p-4">
               <h3 className="text-xl font-bold">Traditional Method</h3>
               <div className="flex items-center justify-between mt-2">
@@ -269,7 +269,7 @@ export default function RemediationRace() {
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
-                  {formatTime(traditionalTime)}
+                  { formatTime(traditionalTime) }
                 </div>
               </div>
               <div className="w-full bg-gray-600 h-2 mt-2 rounded-full overflow-hidden">
@@ -280,20 +280,20 @@ export default function RemediationRace() {
               </div>
             </div>
             <div className="p-4">
-              {remediationSteps.map((step, index) => (
+              { remediationSteps.map((step, index) => (
                 <div key={`trad-${index}`} className="mb-4 last:mb-0">
                   <div className="flex justify-between items-center mb-1">
                     <div className="flex items-center">
                       <div
                         className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
                           isStepCompleted(index, true)
-                            ? "bg-green-100 text-green-600"
+                            ? 'bg-green-100 text-green-600'
                             : isStepActive(index, true)
-                              ? "bg-yellow-100 text-yellow-600 animate-pulse"
-                              : "bg-gray-100 text-gray-400"
+                              ? 'bg-yellow-100 text-yellow-600 animate-pulse'
+                              : 'bg-gray-100 text-gray-400'
                         }`}
                       >
-                        {isStepCompleted(index, true) ? (
+                        { isStepCompleted(index, true) ? (
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -309,38 +309,38 @@ export default function RemediationRace() {
                           </svg>
                         ) : (
                           index + 1
-                        )}
+                        ) }
                       </div>
                       <span
                         className={`font-medium ${
                           isStepActive(index, true)
-                            ? "text-gray-900"
+                            ? 'text-gray-900'
                             : isStepCompleted(index, true)
-                              ? "text-gray-700"
-                              : "text-gray-400"
+                              ? 'text-gray-700'
+                              : 'text-gray-400'
                         }`}
                       >
-                        {step.name}
+                        { step.name }
                       </span>
                     </div>
                     <span
                       className={`text-sm font-mono ${
                         isStepCompleted(index, true)
-                          ? "text-green-600"
+                          ? 'text-green-600'
                           : isStepActive(index, true)
-                            ? "text-yellow-600"
-                            : "text-gray-400"
+                            ? 'text-yellow-600'
+                            : 'text-gray-400'
                       }`}
                     >
-                      {formatTime(step.traditionalTime)}
+                      { formatTime(step.traditionalTime) }
                     </span>
                   </div>
 
-                  {/* Step visualization */}
+                  { /* Step visualization */ }
                   <div className="ml-11 mt-2 mb-4">
-                    {isStepActive(index, true) && (
+                    { isStepActive(index, true) && (
                       <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 animate-fadeIn">
-                        {index === 0 && (
+                        { index === 0 && (
                           <div className="flex items-center">
                             <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
                               <svg
@@ -365,9 +365,9 @@ export default function RemediationRace() {
                               <div className="text-gray-500">Manual scanning process</div>
                             </div>
                           </div>
-                        )}
+                        ) }
 
-                        {index === 1 && (
+                        { index === 1 && (
                           <div className="flex items-center">
                             <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
                               <svg
@@ -394,9 +394,9 @@ export default function RemediationRace() {
                               <div className="text-gray-500">Waiting for security team review</div>
                             </div>
                           </div>
-                        )}
+                        ) }
 
-                        {index === 2 && (
+                        { index === 2 && (
                           <div className="flex items-center">
                             <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
                               <svg
@@ -421,9 +421,9 @@ export default function RemediationRace() {
                               <div className="text-gray-500">Security team investigating root cause</div>
                             </div>
                           </div>
-                        )}
+                        ) }
 
-                        {index === 3 && (
+                        { index === 3 && (
                           <div className="flex items-center">
                             <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
                               <svg
@@ -448,9 +448,9 @@ export default function RemediationRace() {
                               <div className="text-gray-500">Developer writing and reviewing patches</div>
                             </div>
                           </div>
-                        )}
+                        ) }
                       </div>
-                    )}
+                    ) }
                   </div>
 
                   <div className="ml-11">
@@ -458,10 +458,10 @@ export default function RemediationRace() {
                       <div
                         className={`h-full transition-all duration-300 ease-out ${
                           isStepCompleted(index, true)
-                            ? "bg-green-500"
+                            ? 'bg-green-500'
                             : isStepActive(index, true)
-                              ? "bg-yellow-500"
-                              : "bg-gray-200"
+                              ? 'bg-yellow-500'
+                              : 'bg-gray-200'
                         }`}
                         style={{
                           width: `${isStepActive(index, true) ? getStepProgress(index, true) : isStepCompleted(index, true) ? 100 : 0}%`,
@@ -470,12 +470,12 @@ export default function RemediationRace() {
                     </div>
                   </div>
                 </div>
-              ))}
+              )) }
             </div>
           </div>
 
-          {/* Plexicus Method */}
-          <div className="bg-white rounded-xl shadow-md overflow-hidden" style={{ minHeight: "590px" }}>
+          { /* Plexicus Method */ }
+          <div className="bg-white rounded-xl shadow-md overflow-hidden" style={{ minHeight: '590px' }}>
             <div className="bg-[#8220ff] text-white p-4">
               <h3 className="text-xl font-bold">plexicus</h3>
               <div className="flex items-center justify-between mt-2">
@@ -496,7 +496,7 @@ export default function RemediationRace() {
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
-                  {formatTime(plexicusTime)}
+                  { formatTime(plexicusTime) }
                 </div>
               </div>
               <div className="w-full bg-[#8220ff]/40 h-2 mt-2 rounded-full overflow-hidden">
@@ -507,20 +507,20 @@ export default function RemediationRace() {
               </div>
             </div>
             <div className="p-4">
-              {remediationSteps.map((step, index) => (
+              { remediationSteps.map((step, index) => (
                 <div key={`plex-${index}`} className="mb-4 last:mb-0">
                   <div className="flex justify-between items-center mb-1">
                     <div className="flex items-center">
                       <div
                         className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
                           isStepCompleted(index, false)
-                            ? "bg-green-100 text-green-600"
+                            ? 'bg-green-100 text-green-600'
                             : isStepActive(index, false)
-                              ? "bg-[#8220ff]/10 text-[#8220ff] animate-pulse"
-                              : "bg-gray-100 text-gray-400"
+                              ? 'bg-[#8220ff]/10 text-[#8220ff] animate-pulse'
+                              : 'bg-gray-100 text-gray-400'
                         }`}
                       >
-                        {isStepCompleted(index, false) ? (
+                        { isStepCompleted(index, false) ? (
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -536,38 +536,38 @@ export default function RemediationRace() {
                           </svg>
                         ) : (
                           index + 1
-                        )}
+                        ) }
                       </div>
                       <span
                         className={`font-medium ${
                           isStepActive(index, false)
-                            ? "text-gray-900"
+                            ? 'text-gray-900'
                             : isStepCompleted(index, false)
-                              ? "text-gray-700"
-                              : "text-gray-400"
+                              ? 'text-gray-700'
+                              : 'text-gray-400'
                         }`}
                       >
-                        {step.name}
+                        { step.name }
                       </span>
                     </div>
                     <span
                       className={`text-sm font-mono ${
                         isStepCompleted(index, false)
-                          ? "text-green-600"
+                          ? 'text-green-600'
                           : isStepActive(index, false)
-                            ? "text-[#8220ff]"
-                            : "text-gray-400"
+                            ? 'text-[#8220ff]'
+                            : 'text-gray-400'
                       }`}
                     >
-                      {formatTime(step.plexicusTime)}
+                      { formatTime(step.plexicusTime) }
                     </span>
                   </div>
 
-                  {/* Step visualization */}
+                  { /* Step visualization */ }
                   <div className="ml-11 mt-2 mb-4">
-                    {isStepActive(index, false) && (
+                    { isStepActive(index, false) && (
                       <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 animate-fadeIn">
-                        {index === 0 && (
+                        { index === 0 && (
                           <div className="flex items-center">
                             <div className="w-10 h-10 bg-[#8220ff]/10 rounded-full flex items-center justify-center mr-3">
                               <svg
@@ -592,9 +592,9 @@ export default function RemediationRace() {
                               <div className="text-gray-500">Continuous automated scanning</div>
                             </div>
                           </div>
-                        )}
+                        ) }
 
-                        {index === 1 && (
+                        { index === 1 && (
                           <div className="flex items-center">
                             <div className="w-10 h-10 bg-[#8220ff]/10 rounded-full flex items-center justify-center mr-3">
                               <svg
@@ -621,9 +621,9 @@ export default function RemediationRace() {
                               <div className="text-gray-500">AI-based risk assessment</div>
                             </div>
                           </div>
-                        )}
+                        ) }
 
-                        {index === 2 && (
+                        { index === 2 && (
                           <div className="flex items-center">
                             <div className="w-10 h-10 bg-[#8220ff]/10 rounded-full flex items-center justify-center mr-3">
                               <svg
@@ -648,9 +648,9 @@ export default function RemediationRace() {
                               <div className="text-gray-500">Automated root cause identification</div>
                             </div>
                           </div>
-                        )}
+                        ) }
 
-                        {index === 3 && (
+                        { index === 3 && (
                           <div className="flex items-center">
                             <div className="w-10 h-10 bg-[#8220ff]/10 rounded-full flex items-center justify-center mr-3">
                               <svg
@@ -675,9 +675,9 @@ export default function RemediationRace() {
                               <div className="text-gray-500">Automated code remediation</div>
                             </div>
                           </div>
-                        )}
+                        ) }
 
-                        {index === 4 && (
+                        { index === 4 && (
                           <div className="flex items-center">
                             <div className="w-10 h-10 bg-[#8220ff]/10 rounded-full flex items-center justify-center mr-3">
                               <svg
@@ -700,9 +700,9 @@ export default function RemediationRace() {
                               <div className="text-gray-500">Manual verification of fixes</div>
                             </div>
                           </div>
-                        )}
+                        ) }
                       </div>
-                    )}
+                    ) }
                   </div>
 
                   <div className="ml-11">
@@ -710,10 +710,10 @@ export default function RemediationRace() {
                       <div
                         className={`h-full transition-all duration-300 ease-out ${
                           isStepCompleted(index, false)
-                            ? "bg-green-500"
+                            ? 'bg-green-500'
                             : isStepActive(index, false)
-                              ? "bg-[#8220ff]"
-                              : "bg-gray-200"
+                              ? 'bg-[#8220ff]'
+                              : 'bg-gray-200'
                         }`}
                         style={{
                           width: `${isStepActive(index, false) ? getStepProgress(index, false) : isStepCompleted(index, false) ? 100 : 0}%`,
@@ -722,17 +722,17 @@ export default function RemediationRace() {
                     </div>
                   </div>
                 </div>
-              ))}
+              )) }
             </div>
           </div>
         </div>
 
-        {/* Cost Calculator - Interactive Version */}
+        { /* Cost Calculator - Interactive Version */ }
         <div className="mt-12 max-w-6xl mx-auto">
           <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200">
             <div className="p-6 md:p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Left Column - Form */}
+                { /* Left Column - Form */ }
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900">See how much you can save with Plexicus</h3>
@@ -741,9 +741,9 @@ export default function RemediationRace() {
                     </p>
                   </div>
 
-                  {/* Form Inputs */}
+                  { /* Form Inputs */ }
                   <div className="space-y-4 bg-gray-50 p-6 rounded-lg border border-gray-100">
-                    {/* Developer Rate Input */}
+                    { /* Developer Rate Input */ }
                     <div>
                       <label htmlFor="hourlyRate" className="block text-sm font-medium text-gray-700 mb-1">
                         Developer Hourly Rate ($)
@@ -761,8 +761,8 @@ export default function RemediationRace() {
                           defaultValue="50"
                           min="1"
                           onChange={(e) => {
-                            const rate = Number.parseFloat(e.target.value) || 50
-                            setHourlyRate(rate)
+                            const rate = Number.parseFloat(e.target.value) || 50;
+                            setHourlyRate(rate);
                           }}
                         />
                         <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -771,7 +771,7 @@ export default function RemediationRace() {
                       </div>
                     </div>
 
-                    {/* Vulnerability Count Input */}
+                    { /* Vulnerability Count Input */ }
                     <div>
                       <label htmlFor="vulnCount" className="block text-sm font-medium text-gray-700 mb-1">
                         Number of Vulnerabilities
@@ -786,8 +786,8 @@ export default function RemediationRace() {
                           defaultValue="10"
                           min="1"
                           onChange={(e) => {
-                            const count = Number.parseInt(e.target.value) || 10
-                            setVulnerabilityCount(count)
+                            const count = Number.parseInt(e.target.value) || 10;
+                            setVulnerabilityCount(count);
                           }}
                         />
                         <div className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -796,19 +796,19 @@ export default function RemediationRace() {
                       </div>
                     </div>
 
-                    {/* Summary Stats */}
+                    { /* Summary Stats */ }
                     <div className="mt-6 pt-4 border-t border-gray-200">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="bg-white p-4 rounded-lg border border-gray-200">
                           <div className="text-sm text-gray-500">Traditional Cost</div>
                           <div className="text-2xl font-bold text-gray-900">
-                            ${(calculateTraditionalCost() * vulnerabilityCount).toLocaleString()}
+                            ${ (calculateTraditionalCost() * vulnerabilityCount).toLocaleString() }
                           </div>
                         </div>
                         <div className="bg-[#8220ff]/5 p-4 rounded-lg border border-[#8220ff]/20">
                           <div className="text-sm text-[#8220ff]">Plexicus Cost</div>
                           <div className="text-2xl font-bold text-[#8220ff]">
-                            ${(calculatePlexicusCost() * vulnerabilityCount).toLocaleString()}
+                            ${ (calculatePlexicusCost() * vulnerabilityCount).toLocaleString() }
                           </div>
                         </div>
                       </div>
@@ -817,10 +817,10 @@ export default function RemediationRace() {
                           <div className="text-sm font-medium text-[#8220ff]">Total Savings</div>
                           <div className="text-xl font-bold text-[#8220ff]">
                             $
-                            {(
+                            { (
                               (calculateTraditionalCost() - calculatePlexicusCost()) *
                               vulnerabilityCount
-                            ).toLocaleString()}
+                            ).toLocaleString() }
                           </div>
                         </div>
                         <div className="mt-2 w-full bg-white/50 h-2 rounded-full overflow-hidden">
@@ -830,19 +830,19 @@ export default function RemediationRace() {
                           ></div>
                         </div>
                         <div className="mt-1 text-right text-sm font-medium text-[#8220ff]">
-                          {calculateSavingsPercentage()}% saved
+                          { calculateSavingsPercentage() }% saved
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Right Column - Excel Visualization */}
+                { /* Right Column - Excel Visualization */ }
                 <div className="relative">
-                  {/* Spreadsheet illustration - savings calculator */}
+                  { /* Spreadsheet illustration - savings calculator */ }
                   <div className="relative shadow-xl w-full h-full">
                     <div className="w-full h-full bg-white rounded-lg border border-gray-200 flex flex-col overflow-hidden">
-                      {/* Mac-style window header */}
+                      { /* Mac-style window header */ }
                       <div className="h-8 bg-gray-100 border-b border-gray-200 flex items-center px-3">
                         <div className="flex space-x-2 mr-4">
                           <div className="w-3 h-3 rounded-full bg-red-400 hover:bg-red-500 transition-colors"></div>
@@ -854,7 +854,7 @@ export default function RemediationRace() {
                         </div>
                       </div>
 
-                      {/* Excel-like menu bar */}
+                      { /* Excel-like menu bar */ }
                       <div className="h-7 bg-[#217346] text-white text-xs flex items-center px-2 border-b border-[#185a34]">
                         <div className="flex space-x-3">
                           <span className="hover:bg-[#185a34] px-2 py-1 rounded">File</span>
@@ -865,7 +865,7 @@ export default function RemediationRace() {
                         </div>
                       </div>
 
-                      {/* Spreadsheet header */}
+                      { /* Spreadsheet header */ }
                       <div className="h-10 bg-[#8220ff] text-white p-2 flex items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -888,7 +888,7 @@ export default function RemediationRace() {
                         <div className="text-sm font-bold">Plexicus Savings Calculator</div>
                       </div>
 
-                      {/* Excel-like formula bar */}
+                      { /* Excel-like formula bar */ }
                       <div className="h-7 bg-gray-50 border-b border-gray-200 flex items-center px-2 text-xs">
                         <div className="w-10 text-gray-500 mr-1">fx</div>
                         <div className="flex-1 bg-white border border-gray-300 rounded px-2 py-0.5 text-gray-700 font-mono">
@@ -896,78 +896,78 @@ export default function RemediationRace() {
                         </div>
                       </div>
 
-                      {/* Column headers */}
+                      { /* Column headers */ }
                       <div className="flex border-b border-gray-200 bg-gray-50 text-xs font-medium text-gray-700">
                         <div className="w-1/3 p-2 border-r border-gray-200">Item</div>
                         <div className="w-1/3 p-2 border-r border-gray-200 text-center">Traditional</div>
                         <div className="w-1/3 p-2 text-center">Plexicus</div>
                       </div>
 
-                      {/* Spreadsheet rows */}
-                      <div className="flex-1 overflow-y-auto" style={{ minHeight: "300px" }}>
-                        {/* Time row */}
+                      { /* Spreadsheet rows */ }
+                      <div className="flex-1 overflow-y-auto" style={{ minHeight: '300px' }}>
+                        { /* Time row */ }
                         <div className="flex border-b border-gray-200 text-xs">
                           <div className="w-1/3 p-2 border-r border-gray-200 font-medium">Time (min)</div>
-                          <div className="w-1/3 p-2 border-r border-gray-200 text-center">{totalTraditionalTime}</div>
-                          <div className="w-1/3 p-2 text-center text-[#8220ff] font-medium">{totalPlexicusTime}</div>
+                          <div className="w-1/3 p-2 border-r border-gray-200 text-center">{ totalTraditionalTime }</div>
+                          <div className="w-1/3 p-2 text-center text-[#8220ff] font-medium">{ totalPlexicusTime }</div>
                         </div>
 
-                        {/* Cost per vuln row */}
+                        { /* Cost per vuln row */ }
                         <div className="flex border-b border-gray-200 text-xs">
                           <div className="w-1/3 p-2 border-r border-gray-200 font-medium">Cost per vuln</div>
                           <div className="w-1/3 p-2 border-r border-gray-200 text-center">
-                            ${calculateTraditionalCost()}
+                            ${ calculateTraditionalCost() }
                           </div>
                           <div className="w-1/3 p-2 text-center text-[#8220ff] font-medium">$10</div>
                         </div>
 
-                        {/* Total vulns row */}
+                        { /* Total vulns row */ }
                         <div className="flex border-b border-gray-200 text-xs bg-gray-50">
                           <div className="w-1/3 p-2 border-r border-gray-200 font-medium">Total vulns</div>
-                          <div className="w-1/3 p-2 border-r border-gray-200 text-center">{vulnerabilityCount}</div>
-                          <div className="w-1/3 p-2 text-center">{vulnerabilityCount}</div>
+                          <div className="w-1/3 p-2 border-r border-gray-200 text-center">{ vulnerabilityCount }</div>
+                          <div className="w-1/3 p-2 text-center">{ vulnerabilityCount }</div>
                         </div>
 
-                        {/* Total cost row */}
+                        { /* Total cost row */ }
                         <div className="flex border-b border-gray-200 text-xs">
                           <div className="w-1/3 p-2 border-r border-gray-200 font-medium">Total cost</div>
                           <div className="w-1/3 p-2 border-r border-gray-200 text-center">
-                            ${(calculateTraditionalCost() * vulnerabilityCount).toLocaleString()}
+                            ${ (calculateTraditionalCost() * vulnerabilityCount).toLocaleString() }
                           </div>
                           <div className="w-1/3 p-2 text-center text-[#8220ff] font-medium">
-                            ${(calculatePlexicusCost() * vulnerabilityCount).toLocaleString()}
+                            ${ (calculatePlexicusCost() * vulnerabilityCount).toLocaleString() }
                           </div>
                         </div>
 
-                        {/* Savings row */}
+                        { /* Savings row */ }
                         <div className="flex border-b border-gray-200 text-xs bg-[#8220ff]/5">
                           <div className="w-1/3 p-2 border-r border-gray-200 font-bold">Savings</div>
                           <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold" >
                             $
-                            {(
+                            { (
                               (calculateTraditionalCost() - calculatePlexicusCost()) *
                               vulnerabilityCount
-                            ).toLocaleString()}
+                            ).toLocaleString() }
                           </div>
                         </div>
 
-                        {/* Percentage row */}
+                        { /* Percentage row */ }
                         <div className="flex text-xs bg-[#8220ff]/10">
                           <div className="w-1/3 p-2 border-r border-gray-200 font-bold">% Saved</div>
                           <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold">
-                            {calculateSavingsPercentage()}%
+                            { calculateSavingsPercentage() }%
                           </div>
                         </div>
 
-                        {/* Formula row */}
+                        { /* Formula row */ }
                         <div className="flex border-t border-gray-300 text-xs bg-gray-50 mt-auto">
                           <div className="w-full p-2 font-mono text-gray-500 text-center">
-                            {/* Empty formula row */}
+                            { /* Empty formula row */ }
                           </div>
                         </div>
                       </div>
 
-                      {/* Spreadsheet footer */}
+                      { /* Spreadsheet footer */ }
                       <div className="h-10 bg-[#8220ff]/80 text-white p-2 text-xs flex items-center justify-between">
                         <div className="flex items-center">
                           <div className="w-3 h-3 rounded-full bg-green-400 mr-1"></div>
@@ -1030,5 +1030,5 @@ export default function RemediationRace() {
         </div>
       </div>
     </section>
-  )
+  );
 }

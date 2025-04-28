@@ -1,46 +1,46 @@
-"use client"
+'use client';
 
-import type React from "react"
+import type React from 'react';
 
-import { useState } from "react"
+import { useState } from 'react';
 
 // Define types for our integration data
-type Tool = string
-type Rarity = "Common" | "Uncommon" | "Rare" | "Mythic"
-type CardColor = "blue" | "green" | "red" | "black" | "purple"
+type Tool = string;
+type Rarity = 'Common' | 'Uncommon' | 'Rare' | 'Mythic';
+type CardColor = 'blue' | 'green' | 'red' | 'black' | 'purple';
 
 interface Integration {
-  name: string
-  tools: Tool[]
-  description: string
-  icon: React.ReactNode
-  power: number
-  defense: number
-  rarity: Rarity
-  color: CardColor
+  name: string;
+  tools: Tool[];
+  description: string;
+  icon: React.ReactNode;
+  power: number;
+  defense: number;
+  rarity: Rarity;
+  color: CardColor;
 }
 
 export default function Integrations() {
   // State for active tab and selected card
-  const [activeTab, setActiveTab] = useState<"connectors" | "providers">("connectors")
-  const [selectedCard, setSelectedCard] = useState<string | null>(null)
+  const [activeTab, setActiveTab] = useState<'connectors' | 'providers'>('connectors');
+  const [selectedCard, setSelectedCard] = useState<string | null>(null);
 
   // Integration data split into connectors and providers
   const integrationData = {
     connectors: [
       {
-        name: "SAST",
+        name: 'SAST',
         tools: [
-          "Checkmarx SAST",
-          "Fortify",
-          "GitHub SAST",
-          "GitLab SAST",
-          "Opengrep",
-          "Bandit",
-          "Coverity Static Analysis",
-          "DevSkim",
+          'Checkmarx SAST',
+          'Fortify',
+          'GitHub SAST',
+          'GitLab SAST',
+          'Opengrep',
+          'Bandit',
+          'Coverity Static Analysis',
+          'DevSkim',
         ],
-        description: "Static Application Security Testing tools that analyze source code for security vulnerabilities",
+        description: 'Static Application Security Testing tools that analyze source code for security vulnerabilities',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,13 +61,13 @@ export default function Integrations() {
         ),
         power: 8,
         defense: 7,
-        rarity: "Rare",
-        color: "blue",
+        rarity: 'Rare',
+        color: 'blue',
       },
       {
-        name: "Secrets / PII Scan",
-        tools: ["GitLab Secret Detection", "GitHub Secret Detection", "TruffleHog", "GitLeaks", "Trivy-Secrets"],
-        description: "Tools that detect secrets, credentials, and personally identifiable information in code",
+        name: 'Secrets / PII Scan',
+        tools: ['GitLab Secret Detection', 'GitHub Secret Detection', 'TruffleHog', 'GitLeaks', 'Trivy-Secrets'],
+        description: 'Tools that detect secrets, credentials, and personally identifiable information in code',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -88,21 +88,21 @@ export default function Integrations() {
         ),
         power: 7,
         defense: 9,
-        rarity: "Uncommon",
-        color: "black",
+        rarity: 'Uncommon',
+        color: 'black',
       },
       {
-        name: "SCA",
+        name: 'SCA',
         tools: [
-          "Black Duck",
-          "Checkmarx SCA",
-          "GitHub Dependabot",
-          "GitLab Dependency",
-          "DustiLock",
-          "OWASP Dependency-Check",
-          "Trivy-SCA",
+          'Black Duck',
+          'Checkmarx SCA',
+          'GitHub Dependabot',
+          'GitLab Dependency',
+          'DustiLock',
+          'OWASP Dependency-Check',
+          'Trivy-SCA',
         ],
-        description: "Software Composition Analysis tools that identify vulnerabilities in third-party dependencies",
+        description: 'Software Composition Analysis tools that identify vulnerabilities in third-party dependencies',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -122,13 +122,13 @@ export default function Integrations() {
         ),
         power: 7,
         defense: 6,
-        rarity: "Uncommon",
-        color: "green",
+        rarity: 'Uncommon',
+        color: 'green',
       },
       {
-        name: "Container Security",
-        tools: ["Checkov", "Grype", "Trivy-Container"],
-        description: "Tools that scan container images for vulnerabilities and misconfigurations",
+        name: 'Container Security',
+        tools: ['Checkov', 'Grype', 'Trivy-Container'],
+        description: 'Tools that scan container images for vulnerabilities and misconfigurations',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -148,12 +148,12 @@ export default function Integrations() {
         ),
         power: 8,
         defense: 8,
-        rarity: "Rare",
-        color: "red",
+        rarity: 'Rare',
+        color: 'red',
       },
       {
-        name: "Plexicus",
-        tools: ["Plexalyzer"],
+        name: 'Plexicus',
+        tools: ['Plexalyzer'],
         description: "Plexicus's proprietary security analysis and remediation platform",
         icon: (
           <svg
@@ -180,13 +180,13 @@ export default function Integrations() {
         ),
         power: 10,
         defense: 10,
-        rarity: "Mythic",
-        color: "purple",
+        rarity: 'Mythic',
+        color: 'purple',
       },
       {
-        name: "Threat Detection",
-        tools: ["ClamAV"],
-        description: "Tools that detect malware and other threats in code and artifacts",
+        name: 'Threat Detection',
+        tools: ['ClamAV'],
+        description: 'Tools that detect malware and other threats in code and artifacts',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -206,13 +206,13 @@ export default function Integrations() {
         ),
         power: 6,
         defense: 9,
-        rarity: "Uncommon",
-        color: "red",
+        rarity: 'Uncommon',
+        color: 'red',
       },
       {
-        name: "SCM Security",
-        tools: ["ChainBench"],
-        description: "Tools that secure the software supply chain management process",
+        name: 'SCM Security',
+        tools: ['ChainBench'],
+        description: 'Tools that secure the software supply chain management process',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -231,13 +231,13 @@ export default function Integrations() {
         ),
         power: 7,
         defense: 8,
-        rarity: "Rare",
-        color: "green",
+        rarity: 'Rare',
+        color: 'green',
       },
       {
-        name: "CI/CD Posture",
-        tools: ["KICS"],
-        description: "Tools that assess and secure CI/CD pipelines",
+        name: 'CI/CD Posture',
+        tools: ['KICS'],
+        description: 'Tools that assess and secure CI/CD pipelines',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -258,13 +258,13 @@ export default function Integrations() {
         ),
         power: 6,
         defense: 7,
-        rarity: "Uncommon",
-        color: "blue",
+        rarity: 'Uncommon',
+        color: 'blue',
       },
       {
-        name: "License",
-        tools: ["Trivy-License"],
-        description: "Tools that identify and manage software licenses",
+        name: 'License',
+        tools: ['Trivy-License'],
+        description: 'Tools that identify and manage software licenses',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -284,13 +284,13 @@ export default function Integrations() {
         ),
         power: 5,
         defense: 6,
-        rarity: "Common",
-        color: "blue",
+        rarity: 'Common',
+        color: 'blue',
       },
       {
-        name: "IaC Security",
-        tools: ["Hadolint", "TFLint", "Terrascan", "KICS"],
-        description: "Tools that secure Infrastructure as Code configurations",
+        name: 'IaC Security',
+        tools: ['Hadolint', 'TFLint', 'Terrascan', 'KICS'],
+        description: 'Tools that secure Infrastructure as Code configurations',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -312,13 +312,13 @@ export default function Integrations() {
         ),
         power: 7,
         defense: 7,
-        rarity: "Uncommon",
-        color: "green",
+        rarity: 'Uncommon',
+        color: 'green',
       },
       {
-        name: "SBOM",
-        tools: ["Syft", "Trivy-SBOM"],
-        description: "Tools that generate Software Bill of Materials",
+        name: 'SBOM',
+        tools: ['Syft', 'Trivy-SBOM'],
+        description: 'Tools that generate Software Bill of Materials',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -341,15 +341,15 @@ export default function Integrations() {
         ),
         power: 6,
         defense: 5,
-        rarity: "Common",
-        color: "green",
+        rarity: 'Common',
+        color: 'green',
       },
     ],
     providers: [
       {
-        name: "SCM",
-        tools: ["GitHub", "GitLab", "Bitbucket Cloud", "Gitea"],
-        description: "Source Code Management platforms that host and manage code repositories",
+        name: 'SCM',
+        tools: ['GitHub', 'GitLab', 'Bitbucket Cloud', 'Gitea'],
+        description: 'Source Code Management platforms that host and manage code repositories',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -370,13 +370,13 @@ export default function Integrations() {
         ),
         power: 8,
         defense: 7,
-        rarity: "Rare",
-        color: "blue",
+        rarity: 'Rare',
+        color: 'blue',
       },
       {
-        name: "Registry",
-        tools: ["GitLab Container Registry"],
-        description: "Container registries that store and manage container images",
+        name: 'Registry',
+        tools: ['GitLab Container Registry'],
+        description: 'Container registries that store and manage container images',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -396,13 +396,13 @@ export default function Integrations() {
         ),
         power: 6,
         defense: 7,
-        rarity: "Uncommon",
-        color: "green",
+        rarity: 'Uncommon',
+        color: 'green',
       },
       {
-        name: "Cloud Deployment",
-        tools: ["AWS", "Azure", "Google Cloud Platform", "Oracle Cloud"],
-        description: "Cloud platforms for deploying and managing applications",
+        name: 'Cloud Deployment',
+        tools: ['AWS', 'Azure', 'Google Cloud Platform', 'Oracle Cloud'],
+        description: 'Cloud platforms for deploying and managing applications',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -419,13 +419,13 @@ export default function Integrations() {
         ),
         power: 9,
         defense: 8,
-        rarity: "Mythic",
-        color: "blue",
+        rarity: 'Mythic',
+        color: 'blue',
       },
       {
-        name: "Ticket Management",
-        tools: ["Jira"],
-        description: "Issue tracking and project management platforms",
+        name: 'Ticket Management',
+        tools: ['Jira'],
+        description: 'Issue tracking and project management platforms',
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -446,121 +446,121 @@ export default function Integrations() {
         ),
         power: 7,
         defense: 6,
-        rarity: "Common",
-        color: "green",
+        rarity: 'Common',
+        color: 'green',
       },
     ],
-  }
+  };
 
   // Helper function to get border color based on rarity
   const getRarityBorderColor = (rarity: Rarity): string => {
     switch (rarity) {
-      case "Common":
-        return "border-gray-400"
-      case "Uncommon":
-        return "border-blue-400"
-      case "Rare":
-        return "border-yellow-400"
-      case "Mythic":
-        return "border-orange-500 shadow-lg"
+      case 'Common':
+        return 'border-gray-400';
+      case 'Uncommon':
+        return 'border-blue-400';
+      case 'Rare':
+        return 'border-yellow-400';
+      case 'Mythic':
+        return 'border-orange-500 shadow-lg';
       default:
-        return "border-gray-400"
+        return 'border-gray-400';
     }
-  }
+  };
 
   // Helper function to get background gradient based on card color
   const getCardBackground = (color: CardColor): string => {
     switch (color) {
-      case "blue":
-        return "bg-gradient-to-br from-[#9d4edd] to-[#7b2cbf]" // Purple-blue
-      case "green":
-        return "bg-gradient-to-br from-[#c77dff] to-[#9d4edd]" // Light purple
-      case "red":
-        return "bg-gradient-to-br from-[#7b2cbf] to-[#5a189a]" // Deep purple
-      case "black":
-        return "bg-gradient-to-br from-[#5a189a] to-[#3c096c]" // Dark purple
-      case "purple":
-        return "bg-gradient-to-br from-[#8220ff] to-[#5a189a]" // Brand purple
+      case 'blue':
+        return 'bg-gradient-to-br from-[#9d4edd] to-[#7b2cbf]'; // Purple-blue
+      case 'green':
+        return 'bg-gradient-to-br from-[#c77dff] to-[#9d4edd]'; // Light purple
+      case 'red':
+        return 'bg-gradient-to-br from-[#7b2cbf] to-[#5a189a]'; // Deep purple
+      case 'black':
+        return 'bg-gradient-to-br from-[#5a189a] to-[#3c096c]'; // Dark purple
+      case 'purple':
+        return 'bg-gradient-to-br from-[#8220ff] to-[#5a189a]'; // Brand purple
       default:
-        return "bg-gradient-to-br from-[#c77dff] to-[#9d4edd]" // Default purple
+        return 'bg-gradient-to-br from-[#c77dff] to-[#9d4edd]'; // Default purple
     }
-  }
+  };
 
   // Helper function to get title bar color based on card color
   const getTitleBarColor = (color: CardColor): string => {
     switch (color) {
-      case "blue":
-        return "bg-[#7b2cbf] text-white" // Purple-blue
-      case "green":
-        return "bg-[#9d4edd] text-white" // Light purple
-      case "red":
-        return "bg-[#5a189a] text-white" // Deep purple
-      case "black":
-        return "bg-[#3c096c] text-white" // Dark purple
-      case "purple":
-        return "bg-[#8220ff] text-white" // Brand purple
+      case 'blue':
+        return 'bg-[#7b2cbf] text-white'; // Purple-blue
+      case 'green':
+        return 'bg-[#9d4edd] text-white'; // Light purple
+      case 'red':
+        return 'bg-[#5a189a] text-white'; // Deep purple
+      case 'black':
+        return 'bg-[#3c096c] text-white'; // Dark purple
+      case 'purple':
+        return 'bg-[#8220ff] text-white'; // Brand purple
       default:
-        return "bg-[#7b2cbf] text-white" // Default purple
+        return 'bg-[#7b2cbf] text-white'; // Default purple
     }
-  }
+  };
 
   // Helper function to get border color based on card color
   const getCardBorderColor = (color: CardColor): string => {
     switch (color) {
-      case "blue":
-        return "border-[#7b2cbf]" // Purple-blue
-      case "green":
-        return "border-[#9d4edd]" // Light purple
-      case "red":
-        return "border-[#5a189a]" // Deep purple
-      case "black":
-        return "border-[#3c096c]" // Dark purple
-      case "purple":
-        return "border-[#8220ff]" // Brand purple
+      case 'blue':
+        return 'border-[#7b2cbf]'; // Purple-blue
+      case 'green':
+        return 'border-[#9d4edd]'; // Light purple
+      case 'red':
+        return 'border-[#5a189a]'; // Deep purple
+      case 'black':
+        return 'border-[#3c096c]'; // Dark purple
+      case 'purple':
+        return 'border-[#8220ff]'; // Brand purple
       default:
-        return "border-[#9d4edd]" // Default purple
+        return 'border-[#9d4edd]'; // Default purple
     }
-  }
+  };
 
   // Helper function to get the tool logo
   const getToolLogo = (toolName: string): string => {
-    if (toolName.includes("GitHub")) return "/images/github.svg"
-    if (toolName.includes("GitLab")) return "/images/gitlab.svg"
-    if (toolName.includes("Bitbucket")) return "/images/bitbucket.png"
-    if (toolName.includes("Gitea")) return "/images/gitea.svg"
-    if (toolName.includes("Checkmarx")) return "/images/checkmarx.svg"
-    if (toolName.includes("Fortify")) return "/images/fortify.svg"
-    if (toolName.includes("Opengrep")) return "/images/opengrep.png"
-    if (toolName.includes("Bandit")) return "/images/bandit.png"
-    if (toolName.includes("Coverity")) return "/images/coverity.svg"
-    if (toolName.includes("DevSkim")) return "/images/devskim.png"
-    if (toolName.includes("TruffleHog")) return "/images/trufflehog.png"
-    if (toolName.includes("GitLeaks")) return "/images/gitleaks.png"
-    if (toolName.includes("Trivy")) return "/images/trivy.png"
-    if (toolName.includes("Black Duck")) return "/images/blackduck.png"
-    if (toolName.includes("DustiLock")) return "/images/dustilock.png"
-    if (toolName.includes("OWASP")) return "/images/owasp-dependency-check.png"
-    if (toolName.includes("Checkov")) return "/images/checkov.png"
-    if (toolName.includes("Grype")) return "/images/grype.png"
-    if (toolName.includes("ClamAV")) return "/images/clamav.png"
-    if (toolName.includes("ChainBench")) return "/images/chainbench.png"
-    if (toolName.includes("KICS")) return "/images/kics.png"
-    if (toolName.includes("Hadolint")) return "/images/hadolint.png"
-    if (toolName.includes("TFLint")) return "/images/tflint.png"
-    if (toolName.includes("Terrascan")) return "/images/terrascan.jpg"
-    if (toolName.includes("Syft")) return "/images/syft.png"
-    if (toolName.includes("AWS")) return "/images/aws.svg"
-    if (toolName.includes("Azure")) return "/images/azure.svg"
-    if (toolName.includes("Google Cloud")) return "/images/google-cloud.svg"
-    if (toolName.includes("Oracle")) return "/images/oracle.png"
-    if (toolName.includes("Jira")) return "/images/jira.png"
+    if (toolName.includes('GitHub')) return '/images/github.svg';
+    if (toolName.includes('GitLab')) return '/images/gitlab.svg';
+    if (toolName.includes('Bitbucket')) return '/images/bitbucket.png';
+    if (toolName.includes('Gitea')) return '/images/gitea.svg';
+    if (toolName.includes('Checkmarx')) return '/images/checkmarx.svg';
+    if (toolName.includes('Fortify')) return '/images/fortify.svg';
+    if (toolName.includes('Opengrep')) return '/images/opengrep.png';
+    if (toolName.includes('Bandit')) return '/images/bandit.png';
+    if (toolName.includes('Coverity')) return '/images/coverity.svg';
+    if (toolName.includes('DevSkim')) return '/images/devskim.png';
+    if (toolName.includes('TruffleHog')) return '/images/trufflehog.png';
+    if (toolName.includes('GitLeaks')) return '/images/gitleaks.png';
+    if (toolName.includes('Trivy')) return '/images/trivy.png';
+    if (toolName.includes('Black Duck')) return '/images/blackduck.png';
+    if (toolName.includes('DustiLock')) return '/images/dustilock.png';
+    if (toolName.includes('OWASP')) return '/images/owasp-dependency-check.png';
+    if (toolName.includes('Checkov')) return '/images/checkov.png';
+    if (toolName.includes('Grype')) return '/images/grype.png';
+    if (toolName.includes('ClamAV')) return '/images/clamav.png';
+    if (toolName.includes('ChainBench')) return '/images/chainbench.png';
+    if (toolName.includes('KICS')) return '/images/kics.png';
+    if (toolName.includes('Hadolint')) return '/images/hadolint.png';
+    if (toolName.includes('TFLint')) return '/images/tflint.png';
+    if (toolName.includes('Terrascan')) return '/images/terrascan.jpg';
+    if (toolName.includes('Syft')) return '/images/syft.png';
+    if (toolName.includes('AWS')) return '/images/aws.svg';
+    if (toolName.includes('Azure')) return '/images/azure.svg';
+    if (toolName.includes('Google Cloud')) return '/images/google-cloud.svg';
+    if (toolName.includes('Oracle')) return '/images/oracle.png';
+    if (toolName.includes('Jira')) return '/images/jira.png';
 
     // Default placeholder
-    return "/placeholder.svg?height=24&width=24"
-  }
+    return '/placeholder.svg?height=24&width=24';
+  };
 
   // Get the active integrations based on the selected tab
-  const activeIntegrations = activeTab === "connectors" ? integrationData.connectors : integrationData.providers
+  const activeIntegrations = activeTab === 'connectors' ? integrationData.connectors : integrationData.providers;
 
   return (
     <section className="py-16 bg-white">
@@ -573,156 +573,156 @@ export default function Integrations() {
           </p>
         </div>
 
-        {/* Tab navigation */}
+        { /* Tab navigation */ }
         <div className="flex justify-center mb-8">
           <div className="inline-flex rounded-md shadow-md" role="group">
             <button
               type="button"
-              className={`px-4 py-2 text-sm font-medium rounded-l-lg ${activeTab === "connectors"
-                ? "bg-[#8220ff] text-white shadow-[0_0_15px_rgba(130,32,255,0.5)]"
-                : "bg-white text-gray-700 hover:bg-[#f5f0ff]"
-                } border border-[#8220ff]/20`}
-              onClick={() => setActiveTab("connectors")}
+              className={`px-4 py-2 text-sm font-medium rounded-l-lg ${activeTab === 'connectors'
+                ? 'bg-[#8220ff] text-white shadow-[0_0_15px_rgba(130,32,255,0.5)]'
+                : 'bg-white text-gray-700 hover:bg-[#f5f0ff]'
+              } border border-[#8220ff]/20`}
+              onClick={() => setActiveTab('connectors')}
             >
               Mystical Connectors
             </button>
             <button
               type="button"
-              className={`px-4 py-2 text-sm font-medium rounded-r-lg ${activeTab === "providers"
-                ? "bg-[#8220ff] text-white shadow-[0_0_15px_rgba(130,32,255,0.5)]"
-                : "bg-white text-gray-700 hover:bg-[#f5f0ff]"
-                } border border-[#8220ff]/20 border-l-0`}
-              onClick={() => setActiveTab("providers")}
+              className={`px-4 py-2 text-sm font-medium rounded-r-lg ${activeTab === 'providers'
+                ? 'bg-[#8220ff] text-white shadow-[0_0_15px_rgba(130,32,255,0.5)]'
+                : 'bg-white text-gray-700 hover:bg-[#f5f0ff]'
+              } border border-[#8220ff]/20 border-l-0`}
+              onClick={() => setActiveTab('providers')}
             >
               Arcane Providers
             </button>
           </div>
         </div>
 
-        {/* Card grid */}
+        { /* Card grid */ }
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
-          {activeIntegrations.map((integration) => (
+          { activeIntegrations.map((integration) => (
             <div
               key={integration.name}
-              className={`relative ${selectedCard === integration.name ? "transform scale-105" : "transform hover:scale-102"
-                } transition-all duration-300 cursor-pointer perspective-500`}
+              className={`relative ${selectedCard === integration.name ? 'transform scale-105' : 'transform hover:scale-102'
+              } transition-all duration-300 cursor-pointer perspective-500`}
               onClick={() => setSelectedCard(selectedCard === integration.name ? null : integration.name)}
             >
-              {/* Card with standard hover effect */}
+              { /* Card with standard hover effect */ }
               <div
                 className={`rounded-lg overflow-hidden border-2 ${getCardBorderColor(
                   integration.color,
-                )} ${getCardBackground(integration.color)} ${selectedCard === integration.name ? "shadow-xl ring-2 ring-[#8220ff]" : "shadow-md"
-                  } h-[420px] transform transition-all duration-300 hover:shadow-lg hover:translate-y-[-4px]`}
+                )} ${getCardBackground(integration.color)} ${selectedCard === integration.name ? 'shadow-xl ring-2 ring-[#8220ff]' : 'shadow-md'
+                } h-[420px] transform transition-all duration-300 hover:shadow-lg hover:translate-y-[-4px]`}
               >
-                {/* Title bar */}
+                { /* Title bar */ }
                 <div className={`p-3 ${getTitleBarColor(integration.color)} flex items-center justify-between`}>
-                  <h3 className="font-bold">{integration.name}</h3>
-                  <div className="w-6 h-6">{integration.icon}</div>
+                  <h3 className="font-bold">{ integration.name }</h3>
+                  <div className="w-6 h-6">{ integration.icon }</div>
                 </div>
 
-                {/* Image area with creature shadow silhouette */}
+                { /* Image area with creature shadow silhouette */ }
                 <div className="p-5 bg-gradient-to-b from-black/80 to-black/60 text-white h-40 flex items-center justify-center relative overflow-hidden">
-                  {/* Creature shadow silhouette based on card color */}
+                  { /* Creature shadow silhouette based on card color */ }
                   <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                    {integration.color === "blue" && (
+                    { integration.color === 'blue' && (
                       <svg viewBox="0 0 100 100" className="h-full w-auto">
                         <path
                           d="M50,20 C60,25 70,35 65,50 C60,65 70,75 50,80 C30,75 40,65 35,50 C30,35 40,25 50,20"
                           fill="currentColor"
                         />
                       </svg>
-                    )}
-                    {integration.color === "green" && (
+                    ) }
+                    { integration.color === 'green' && (
                       <svg viewBox="0 0 100 100" className="h-full w-auto">
                         <path
                           d="M30,20 C50,15 70,25 75,40 C80,55 70,70 50,80 C30,70 20,55 25,40 C30,25 30,20 30,20"
                           fill="currentColor"
                         />
                       </svg>
-                    )}
-                    {integration.color === "red" && (
+                    ) }
+                    { integration.color === 'red' && (
                       <svg viewBox="0 0 100 100" className="h-full w-auto">
                         <path
                           d="M50,20 C65,25 75,30 70,50 C65,70 55,75 50,80 C45,75 35,70 30,50 C25,30 35,25 50,20"
                           fill="currentColor"
                         />
                       </svg>
-                    )}
-                    {integration.color === "black" && (
+                    ) }
+                    { integration.color === 'black' && (
                       <svg viewBox="0 0 100 100" className="h-full w-auto">
                         <path
                           d="M40,20 C60,15 65,30 70,40 C75,50 70,65 60,75 C50,85 40,75 30,65 C20,55 20,40 25,30 C30,20 40,20 40,20"
                           fill="currentColor"
                         />
                       </svg>
-                    )}
-                    {integration.color === "purple" && (
+                    ) }
+                    { integration.color === 'purple' && (
                       <svg viewBox="0 0 100 100" className="h-full w-auto">
                         <path
                           d="M50,15 C65,20 70,35 75,45 C80,55 75,70 60,80 C45,85 35,75 25,60 C15,45 25,25 35,20 C45,15 50,15 50,15"
                           fill="currentColor"
                         />
                       </svg>
-                    )}
+                    ) }
                   </div>
                   <p className="text-sm italic text-center relative z-10 text-shadow px-2 py-3 leading-relaxed">
-                    {integration.description}
+                    { integration.description }
                   </p>
                 </div>
 
-                {/* Type line */}
+                { /* Type line */ }
                 <div className="bg-gray-800 text-white text-xs p-2 flex justify-between border-t border-b border-gray-600">
-                  <span>{activeTab === "connectors" ? "Security Connector" : "Service Provider"}</span>
-                  <span className="font-semibold">{integration.rarity}</span>
+                  <span>{ activeTab === 'connectors' ? 'Security Connector' : 'Service Provider' }</span>
+                  <span className="font-semibold">{ integration.rarity }</span>
                 </div>
 
-                {/* Tool list */}
+                { /* Tool list */ }
                 <div className="bg-white h-[184px] overflow-y-auto p-2 custom-scrollbar">
-                  {integration.tools.map((tool, index) => (
+                  { integration.tools.map((tool, index) => (
                     <div
                       key={index}
                       className="flex justify-between items-center p-2 border-b border-gray-100 last:border-b-0"
                     >
-                      <span className="text-sm">{tool}</span>
+                      <span className="text-sm">{ tool }</span>
                       <div className="w-6 h-6 relative">
                         <img
-                          src={getToolLogo(tool) || "/placeholder.svg"}
+                          src={getToolLogo(tool) || '/placeholder.svg'}
                           alt={`${tool} logo`}
                           className="w-full h-full object-contain"
                           onError={(e) => {
-                            ; (e.target as HTMLImageElement).src = "/placeholder.svg?height=24&width=24"
+                            ; (e.target as HTMLImageElement).src = '/placeholder.svg?height=24&width=24';
                           }}
                         />
                       </div>
                     </div>
-                  ))}
+                  )) }
                 </div>
 
-                {/* Stats bar */}
+                { /* Stats bar */ }
                 <div className="bg-gray-800 text-white text-xs p-2 flex justify-between border-t border-gray-600">
                   <div className="flex items-center">
                     <span className="mr-1">PWR</span>
                     <div className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center">
-                      {integration.power}
+                      { integration.power }
                     </div>
                   </div>
                   <div className="flex items-center">
                     <span className="mr-1">DEF</span>
                     <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center">
-                      {integration.defense}
+                      { integration.defense }
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
+          )) }
         </div>
 
-        {/* Selected card details */}
-        {selectedCard && (
+        { /* Selected card details */ }
+        { selectedCard && (
           <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200 mt-8 animate-fadeIn">
-            {activeIntegrations
+            { activeIntegrations
               .filter((integration) => integration.name === selectedCard)
               .map((integration) => (
                 <div key={`detail-${integration.name}`} className="grid md:grid-cols-2 gap-8">
@@ -731,44 +731,44 @@ export default function Integrations() {
                       <div
                         className={`w-10 h-10 ${getTitleBarColor(integration.color)} rounded-full flex items-center justify-center mr-3`}
                       >
-                        {integration.icon}
+                        { integration.icon }
                       </div>
-                      <h3 className="text-2xl font-bold">{integration.name}</h3>
+                      <h3 className="text-2xl font-bold">{ integration.name }</h3>
                     </div>
-                    <p className="text-gray-700 mb-4">{integration.description}</p>
+                    <p className="text-gray-700 mb-4">{ integration.description }</p>
                     <div
-                      className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${integration.rarity === "Common"
-                        ? "bg-gray-200 text-gray-800"
-                        : integration.rarity === "Uncommon"
-                          ? "bg-blue-200 text-blue-800"
-                          : integration.rarity === "Uncommon"
-                            ? "bg-blue-200 text-blue-800"
-                            : integration.rarity === "Rare"
-                              ? "bg-yellow-200 text-yellow-800"
-                              : "bg-orange-200 text-orange-800"
-                        }`}
+                      className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${integration.rarity === 'Common'
+                        ? 'bg-gray-200 text-gray-800'
+                        : integration.rarity === 'Uncommon'
+                          ? 'bg-blue-200 text-blue-800'
+                          : integration.rarity === 'Uncommon'
+                            ? 'bg-blue-200 text-blue-800'
+                            : integration.rarity === 'Rare'
+                              ? 'bg-yellow-200 text-yellow-800'
+                              : 'bg-orange-200 text-orange-800'
+                      }`}
                     >
-                      {integration.rarity}
+                      { integration.rarity }
                     </div>
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Supported Tools</h4>
                     <div className="grid grid-cols-2 gap-2">
-                      {integration.tools.map((tool, index) => (
+                      { integration.tools.map((tool, index) => (
                         <div key={index} className="flex items-center p-2 bg-gray-50 rounded">
                           <div className="w-6 h-6 relative mr-2">
                             <img
-                              src={getToolLogo(tool) || "/placeholder.svg"}
+                              src={getToolLogo(tool) || '/placeholder.svg'}
                               alt={`${tool} logo`}
                               className="w-full h-full object-contain"
                               onError={(e) => {
-                                ; (e.target as HTMLImageElement).src = "/placeholder.svg?height=24&width=24"
+                                ; (e.target as HTMLImageElement).src = '/placeholder.svg?height=24&width=24';
                               }}
                             />
                           </div>
-                          <span className="text-sm">{tool}</span>
+                          <span className="text-sm">{ tool }</span>
                         </div>
-                      ))}
+                      )) }
                     </div>
                     <div className="mt-4 flex justify-between">
                       <div className="w-1/2">
@@ -779,7 +779,7 @@ export default function Integrations() {
                             style={{ width: `${integration.power * 10}%` }}
                           ></div>
                         </div>
-                        <div className="text-right text-sm mt-1">{integration.power}/10</div>
+                        <div className="text-right text-sm mt-1">{ integration.power }/10</div>
                       </div>
                       <div className="w-1/2 pl-4">
                         <h4 className="font-semibold mb-2">Defense Rating</h4>
@@ -789,17 +789,17 @@ export default function Integrations() {
                             style={{ width: `${integration.defense * 10}%` }}
                           ></div>
                         </div>
-                        <div className="text-right text-sm mt-1">{integration.defense}/10</div>
+                        <div className="text-right text-sm mt-1">{ integration.defense }/10</div>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
+              )) }
           </div>
-        )}
+        ) }
 
-        {/* Custom CSS for card effects */}
-        <style jsx>{`
+        { /* Custom CSS for card effects */ }
+        <style jsx>{ `
           .perspective-500 {
             /* Keeping this class for compatibility */
           }
@@ -834,8 +834,8 @@ export default function Integrations() {
           .text-shadow {
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
           }
-        `}</style>
+        ` }</style>
       </div>
     </section>
-  )
+  );
 }

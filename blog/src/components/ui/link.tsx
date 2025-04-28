@@ -31,7 +31,7 @@ const Link: FC<LinkProps> = ({ href, children, className = '', target = '_self',
       onClick={handleClick} // Attach the handleClick function here
       aria-label={typeof children === 'string' ? children : undefined}
     >
-      {children}
+      { children }
     </a>
   );
 };
