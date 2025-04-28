@@ -10,6 +10,16 @@ on:
     paths:
       - "landing/**"
       - ".github/workflows/deploy-main.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-main"
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -26,3 +36,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: landing/dist
           cname: www.plexicus.ai
+          publish_branch: gh-pages
