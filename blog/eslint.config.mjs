@@ -3,8 +3,8 @@ import stylisticTs from "@stylistic/eslint-plugin-ts";
 import config from "../eslint.config.mjs";
 import stylisticJsx from "@stylistic/eslint-plugin-jsx";
 import { defineConfig, globalIgnores } from "eslint/config";
-import stylistic from "@stylistic/eslint-plugin";
 import astroParser from "astro-eslint-parser";
+import stylistic from "@stylistic/eslint-plugin";
 import tseslint from "typescript-eslint";
 export default defineConfig([
 	// add more generic rule sets here, such as:
@@ -109,5 +109,5 @@ export default defineConfig([
 			"array-bracket-spacing": ["error", "never"],
 		},
 	},
-	globalIgnores(['.astro', 'node_modules', 'dist'])
+	globalIgnores(['/.astro', '/node_modules'])
 ]);

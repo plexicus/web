@@ -1,18 +1,18 @@
-"use client"
+'use client';
 
-import type React from "react"
+import type React from 'react';
 
-import { useState, useEffect } from "react"
-import { Button } from "./ui/button"
-import { Check, X, HelpCircle } from "lucide-react"
+import { useState, useEffect } from 'react';
+import { Button } from './ui/button';
+import { Check, X, HelpCircle } from 'lucide-react';
 
-type PlanType = "professional" | "enterprise"
+type PlanType = 'professional' | 'enterprise';
 
 interface PlanDetails {
-  id: PlanType
-  name: string
-  basePrice: number
-  remediationMultiplier: number
+  id: PlanType;
+  name: string;
+  basePrice: number;
+  remediationMultiplier: number;
 }
 
 export function IntegratedPricingTiers({
@@ -20,59 +20,59 @@ export function IntegratedPricingTiers({
   professionalPrice = 49,
   enterprisePrice = 69,
 }: {
-  hideRemediationMultiplier?: boolean
-  professionalPrice?: number
-  enterprisePrice?: number
+  hideRemediationMultiplier?: boolean;
+  professionalPrice?: number;
+  enterprisePrice?: number;
 }) {
   // Plan options
   const plans: PlanDetails[] = [
-    { id: "professional", name: "Professional", basePrice: professionalPrice, remediationMultiplier: 2 },
-    { id: "enterprise", name: "Enterprise", basePrice: enterprisePrice, remediationMultiplier: 3 },
-  ]
+    { id: 'professional', name: 'Professional', basePrice: professionalPrice, remediationMultiplier: 2 },
+    { id: 'enterprise', name: 'Enterprise', basePrice: enterprisePrice, remediationMultiplier: 3 },
+  ];
 
   // State for calculator
-  const [selectedPlan, setSelectedPlan] = useState<PlanDetails>(plans[0])
-  const [developers, setDevelopers] = useState<number>(20)
-  const [isYearly, setIsYearly] = useState<boolean>(false)
-  const [customDevelopers, setCustomDevelopers] = useState<string>("20")
+  const [selectedPlan, setSelectedPlan] = useState<PlanDetails>(plans[0]);
+  const [developers, setDevelopers] = useState<number>(20);
+  const [isYearly, setIsYearly] = useState<boolean>(false);
+  const [customDevelopers, setCustomDevelopers] = useState<string>('20');
 
   // Calculate prices
-  const monthlyPrice = selectedPlan.basePrice * developers
-  const yearlyPrice = monthlyPrice * 12 * 0.9 // 10% discount
-  const totalPrice = isYearly ? yearlyPrice : monthlyPrice
-  const billingPeriod = isYearly ? "year" : "month"
-  const savings = isYearly ? monthlyPrice * 12 - yearlyPrice : 0
+  const monthlyPrice = selectedPlan.basePrice * developers;
+  const yearlyPrice = monthlyPrice * 12 * 0.9; // 10% discount
+  const totalPrice = isYearly ? yearlyPrice : monthlyPrice;
+  const billingPeriod = isYearly ? 'year' : 'month';
+  const savings = isYearly ? monthlyPrice * 12 - yearlyPrice : 0;
 
   // Handle custom developer input
   const handleCustomDevelopersChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    setCustomDevelopers(value)
+    const value = e.target.value;
+    setCustomDevelopers(value);
 
-    const numValue = Number.parseInt(value, 10)
+    const numValue = Number.parseInt(value, 10);
     if (!isNaN(numValue) && numValue >= 20) {
-      setDevelopers(numValue)
+      setDevelopers(numValue);
     }
-  }
+  };
 
   // Apply custom developers when input is blurred
   const handleCustomDevelopersBlur = () => {
-    const numValue = Number.parseInt(customDevelopers, 10)
+    const numValue = Number.parseInt(customDevelopers, 10);
     if (isNaN(numValue) || numValue < 20) {
-      setCustomDevelopers("20")
-      setDevelopers(20)
+      setCustomDevelopers('20');
+      setDevelopers(20);
     }
-  }
+  };
 
   // Update custom developers input when slider changes
   useEffect(() => {
-    setCustomDevelopers(developers.toString())
-  }, [developers])
+    setCustomDevelopers(developers.toString());
+  }, [developers]);
 
   return (
     <div className="max-w-7xl mx-auto">
-      {/* Pricing Tiers */}
+      { /* Pricing Tiers */ }
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-        {/* Free Trial */}
+        { /* Free Trial */ }
         <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col">
           <div className="p-6 bg-gray-50 border-b border-gray-200">
             <h3 className="text-xl font-bold text-gray-900">Free Trial</h3>
@@ -105,7 +105,7 @@ export function IntegratedPricingTiers({
           </div>
         </div>
 
-        {/* Professional */}
+        { /* Professional */ }
         <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-[#8220ff]/30 flex flex-col relative">
           <div className="absolute top-0 right-0 bg-[#8220ff] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
             POPULAR
@@ -113,7 +113,7 @@ export function IntegratedPricingTiers({
           <div className="p-6 bg-[#8220ff]/5 border-b border-[#8220ff]/20">
             <h3 className="text-xl font-bold text-gray-900">Professional</h3>
             <div className="mt-4 flex items-baseline text-gray-900">
-              <span className="text-3xl font-bold tracking-tight">${professionalPrice}</span>
+              <span className="text-3xl font-bold tracking-tight">${ professionalPrice }</span>
               <span className="ml-1 text-xl font-semibold">/developer</span>
               <span className="ml-1 text-sm font-normal text-gray-500">/month</span>
             </div>
@@ -121,12 +121,12 @@ export function IntegratedPricingTiers({
           </div>
           <div className="p-6 flex-1 flex flex-col">
             <ul className="space-y-4 flex-1">
-              {!hideRemediationMultiplier && (
+              { !hideRemediationMultiplier && (
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
                   <span className="text-gray-600">2x remediation multiplier</span>
                 </li>
-              )}
+              ) }
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
                 <span className="text-gray-600">Email support</span>
@@ -154,12 +154,12 @@ export function IntegratedPricingTiers({
           </div>
         </div>
 
-        {/* Enterprise */}
+        { /* Enterprise */ }
         <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col">
           <div className="p-6 bg-gray-50 border-b border-gray-200">
             <h3 className="text-xl font-bold text-gray-900">Enterprise</h3>
             <div className="mt-4 flex items-baseline text-gray-900">
-              <span className="text-3xl font-bold tracking-tight">${enterprisePrice}</span>
+              <span className="text-3xl font-bold tracking-tight">${ enterprisePrice }</span>
               <span className="ml-1 text-xl font-semibold">/developer</span>
               <span className="ml-1 text-sm font-normal text-gray-500">/month</span>
             </div>
@@ -167,12 +167,12 @@ export function IntegratedPricingTiers({
           </div>
           <div className="p-6 flex-1 flex flex-col">
             <ul className="space-y-4 flex-1">
-              {!hideRemediationMultiplier && (
+              { !hideRemediationMultiplier && (
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
                   <span className="text-gray-600">3x remediation multiplier</span>
                 </li>
-              )}
+              ) }
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
                 <span className="text-gray-600">Premium support</span>
@@ -200,7 +200,7 @@ export function IntegratedPricingTiers({
           </div>
         </div>
 
-        {/* Custom */}
+        { /* Custom */ }
         <div className="bg-gradient-to-br from-[#8220ff]/10 to-[#8220ff]/5 rounded-xl shadow-md overflow-hidden border border-[#8220ff]/20 flex flex-col">
           <div className="p-6 bg-[#8220ff]/20 border-b border-[#8220ff]/20">
             <h3 className="text-xl font-bold text-white">Custom</h3>
@@ -241,7 +241,7 @@ export function IntegratedPricingTiers({
         </div>
       </div>
 
-      {/* Integrated Calculator */}
+      { /* Integrated Calculator */ }
       <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 mb-12">
         <div className="p-6 border-b border-gray-100">
           <h3 className="text-2xl font-bold text-gray-900">Calculate Your Price</h3>
@@ -250,36 +250,36 @@ export function IntegratedPricingTiers({
 
         <div className="p-6 grid md:grid-cols-2 gap-8">
           <div>
-            {/* Plan Selection */}
+            { /* Plan Selection */ }
             <div className="mb-8">
               <h4 className="text-lg font-semibold text-gray-900 mb-4">Selected Plan</h4>
               <div className="grid grid-cols-2 gap-4">
-                {plans.map((plan) => (
+                { plans.map((plan) => (
                   <div
                     key={plan.id}
                     className={`border rounded-lg p-4 cursor-pointer transition-all duration-200 ${selectedPlan.id === plan.id
-                        ? "border-[#8220ff] bg-[#8220ff]/5 shadow-md"
-                        : "border-gray-200 hover:border-[#8220ff]/50"
-                      }`}
+                      ? 'border-[#8220ff] bg-[#8220ff]/5 shadow-md'
+                      : 'border-gray-200 hover:border-[#8220ff]/50'
+                    }`}
                     onClick={() => setSelectedPlan(plan)}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <h5 className="font-semibold">{plan.name}</h5>
+                      <h5 className="font-semibold">{ plan.name }</h5>
                       <div
-                        className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedPlan.id === plan.id ? "border-[#8220ff]" : "border-gray-300"
-                          }`}
+                        className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedPlan.id === plan.id ? 'border-[#8220ff]' : 'border-gray-300'
+                        }`}
                       >
-                        {selectedPlan.id === plan.id && <div className="w-3 h-3 rounded-full bg-[#8220ff]"></div>}
+                        { selectedPlan.id === plan.id && <div className="w-3 h-3 rounded-full bg-[#8220ff]"></div> }
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600">${plan.basePrice}/developer/month</p>
-                    <p className="text-sm text-gray-600 mt-1">{plan.remediationMultiplier}x remediation multiplier</p>
+                    <p className="text-sm text-gray-600">${ plan.basePrice }/developer/month</p>
+                    <p className="text-sm text-gray-600 mt-1">{ plan.remediationMultiplier }x remediation multiplier</p>
                   </div>
-                ))}
+                )) }
               </div>
             </div>
 
-            {/* Number of Developers */}
+            { /* Number of Developers */ }
             <div className="mb-8">
               <div className="flex justify-between items-center mb-4">
                 <h4 className="text-lg font-semibold text-gray-900">Number of Developers</h4>
@@ -321,14 +321,14 @@ export function IntegratedPricingTiers({
               </div>
             </div>
 
-            {/* Billing Cycle */}
+            { /* Billing Cycle */ }
             <div className="mb-8">
               <h4 className="text-lg font-semibold text-gray-900 mb-4">Billing Cycle</h4>
               <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                 <div>
-                  <span className={`font-medium ${isYearly ? "text-gray-500" : "text-gray-900"}`}>Monthly</span>
+                  <span className={`font-medium ${isYearly ? 'text-gray-500' : 'text-gray-900'}`}>Monthly</span>
                   <span className="mx-2 text-gray-400">|</span>
-                  <span className={`font-medium ${isYearly ? "text-gray-900" : "text-gray-500"}`}>
+                  <span className={`font-medium ${isYearly ? 'text-gray-900' : 'text-gray-500'}`}>
                     Yearly (Save 10%)
                   </span>
                 </div>
@@ -348,34 +348,34 @@ export function IntegratedPricingTiers({
             </div>
           </div>
 
-          {/* Price Summary */}
+          { /* Price Summary */ }
           <div className="bg-gray-50 rounded-lg p-6 h-fit">
             <div className="flex justify-between items-center mb-4">
               <h4 className="text-lg font-semibold text-gray-900">Summary</h4>
-              <div className="text-sm text-gray-500">{selectedPlan.name} Plan</div>
+              <div className="text-sm text-gray-500">{ selectedPlan.name } Plan</div>
             </div>
 
             <div className="space-y-2 mb-4">
               <div className="flex justify-between">
                 <span className="text-gray-600">Base price</span>
                 <span className="font-medium">
-                  ${selectedPlan.basePrice}/developer/{isYearly ? "month" : "month"}
+                  ${ selectedPlan.basePrice }/developer/{ isYearly ? 'month' : 'month' }
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Number of developers</span>
-                <span className="font-medium">{developers}</span>
+                <span className="font-medium">{ developers }</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Billing cycle</span>
-                <span className="font-medium">{isYearly ? "Yearly" : "Monthly"}</span>
+                <span className="font-medium">{ isYearly ? 'Yearly' : 'Monthly' }</span>
               </div>
-              {isYearly && (
+              { isYearly && (
                 <div className="flex justify-between text-green-600">
                   <span>Yearly discount</span>
                   <span>10%</span>
                 </div>
-              )}
+              ) }
             </div>
 
             <div className="border-t border-gray-200 pt-4 mb-4">
@@ -383,24 +383,24 @@ export function IntegratedPricingTiers({
                 <span className="text-lg font-semibold text-gray-900">Total price</span>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-[#8220ff]">
-                    ${isYearly ? Math.round(yearlyPrice).toLocaleString() : Math.round(monthlyPrice).toLocaleString()}
+                    ${ isYearly ? Math.round(yearlyPrice).toLocaleString() : Math.round(monthlyPrice).toLocaleString() }
                   </div>
-                  <div className="text-sm text-gray-500">per {billingPeriod}</div>
+                  <div className="text-sm text-gray-500">per { billingPeriod }</div>
                 </div>
               </div>
-              {isYearly && savings > 0 && (
+              { isYearly && savings > 0 && (
                 <div className="mt-2 text-sm text-green-600 text-right">
-                  You save ${Math.round(savings).toLocaleString()} per year
+                  You save ${ Math.round(savings).toLocaleString() } per year
                 </div>
-              )}
+              ) }
             </div>
 
-            <Button className="w-full bg-[#8220ff] hover:bg-[#6010df]">Get Started with {selectedPlan.name}</Button>
+            <Button className="w-full bg-[#8220ff] hover:bg-[#6010df]">Get Started with { selectedPlan.name }</Button>
           </div>
         </div>
       </div>
 
-      {/* Feature comparison */}
+      { /* Feature comparison */ }
       <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200">
         <div className="p-6 border-b border-gray-100">
           <h3 className="text-2xl font-bold text-gray-900">Plan Comparison</h3>
@@ -433,10 +433,10 @@ export function IntegratedPricingTiers({
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Price</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">$0</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center font-medium">
-                  ${professionalPrice}/developer
+                  ${ professionalPrice }/developer
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                  ${enterprisePrice}/developer
+                  ${ enterprisePrice }/developer
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Custom</td>
               </tr>
@@ -447,7 +447,7 @@ export function IntegratedPricingTiers({
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Unlimited</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Unlimited</td>
               </tr>
-              {!hideRemediationMultiplier && (
+              { !hideRemediationMultiplier && (
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     Remediation multiplier
@@ -457,7 +457,7 @@ export function IntegratedPricingTiers({
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">3x</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Custom</td>
                 </tr>
-              )}
+              ) }
               <tr>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Support</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Community</td>
@@ -672,7 +672,7 @@ export function IntegratedPricingTiers({
         </div>
       </div>
 
-      {/* FAQ Section */}
+      { /* FAQ Section */ }
       <div className="mt-12">
         <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 p-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
@@ -684,7 +684,7 @@ export function IntegratedPricingTiers({
                 support for your team.
               </p>
             </div>
-            {!hideRemediationMultiplier && (
+            { !hideRemediationMultiplier && (
               <div>
                 <h4 className="font-semibold text-lg text-gray-900 mb-2">What is a remediation multiplier?</h4>
                 <p className="text-gray-600">
@@ -692,7 +692,7 @@ export function IntegratedPricingTiers({
                   vulnerability detected. Higher tiers offer more remediation options.
                 </p>
               </div>
-            )}
+            ) }
             <div>
               <h4 className="font-semibold text-lg text-gray-900 mb-2">Can I switch plans?</h4>
               <p className="text-gray-600">
@@ -710,7 +710,7 @@ export function IntegratedPricingTiers({
         </div>
       </div>
 
-      {/* CTA Section */}
+      { /* CTA Section */ }
       <div className="mt-12 text-center">
         <h3 className="text-2xl font-bold text-white mb-4">Ready to secure your software supply chain?</h3>
         <p className="text-white mb-6 max-w-2xl mx-auto">
@@ -724,5 +724,5 @@ export function IntegratedPricingTiers({
         </div>
       </div>
     </div>
-  )
+  );
 }
