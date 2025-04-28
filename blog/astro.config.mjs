@@ -1,15 +1,38 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig, envField } from "astro/config";
+import { loadEnv } from "vite";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
-import react from '@astrojs/react';
+import react from "@astrojs/react";
 
-// https://astro.build/config
+const { BLOG_SITE_URL, PORT, SITE_URL } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 export default defineConfig({
-    site: 'https://example.com',
-    vite: {
-        plugins: [tailwindcss()],
-    },
-    integrations: [mdx(), sitemap(), react()],
+	env: {
+		schema: {
+			BLOG_SITE_URL: envField.string({ context: "client", access: "public" }),
+			SITE_URL: envField.string({ context: "client", access: "public" }),
+			PORT: envField.number({ context: "client", access: "public", default: 9000 }),
+		}
+	},
+	server: { port: Number(PORT) },
+	site: `${BLOG_SITE_URL}}`,
+	vite: {
+		plugins: [tailwindcss()],
+	},
+	integrations: [mdx(), sitemap({
+		serialize(item) {
+			item.changefreq = "daily";
+			item.lastmod = new Date();
+			item.priority = 0.9;
+			return item
+		},
+		i18n: {
+			defaultLocale: 'en', // All urls that don't contain `es` or `fr` after `https://plexicus.com/` will be treated as default locale, i.e. `en`
+			locales: {
+			  en: 'en-US', // The `defaultLocale` value must present in `locales` keys
+			  es: 'es-ES',
+			  fr: 'it-IT',
+			},
+		  },
+	}), react()],
 });
