@@ -13,7 +13,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
   id-token: write
 
 concurrency:
@@ -33,7 +32,5 @@ jobs:
           npm run build
       - uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: landing/dist
           cname: www.plexicus.ai
-          publish_branch: gh-pages

@@ -13,7 +13,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
   id-token: write
 
 concurrency:
@@ -25,7 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: sleep 30 # Wait 30 seconds to avoid concurrency issues
       - run: |
           cd blog
           npm ci
@@ -34,7 +32,5 @@ jobs:
           npm run build
       - uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: blog/dist
           cname: blog.plexicus.ai
-          publish_branch: gh-pages
