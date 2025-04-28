@@ -1,4 +1,4 @@
-import Link from "./ui/link"
+import Link from './ui/link';
 
 export default function Footer() {
   return (
@@ -119,15 +119,15 @@ export default function Footer() {
         <div className="mt-8 pt-6 border-t border-gray-200">
           <div className="flex justify-between items-center mb-3">
             <p className="text-gray-500 text-sm">
-              &copy; 2025 PLEXICUS, LLC.{" "}
+              &copy; 2025 PLEXICUS, LLC.{ ' ' }
               <Link href="/privacy" className="underline hover:text-gray-700">
                 Privacy Policy
-              </Link>{" "}
-              ·{" "}
+              </Link>{ ' ' }
+              ·{ ' ' }
               <Link href="/management" className="underline hover:text-gray-700">
                 Management Policy
-              </Link>{" "}
-              ·{" "}
+              </Link>{ ' ' }
+              ·{ ' ' }
               <Link href="/legal" className="underline hover:text-gray-700">
                 Legal Notice
               </Link>
@@ -148,5 +148,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

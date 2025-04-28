@@ -1,24 +1,24 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
-import Link from '../../components/ui/link';
-import Image from 'astro/components/Image.astro';
-import Navbar from '../../components/navbar';
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import Link from "../../components/ui/link";
+import Image from "astro/components/Image.astro";
+import Navbar from "../../components/navbar";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
 			main {
 				width: 960px;
 			}
@@ -86,53 +86,53 @@ const posts = (await getCollection('blog')).sort(
 					font-size: 1.563em;
 				}
 			}
-		</style>
-	</head>
-	<body>
-		<Navbar client:load/>
-		<main class="container mx-auto px-4 py-24 max-w-6xl">
-			<section>
+    </style>
+  </head>
+  <body>
+    <Navbar client:load/>
+    <main class="container mx-auto px-4 py-24 max-w-6xl">
+      <section>
 			  <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
-				{posts.map((post, index) => (
+          {posts.map((post, index) => (
 				  <li
-					class={`${
-					  index === 0 ? "md:col-span-2 mb-8 md:text-center" : ""
-					} transition-transform duration-300 hover:scale-[1.02]`}
+              class:list={[`
+					  
+               transition-transform duration-300 hover:scale-[1.02]`,{ "md:col-span-2 mb-8 md:text-center": index === 0 }]}
 				  >
-					<Link
+              <Link
 					  href={`/blog/${post.id}`}
 					  className="block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
-					>
+              >
 					  <div class="relative">
-						<Image
+                  <Image
 						  src={post.data.heroImage || "/placeholder.svg"}
 						  alt=""
 						  width={index === 0 ? 1440 : 720}
 						  height={index === 0 ? 720 : 360}
 						  class="w-full h-auto object-cover transition-transform duration-300 hover:opacity-90"
-						/>
-						<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
 					  </div>
 	
 					  <div class="p-6">
-						<h4
-						  class={`font-bold text-slate-800 mb-2 transition-colors duration-300 hover:text-[#8220ff] ${
-							index === 0 ? "text-3xl md:text-4xl" : "text-xl md:text-2xl"
-						  }`}
-						>
+                  <h4
+						  class:list={[`font-bold text-slate-800 mb-2 transition-colors duration-300 hover:text-[#8220ff] 
+                      
+						  `,{ "text-3xl md:text-4xl": index === 0, "text-xl md:text-2xl": index !== 0 }]}
+                  >
 						  {post.data.title}
-						</h4>
+                  </h4>
 	
-						<p class="text-slate-500 transition-colors duration-300 group-hover:text-[#8220ff]/70">
+                  <p class="text-slate-500 transition-colors duration-300 group-hover:text-[#8220ff]/70">
 						  <FormattedDate date={post.data.pubDate} />
-						</p>
+                  </p>
 					  </div>
-					</Link>
+              </Link>
 				  </li>
-				))}
+          ))}
 			  </ul>
-			</section>
+      </section>
 		  </main>
-		<Footer />
-	</body>
+    <Footer />
+  </body>
 </html>
