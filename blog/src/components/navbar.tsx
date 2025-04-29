@@ -1,6 +1,8 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Button } from './ui/button';
 import Link from './ui/link';
+import { SITE_URL,SITE_PORT } from "astro:env/client";
+
 // Change Spanish comments and variable names to English
 
 // Extract types to improve maintainability
@@ -22,6 +24,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const FULL_SITE_URL = `${SITE_URL}:${SITE_PORT}`
+
   // const pathname = usePathname()
 
   // Add this near the other state variables at the top of the component
@@ -795,7 +799,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2 overflow-visible" aria-label="Plexicus Home">
+          <Link href={FULL_SITE_URL} className="flex items-center gap-2 overflow-visible" aria-label="Plexicus Home">
             <div className="relative w-auto h-14 flex items-center">
               <img
                 src="/images/plexicus-logo-white.png"
@@ -811,7 +815,7 @@ export default function Navbar() {
         </div>
 
         <nav className="hidden md:flex md:gap-4 lg:gap-6" aria-label="Main Navigation">
-          { Object.entries(menus)
+          {Object.entries(menus)
             .filter(([key]) => key === 'products')
             .map(([key, menu]) => (
               <div
@@ -826,8 +830,8 @@ export default function Navbar() {
                   aria-haspopup="true"
                   onClick={() => handleMenuClick(key)}
                 >
-                  <span className="hidden lg:inline">{ menu.title }</span>
-                  <span className="lg:hidden">{ menu.shortTitle }</span>
+                  <span className="hidden lg:inline">{menu.title}</span>
+                  <span className="lg:hidden">{menu.shortTitle}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -845,14 +849,14 @@ export default function Navbar() {
                   </svg>
                 </button>
               </div>
-            )) }
+            ))}
           <Link
             href="/pricing"
             className="text-sm font-medium text-white hover:text-white/80 transition-colors py-2 whitespace-nowrap"
           >
             Pricing
           </Link>
-          { Object.entries(menus)
+          {Object.entries(menus)
             .filter(([key]) => key === 'solutions' || key === 'developers' || key === 'resources')
             .map(([key, menu]) => (
               <div
@@ -867,8 +871,8 @@ export default function Navbar() {
                   aria-haspopup="true"
                   onClick={() => handleMenuClick(key)}
                 >
-                  <span className="hidden lg:inline">{ menu.title }</span>
-                  <span className="lg:hidden">{ menu.shortTitle }</span>
+                  <span className="hidden lg:inline">{menu.title}</span>
+                  <span className="lg:hidden">{menu.shortTitle}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -886,7 +890,7 @@ export default function Navbar() {
                   </svg>
                 </button>
               </div>
-            )) }
+            ))}
           <Link
             href="/contact"
             className="text-sm font-medium text-white hover:text-white/80 transition-colors py-2 whitespace-nowrap"
@@ -913,7 +917,7 @@ export default function Navbar() {
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
         >
-          { menuOpen ? (
+          {menuOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -948,12 +952,12 @@ export default function Navbar() {
               <line x1="4" x2="20" y1="6" y2="6"></line>
               <line x1="4" x2="20" y1="18" y2="18"></line>
             </svg>
-          ) }
+          )}
         </button>
       </div>
 
-      { /* Reemplazar la sección del mega menú con esta implementación mejorada */ }
-      { activeMenu && (
+      { /* Reemplazar la sección del mega menú con esta implementación mejorada */}
+      {activeMenu && (
         <>
           <div
             className="fixed inset-0 bg-black/20 z-30"
@@ -970,12 +974,12 @@ export default function Navbar() {
           >
             <div className="container mx-auto py-8 px-4 md:px-6 max-w-7xl">
               <div className="flex flex-col md:flex-row">
-                { /* Left side - Image and Text (stacked) */ }
+                { /* Left side - Image and Text (stacked) */}
                 <div className="w-full md:w-1/3 pr-0 md:pr-8 mb-6 md:mb-0 flex flex-col">
-                  { /* Diagram section */ }
+                  { /* Diagram section */}
                   <div className="relative h-36 md:h-40 w-full rounded-lg overflow-hidden bg-white border border-gray-100 mb-4">
                     <div className="absolute inset-0 flex items-center justify-center">
-                      { activeMenu === 'products' && (
+                      {activeMenu === 'products' && (
                         <div className="w-full h-full flex items-center justify-center">
                           <svg
                             width="100%"
@@ -984,10 +988,10 @@ export default function Navbar() {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            { /* Fondo con gradiente */ }
+                            { /* Fondo con gradiente */}
                             <rect width="400" height="300" fill="white" />
 
-                            { /* Dashboard UI */ }
+                            { /* Dashboard UI */}
                             <rect
                               x="40"
                               y="30"
@@ -998,13 +1002,13 @@ export default function Navbar() {
                               filter="url(#shadowEffect)"
                             />
 
-                            { /* Barra superior */ }
+                            { /* Barra superior */}
                             <rect x="40" y="30" width="320" height="40" rx="12" fill="#8220ff" fillOpacity="0.9" />
                             <circle cx="65" cy="50" r="8" fill="white" fillOpacity="0.6" />
                             <circle cx="90" cy="50" r="8" fill="white" fillOpacity="0.6" />
                             <circle cx="115" cy="50" r="8" fill="white" fillOpacity="0.6" />
 
-                            { /* Sidebar */ }
+                            { /* Sidebar */}
                             <rect x="40" y="70" width="80" height="200" fill="#f5f5f7" />
                             <rect x="55" y="90" width="50" height="8" rx="4" fill="#8220ff" fillOpacity="0.7" />
                             <rect x="55" y="110" width="40" height="8" rx="4" fill="#8220ff" fillOpacity="0.5" />
@@ -1012,14 +1016,14 @@ export default function Navbar() {
                             <rect x="55" y="150" width="35" height="8" rx="4" fill="#8220ff" fillOpacity="0.5" />
                             <rect x="55" y="170" width="50" height="8" rx="4" fill="#8220ff" fillOpacity="0.5" />
 
-                            { /* Área principal */ }
+                            { /* Área principal */}
                             <rect x="140" y="90" width="200" height="70" rx="8" fill="#8220ff" fillOpacity="0.1" />
                             <rect x="155" y="105" width="170" height="40" rx="4" fill="#8220ff" fillOpacity="0.2" />
                             <circle cx="175" cy="125" r="15" fill="#8220ff" fillOpacity="0.8" />
                             <rect x="200" y="115" width="110" height="8" rx="4" fill="white" />
                             <rect x="200" y="130" width="80" height="6" rx="3" fill="white" fillOpacity="0.7" />
 
-                            { /* Gráficos y estadísticas */ }
+                            { /* Gráficos y estadísticas */}
                             <rect x="140" y="180" width="95" height="80" rx="8" fill="#f0f0f5" />
                             <path
                               d="M150 240 L170 220 L190 230 L210 200"
@@ -1046,17 +1050,17 @@ export default function Navbar() {
                               75%
                             </text>
 
-                            { /* Elementos decorativos */ }
+                            { /* Elementos decorativos */}
                             <circle cx="320" cy="50" r="12" fill="white" fillOpacity="0.2" />
                             <path d="M314 50 L320 56 L326 50" stroke="white" strokeWidth="2" strokeLinecap="round" />
 
-                            { /* Partículas decorativas */ }
+                            { /* Partículas decorativas */}
                             <circle cx="30" cy="30" r="5" fill="#8220ff" fillOpacity="0.5" />
                             <circle cx="350" cy="280" r="7" fill="#8220ff" fillOpacity="0.3" />
                             <circle cx="370" cy="50" r="4" fill="#8220ff" fillOpacity="0.4" />
                             <circle cx="20" cy="250" r="6" fill="#8220ff" fillOpacity="0.2" />
 
-                            { /* Líneas de conexión */ }
+                            { /* Líneas de conexión */}
                             <path
                               d="M15 100 C30 120, 20 150, 35 160"
                               stroke="#8220ff"
@@ -1070,7 +1074,7 @@ export default function Navbar() {
                               strokeDasharray="4 4"
                             />
 
-                            { /* Definiciones de gradientes y efectos */ }
+                            { /* Definiciones de gradientes y efectos */}
                             <defs>
                               <linearGradient
                                 id="productGradient"
@@ -1110,8 +1114,8 @@ export default function Navbar() {
                             </defs>
                           </svg>
                         </div>
-                      ) }
-                      { activeMenu === 'solutions' && (
+                      )}
+                      {activeMenu === 'solutions' && (
                         <div className="w-full h-full flex items-center justify-center">
                           <svg
                             width="100%"
@@ -1120,12 +1124,12 @@ export default function Navbar() {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            { /* White background */ }
+                            { /* White background */}
                             <rect width="400" height="300" fill="white" />
 
-                            { /* Process flow diagram - minimalist style */ }
+                            { /* Process flow diagram - minimalist style */}
 
-                            { /* Central circle */ }
+                            { /* Central circle */}
                             <circle
                               cx="200"
                               cy="150"
@@ -1136,43 +1140,43 @@ export default function Navbar() {
                               strokeWidth="2"
                             />
 
-                            { /* Process nodes */ }
+                            { /* Process nodes */}
                             <circle cx="100" cy="150" r="25" fill="white" stroke="#8220ff" strokeWidth="2" />
                             <circle cx="300" cy="150" r="25" fill="white" stroke="#8220ff" strokeWidth="2" />
                             <circle cx="200" cy="70" r="25" fill="white" stroke="#8220ff" strokeWidth="2" />
                             <circle cx="200" cy="230" r="25" fill="white" stroke="#8220ff" strokeWidth="2" />
 
-                            { /* Connection lines */ }
+                            { /* Connection lines */}
                             <path d="M125 150 L160 150" stroke="#8220ff" strokeWidth="2" />
                             <path d="M240 150 L275 150" stroke="#8220ff" strokeWidth="2" />
                             <path d="M200 95 L200 130" stroke="#8220ff" strokeWidth="2" />
                             <path d="M200 170 L200 205" stroke="#8220ff" strokeWidth="2" />
 
-                            { /* Directional arrows */ }
+                            { /* Directional arrows */}
                             <polygon points="158,145 158,155 168,150" fill="#8220ff" />
                             <polygon points="242,145 242,155 232,150" fill="#8220ff" />
                             <polygon points="195,128 205,128 200,138" fill="#8220ff" />
                             <polygon points="195,172 205,172 200,162" fill="#8220ff" />
 
-                            { /* Node inner details */ }
+                            { /* Node inner details */}
                             <circle cx="100" cy="150" r="10" fill="#8220ff" fillOpacity="0.3" />
                             <circle cx="300" cy="150" r="10" fill="#8220ff" fillOpacity="0.3" />
                             <circle cx="200" cy="70" r="10" fill="#8220ff" fillOpacity="0.3" />
                             <circle cx="200" cy="230" r="10" fill="#8220ff" fillOpacity="0.3" />
 
-                            { /* Central node details */ }
+                            { /* Central node details */}
                             <circle cx="200" cy="150" r="20" fill="#8220ff" fillOpacity="0.2" />
                             <circle cx="200" cy="150" r="10" fill="#8220ff" fillOpacity="0.4" />
 
-                            { /* Decorative elements */ }
+                            { /* Decorative elements */}
                             <circle cx="150" cy="100" r="5" fill="#8220ff" fillOpacity="0.2" />
                             <circle cx="250" cy="100" r="5" fill="#8220ff" fillOpacity="0.2" />
                             <circle cx="150" cy="200" r="5" fill="#8220ff" fillOpacity="0.2" />
                             <circle cx="250" cy="200" r="5" fill="#8220ff" fillOpacity="0.2" />
                           </svg>
                         </div>
-                      ) }
-                      { activeMenu === 'resources' && (
+                      )}
+                      {activeMenu === 'resources' && (
                         <div className="w-full h-full flex items-center justify-center">
                           <svg
                             width="100%"
@@ -1181,12 +1185,12 @@ export default function Navbar() {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            { /* Fondo con gradiente */ }
+                            { /* Fondo con gradiente */}
                             <rect width="400" height="300" fill="white" />
 
-                            { /* Elementos principales - Diseño simplificado pero manteniendo el mismo tamaño */ }
+                            { /* Elementos principales - Diseño simplificado pero manteniendo el mismo tamaño */}
                             <g filter="url(#resourcesShadow)">
-                              { /* Libro central */ }
+                              { /* Libro central */}
                               <rect x="140" y="80" width="120" height="140" rx="4" fill="url(#bookGradient)" />
                               <rect
                                 x="140"
@@ -1199,17 +1203,17 @@ export default function Navbar() {
                                 fill="none"
                               />
 
-                              { /* Páginas del libro */ }
+                              { /* Páginas del libro */}
                               <path d="M160 100 L240 100" stroke="#8220ff" strokeWidth="1" strokeOpacity="0.3" />
                               <path d="M160 120 L240 120" stroke="#8220ff" strokeWidth="1" strokeOpacity="0.3" />
                               <path d="M160 140 L240 140" stroke="#8220ff" strokeWidth="1" strokeOpacity="0.3" />
                               <path d="M160 160 L240 160" stroke="#8220ff" strokeWidth="1" strokeOpacity="0.3" />
                               <path d="M160 180 L240 180" stroke="#8220ff" strokeWidth="1" strokeOpacity="0.3" />
 
-                              { /* Marcador */ }
+                              { /* Marcador */}
                               <path d="M230 80 L230 110 L220 100 L210 110 L210 80" fill="#8220ff" fillOpacity="0.3" />
 
-                              { /* Documento flotante - Documentación */ }
+                              { /* Documento flotante - Documentación */}
                               <g transform="translate(-10, -10) rotate(-5)">
                                 <rect
                                   x="80"
@@ -1227,7 +1231,7 @@ export default function Navbar() {
                                 <path d="M90 180 L120 180" stroke="#8220ff" strokeWidth="1" strokeOpacity="0.5" />
                               </g>
 
-                              { /* Pantalla de video - Webinars */ }
+                              { /* Pantalla de video - Webinars */}
                               <g transform="translate(10, -10) rotate(5)">
                                 <rect
                                   x="240"
@@ -1253,21 +1257,21 @@ export default function Navbar() {
                               </g>
                             </g>
 
-                            { /* Espacio en blanco para las subsecciones - Manteniendo el mismo tamaño que los otros diagramas */ }
+                            { /* Espacio en blanco para las subsecciones - Manteniendo el mismo tamaño que los otros diagramas */}
                             <rect x="80" y="230" width="240" height="50" fill="none" />
 
-                            { /* Elementos decorativos */ }
+                            { /* Elementos decorativos */}
                             <circle cx="200" cy="50" r="15" fill="#8220ff" fillOpacity="0.1" />
                             <circle cx="200" cy="50" r="10" fill="#8220ff" fillOpacity="0.2" />
                             <circle cx="200" cy="50" r="5" fill="#8220ff" fillOpacity="0.3" />
 
-                            { /* Partículas brillantes */ }
+                            { /* Partículas brillantes */}
                             <circle cx="150" cy="60" r="2" fill="#8220ff" fillOpacity="0.6" />
                             <circle cx="250" cy="60" r="2" fill="#8220ff" fillOpacity="0.6" />
                             <circle cx="120" cy="150" r="2" fill="#8220ff" fillOpacity="0.6" />
                             <circle cx="280" cy="150" r="2" fill="#8220ff" fillOpacity="0.6" />
 
-                            { /* Definiciones de gradientes y efectos */ }
+                            { /* Definiciones de gradientes y efectos */}
                             <defs>
                               <linearGradient
                                 id="resourcesGradient"
@@ -1299,8 +1303,8 @@ export default function Navbar() {
                             </defs>
                           </svg>
                         </div>
-                      ) }
-                      { activeMenu === 'developers' && (
+                      )}
+                      {activeMenu === 'developers' && (
                         <div className="w-full h-full flex items-center justify-center">
                           <svg
                             width="100%"
@@ -1309,19 +1313,19 @@ export default function Navbar() {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
-                            { /* Background */ }
+                            { /* Background */}
                             <rect width="400" height="300" fill="white" />
 
-                            { /* Code Editor Window - Positioned slightly to the left */ }
+                            { /* Code Editor Window - Positioned slightly to the left */}
                             <rect x="20" y="20" width="280" height="200" rx="8" fill="#1E1E1E" />
 
-                            { /* Editor Header */ }
+                            { /* Editor Header */}
                             <rect x="20" y="20" width="280" height="30" rx="8" fill="#333333" />
                             <circle cx="40" cy="35" r="6" fill="#FF5F56" />
                             <circle cx="60" cy="35" r="6" fill="#FFBD2E" />
                             <circle cx="80" cy="35" r="6" fill="#27C93F" />
 
-                            { /* Code Lines */ }
+                            { /* Code Lines */}
                             <rect x="40" y="70" width="120" height="10" rx="2" fill="#9CDCFE" fillOpacity="0.7" />
                             <rect x="40" y="90" width="180" height="10" rx="2" fill="#CE9178" fillOpacity="0.7" />
                             <rect x="60" y="110" width="200" height="10" rx="2" fill="#6A9955" fillOpacity="0.7" />
@@ -1330,7 +1334,7 @@ export default function Navbar() {
                             <rect x="60" y="170" width="180" height="10" rx="2" fill="#4EC9B0" fillOpacity="0.7" />
                             <rect x="40" y="190" width="160" height="10" rx="2" fill="#C586C0" fillOpacity="0.7" />
 
-                            { /* Line Numbers */ }
+                            { /* Line Numbers */}
                             <text x="30" y="75" fontSize="10" fill="#858585">
                               1
                             </text>
@@ -1353,16 +1357,16 @@ export default function Navbar() {
                               7
                             </text>
 
-                            { /* Terminal Window - Overlapping the code editor */ }
+                            { /* Terminal Window - Overlapping the code editor */}
                             <rect x="80" y="130" width="310" height="130" rx="8" fill="#1E1E1E" filter="url(#shadow)" />
 
-                            { /* Terminal Header */ }
+                            { /* Terminal Header */}
                             <rect x="80" y="130" width="310" height="25" rx="8" fill="#333333" />
                             <text x="235" y="147" fontSize="12" fill="#FFFFFF" textAnchor="middle">
                               Terminal
                             </text>
 
-                            { /* Terminal Content */ }
+                            { /* Terminal Content */}
                             <text x="90" y="170" fontSize="9" fill="#CCCCCC" fontFamily="monospace">
                               $ git clone https://github.com/plexicus/plexicus-sdk.git
                             </text>
@@ -1382,7 +1386,7 @@ export default function Navbar() {
                               $ npm run dev
                             </text>
 
-                            { /* GitHub Icon */ }
+                            { /* GitHub Icon */}
                             <g transform="translate(320, 240) scale(0.8)">
                               <circle cx="0" cy="0" r="25" fill="white" />
                               <path
@@ -1392,7 +1396,7 @@ export default function Navbar() {
                               />
                             </g>
 
-                            { /* Shadow filter */ }
+                            { /* Shadow filter */}
                             <defs>
                               <filter id="shadow" x="0" y="0" width="400" height="300" filterUnits="userSpaceOnUse">
                                 <feDropShadow dx="2" dy="4" stdDeviation="3" floodColor="#000000" floodOpacity="0.3" />
@@ -1400,29 +1404,29 @@ export default function Navbar() {
                             </defs>
                           </svg>
                         </div>
-                      ) }
+                      )}
                     </div>
                   </div>
 
-                  { /* Text section */ }
+                  { /* Text section */}
                   <div className="bg-gray-50 rounded-lg p-4">
                     <h3 className="text-xl font-bold text-[#8220ff]">
-                      { menus[activeMenu as keyof typeof menus].title }
+                      {menus[activeMenu as keyof typeof menus].title}
                     </h3>
                     <p className="text-gray-700">
-                      { activeMenu === 'products'
+                      {activeMenu === 'products'
                         ? 'Explore our product'
                         : activeMenu === 'solutions'
                           ? 'Explore our solutions'
-                          : 'Explore our resources' }
+                          : 'Explore our resources'}
                     </p>
                   </div>
                 </div>
 
-                { /* Right side - Menu items */ }
+                { /* Right side - Menu items */}
                 <div className="w-full md:w-2/3">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    { menus[activeMenu as keyof typeof menus].items
+                    {menus[activeMenu as keyof typeof menus].items
                       .filter((item) => activeMenu !== 'resources' || !item.title.includes('vs.'))
                       .map((item, index) => (
                         <Link
@@ -1430,26 +1434,25 @@ export default function Navbar() {
                           href={item.href}
                           className="flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors group"
                           onClick={() => setActiveMenu(null)}
-                          role="menuitem"
                         >
                           <div className="w-12 h-12 bg-[#8220ff]/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-[#8220ff]/20 transition-colors">
-                            { item.icon }
+                            {item.icon}
                           </div>
                           <div>
                             <h4 className="font-semibold text-gray-900 group-hover:text-[#8220ff] transition-colors">
-                              { item.title }
+                              {item.title}
                             </h4>
-                            <p className="text-sm text-gray-600 mt-1">{ item.description }</p>
+                            <p className="text-sm text-gray-600 mt-1">{item.description}</p>
                           </div>
                         </Link>
-                      )) }
+                      ))}
 
-                    { activeMenu === 'resources' && (
+                    {activeMenu === 'resources' && (
                       <div className="col-span-1 sm:col-span-2 mt-4">
                         <div className="bg-purple-50 p-4 rounded-lg border border-purple-100">
                           <h3 className="text-sm font-medium text-purple-800 mb-3">Compare Plexicus</h3>
                           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            { menus.resources.items
+                            {menus.resources.items
                               .filter(
                                 (item) =>
                                   item.title === 'Plexicus vs. ArmorCode' ||
@@ -1464,40 +1467,40 @@ export default function Navbar() {
                                   onClick={() => setActiveMenu(null)}
                                 >
                                   <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-2 group-hover:bg-purple-200 transition-colors">
-                                    { React.cloneElement(item.icon as React.ReactElement, {
+                                    {React.cloneElement(item.icon as React.ReactElement<any>, {
                                       className: 'w-5 h-5 text-purple-700',
-                                    }) }
+                                    })}
                                   </div>
                                   <h4 className="font-medium text-sm text-gray-900 group-hover:text-purple-800 transition-colors">
-                                    { item.title }
+                                    {item.title}
                                   </h4>
                                 </Link>
-                              )) }
+                              ))}
                           </div>
                         </div>
                       </div>
-                    ) }
+                    )}
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </>
-      ) }
+      )}
 
-      { /* Mobile menu */ }
-      { menuOpen && <div className="fixed inset-0 bg-black/20 z-40 lg:hidden" onClick={() => setMenuOpen(false)}></div> }
+      { /* Mobile menu */}
+      {menuOpen && <div className="fixed inset-0 bg-black/20 z-40 lg:hidden" onClick={() => setMenuOpen(false)}></div>}
       <div
         className={`md:hidden fixed inset-0 z-50 bg-white transform transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         style={{ top: '64px', height: 'calc(100vh - 64px)', overflow: 'auto' }}
       >
         <div className="overflow-y-auto h-full p-4 pb-20">
           <div className="space-y-4">
-            { Object.entries(menus).map(([key, menu]) => (
+            {Object.entries(menus).map(([key, menu]) => (
               <div key={key} className="space-y-2">
-                <h3 className="font-semibold">{ menu.title }</h3>
+                <h3 className="font-semibold">{menu.title}</h3>
                 <div className="grid grid-cols-1 gap-2">
-                  { menu.items.map((item, index) => (
+                  {menu.items.map((item, index) => (
                     <Link
                       key={index}
                       href={item.href}
@@ -1505,14 +1508,14 @@ export default function Navbar() {
                       onClick={() => setMenuOpen(false)}
                     >
                       <div className="w-8 h-8 bg-primary/10 rounded-md mr-2 flex items-center justify-center">
-                        { React.cloneElement(item.icon, { width: 16, height: 16 }) }
+                        {React.cloneElement(item.icon as React.ReactElement<any>, { width: 16, height: 16 })}
                       </div>
-                      <span className="text-sm">{ item.title }</span>
+                      <span className="text-sm">{item.title}</span>
                     </Link>
-                  )) }
+                  ))}
                 </div>
               </div>
-            )) }
+            ))}
 
             <Link href="/pricing" className="block py-2 text-sm font-medium" onClick={() => setMenuOpen(false)}>
               Pricing
