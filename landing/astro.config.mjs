@@ -4,17 +4,18 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 
-const { BLOG_SITE_URL, PORT, SITE_URL } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
+const { BLOG_SITE_URL, BLOG_PORT, SITE_PORT, SITE_URL } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 // https://astro.build/config
 export default defineConfig({
 	env: {
 		schema: {
 			BLOG_SITE_URL: envField.string({ context: "client", access: "public", default: 'https://blog.plexicus.ai' }),
 			SITE_URL: envField.string({ context: "client", access: "public", default: 'https://plexicus.ai' }),
-			PORT: envField.number({ context: "client", access: "public", default: 8000 }),
+			BLOG_PORT: envField.number({ context: "client", access: "public", default: 9000 }),
+			SITE_PORT: envField.number({ context: "client", access: "public", default: 8000 }),
 		}
 	},
-	server: { port: PORT ? Number(PORT) : 8000 },
+	server: { port: SITE_PORT ? Number(SITE_PORT) : 8000 },
 	site: SITE_URL ?? 'https://plexicus.ai',
 	vite: {
 		plugins: [tailwindcss()],
