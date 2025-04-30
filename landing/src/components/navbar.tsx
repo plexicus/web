@@ -1,6 +1,11 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Button } from './ui/button';
 import Link from './ui/link';
+import { BLOG_SITE_URL, BLOG_PORT } from 'astro:env/client';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const BLOG_URL = `${BLOG_SITE_URL}:${BLOG_PORT}`;
+
 // Change Spanish comments and variable names to English
 
 // Extract types to improve maintainability
@@ -18,10 +23,11 @@ type MenuType = {
   items: MenuItemType[];
 };
 
-export default function Navbar() {
+export default function Navbar({ lang }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const t = useTranslations(lang);
   // const pathname = usePathname()
 
   // Add this near the other state variables at the top of the component
@@ -97,7 +103,7 @@ export default function Navbar() {
 
   const menus: Record<string, MenuType> = {
     products: {
-      title: 'Product',
+      title: t('nav.product'),
       shortTitle: 'Product',
       image: 'product-diagram',
       items: [
@@ -176,7 +182,7 @@ export default function Navbar() {
       ],
     },
     solutions: {
-      title: 'Solutions',
+      title: t('nav.solutions'),
       shortTitle: 'Solutions',
       image: 'solutions-diagram',
       items: [
@@ -471,7 +477,7 @@ export default function Navbar() {
       ],
     },
     developers: {
-      title: 'Developers',
+      title: t('nav.developers'),
       shortTitle: 'Developers',
       image: 'developers-diagram',
       items: [
@@ -573,14 +579,14 @@ export default function Navbar() {
       ],
     },
     resources: {
-      title: 'Resources',
+      title: t('nav.resources'),
       shortTitle: 'Resources',
       image: 'resources-diagram',
       items: [
         {
           title: 'Blog',
           description: 'Latest news and security insights',
-          href: '/blog',
+          href: BLOG_URL,
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -847,10 +853,10 @@ export default function Navbar() {
               </div>
             )) }
           <Link
-            href="/pricing"
+            href=""
             className="text-sm font-medium text-white hover:text-white/80 transition-colors py-2 whitespace-nowrap"
           >
-            Pricing
+            { t('nav.pricing') }
           </Link>
           { Object.entries(menus)
             .filter(([key]) => key === 'solutions' || key === 'developers' || key === 'resources')
@@ -891,7 +897,7 @@ export default function Navbar() {
             href="/contact"
             className="text-sm font-medium text-white hover:text-white/80 transition-colors py-2 whitespace-nowrap"
           >
-            Contact
+            { t('nav.contact') }
           </Link>
         </nav>
 
