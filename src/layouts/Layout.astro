@@ -2,6 +2,8 @@
 import "../styles/globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import { getLangFromUrl } from "../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
 ---
 <html lang="en">
   <head>
@@ -12,7 +14,7 @@ import Footer from "../components/footer";
     <title>Astro</title>
 		
   </head>
-  <Navbar client:load/>
+  <Navbar client:load lang={lang}/>
   <body>
     <!-- Wrap the slot element with your existing layout templating -->
     <slot />
