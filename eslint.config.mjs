@@ -1,6 +1,5 @@
 import eslintPluginAstro from "eslint-plugin-astro";
 import stylisticTs from "@stylistic/eslint-plugin-ts";
-import config from "../eslint.config.mjs";
 import stylisticJsx from "@stylistic/eslint-plugin-jsx";
 import { defineConfig, globalIgnores } from "eslint/config";
 import stylistic from "@stylistic/eslint-plugin";
