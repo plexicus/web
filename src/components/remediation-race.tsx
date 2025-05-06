@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import { useTranslations } from '../i18n/utils';
 
-export default function RemediationRace() {
+export default function RemediationRace({ lang }) {
   const [animationStep, setAnimationStep] = useState(0);
   const [traditionalTime, setTraditionalTime] = useState(0);
   const [plexicusTime, setPlexicusTime] = useState(0);
@@ -10,7 +11,7 @@ export default function RemediationRace() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
-
+  const t = useTranslations(lang);
   const [hourlyRate, setHourlyRate] = useState(50);
   const [selectedPlan, setSelectedPlan] = useState({ id: 'professional', name: 'Professional', price: 8 });
   const [vulnerabilityCount, setVulnerabilityCount] = useState(10);
@@ -18,9 +19,9 @@ export default function RemediationRace() {
   // Actualizar los tiempos de los pasos de remediación
   const remediationSteps = [
     { name: 'Initial Detection', traditionalTime: 35, plexicusTime: 5 },
-    { name: 'Triage', traditionalTime: 45, plexicusTime: 5 },
-    { name: 'Analysis', traditionalTime: 45, plexicusTime: 3 },
-    { name: 'Fix Development', traditionalTime: 175, plexicusTime: 10 },
+    { name: t('vulnerability_remediation_race.plexicus.triage.description'), traditionalTime: 45, plexicusTime: 5 },
+    { name: t('vulnerability_remediation_race.plexicus.analysis.description'), traditionalTime: 45, plexicusTime: 3 },
+    { name: t('vulnerability_remediation_race.plexicus.fix_development.description'), traditionalTime: 175, plexicusTime: 10 },
     // Testing eliminado
   ];
 
@@ -238,11 +239,10 @@ export default function RemediationRace() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
-            Vulnerability Remediation Race
+            { t('vulnerability_remediation_race.title') }
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            See how Plexicus dramatically accelerates the vulnerability remediation process compared to traditional
-            methods
+            { t('vulnerability_remediation_race.subtitle') }
           </p>
         </div>
 
@@ -252,7 +252,7 @@ export default function RemediationRace() {
             <div className="bg-gray-800 text-white p-4">
               <h3 className="text-xl font-bold">Traditional Method</h3>
               <div className="flex items-center justify-between mt-2">
-                <div className="text-sm text-gray-300">Time elapsed</div>
+                <div className="text-sm text-gray-300">{ t('vulnerability_remediation_race.traditional_method.time_elapsed') }</div>
                 <div className="text-2xl font-mono font-bold flex items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -361,8 +361,7 @@ export default function RemediationRace() {
                               </svg>
                             </div>
                             <div className="text-sm">
-                              <div className="font-medium">Vulnerability detected</div>
-                              <div className="text-gray-500">Manual scanning process</div>
+                              <div className="font-medium">{ t('vulnerability_remediation_race.traditional_method.initial_detection.description') }</div>
                             </div>
                           </div>
                         ) }
@@ -390,8 +389,8 @@ export default function RemediationRace() {
                               </svg>
                             </div>
                             <div className="text-sm">
-                              <div className="font-medium">Manual prioritization</div>
-                              <div className="text-gray-500">Waiting for security team review</div>
+                              <div className="font-medium">{ t('vulnerability_remediation_race.traditional_method.manual_prioritization') }</div>
+                              <div className="text-gray-500">{ t('vulnerability_remediation_race.traditional_method.waiting_for_security_team_review') }</div>
                             </div>
                           </div>
                         ) }
@@ -417,8 +416,8 @@ export default function RemediationRace() {
                               </svg>
                             </div>
                             <div className="text-sm">
-                              <div className="font-medium">Expert analysis required</div>
-                              <div className="text-gray-500">Security team investigating root cause</div>
+                              <div className="font-medium">{ t('vulnerability_remediation_race.traditional_method.expert_analysis_required') }</div>
+                              <div className="text-gray-500">{ t('vulnerability_remediation_race.traditional_method.security_team_investigating_root_cause') }</div>
                             </div>
                           </div>
                         ) }
@@ -444,8 +443,8 @@ export default function RemediationRace() {
                               </svg>
                             </div>
                             <div className="text-sm">
-                              <div className="font-medium">Manual code fixes</div>
-                              <div className="text-gray-500">Developer writing and reviewing patches</div>
+                              <div className="font-medium">{ t('vulnerability_remediation_race.traditional_method.manual_code_fixes') }</div>
+                              <div className="text-gray-500">{ t('vulnerability_remediation_race.traditional_method.developer_writing_and_reviewing_patches') }</div>
                             </div>
                           </div>
                         ) }
@@ -477,9 +476,9 @@ export default function RemediationRace() {
           { /* Plexicus Method */ }
           <div className="bg-white rounded-xl shadow-md overflow-hidden" style={{ minHeight: '590px' }}>
             <div className="bg-[#8220ff] text-white p-4">
-              <h3 className="text-xl font-bold">plexicus</h3>
+              <h3 className="text-xl font-bold">Plexicus</h3>
               <div className="flex items-center justify-between mt-2">
-                <div className="text-sm text-white/80">Time elapsed</div>
+                <div className="text-sm text-white/80">{ t('vulnerability_remediation_race.traditional_method.time_elapsed') }</div>
                 <div className="text-2xl font-mono font-bold flex items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -588,8 +587,8 @@ export default function RemediationRace() {
                               </svg>
                             </div>
                             <div className="text-sm">
-                              <div className="font-medium">AI-powered detection</div>
-                              <div className="text-gray-500">Continuous automated scanning</div>
+                              <div className="font-medium">{ t('vulnerability_remediation_race.plexicus.ai_powered_detection') }</div>
+                              <div className="text-gray-500">{ t('vulnerability_remediation_race.plexicus.continuous_automated_scanning') }</div>
                             </div>
                           </div>
                         ) }
@@ -617,8 +616,8 @@ export default function RemediationRace() {
                               </svg>
                             </div>
                             <div className="text-sm">
-                              <div className="font-medium">Automated prioritization</div>
-                              <div className="text-gray-500">AI-based risk assessment</div>
+                              <div className="font-medium">{ t('vulnerability_remediation_race.plexicus.automated_prioritization') }</div>
+                              <div className="text-gray-500">{ t('vulnerability_remediation_race.plexicus.ai_based_risk_assessment') }</div>
                             </div>
                           </div>
                         ) }
@@ -696,8 +695,8 @@ export default function RemediationRace() {
                               </svg>
                             </div>
                             <div className="text-sm">
-                              <div className="font-medium">QA testing</div>
-                              <div className="text-gray-500">Manual verification of fixes</div>
+                              <div className="font-medium">{ t('vulnerability_remediation_race.plexicus.qa_testing') }</div>
+                              <div className="text-gray-500">{ t('vulnerability_remediation_race.plexicus.manual_verification_of_fixes') }</div>
                             </div>
                           </div>
                         ) }
@@ -735,9 +734,9 @@ export default function RemediationRace() {
                 { /* Left Column - Form */ }
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">See how much you can save with Plexicus</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">{ t('vulnerability_remediation_race.savings_calculator.title') }</h3>
                     <p className="text-sm text-gray-500 mt-1">
-                      Enter your details below to calculate potential savings
+                      { t('vulnerability_remediation_race.savings_calculator.subtitle') }
                     </p>
                   </div>
 
@@ -746,7 +745,7 @@ export default function RemediationRace() {
                     { /* Developer Rate Input */ }
                     <div>
                       <label htmlFor="hourlyRate" className="block text-sm font-medium text-gray-700 mb-1">
-                        Developer Hourly Rate ($)
+                        { t('vulnerability_remediation_race.savings_calculator.developer_hourly_rate') } ($)
                       </label>
                       <div className="relative rounded-md shadow-sm">
                         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -774,7 +773,7 @@ export default function RemediationRace() {
                     { /* Vulnerability Count Input */ }
                     <div>
                       <label htmlFor="vulnCount" className="block text-sm font-medium text-gray-700 mb-1">
-                        Number of Vulnerabilities
+                        { t('vulnerability_remediation_race.savings_calculator.number_of_vulnerabilities') }
                       </label>
                       <div className="relative rounded-md shadow-sm">
                         <input
@@ -800,7 +799,7 @@ export default function RemediationRace() {
                     <div className="mt-6 pt-4 border-t border-gray-200">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="bg-white p-4 rounded-lg border border-gray-200">
-                          <div className="text-sm text-gray-500">Traditional Cost</div>
+                          <div className="text-sm text-gray-500">{ t('vulnerability_remediation_race.savings_calculator.traditional_cost') }</div>
                           <div className="text-2xl font-bold text-gray-900">
                             ${ (calculateTraditionalCost() * vulnerabilityCount).toLocaleString() }
                           </div>
@@ -814,7 +813,7 @@ export default function RemediationRace() {
                       </div>
                       <div className="mt-4 bg-gradient-to-r from-[#8220ff]/10 to-[#8220ff]/20 p-4 rounded-lg border border-[#8220ff]/20">
                         <div className="flex justify-between items-center">
-                          <div className="text-sm font-medium text-[#8220ff]">Total Savings</div>
+                          <div className="text-sm font-medium text-[#8220ff]">{ t('vulnerability_remediation_race.savings_calculator.total_savings') }</div>
                           <div className="text-xl font-bold text-[#8220ff]">
                             $
                             { (

@@ -2,12 +2,16 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Button } from './ui/button';
 import Link from './ui/link';
 import { BLOG_SITE_URL, BLOG_PORT } from 'astro:env/client';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
 import { Languages as LanguagesIcon } from 'lucide-react';
 import { languages } from '../i18n/ui';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 const BLOG_URL = `${BLOG_SITE_URL}:${BLOG_PORT}`;
-
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 // Change Spanish comments and variable names to English
 
 // Extract types to improve maintainability
@@ -25,10 +29,11 @@ type MenuType = {
   items: MenuItemType[];
 };
 
-export default function Navbar() {
+export default function Navbar({ lang }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const t = useTranslations(lang);
   // const pathname = usePathname()
 
   // Add this near the other state variables at the top of the component
@@ -105,12 +110,11 @@ export default function Navbar() {
   const menus: Record<string, MenuType> = {
     products: {
       title: t('nav.product') as string,
-      title: 'Product',
       shortTitle: 'Product',
       image: 'product-diagram',
       items: [
         {
-          title: 'ASPM Overview',
+          title: t('nav.product.aspm_overview'),
           description: 'Complete application security protection',
           href: '/products/aspm',
           icon: (
@@ -134,7 +138,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Benefits',
+          title: t('nav.product.benefits'),
           description: 'See how Plexicus transforms security',
           href: '/products/benefits',
           icon: (
@@ -158,7 +162,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Use Cases',
+          title: t('nav.product.use_cases'),
           description: 'Real-world implementation examples',
           href: '/products/use-cases',
           icon: (
@@ -184,12 +188,12 @@ export default function Navbar() {
       ],
     },
     solutions: {
-      title: 'Solutions',
+      title: t('nav.solutions'),
       shortTitle: 'Solutions',
       image: 'solutions-diagram',
       items: [
         {
-          title: 'FinTech',
+          title: t('nav.solutions.fintech'),
           description: 'Security solutions for financial technology',
           href: '/solutions/fintech',
           icon: (
@@ -212,7 +216,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'HealthTech',
+          title: t('nav.solutions.healthtech'),
           description: 'HIPAA compliant security solutions',
           href: '/solutions/healthtech',
           icon: (
@@ -234,7 +238,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'HRTech',
+          title: t('nav.solutions.hrtech'),
           description: 'Secure HR and employee management systems',
           href: '/solutions/hrtech',
           icon: (
@@ -259,7 +263,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Legal Tech',
+          title: t('nav.solutions.hrtech'),
           description: 'Security for legal technology platforms',
           href: '/solutions/legaltech',
           icon: (
@@ -282,7 +286,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Group Companies',
+          title: t('nav.solutions.group_companies'),
           description: 'Solutions for corporate groups and holdings',
           href: '/solutions/group-companies',
           icon: (
@@ -305,7 +309,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Agencies',
+          title: t('nav.solutions.agencies'),
           description: 'Security for digital and marketing agencies',
           href: '/solutions/agencies',
           icon: (
@@ -328,7 +332,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Startups',
+          title: t('nav.solutions.startups'),
           description: 'Scalable security for growing companies',
           href: '/solutions/startups',
           icon: (
@@ -353,7 +357,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Enterprise',
+          title: t('nav.solutions.enterprise'),
           description: 'Comprehensive security for large organizations',
           href: '/solutions/enterprise',
           icon: (
@@ -382,7 +386,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Mobile Apps',
+          title: t('nav.solutions.mobile_apps'),
           description: 'Security for iOS and Android applications',
           href: '/solutions/mobile-apps',
           icon: (
@@ -405,7 +409,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Manufacturing',
+          title: t('nav.solutions.manufacturing'),
           description: 'Security for industrial and IoT systems',
           href: '/solutions/manufacturing',
           icon: (
@@ -427,7 +431,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Governments',
+          title: t('nav.solutions.government'),
           description: 'Security solutions for government agencies',
           href: '/solutions/governments',
           icon: (
@@ -453,7 +457,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'RetailTech',
+          title: t('nav.solutions.retailtech'),
           description: 'Security for e-commerce and retail platforms',
           href: '/solutions/retailtech',
           icon: (
@@ -479,12 +483,12 @@ export default function Navbar() {
       ],
     },
     developers: {
-      title: 'Developers',
+      title: t('nav.developers'),
       shortTitle: 'Developers',
       image: 'developers-diagram',
       items: [
         {
-          title: 'Documentation',
+          title: t('nav.developers.documentations'),
           description: 'Technical guides and references',
           href: 'https://docs.plexicus.com/',
           icon: (
@@ -510,7 +514,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'API Reference',
+          title: t('nav.developers.api_references'),
           description: 'Comprehensive API documentation',
           href: 'https://docs.plexicus.com/getting-started/introduction',
           icon: (
@@ -534,7 +538,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'GitHub App',
+          title: t('nav.developers.github_apps'),
           description: 'Integrate Plexicus with your repositories',
           href: 'https://github.com/apps/plexicus',
           icon: (
@@ -557,7 +561,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'GitHub Action',
+          title: t('nav.developers.github_apps'),
           description: 'Automate security in your CI/CD pipeline',
           href: 'https://github.com/marketplace/actions/plexicus-runner-action',
           icon: (
@@ -581,14 +585,14 @@ export default function Navbar() {
       ],
     },
     resources: {
-      title: 'Resources',
+      title: t('nav.resources'),
       shortTitle: 'Resources',
       image: 'resources-diagram',
       items: [
         {
-          title: 'Blog',
+          title: t('nav.resources.blog'),
           description: 'Latest news and security insights',
-          href: '/blog',
+          href: BLOG_URL,
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -609,7 +613,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'YouTube Channel',
+          title: t('nav.resources.youtube_channel'),
           description: 'Video tutorials and webinars',
           href: 'https://youtube.com/channel/UCzrotvBZ3dcb7mhI55ExHBQ/',
           icon: (
@@ -632,7 +636,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Branding Assets',
+          title: t('nav.resources.branding_assets'),
           description: 'Logos and brand guidelines',
           href: '/resources/branding',
           icon: (
@@ -660,7 +664,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Changelogs',
+          title: t('nav.resources.changelogs'),
           description: 'Latest product updates',
           href: 'https://plexicus.canny.io/changelog',
           icon: (
@@ -683,7 +687,7 @@ export default function Navbar() {
           ),
         },
         {
-          title: 'Feature Requests',
+          title: t('nav.resources.feature_request'),
           description: 'Submit and vote on new features',
           href: 'https://plexicus.canny.io/feature-requests',
           icon: (
@@ -856,11 +860,9 @@ export default function Navbar() {
             )) }
           <Link
             href={`/${lang}/pricing`}
-            href="/pricing"
             className="text-sm font-medium text-white hover:text-white/80 transition-colors py-2 whitespace-nowrap"
           >
             { t('nav.pricing') as string }
-            Pricing
           </Link>
           { Object.entries(menus)
             .filter(([key]) => key === 'solutions' || key === 'developers' || key === 'resources')
@@ -901,7 +903,7 @@ export default function Navbar() {
             href="/contact"
             className="text-sm font-medium text-white hover:text-white/80 transition-colors py-2 whitespace-nowrap"
           >
-            Contact
+            { t('nav.contact') }
           </Link>
         </nav>
 
@@ -910,11 +912,26 @@ export default function Navbar() {
             href="/login"
             className="text-sm font-medium text-white hover:text-white/80 transition-colors whitespace-nowrap"
           >
-            Login
+            { t('nav.login') }
           </Link>
           <Button className="bg-white text-[#8220ff] font-medium px-4 lg:px-6 py-2 rounded-md shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 border border-white/30 whitespace-nowrap">
-            Get Started
+            { t('nav.get_started') }
           </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="text-white gap-3"><LanguagesIcon /> { t('nav.languages') }</Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              { Object.entries(languages).map(([lang, label]) => (
+                <Link href={`/${lang}/`}>
+                  <DropdownMenuItem>
+                    { label }
+                  </DropdownMenuItem>
+                </Link>
+              )) }
+
+            </DropdownMenuContent>
+          </DropdownMenu>
           { /* 
           <div>
             <DropdownMenu.Root>
