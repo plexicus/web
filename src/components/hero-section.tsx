@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
-
-export default function HeroSection() {
+import { useTranslations } from '@/i18n/utils';
+export default function HeroSection({ lang }) {
   const [isMounted, setIsMounted] = useState(false);
-
+  const t = useTranslations(lang);
   useEffect(() => {
     // Delay mounting effects slightly to prioritize initial render
     const timer = setTimeout(() => {
@@ -28,26 +28,21 @@ export default function HeroSection() {
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center pt-16 md:pt-20 lg:pt-24">
           <div className="space-y-4 relative z-10">
             <h1 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
-              AI Agent
-              <br />
-              Vulnerability
-              <br />
-              Remediator
+              { t('hero.title') }
             </h1>
             <p className="max-w-[600px] text-white/90 md:text-xl">
-              Our ASPM is designed to be your cybersecurity AI Agent, offering continuous support, guidance, and
-              automated solutions to keep your software supply chain secure against evolving threats
+              { t('hero.subtitle') }
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button size="lg" className="font-semibold bg-white text-[#8220ff]">
-                Get Started
+                { t('hero.get_started') }
               </Button>
               <Button
                 variant="outline"
                 size="lg"
                 className="bg-white/10 text-white font-semibold border-white/20 hover:bg-white/20"
               >
-                Learn More
+                { t('hero.learn_more') }
               </Button>
             </div>
           </div>
