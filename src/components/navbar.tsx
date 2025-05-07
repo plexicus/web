@@ -103,7 +103,7 @@ export default function Navbar({ lang }) {
 
   const menus: Record<string, MenuType> = {
     products: {
-      title: t('nav.product') as string,
+      title: t('nav.product.title') as string,
       shortTitle: 'Product',
       image: 'product-diagram',
       items: [
@@ -182,7 +182,7 @@ export default function Navbar({ lang }) {
       ],
     },
     solutions: {
-      title: t('nav.solutions'),
+      title: t('nav.solutions.title'),
       shortTitle: 'Solutions',
       image: 'solutions-diagram',
       items: [
@@ -477,7 +477,7 @@ export default function Navbar({ lang }) {
       ],
     },
     developers: {
-      title: t('nav.developers'),
+      title: t('nav.developers.title'),
       shortTitle: 'Developers',
       image: 'developers-diagram',
       items: [
@@ -579,7 +579,7 @@ export default function Navbar({ lang }) {
       ],
     },
     resources: {
-      title: t('nav.resources'),
+      title: t('nav.resources.title'),
       shortTitle: 'Resources',
       image: 'resources-diagram',
       items: [
