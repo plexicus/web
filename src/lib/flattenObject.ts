@@ -1,7 +1,7 @@
 // Function to flatten a nested YAML object
 export default function flattenYamlObject(obj: any, prefix: string = ''): Record<string, any> {
   let result: Record<string, any> = {};
-  
+ 
   // Ensure that obj is a valid object and not null or undefined
   if (obj && typeof obj === 'object') {
     for (const key in obj) {
