@@ -1,17 +1,17 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-
+import { useTranslations } from '@/i18n/utils';
 // Define type for partners
 type Partner = {
   name: string;
   logo: string;
 };
 
-export default function Partners() {
+export default function Partners({ lang }) {
   // Reference to control the animation
   const carouselRef = useRef<HTMLDivElement>(null);
-
+  const t =useTranslations(lang);
   // Pause animation on hover
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -68,10 +68,10 @@ export default function Partners() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 id="partners-heading" className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
-            See How DevSecOps Teams Use Plexicus
+            { t('partners.title') }
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Trusted by leading organizations to secure their software supply chain
+            { t('partners.subtitle') }
           </p>
         </div>
 

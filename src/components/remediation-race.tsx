@@ -18,7 +18,7 @@ export default function RemediationRace({ lang }) {
 
   // Actualizar los tiempos de los pasos de remediación
   const remediationSteps = [
-    { name: 'Initial Detection', traditionalTime: 35, plexicusTime: 5 },
+    { name: t('vulnerability_remediation_race.plexicus.initial_detection.title'), traditionalTime: 35, plexicusTime: 5 },
     { name: t('vulnerability_remediation_race.plexicus.triage.description'), traditionalTime: 45, plexicusTime: 5 },
     { name: t('vulnerability_remediation_race.plexicus.analysis.description'), traditionalTime: 45, plexicusTime: 3 },
     { name: t('vulnerability_remediation_race.plexicus.fix_development.description'), traditionalTime: 175, plexicusTime: 10 },

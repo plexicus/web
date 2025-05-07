@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useTranslations } from '../i18n/utils';
 
-export default function HowItWorks() {
+export default function HowItWorks({ lang }) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const sectionRef = useRef(null);
   const [activeStep, setActiveStep] = useState(0);
@@ -22,7 +23,7 @@ export default function HowItWorks() {
   const [enrichStep, setEnrichStep] = useState(0);
   const [showComplianceInfo, setShowComplianceInfo] = useState(false);
   const [showSecurityDetails, setShowSecurityDetails] = useState(false);
-
+  const t = useTranslations(lang);
   // Original and modified code
   const originalCode = `if(isset($_GET['id'])) {
    $id = $_GET['id'];
@@ -327,9 +328,9 @@ export default function HowItWorks() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">How it works</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">{ t('how-it-works.title') }</h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Plexicus simplifies vulnerability remediation with a three-step process
+            { t('how-it-works.subtitle') }
           </p>
         </div>
 
@@ -338,7 +339,7 @@ export default function HowItWorks() {
             { /* Vertical navigation on the left */ }
             <div className="pt-8">
               <div className="bg-white rounded-lg shadow-sm p-3 mb-4 w-full">
-                <h3 className="text-xs font-medium text-gray-500 mb-3">Navigation</h3>
+                <h3 className="text-xs font-medium text-gray-500 mb-3">{ t('how-it-works.nav') }</h3>
                 <div className="flex flex-col space-y-3">
                   { [0, 1, 2].map((step) => (
                     <div key={step} className="flex flex-col border border-[#8220ff]/10 rounded-md overflow-hidden">
@@ -355,7 +356,7 @@ export default function HowItWorks() {
                           { step + 1 }
                         </div>
                         <span className="font-semibold">
-                          { step === 0 ? 'Discover' : step === 1 ? 'Enrich' : 'Remediate' }
+                          { step === 0 ? t('how-it-works.discover.title') : step === 1 ? t('how-it-works.enrich.title') : t('how-it-works.remediate.title') }
                         </span>
                       </button>
 
@@ -435,13 +436,13 @@ export default function HowItWorks() {
                   )) }
                 </div>
                 <div className="mt-4 text-xs text-gray-500">
-                  <p>Click on a step to navigate</p>
+                  <p>{ t('how-it-works.hint') }</p>
                 </div>
               </div>
             </div>
 
             { /* Parallax Scenes - Fixed height to prevent layout shifts */ }
-            <div className="relative h-[600px] bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="relative bg-white rounded-xl shadow-lg overflow-hidden py-2 h-[640px]">
               { /* Scene 1: Discover */ }
               <div
                 className={`absolute inset-0 transition-opacity duration-1000 flex items-center justify-center p-8 ${
@@ -466,18 +467,17 @@ export default function HowItWorks() {
                         <path d="m21 21-4.3-4.3"></path>
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Discover</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">{ t('how-it-works.discover.title') }</h3>
                     <p className="mt-4 text-gray-600">
-                      Our advanced scanning technology detects vulnerabilities in your code repositories, identifying
-                      security issues like SQL injections before they become threats.
+                      { t('how-it-works.discover.subtitle') }
                     </p>
                     <div className="bg-purple-50 border border-purple-100 rounded-md p-3 mt-2">
-                      <span className="text-sm font-medium text-[#8220ff]">Powered by Plexalyzer</span>
+                      <span className="text-sm font-medium text-[#8220ff]">{ t('how-it-works.discover.powered-by-plexicus.title') }</span>
                       <p className="text-xs text-gray-600 mt-1">
-                        Our scanning technology that continuously monitors your codebase for vulnerabilities
+                        { t('how-it-works.discover.powered-by-plexicus.subtitle') }
                       </p>
                     </div>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 mb-5">
                       <li className="flex items-start">
                         <svg
                           className="h-6 w-6 mr-2 text-[#8220ff]"
@@ -487,7 +487,7 @@ export default function HowItWorks() {
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>Automatic repository scanning</span>
+                        <span>{ t('how-it-works.discover.automatic-repo-scanning') }</span>
                       </li>
                       <li className="flex items-start">
                         <svg
@@ -498,7 +498,7 @@ export default function HowItWorks() {
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>Multiple vulnerability detection engines</span>
+                        <span>{ t('how-it-works.discover.vuln-detection') }</span>
                       </li>
                       <li className="flex items-start">
                         <svg
@@ -509,7 +509,7 @@ export default function HowItWorks() {
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>Real-time issue identification</span>
+                        <span>{ t('how-it-works.discover.real-time-issue') }</span>
                       </li>
                     </ul>
                   </div>
@@ -567,10 +567,10 @@ export default function HowItWorks() {
                         <div className="font-mono text-sm overflow-x-auto">
                           <pre className="text-red-500">
                             { `if(isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $sql = "SELECT * FROM users WHERE id = $id";          
-  $result = $conn->query($sql);
-}` }
+                              $id = $_GET['id'];
+                              $sql = "SELECT * FROM users WHERE id = $id";          
+                              $result = $conn->query($sql);
+                            }` }
                           </pre>
                         </div>
 
@@ -663,12 +663,11 @@ export default function HowItWorks() {
                         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Enrich</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">{ t('how-it-works.enrich.title') }</h3>
                     <p className="mt-4 text-gray-600">
-                      Our AI-powered system transforms basic vulnerability reports into comprehensive analyses with
-                      detailed context, impact assessment, and remediation guidance.
+                      { t('how-it-works.enrich.subtitle') }
                     </p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 mb-5">
                       <li className="flex items-start">
                         <svg
                           className="h-6 w-6 mr-2 text-[#8220ff]"
@@ -678,7 +677,7 @@ export default function HowItWorks() {
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>LLM-powered vulnerability analysis</span>
+                        <span>{ t('how-it-works.enrich.llm-vuln.analysis') }</span>
                       </li>
                       <li className="flex items-start">
                         <svg
@@ -689,7 +688,7 @@ export default function HowItWorks() {
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>Contextual security insights</span>
+                        <span>{ t('how-it-works.enrich.llm-vuln.contextual-insight') }</span>
                       </li>
                       <li className="flex items-start">
                         <svg
@@ -700,7 +699,7 @@ export default function HowItWorks() {
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>Severity and impact assessment</span>
+                        <span>{ t('how-it-works.enrich.llm-vuln.severity-assesment') }</span>
                       </li>
                     </ul>
                   </div>
@@ -891,15 +890,14 @@ export default function HowItWorks() {
                         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Remediate</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">{ t('how-it-works.remediate.title') }</h3>
                     <p className="mt-4 text-gray-600">
-                      Our AI agent automatically generates and implements fixes for detected vulnerabilities, creating
-                      pull requests that you can review and approve with a single click.
+                      { t('how-it-works.remediate.subtitle') }
                     </p>
                     <div className="bg-purple-50 border border-purple-100 rounded-md p-3 mt-2">
-                      <span className="text-sm font-medium text-[#8220ff]">Powered by Codex Remedium</span>
+                      <span className="text-sm font-medium text-[#8220ff]">{ t('how-it-works.remediate.codex-remedium.title') }</span>
                       <p className="text-xs text-gray-600 mt-1">
-                        Our AI Agent that automatically generates and implements fixes for vulnerabilities
+                        { t('how-it-works.remediate.codex-remedium.subtitle') }
                       </p>
                     </div>
                     <ul className="space-y-2">
@@ -912,7 +910,7 @@ export default function HowItWorks() {
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>Automated fix generation</span>
+                        <span>{ t('how-it-works.remediate.auto-gen') }</span>
                       </li>
                       <li className="flex items-start">
                         <svg
@@ -923,7 +921,7 @@ export default function HowItWorks() {
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>Pull request creation</span>
+                        <span>{ t('how-it-works.remediate.pr-request') }</span>
                       </li>
                       <li className="flex items-start">
                         <svg
@@ -934,7 +932,7 @@ export default function HowItWorks() {
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>One-click approval workflow</span>
+                        <span>{ t('how-it-works.remediate.approval-workflow') }</span>
                       </li>
                     </ul>
                   </div>
@@ -1193,6 +1191,7 @@ export default function HowItWorks() {
                 </div>
               </div>
             </div>
+
           </div>{ ' ' }
           { /* Cierre del grid */ }
         </div>
