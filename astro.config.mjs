@@ -3,6 +3,7 @@ import { loadEnv } from "vite";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
+import yaml from '@rollup/plugin-yaml';
 
 const { BLOG_SITE_URL, BLOG_PORT, SITE_PORT, SITE_URL } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 // https://astro.build/config
@@ -18,7 +19,7 @@ export default defineConfig({
 	server: { port: SITE_PORT ? Number(SITE_PORT) : 8000 },
 	site: SITE_URL ?? 'https://plexicus.ai',
 	vite: {
-		plugins: [tailwindcss()],
+		plugins: [tailwindcss(), yaml()],
 	},
 	integrations: [sitemap({
 		serialize(item) {
