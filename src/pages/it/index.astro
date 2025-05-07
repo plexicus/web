@@ -16,8 +16,8 @@ const lang = getLangFromUrl(Astro.url);
     <main>
       <HeroSection lang={lang}/>
       <RemediationRace lang={lang} client:load/>
-      <HowItWorks  client:load/>
-      <Partners client:load/>
+      <HowItWorks lang={lang} client:load/>
+      <Partners lang={lang} client:load/>
       <Integrations client:load/>
       <Testimonials client:load/>
       <ContactSection client:load/>
