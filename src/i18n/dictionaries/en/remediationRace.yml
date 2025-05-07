@@ -1,0 +1,44 @@
+vulnerability_remediation_race:
+  title: "Vulnerability Remediation Race"
+  subtitle: "See how Plexicus dramatically accelerates the vulnerability remediation process compared to traditional methods"
+  traditional_method:
+    initial_detection:
+      description: "Vulnerability detected - Manual scanning process"
+    triage:
+      description: "Triage process"
+    analysis:
+      description: "Analysis process"
+    fix_development:
+      description: "Fix development process"
+    time_elapsed: "Time elapsed"
+    manual_prioritization: "Manual prioritization"
+    waiting_for_security_team_review: "Waiting for security team review"
+    expert_analysis_required: "Expert analysis required"
+    security_team_investigating_root_cause: "Security team investigating root cause"
+    manual_code_fixes: "Manual code fixes"
+    developer_writing_and_reviewing_patches: "Developer writing and reviewing patches"
+  plexicus:
+    initial_detection:
+      title: "Initial Detection"
+      description: "AI-powered detection - Continuous automated scanning"
+    triage:
+      description: "Triage process"
+    analysis:
+      description: "Analysis process"
+    fix_development:
+      time_elapsed: "10min"
+      description: "Fix development process"
+    ai_powered_detection: "AI-powered detection"
+    continuous_automated_scanning: "Continuous automated scanning"
+    automated_prioritization: "Automated prioritization"
+    ai_based_risk_assessment: "AI-based risk assessment"
+    qa_testing: "QA testing"
+    manual_verification_of_fixes: "Manual verification of fixes"
+  savings_calculator:
+    title: "See how much you can save with Plexicus"
+    subtitle: "Enter your details below to calculate potential savings"
+    developer_hourly_rate: "Developer Hourly Rate"
+    number_of_vulnerabilities: "Number of Vulnerabilities"
+    traditional_cost: "Traditional Cost"
+    savings: "Savings Calculator"
+    total_savings: "Total Savings"

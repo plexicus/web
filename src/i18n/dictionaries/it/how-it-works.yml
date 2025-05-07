@@ -1,0 +1,30 @@
+how-it-works:
+  title: "Come funziona"
+  subtitle: "Plexicus semplifica la remediabilità delle vulnerabilità con un processo a tre fasi"
+  discover:
+    title: "Scopri"
+    subtitle: "La nostra tecnologia di scansione avanzata rileva le vulnerabilità nei tuoi repository di codice, identificando problemi di sicurezza come le iniezioni SQL prima che diventino minacce."
+    powered-by-plexicus:
+      title: "Alimentato da Plexalyzer"
+      subtitle: "La nostra tecnologia di scansione che monitora continuamente il tuo codice alla ricerca di vulnerabilità"
+    automatic-repo-scanning: "Scansione automatica del repository"
+    vuln-detection: "Motori di rilevamento vulnerabilità multipli"
+    real-time-issue: "Identificazione dei problemi in tempo reale"
+  enrich:
+    title: "Arricchire"
+    subtitle: "Il nostro sistema alimentato da IA trasforma i rapporti di vulnerabilità di base in analisi complete con contesto dettagliato, valutazione dell'impatto e linee guida per la remediabilità."
+    llm-vuln:
+      analysis: "Analisi delle vulnerabilità alimentata da LLM"
+      contextual-insight: "Intuizioni contestuali di sicurezza"
+      severity-assesment: "Valutazione della gravità e dell'impatto"
+  remediate:
+    title: "Remediare"
+    subtitle: "Il nostro agente IA genera e implementa automaticamente correzioni per le vulnerabilità rilevate, creando richieste di pull che puoi rivedere e approvare con un solo clic."
+    codex-remedium:
+      title: "Alimentato da Codex Remedium"
+      subtitle: "Il nostro Agente IA che genera e implementa automaticamente le correzioni per le vulnerabilità"
+    auto-gen: "Generazione automatica delle correzioni"
+    pr-request: "Creazione di richiesta pull"
+    approval-workflow: "Flusso di approvazione con un clic"
+  hint: "Fai clic su un passaggio per navigare"
+  nav: "Navigazione"
