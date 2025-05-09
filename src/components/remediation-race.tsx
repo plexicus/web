@@ -119,34 +119,21 @@ export default function RemediationRace({ lang }) {
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
+      setHasAnimated(true);
+      startAnimation();
     }
 
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
+
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
+      }
     };
   }, []);
-
-  // Iniciar o detener la animación basado en la visibilidad
-  useEffect(() => {
-    if (isVisible && !hasAnimated) {
-      setHasAnimated(true);
-      startAnimation();
-    } else {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-        animationRef.current = null;
-      }
-    }
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-        animationRef.current = null;
-      }
-    };
-  }, [isVisible,hasAnimated]);
 
   // Modificar la función formatTime para mostrar todo en minutos
   const formatTime = (minutes: number) => {
