@@ -1,17 +1,11 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { Button } from './ui/button';
 import Link from './ui/link';
+import { Button } from './ui/button';
 import { BLOG_SITE_URL, BLOG_PORT } from 'astro:env/client';
 import { useTranslations } from '../i18n/utils';
-import { Languages as LanguagesIcon } from 'lucide-react';
-import { languages } from '../i18n/ui';
+import { LanguageSwitcher } from './ui/language-switcher';
 const BLOG_URL = `${BLOG_SITE_URL}:${BLOG_PORT}`;
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+
 // Change Spanish comments and variable names to English
 
 // Extract types to improve maintainability
@@ -807,7 +801,7 @@ export default function Navbar({ lang }) {
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2 overflow-visible" aria-label="Plexicus Home">
+          <Link href={`/${lang}/`} className="flex items-center gap-2 overflow-visible" aria-label="Plexicus Home">
             <div className="relative w-auto h-14 flex items-center">
               <img
                 src="/images/plexicus-logo-white.png"
@@ -917,45 +911,7 @@ export default function Navbar({ lang }) {
           <Button className="bg-white text-[#8220ff] font-medium px-4 lg:px-6 py-2 rounded-md shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 border border-white/30 whitespace-nowrap">
             { t('nav.get_started') }
           </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="text-white gap-3"><LanguagesIcon /> { t('nav.languages') }</Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56">
-              { Object.entries(languages).map(([lang, label]) => (
-                <Link href={`/${lang}/`}>
-                  <DropdownMenuItem>
-                    { label }
-                  </DropdownMenuItem>
-                </Link>
-              )) }
-
-            </DropdownMenuContent>
-          </DropdownMenu>
-          { /* 
-          <div>
-            <DropdownMenu.Root>
-              <DropdownMenu.Trigger asChild>
-                <Button className="text-white" aria-label="Customise options">
-                  <LanguagesIcon /> Languages
-                </Button>
-              </DropdownMenu.Trigger>
-
-              <DropdownMenu.Portal>
-                <DropdownMenu.Content sideOffset={5} className="bg-white">
-                  <DropdownMenu.Item className="">
-                    New Tab 
-                  </DropdownMenu.Item>
-                  <DropdownMenu.Item className="">
-                    New Window
-                  </DropdownMenu.Item>
-                  <DropdownMenu.Item className="" disabled>
-                    New Private Window
-                  </DropdownMenu.Item>
-                </DropdownMenu.Content>
-              </DropdownMenu.Portal>
-            </DropdownMenu.Root>
-          </div> */ }
+          <LanguageSwitcher t={t} />
         </div>
 
         <button
