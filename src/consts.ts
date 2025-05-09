@@ -1,0 +1,1 @@
+export const SITE_TITLE = "Plexicus - AI Agent Vulnerability Remediator";
