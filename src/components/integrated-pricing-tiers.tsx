@@ -5,7 +5,7 @@ import type React from 'react';
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Check, X, HelpCircle } from 'lucide-react';
-
+import { useTranslations } from '@/i18n/utils';
 type PlanType = 'professional' | 'enterprise';
 
 interface PlanDetails {
@@ -16,18 +16,21 @@ interface PlanDetails {
 }
 
 export function IntegratedPricingTiers({
+  lang,
   hideRemediationMultiplier = false,
   professionalPrice = 49,
   enterprisePrice = 69,
 }: {
+  lang: string;
   hideRemediationMultiplier?: boolean;
   professionalPrice?: number;
   enterprisePrice?: number;
 }) {
+  const t = useTranslations(lang);
   // Plan options
   const plans: PlanDetails[] = [
-    { id: 'professional', name: 'Professional', basePrice: professionalPrice, remediationMultiplier: 2 },
-    { id: 'enterprise', name: 'Enterprise', basePrice: enterprisePrice, remediationMultiplier: 3 },
+    { id: 'professional', name: t('pricing_tiers.professional.name'), basePrice: professionalPrice, remediationMultiplier: 2 },
+    { id: 'enterprise', name: t('pricing_tiers.enterprise.name'), basePrice: enterprisePrice, remediationMultiplier: 3 },
   ];
 
   // State for calculator
@@ -75,33 +78,33 @@ export function IntegratedPricingTiers({
         { /* Free Trial */ }
         <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col">
           <div className="p-6 bg-gray-50 border-b border-gray-200">
-            <h3 className="text-xl font-bold text-gray-900">Free Trial</h3>
+            <h3 className="text-xl font-bold text-gray-900">{ t('pricing_tiers.free.name') }</h3>
             <div className="mt-4 flex items-baseline text-gray-900">
               <span className="text-3xl font-bold tracking-tight">$0</span>
               <span className="ml-1 text-xl font-semibold">/developer</span>
             </div>
-            <p className="mt-2 text-sm text-gray-500">For 30 days</p>
+            <p className="mt-2 text-sm text-gray-500">{ t('pricing_tiers.free.duration') }</p>
           </div>
           <div className="p-6 flex-1 flex flex-col">
             <ul className="space-y-4 flex-1">
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">Full platform access</span>
+                <span className="text-gray-600">{ t('pricing_tiers.free.features.full_platform_access') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">Community support</span>
+                <span className="text-gray-600">{ t('pricing_tiers.free.features.community_support') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">Basic vulnerability scanning</span>
+                <span className="text-gray-600">{ t('pricing_tiers.free.features.basic_vuln_scanning') }</span>
               </li>
               <li className="flex items-start">
                 <X className="h-5 w-5 text-gray-300 flex-shrink-0 mr-2" />
-                <span className="text-gray-400">Limited remediations</span>
+                <span className="text-gray-400">{ t('pricing_tiers.free.features.limited_remediations') }</span>
               </li>
             </ul>
-            <Button className="mt-6 w-full bg-gray-800 hover:bg-gray-700">Start Free Trial</Button>
+            <Button className="mt-6 w-full bg-gray-800 hover:bg-gray-700">{ t('pricing_tiers.free.button') }</Button>
           </div>
         </div>
 
@@ -111,45 +114,45 @@ export function IntegratedPricingTiers({
             POPULAR
           </div>
           <div className="p-6 bg-[#8220ff]/5 border-b border-[#8220ff]/20">
-            <h3 className="text-xl font-bold text-gray-900">Professional</h3>
+            <h3 className="text-xl font-bold text-gray-900">{ t('pricing_tiers.professional.name') }</h3>
             <div className="mt-4 flex items-baseline text-gray-900">
               <span className="text-3xl font-bold tracking-tight">${ professionalPrice }</span>
               <span className="ml-1 text-xl font-semibold">/developer</span>
               <span className="ml-1 text-sm font-normal text-gray-500">/month</span>
             </div>
-            <p className="mt-2 text-sm text-gray-500">Billed monthly or annually</p>
+            <p className="mt-2 text-sm text-gray-500">{ t('pricing_tiers.professional.billed') }</p>
           </div>
           <div className="p-6 flex-1 flex flex-col">
             <ul className="space-y-4 flex-1">
               { !hideRemediationMultiplier && (
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                  <span className="text-gray-600">2x remediation multiplier</span>
+                  <span className="text-gray-600">{ t('pricing_tiers.professional.features.remediation_multiplier') }</span>
                 </li>
               ) }
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">Email support</span>
+                <span className="text-gray-600">{ t('pricing_tiers.professional.features.email_support') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">Up to 100 repositories</span>
+                <span className="text-gray-600">{ t('pricing_tiers.professional.features.up_to_100_repos') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">25 container images</span>
+                <span className="text-gray-600">{ t('pricing_tiers.professional.features.container_images') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">3 domains</span>
+                <span className="text-gray-600">{ t('pricing_tiers.professional.features.domains') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">3 cloud accounts</span>
+                <span className="text-gray-600">{ t('pricing_tiers.professional.features.cloud_accounts') }</span>
               </li>
             </ul>
             <Button className="mt-6 w-full bg-[#8220ff] hover:bg-[#6010df]" onClick={() => setSelectedPlan(plans[0])}>
-              Calculate Price
+              { t('pricing_tiers.professional.button') }
             </Button>
           </div>
         </div>
@@ -157,45 +160,45 @@ export function IntegratedPricingTiers({
         { /* Enterprise */ }
         <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col">
           <div className="p-6 bg-gray-50 border-b border-gray-200">
-            <h3 className="text-xl font-bold text-gray-900">Enterprise</h3>
+            <h3 className="text-xl font-bold text-gray-900">{ t('pricing_tiers.enterprise.name') }</h3>
             <div className="mt-4 flex items-baseline text-gray-900">
               <span className="text-3xl font-bold tracking-tight">${ enterprisePrice }</span>
               <span className="ml-1 text-xl font-semibold">/developer</span>
               <span className="ml-1 text-sm font-normal text-gray-500">/month</span>
             </div>
-            <p className="mt-2 text-sm text-gray-500">Billed monthly or annually</p>
+            <p className="mt-2 text-sm text-gray-500">{ t('pricing_tiers.enterprise.billed') }</p>
           </div>
           <div className="p-6 flex-1 flex flex-col">
             <ul className="space-y-4 flex-1">
               { !hideRemediationMultiplier && (
                 <li className="flex items-start">
                   <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                  <span className="text-gray-600">3x remediation multiplier</span>
+                  <span className="text-gray-600">{ t('pricing_tiers.enterprise.features.remediation_multiplier') }</span>
                 </li>
               ) }
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">Premium support</span>
+                <span className="text-gray-600">{ t('pricing_tiers.enterprise.features.premium_support') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">Up to 250 repositories</span>
+                <span className="text-gray-600">{ t('pricing_tiers.enterprise.features.up_to_250_repos') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">50 container images</span>
+                <span className="text-gray-600">{ t('pricing_tiers.enterprise.features.container_images') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">15 domains</span>
+                <span className="text-gray-600">{ t('pricing_tiers.enterprise.features.domains') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-600">10 cloud accounts</span>
+                <span className="text-gray-600">{ t('pricing_tiers.enterprise.features.cloud_accounts') }</span>
               </li>
             </ul>
             <Button className="mt-6 w-full bg-gray-800 hover:bg-gray-700" onClick={() => setSelectedPlan(plans[1])}>
-              Calculate Price
+              { t('pricing_tiers.professional.button') }
             </Button>
           </div>
         </div>
@@ -203,40 +206,40 @@ export function IntegratedPricingTiers({
         { /* Custom */ }
         <div className="bg-gradient-to-br from-[#8220ff]/10 to-[#8220ff]/5 rounded-xl shadow-md overflow-hidden border border-[#8220ff]/20 flex flex-col">
           <div className="p-6 bg-[#8220ff]/20 border-b border-[#8220ff]/20">
-            <h3 className="text-xl font-bold text-white">Custom</h3>
+            <h3 className="text-xl font-bold text-white">{ t('pricing_tiers.custom.name') }</h3>
             <div className="mt-4 flex items-baseline text-white">
-              <span className="text-3xl font-bold tracking-tight">Custom</span>
+              <span className="text-3xl font-bold tracking-tight">{ t('pricing_tiers.custom.price') }</span>
             </div>
-            <p className="mt-2 text-sm text-gray-200">Tailored to your needs</p>
+            <p className="mt-2 text-sm text-gray-200">{ t('pricing_tiers.custom.description') }</p>
           </div>
           <div className="p-6 flex-1 flex flex-col">
             <ul className="space-y-4 flex-1">
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-200">Service-level agreement (SLA)</span>
+                <span className="text-gray-200">{ t('pricing_tiers.custom.features.sla') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-200">Dedicated computing resources</span>
+                <span className="text-gray-200">{ t('pricing_tiers.custom.features.dedicated_resources') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-200">Integration support</span>
+                <span className="text-gray-200">{ t('pricing_tiers.custom.features.integration_support') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-200">On-premise option with Azure Stack Hub</span>
+                <span className="text-gray-200">{ t('pricing_tiers.custom.features.on_premise_option') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-200">Unlimited repositories</span>
+                <span className="text-gray-200">{ t('pricing_tiers.custom.features.unlimited_repos') }</span>
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-green-500 flex-shrink-0 mr-2" />
-                <span className="text-gray-200">Unlimited container images</span>
+                <span className="text-gray-200">{ t('pricing_tiers.custom.features.unlimited_container_images') }</span>
               </li>
             </ul>
-            <Button className="mt-6 w-full bg-[#8220ff] hover:bg-[#6010df]">Contact Us</Button>
+            <Button className="mt-6 w-full bg-[#8220ff] hover:bg-[#6010df]">{ t('pricing_tiers.custom.button') }</Button>
           </div>
         </div>
       </div>
@@ -244,15 +247,15 @@ export function IntegratedPricingTiers({
       { /* Integrated Calculator */ }
       <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 mb-12">
         <div className="p-6 border-b border-gray-100">
-          <h3 className="text-2xl font-bold text-gray-900">Calculate Your Price</h3>
-          <p className="mt-2 text-gray-600">Estimate your costs based on your team size and billing preference</p>
+          <h3 className="text-2xl font-bold text-gray-900">{ t('calculator.title') }</h3>
+          <p className="mt-2 text-gray-600">{ t('calculator.subtitle') }</p>
         </div>
 
         <div className="p-6 grid md:grid-cols-2 gap-8">
           <div>
             { /* Plan Selection */ }
             <div className="mb-8">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Selected Plan</h4>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">{ t('calculator.selected_plan.title') }</h4>
               <div className="grid grid-cols-2 gap-4">
                 { plans.map((plan) => (
                   <div
@@ -272,8 +275,8 @@ export function IntegratedPricingTiers({
                         { selectedPlan.id === plan.id && <div className="w-3 h-3 rounded-full bg-[#8220ff]"></div> }
                       </div>
                     </div>
-                    <p className="text-sm text-gray-600">${ plan.basePrice }/developer/month</p>
-                    <p className="text-sm text-gray-600 mt-1">{ plan.remediationMultiplier }x remediation multiplier</p>
+                    <p className="text-sm text-gray-600">${ plan.basePrice }{ t('calculator.selected_plan.base_price') }</p>
+                    <p className="text-sm text-gray-600 mt-1">{ plan.remediationMultiplier }{ t('calculator.selected_plan.remediation_multiplier') }</p>
                   </div>
                 )) }
               </div>
@@ -282,11 +285,11 @@ export function IntegratedPricingTiers({
             { /* Number of Developers */ }
             <div className="mb-8">
               <div className="flex justify-between items-center mb-4">
-                <h4 className="text-lg font-semibold text-gray-900">Number of Developers</h4>
+                <h4 className="text-lg font-semibold text-gray-900">{ t('calculator.plan_selection.number_of_developers.title') }</h4>
                 <div className="relative group">
                   <HelpCircle className="w-5 h-5 text-gray-400" />
                   <div className="absolute right-0 bottom-full mb-2 w-48 bg-white p-2 rounded shadow-lg text-xs hidden group-hover:block z-10">
-                    Minimum 20 developers required
+                    { t('calculator.plan_selection.help_text') }
                   </div>
                 </div>
               </div>
@@ -323,13 +326,13 @@ export function IntegratedPricingTiers({
 
             { /* Billing Cycle */ }
             <div className="mb-8">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Billing Cycle</h4>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">{ t('calculator.billing_cycle.title') }</h4>
               <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                 <div>
-                  <span className={`font-medium ${isYearly ? 'text-gray-500' : 'text-gray-900'}`}>Monthly</span>
+                  <span className={`font-medium ${isYearly ? 'text-gray-500' : 'text-gray-900'}`}>{ t('calculator.billing_cycle.monthly') }</span>
                   <span className="mx-2 text-gray-400">|</span>
                   <span className={`font-medium ${isYearly ? 'text-gray-900' : 'text-gray-500'}`}>
-                    Yearly (Save 10%)
+                    { t('calculator.billing_cycle.yearly') }
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -351,28 +354,28 @@ export function IntegratedPricingTiers({
           { /* Price Summary */ }
           <div className="bg-gray-50 rounded-lg p-6 h-fit">
             <div className="flex justify-between items-center mb-4">
-              <h4 className="text-lg font-semibold text-gray-900">Summary</h4>
+              <h4 className="text-lg font-semibold text-gray-900">{ t('calculator.summary.title') }</h4>
               <div className="text-sm text-gray-500">{ selectedPlan.name } Plan</div>
             </div>
 
             <div className="space-y-2 mb-4">
               <div className="flex justify-between">
-                <span className="text-gray-600">Base price</span>
+                <span className="text-gray-600">{ t('calculator.summary.base_price') }</span>
                 <span className="font-medium">
                   ${ selectedPlan.basePrice }/developer/{ isYearly ? 'month' : 'month' }
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Number of developers</span>
+                <span className="text-gray-600">{ t('calculator.summary.developers') }</span>
                 <span className="font-medium">{ developers }</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Billing cycle</span>
+                <span className="text-gray-600">{ t('calculator.summary.billing_cycle') }</span>
                 <span className="font-medium">{ isYearly ? 'Yearly' : 'Monthly' }</span>
               </div>
               { isYearly && (
                 <div className="flex justify-between text-green-600">
-                  <span>Yearly discount</span>
+                  <span>{ t('calculator.summary.yearly_discount') }</span>
                   <span>10%</span>
                 </div>
               ) }
@@ -380,7 +383,7 @@ export function IntegratedPricingTiers({
 
             <div className="border-t border-gray-200 pt-4 mb-4">
               <div className="flex justify-between items-center">
-                <span className="text-lg font-semibold text-gray-900">Total price</span>
+                <span className="text-lg font-semibold text-gray-900">{ t('calculator.summary.total_price') }</span>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-[#8220ff]">
                     ${ isYearly ? Math.round(yearlyPrice).toLocaleString() : Math.round(monthlyPrice).toLocaleString() }
@@ -395,7 +398,7 @@ export function IntegratedPricingTiers({
               ) }
             </div>
 
-            <Button className="w-full bg-[#8220ff] hover:bg-[#6010df]">Get Started with { selectedPlan.name }</Button>
+            <Button className="w-full bg-[#8220ff] hover:bg-[#6010df]">{ t('calculator.button') } { selectedPlan.name }</Button>
           </div>
         </div>
       </div>
@@ -415,22 +418,22 @@ export function IntegratedPricingTiers({
                   Feature
                 </th>
                 <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Free Trial
+                  { t('pricing_tiers.free.name') }
                 </th>
                 <th className="px-6 py-3 text-center text-xs font-medium text-[#8220ff] uppercase tracking-wider">
-                  Professional
+                  { t('pricing_tiers.professional.name') }
                 </th>
                 <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Enterprise
+                  { t('pricing_tiers.enterprise.name') }
                 </th>
                 <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Custom
+                  { t('pricing_tiers.custom.name') }
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Price</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{ t('pricing_table.price') }</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">$0</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center font-medium">
                   ${ professionalPrice }/developer
@@ -438,63 +441,61 @@ export function IntegratedPricingTiers({
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
                   ${ enterprisePrice }/developer
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Custom</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.custom_plan.price') }</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Duration</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">30 days</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Unlimited</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Unlimited</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Unlimited</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{ t('pricing_table.duration') }</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.free_plan.duration') }</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.professional_plan.duration') }</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.enterprise_plan.duration') }</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.custom_plan.duration') }</td>
               </tr>
               { !hideRemediationMultiplier && (
                 <tr>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Remediation multiplier
-                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1x</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">1x</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center font-medium">2x</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">3x</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Custom</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.custom_plan.remediation_multiplier') }</td>
                 </tr>
               ) }
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Support</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Community</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center font-medium">Email</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Premium</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Dedicated</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{ t('pricing_table.support') }</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.free_plan.support') }</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.professional_plan.support') }</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.enterprise_plan.support') }</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.custom_plan.support') }</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Repositories</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{ t('pricing_table.repositories') }</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">10</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center font-medium">Up to 100</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Up to 250</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Unlimited</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.custom_plan.repositories') }</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Container images</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{ t('pricing_table.container_images') }</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">5</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center font-medium">25</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">50</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Unlimited</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.custom_plan.container_images') }</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Domains</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{ t('pricing_table.domains') }</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">1</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center font-medium">3</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">15</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Unlimited</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.custom_plan.domains') }</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Cloud accounts</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{ t('pricing_table.cloud_accounts') }</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">1</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center font-medium">3</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">10</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Unlimited</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">{ t('pricing_table.custom_plan.cloud_accounts') }</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">SLA</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{ t('pricing_table.sla') }</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">-</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">-</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">-</td>
@@ -503,7 +504,7 @@ export function IntegratedPricingTiers({
                 </td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">On-premise option</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{ t('pricing_table.on_premise_option') }</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">-</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">-</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">-</td>
@@ -513,7 +514,7 @@ export function IntegratedPricingTiers({
               </tr>
               <tr>
                 <td colSpan={5} className="px-6 py-4 bg-gray-50 font-semibold text-gray-900">
-                  Features included in all plans
+                  { t('pricing_table.features_included_in_all_plans') }
                 </td>
               </tr>
               <tr>
@@ -678,32 +679,29 @@ export function IntegratedPricingTiers({
           <h3 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-lg text-gray-900 mb-2">What is the minimum number of developers?</h4>
+              <h4 className="font-semibold text-lg text-gray-900 mb-2">{ t('faq.minimum_developers.question') }</h4>
               <p className="text-gray-600">
-                All paid plans require a minimum of 20 developers. This ensures we can provide the best service and
-                support for your team.
+                { t('faq.minimum_developers.answer') }
               </p>
             </div>
             { !hideRemediationMultiplier && (
               <div>
-                <h4 className="font-semibold text-lg text-gray-900 mb-2">What is a remediation multiplier?</h4>
+                <h4 className="font-semibold text-lg text-gray-900 mb-2">{ t('faq.remediation_multiplier.question') }</h4>
                 <p className="text-gray-600">
-                  The remediation multiplier determines how many automated fixes our AI can generate for each
-                  vulnerability detected. Higher tiers offer more remediation options.
+                  { t('faq.remediation_multiplier.answer') }
                 </p>
               </div>
             ) }
             <div>
-              <h4 className="font-semibold text-lg text-gray-900 mb-2">Can I switch plans?</h4>
+              <h4 className="font-semibold text-lg text-gray-900 mb-2">{ t('faq.switch_plans.question') }</h4>
               <p className="text-gray-600">
-                Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing
-                cycle.
+                { t('faq.switch_plans.answer') }
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-lg text-gray-900 mb-2">Do you offer discounts for yearly billing?</h4>
+              <h4 className="font-semibold text-lg text-gray-900 mb-2">{ t('faq.yearly_billing_discount.question') }</h4>
               <p className="text-gray-600">
-                Yes, we offer a 10% discount when you choose annual billing for any of our paid plans.
+                { t('faq.yearly_billing_discount.answer') }
               </p>
             </div>
           </div>
@@ -712,14 +710,14 @@ export function IntegratedPricingTiers({
 
       { /* CTA Section */ }
       <div className="mt-12 text-center">
-        <h3 className="text-2xl font-bold text-white mb-4">Ready to secure your software supply chain?</h3>
+        <h3 className="text-2xl font-bold text-white mb-4">{ t('cta_section.title') }</h3>
         <p className="text-white mb-6 max-w-2xl mx-auto">
-          Start your free trial today and see how Plexicus can transform your security posture.
+          { t('cta_section.subtitle') }
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button className="bg-[#8220ff] hover:bg-[#6010df]">Start Free Trial</Button>
+          <Button className="bg-[#8220ff] hover:bg-[#6010df]">{ t('cta_section.buttons.start_free_trial.text') }</Button>
           <Button variant="outline" className="border-[#8220ff] text-[#8220ff]">
-            Contact Sales
+            { t('cta_section.buttons.contact_sales.text') }
           </Button>
         </div>
       </div>
