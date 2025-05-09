@@ -1,0 +1,160 @@
+pricing:
+  title: "Pricing Plans"
+  subtitle: "Choose the perfect plan for your team's security needs"
+pricing_tiers:
+  free:
+    name: "Free Trial"
+    duration: "For 30 days"
+    features:
+      full_platform_access: "Full platform access"
+      community_support: "Community support"
+      basic_vuln_scanning: "Basic vulnerability scanning"
+      limited_remediations: "Limited remediations"
+    button: "Start Free Trial"
+  
+  professional:
+    name: "Professional"
+    duration: "/developer/month"
+    billed: "Billed monthly or annually"
+    badge: "POPULAR"
+    features:
+      remediation_multiplier: "2x remediation multiplier"
+      email_support: "Email support"
+      up_to_100_repos: "Up to 100 repositories"
+      container_images: "25 container images"
+      domains: "3 domains"
+      cloud_accounts: "3 cloud accounts"
+    button: "Calculate Price"
+
+  enterprise:
+    name: "Enterprise"
+    duration: "/developer/month"
+    billed: "Billed monthly or annually"
+    features:
+      remediation_multiplier: "3x remediation multiplier"
+      premium_support: "Premium support"
+      up_to_250_repos: "Up to 250 repositories"
+      container_images: "50 container images"
+      domains: "15 domains"
+      cloud_accounts: "10 cloud accounts"
+    button: "Calculate Price"
+
+  custom:
+    name: "Custom"
+    price: "Custom"
+    description: "Tailored to your needs"
+    features:
+      sla: "Service-level agreement (SLA)"
+      dedicated_resources: "Dedicated computing resources"
+      integration_support: "Integration support"
+      on_premise_option: "On-premise option with Azure Stack Hub"
+      unlimited_repos: "Unlimited repositories"
+      unlimited_container_images: "Unlimited container images"
+    button: "Contact Us"
+
+faq:
+  minimum_developers:
+    question: "What is the minimum number of developers?"
+    answer: "All paid plans require a minimum of 20 developers. This ensures we can provide the best service and support for your team."
+  
+  remediation_multiplier:
+    question: "What is a remediation multiplier?"
+    answer: "The remediation multiplier determines how many automated fixes our AI can generate for each vulnerability detected. Higher tiers offer more remediation options."
+
+  switch_plans:
+    question: "Can I switch plans?"
+    answer: "Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle."
+
+  yearly_billing_discount:
+    question: "Do you offer discounts for yearly billing?"
+    answer: "Yes, we offer a 10% discount when you choose annual billing for any of our paid plans."
+
+cta_section:
+  title: "Ready to secure your software supply chain?"
+  subtitle: "Start your free trial today and see how Plexicus can transform your security posture."
+  buttons:
+    start_free_trial:
+      text: "Start Free Trial"
+      variant: "primary"
+    contact_sales:
+      text: "Contact Sales"
+      variant: "outline"
+
+calculator:
+  title: "Calculate Your Price"
+  subtitle: "Estimate your costs based on your team size and billing preference"
+  selected_plan:
+    title: "Selected Plan"
+    base_price: "/developer/month"
+    remediation_multiplier: "x remediation multiplier"
+  plan_selection:
+    name: "Plan"
+    subtitle: "Static Application Security Testing tools that analyze source code for security vulnerabilities"
+    number_of_developers:
+      title: "Number of Developers"
+      help_text: "Minimum 20 developers required"
+  billing_cycle:
+    title: "Billing Cycle"
+    monthly: "Monthly"
+    yearly: "Yearly (Save 10%)"
+  summary:
+    title: "Summary"
+    base_price: "Base price"
+    developers: "Number of developers"
+    billing_cycle: "Billing cycle"
+    yearly_discount: "Yearly discount"
+    total_price: "Total price"
+    save: "You save ${ savings } per year"
+  button: "Get Started with"
+
+
+pricing_table:
+  price: "Price"
+  duration: "Duration"
+  remediation_multiplier: "Remediation multiplier"
+  support: "Support"
+  repositories: "Repositories"
+  container_images: "Container images"
+  domains: "Domains"
+  cloud_accounts: "Cloud accounts"
+  sla: "SLA"
+  on_premise_option: "On-premise option"
+  features_included_in_all_plans: "Features included in all plans"
+
+  plan_names:
+    professional: "Professional Plan"
+    enterprise: "Enterprise Plan"
+    custom: "Custom Plan"
+
+
+  free_plan:
+    duration: "30 days"
+    support: "Email"
+
+  professional_plan:
+    duration: "Unlimited"
+    support: "Email"
+
+  enterprise_plan:
+    duration: "Unlimited"
+    support: "Premium"
+
+  custom_plan:
+    price: "Custom"
+    duration: "Unlimited"
+    remediation_multiplier: "Custom"
+    support: "Dedicated"
+    repositories: "Unlimited"
+    container_images: "Unlimited"
+    domains: "Unlimited"
+    cloud_accounts: "Unlimited"
+
+  help_texts:
+    minimum_developers: "Minimum 20 developers required"
+    number_of_developers: "Number of developers"
+    billing_cycle: "Billing cycle"
+    yearly_discount: "Yearly discount"
+    total_price: "Total price"
+    save: "You save ${ savings } per year"
+
+

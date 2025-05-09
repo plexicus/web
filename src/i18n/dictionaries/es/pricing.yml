@@ -1,0 +1,159 @@
+pricing:
+  title: "Planes de Precios"
+  subtitle: "Elige el plan perfecto para las necesidades de seguridad de tu equipo"
+pricing_tiers:
+  free:
+    name: "Prueba Gratis"
+    duration: "Por 30 días"
+    features:
+      full_platform_access: "Acceso completo a la plataforma"
+      community_support: "Soporte comunitario"
+      basic_vuln_scanning: "Escaneo básico de vulnerabilidades"
+      limited_remediations: "Remediaciones limitadas"
+    button: "Comenzar Prueba Gratis"
+  
+  professional:
+    name: "Profesional"
+    duration: "/desarrollador/mes"
+    billed: "Facturado mensualmente o anualmente"
+    badge: "POPULAR"
+    features:
+      remediation_multiplier: "Multiplicador de remediación 2x"
+      email_support: "Soporte por correo electrónico"
+      up_to_100_repos: "Hasta 100 repositorios"
+      container_images: "25 imágenes de contenedor"
+      domains: "3 dominios"
+      cloud_accounts: "3 cuentas en la nube"
+    button: "Calcular Precio"
+
+  enterprise:
+    name: "Empresa"
+    duration: "/desarrollador/mes"
+    billed: "Facturado mensualmente o anualmente"
+    features:
+      remediation_multiplier: "Multiplicador de remediación 3x"
+      premium_support: "Soporte Premium"
+      up_to_250_repos: "Hasta 250 repositorios"
+      container_images: "50 imágenes de contenedor"
+      domains: "15 dominios"
+      cloud_accounts: "10 cuentas en la nube"
+    button: "Calcular Precio"
+
+  custom:
+    name: "Personalizado"
+    price: "Personalizado"
+    description: "Adaptado a tus necesidades"
+    features:
+      sla: "Acuerdo de nivel de servicio (SLA)"
+      dedicated_resources: "Recursos informáticos dedicados"
+      integration_support: "Soporte de integración"
+      on_premise_option: "Opción local con Azure Stack Hub"
+      unlimited_repos: "Repositorios ilimitados"
+      unlimited_container_images: "Imágenes de contenedor ilimitadas"
+    button: "Contáctanos"
+
+faq:
+  minimum_developers:
+    question: "¿Cuál es el número mínimo de desarrolladores?"
+    answer: "Todos los planes de pago requieren un mínimo de 20 desarrolladores. Esto asegura que podamos brindar el mejor servicio y soporte a tu equipo."
+  
+  remediation_multiplier:
+    question: "¿Qué es un multiplicador de remediación?"
+    answer: "El multiplicador de remediación determina cuántas correcciones automáticas puede generar nuestra IA por cada vulnerabilidad detectada. Los planes más altos ofrecen más opciones de remediación."
+
+  switch_plans:
+    question: "¿Puedo cambiar de plan?"
+    answer: "Sí, puedes actualizar o degradar tu plan en cualquier momento. Los cambios se reflejarán en tu siguiente ciclo de facturación."
+
+  yearly_billing_discount:
+    question: "¿Ofrecen descuentos por facturación anual?"
+    answer: "Sí, ofrecemos un 10% de descuento cuando eliges facturación anual para cualquiera de nuestros planes de pago."
+
+cta_section:
+  title: "¿Listo para asegurar tu cadena de suministro de software?"
+  subtitle: "Comienza tu prueba gratuita hoy y descubre cómo Plexicus puede transformar tu postura de seguridad."
+  buttons:
+    start_free_trial:
+      text: "Comenzar Prueba Gratis"
+      variant: "primary"
+    contact_sales:
+      text: "Contactar con Ventas"
+      variant: "outline"
+
+
+calculator:
+  title: "Calcula tu precio"
+  subtitle: "Estima tus costos según el tamaño de tu equipo y preferencia de facturación"
+  selected_plan:
+    title: "Plan seleccionado"
+    base_price: "/desarrollador/mes"
+    remediation_multiplier: "x multiplicador de remediación"
+  plan_selection:
+    name: "Plan"
+    description: "Herramientas de Pruebas de Seguridad de Aplicaciones Estáticas que analizan el código fuente en busca de vulnerabilidades de seguridad"
+    number_of_developers:
+      title: "Número de desarrolladores"
+      help_text: "Se requieren al menos 20 desarrolladores"
+  billing_cycle:
+    title: "Ciclo de facturación"
+    monthly: "Mensual"
+    yearly: "Anual (Ahorra 10%)"
+  summary:
+    title: "Resumen"
+    base_price: "Precio base"
+    developers: "Número de desarrolladores"
+    billing_cycle: "Ciclo de facturación"
+    yearly_discount: "Descuento anual"
+    total_price: "Precio total"
+    save: "Ahorras ${ savings } al año"
+  button: "Comenzar con"
+
+
+pricing_table:
+  price: "Precio"
+  duration: "Duración"
+  remediation_multiplier: "Multiplicador de remediación"
+  support: "Soporte"
+  repositories: "Repositorios"
+  container_images: "Imágenes de contenedor"
+  domains: "Dominios"
+  cloud_accounts: "Cuentas en la nube"
+  sla: "SLA"
+  on_premise_option: "Opción local"
+  features_included_in_all_plans: "Características incluidas en todos los planes"
+
+  plan_names:
+    professional: "Plan Profesional"
+    enterprise: "Plan Enterprise"
+    custom: "Plan Personalizado"
+
+  free_plan:
+    duration: "30 días"
+    support: "Correo electrónico"
+
+  professional_plan:
+    duration: "Ilimitado"
+    support: "Correo electrónico"
+
+  enterprise_plan:
+    duration: "Ilimitado"
+    support: "Premium"
+
+  custom_plan:
+    price: "Personalizado"
+    duration: "Ilimitado"
+    remediation_multiplier: "Personalizado"
+    support: "Dedicado"
+    repositories: "Ilimitado"
+    container_images: "Ilimitado"
+    domains: "Ilimitado"
+    cloud_accounts: "Ilimitado"
+
+
+  help_texts:
+    minimum_developers: "Se requieren al menos 20 desarrolladores"
+    number_of_developers: "Número de desarrolladores"
+    billing_cycle: "Ciclo de facturación"
+    yearly_discount: "Descuento anual"
+    total_price: "Precio total"
+    save: "Ahorras ${ savings } al año"
