@@ -1,13 +1,24 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import HeroSection from "../../components/hero-section";
-import RemediationRace from "../../components/remediation-race";
-import HowItWorks from "../../components/how-it-works";
-import Partners from "../../components/partners";
-import Integrations from "../../components/integrations";
-import Testimonials from "../../components/testimonials";
-import ContactSection from "../../components/contact-section";
-import { getLangFromUrl } from "../../i18n/utils";
+/**
+ * Components
+ */
+import Layout from "@/layouts/Layout.astro";
+import HeroSection from "@/components/HeroSection";
+import RemediationRace from "@/components/RemediationRace";
+import HowItWorks from "@/components/how-it-works";
+import Partners from "@/components/partners";
+import Integrations from "@/components/integrations";
+import Testimonials from "@/components/testimonials";
+import ContactSection from "@/components/contact-section";
+
+/**
+ * Utils
+ */
+import { getLangFromUrl } from "@/i18n/utils";
+
+/**
+ * Variables
+ */
 const lang = getLangFromUrl(Astro.url);
 ---
 
