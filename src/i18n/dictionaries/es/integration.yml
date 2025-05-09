@@ -1,0 +1,39 @@
+integration:
+  title: "La pila de integración mágica"
+  subtitle: "Aprovecha el poder de nuestro ecosistema de integración: una colección de herramientas poderosas forjadas para proteger tu reino de código de las amenazas más oscuras"
+  tabs:
+    mystical: "Conectores Místicos"
+    arcane: "Proveedores Arcanos"
+  connectors:
+    sast:
+      description: "Herramientas de Pruebas de Seguridad de Aplicaciones Estáticas que analizan el código fuente en busca de vulnerabilidades de seguridad"
+    secret:
+      description: "Herramientas que detectan secretos, credenciales e información personal identificable en el código"
+    sca:
+      description: "Herramientas de Análisis de Composición de Software que identifican vulnerabilidades en dependencias de terceros"
+    container:
+      description: "Herramientas que escanean imágenes de contenedores en busca de vulnerabilidades y configuraciones incorrectas"
+    plexicus:
+      description: "Plataforma propietaria de análisis de seguridad y remediación de Plexicus"
+    threat_detection:
+      description: "Herramientas que detectan malware y otras amenazas en el código y los artefactos"
+    scm:
+      description: "Herramientas que aseguran el proceso de gestión de la cadena de suministro de software"
+    cicd:
+      description: "Herramientas que evalúan y aseguran los pipelines de CI/CD"
+    license:
+      description: "Herramientas que identifican y gestionan las licencias de software"
+    iac:
+      description: "Herramientas que aseguran las configuraciones de Infraestructura como Código"
+    sbom:
+      description: "Herramientas que generan el Software Bill of Materials (SBOM)"
+
+  providers:
+    scm:
+      description: "Plataformas de Gestión de Código Fuente que alojan y gestionan repositorios de código"
+    registry:
+      description: "Registros de contenedores que almacenan y gestionan imágenes de contenedores"
+    cloud:
+      description: "Plataformas en la nube para desplegar y gestionar aplicaciones"
+    ticket:
+      description: "Plataformas de seguimiento de problemas y gestión de proyectos"

@@ -4,6 +4,7 @@ how-it-works:
   discover:
     title: "Discover"
     subtitle: "Our advanced scanning technology detects vulnerabilities in your code repositories, identifying security issues like SQL injections before they become threats."
+    hint: 'Find vulnerabilities'
     powered-by-plexicus:
       title: "Powered by Plexalyzer"
       subtitle: "Our scanning technology that continuously monitors your codebase for vulnerabilities"
@@ -12,6 +13,7 @@ how-it-works:
     real-time-issue: "Real-time issue identification"
   enrich:
     title: "Enrich"
+    hint: 'Analyze & contextualize'
     subtitle: "Our AI-powered system transforms basic vulnerability reports into comprehensive analyses with detailed context, impact assessment, and remediation guidance."
     llm-vuln:
       analysis: "LLM-powered vulnerability analysis"
@@ -20,11 +22,17 @@ how-it-works:
   remediate:
     title: "Remediate"
     subtitle: "Our AI agent automatically generates and implements fixes for detected vulnerabilities, creating pull requests that you can review and approve with a single click."
+    hint: 'Fix & implement'
     codex-remedium:
       title: "Powered by Codex Remedium"
       subtitle: "Our AI Agent that automatically generates and implements fixes for vulnerabilities"
     auto-gen: "Automated fix generation"
     pr-request: "Pull request creation"
     approval-workflow: "One-click approval workflow"
+  reports:
+    badge: 'Exclusive Report'
+    title: "AI-powered ASPM accelerates remediation"
+    subtitle: "Download our report on how AI-powered ASPM accelerates remediation, reducing response times by 95%"
+    button: "Download Report"
   hint: "Click on a step to navigate"
   nav: "Navigation"
