@@ -1,11 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 import { useTranslations } from '@/i18n/utils';
+
 export default function HeroSection({ lang }) {
-  const [isMounted, setIsMounted] = useState(false);
+  /**
+   * Variables
+   */
   const t = useTranslations(lang);
+  const [isMounted, setIsMounted] = useState(false);
+
+  /**
+   * Hooks
+   */
   useEffect(() => {
     // Delay mounting effects slightly to prioritize initial render
     const timer = setTimeout(() => {
@@ -28,33 +36,33 @@ export default function HeroSection({ lang }) {
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center pt-16 md:pt-20 lg:pt-24">
           <div className="space-y-4 relative z-10">
             <h1 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
-              { t('hero.title') }
+              {t('hero.title')}
             </h1>
             <p className="max-w-[600px] text-white/90 md:text-xl">
-              { t('hero.subtitle') }
+              {t('hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button size="lg" className="font-semibold bg-white text-[#8220ff]">
-                { t('hero.get_started') }
+                {t('hero.get_started')}
               </Button>
               <Button
                 variant="outline"
                 size="lg"
                 className="bg-white/10 text-white font-semibold border-white/20 hover:bg-white/20"
               >
-                { t('hero.learn_more') }
+                {t('hero.learn_more')}
               </Button>
             </div>
           </div>
 
           <div className="relative flex items-center justify-center lg:justify-end">
-            { /* Only render the complex effects when mounted */ }
+            { /* Only render the complex effects when mounted */}
             <div className="relative w-full max-w-3xl">
-              { isMounted && (
+              {isMounted && (
                 <div className="absolute inset-0 blur-3xl bg-gradient-to-br from-white via-purple-300 to-[#8220ff] opacity-40 rounded-[32px] transform scale-110"></div>
-              ) }
+              )}
 
-              { /* Optimize image loading with priority for LCP */ }
+              { /* Optimize image loading with priority for LCP */}
               <div
                 className="w-full rounded-xl overflow-hidden relative z-10"
                 style={{
@@ -66,7 +74,7 @@ export default function HeroSection({ lang }) {
                 }}
               >
                 <div className="relative">
-                  { /* Use native img with loading="eager" for faster LCP */ }
+                  { /* Use native img with loading="eager" for faster LCP */}
                   <img
                     src="/productivity-dashboard.png"
                     alt="Admin dashboard interface"
