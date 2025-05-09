@@ -1,0 +1,44 @@
+vulnerability_remediation_race:
+  title: "Carrera de Remediación de Vulnerabilidades"
+  subtitle: "Vea cómo Plexicus acelera drásticamente el proceso de remediación de vulnerabilidades en comparación con los métodos tradicionales"
+  traditional_method:
+    initial_detection:
+      description: "Vulnerabilidad detectada - Proceso de escaneo manual"
+    triage:
+      description: "Proceso de triaje"
+    analysis:
+      description: "Proceso de análisis"
+    fix_development:
+      description: "Proceso de desarrollo de correcciones"
+    time_elapsed: "Tiempo transcurrido"
+    manual_prioritization: "Priorización manual"
+    waiting_for_security_team_review: "Esperando revisión del equipo de seguridad"
+    expert_analysis_required: "Análisis experto requerido"
+    security_team_investigating_root_cause: "Equipo de seguridad investigando la causa raíz"
+    manual_code_fixes: "Correcciones manuales de código"
+    developer_writing_and_reviewing_patches: "Desarrollador escribiendo y revisando parches"
+  plexicus:
+    initial_detection:
+      title: "Detección Inicial"
+      description: "Detección impulsada por IA - Escaneo automatizado continuo"
+    triage:
+      description: "Proceso de triaje"
+    analysis:
+      description: "Proceso de análisis"
+    fix_development:
+      time_elapsed: "10min"
+      description: "Proceso de desarrollo de correcciones"
+    ai_powered_detection: "Detección impulsada por IA"
+    continuous_automated_scanning: "Escaneo automatizado continuo"
+    automated_prioritization: "Priorización automatizada"
+    ai_based_risk_assessment: "Evaluación de riesgos impulsada por IA"
+    qa_testing: "Pruebas de QA"
+    manual_verification_of_fixes: "Verificación manual de correcciones"
+  savings_calculator:
+    title: "Vea cuánto puede ahorrar con Plexicus"
+    subtitle: "Ingrese sus detalles a continuación para calcular los ahorros potenciales"
+    developer_hourly_rate: "Tarifa horaria del desarrollador"
+    number_of_vulnerabilities: "Número de vulnerabilidades"
+    traditional_cost: "Costo tradicional"
+    savings: "Calculadora de ahorros"
+    total_savings: "Ahorros totales"

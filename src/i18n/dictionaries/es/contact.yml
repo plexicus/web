@@ -1,0 +1,16 @@
+contact:
+  title: "Conéctate con Plexicus"
+  subtitle: "Eleva tu estrategia de ciberseguridad con Plexicus. Contáctanos para una consulta integral, descubre nuestros productos a través de una demostración personalizada y aprende cómo Plexicus puede fortificar tu infraestructura digital."
+  addresses: "Direcciones"
+  hours: "Horas"
+  email: "Correo Electrónico"
+  phone: "Teléfono"
+  form:
+    title: "Contáctanos"
+    first_name: "Primer Nombre"
+    last_name: "Apellido"
+    business_email: "Correo Electrónico de Negocios"
+    company: "Compañía"
+    job_title: "Título del Trabajo"
+    tnc: "Acepto recibir otras comunicaciones de Plexicus LLC. Puedes darte de baja de estas comunicaciones en cualquier momento."
+    submit: "Enviar"

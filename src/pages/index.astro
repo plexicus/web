@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroSection from "../components/hero-section";
+import RemediationRace from "../components/remediation-race";
+import HowItWorks from "../components/how-it-works";
+import Partners from "../components/partners";
+import Integrations from "../components/integrations";
+import Testimonials from "../components/testimonials";
+import ContactSection from "../components/contact-section";
+import { getLangFromUrl } from "../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+---
+
+<Layout>
+  <div class="flex min-h-screen flex-col">
+    <main>
+      <HeroSection lang={lang}/>
+      <RemediationRace lang={lang} client:load/>
+      <HowItWorks lang={lang} client:load/>
+      <Partners lang={lang} client:load/>
+      <Integrations lang={lang} client:load/>
+      <Testimonials lang={lang} client:load/>
+      <ContactSection lang={lang} client:load/>
+    </main>
+  </div>
+</Layout>

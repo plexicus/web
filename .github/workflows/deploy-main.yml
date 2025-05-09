@@ -2,37 +2,17 @@ name: Deploy Main Site to GitHub Page
 on:
   push:
     branches: ["main"]
-    paths:
-      - "landing/**"
-      - ".github/workflows/deploy-main.yml"
   pull_request:
     branches: [main]
-    paths:
-      - "landing/**"
-      - ".github/workflows/deploy-main.yml"
-
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages-main"
-  cancel-in-progress: true
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          cd landing
-          npm ci
-      - run: |
-          cd landing
-          npm run build
+      - run: npm ci
+      - run: npm run build
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: landing/dist
+          publish_dir: ./dist
           cname: www.plexicus.ai

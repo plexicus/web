@@ -1,0 +1,39 @@
+integration:
+  title: "La pila di integrazione magica"
+  subtitle: "Sfrutta il potere del nostro ecosistema di integrazione - una collezione di strumenti potenti forgiati per proteggere il tuo regno del codice dalle minacce più oscure"
+  tabs:
+    mystical: "Connettori Mistici"
+    arcane: "Fornitori Arcanici"
+  connectors:
+    sast:
+      description: "Strumenti di Static Application Security Testing che analizzano il codice sorgente per vulnerabilità di sicurezza"
+    secret:
+      description: "Strumenti che rilevano segreti, credenziali e informazioni personali identificabili nel codice"
+    sca:
+      description: "Strumenti di Software Composition Analysis che identificano vulnerabilità nelle dipendenze di terze parti"
+    container:
+      description: "Strumenti che esaminano le immagini dei contenitori per vulnerabilità e configurazioni errate"
+    plexicus:
+      description: "Piattaforma proprietaria di analisi di sicurezza e remediation di Plexicus"
+    threat_detection:
+      description: "Strumenti che rilevano malware e altre minacce nel codice e nei file"
+    scm:
+      description: "Strumenti che proteggono il processo di gestione della catena di fornitura del software"
+    cicd:
+      description: "Strumenti che valutano e proteggono le pipeline CI/CD"
+    license:
+      description: "Strumenti che identificano e gestiscono le licenze software"
+    iac:
+      description: "Strumenti che proteggono le configurazioni di Infrastructure as Code"
+    sbom:
+      description: "Strumenti che generano il Software Bill of Materials (SBOM)"
+
+  providers:
+    scm:
+      description: "Piattaforme di gestione del codice sorgente che ospitano e gestiscono i repository di codice"
+    registry:
+      description: "Registri di contenitori che archiviano e gestiscono le immagini dei contenitori"
+    cloud:
+      description: "Piattaforme cloud per il deploy e la gestione delle applicazioni"
+    ticket:
+      description: "Piattaforme di tracciamento dei problemi e gestione dei progetti"

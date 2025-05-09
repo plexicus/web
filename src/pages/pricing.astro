@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PricingSection from "../components/pricing-section";
+import { getLangFromUrl } from "../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+---
+<Layout>
+  <div class="flex min-h-screen flex-col">
+    <main>
+      <PricingSection lang={lang} client:load/>
+    </main>
+  </div>
+</Layout>
+

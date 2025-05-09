@@ -1,0 +1,44 @@
+vulnerability_remediation_race:
+  title: "Corsa di Remediabilità delle Vulnerabilità"
+  subtitle: "Scopri come Plexicus accelera drammaticamente il processo di remediabilità delle vulnerabilità rispetto ai metodi tradizionali"
+  traditional_method:
+    initial_detection:
+      description: "Vulnerabilità rilevata - Processo di scansione manuale"
+    triage:
+      description: "Processo di triage"
+    analysis:
+      description: "Processo di analisi"
+    fix_development:
+      description: "Processo di sviluppo correzioni"
+    time_elapsed: "Tempo trascorso"
+    manual_prioritization: "Prioritizzazione manuale"
+    waiting_for_security_team_review: "In attesa della revisione del team di sicurezza"
+    expert_analysis_required: "Analisi esperta richiesta"
+    security_team_investigating_root_cause: "Team di sicurezza che indaga sulla causa principale"
+    manual_code_fixes: "Correzioni manuali del codice"
+    developer_writing_and_reviewing_patches: "Sviluppatore scrivendo e revisionando patch"
+  plexicus:
+    initial_detection:
+      title: "Rilevamento Iniziale"
+      description: "Rilevamento alimentato da IA - Scansione automatizzata continua"
+    triage:
+      description: "Processo di triage"
+    analysis:
+      description: "Processo di analisi"
+    fix_development:
+      time_elapsed: "10min"
+      description: "Processo di sviluppo correzioni"
+    ai_powered_detection: "Rilevamento alimentato da IA"
+    continuous_automated_scanning: "Scansione automatizzata continua"
+    automated_prioritization: "Prioritizzazione automatica"
+    ai_based_risk_assessment: "Valutazione del rischio basata su IA"
+    qa_testing: "Test QA"
+    manual_verification_of_fixes: "Verifica manuale delle correzioni"
+  savings_calculator:
+    title: "Scopri quanto puoi risparmiare con Plexicus"
+    subtitle: "Inserisci i tuoi dettagli qui sotto per calcolare i risparmi potenziali"
+    developer_hourly_rate: "Tariffa oraria dello sviluppatore"
+    number_of_vulnerabilities: "Numero di vulnerabilità"
+    traditional_cost: "Costo tradizionale"
+    savings: "Calcolatore di risparmi"
+    total_savings: "Risparmi totali"
