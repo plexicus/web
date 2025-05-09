@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { useTimeoutManager } from '../lib/timeout-manager';
+import { useTranslations } from '../i18n/utils';
 
-export default function Testimonials() {
+export default function Testimonials({ lang }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const timeoutManager = useTimeoutManager();
-
+  const t = useTranslations(lang);
   const testimonials = [
     {
       quote: 'Plexicus has revolutionized our remediation process - our team is saving hours every week!',
@@ -101,9 +102,9 @@ export default function Testimonials() {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">What Our Clients Say</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">{ t('testimonials.title') }</h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Hear from security teams who have transformed their vulnerability remediation process
+            { t('testimonials.subtitle') }
           </p>
         </div>
 
