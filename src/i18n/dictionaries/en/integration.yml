@@ -1,0 +1,39 @@
+integration:
+  title: "The Magical Integration Stack"
+  subtitle: "Harness the power of our integration ecosystem - a collection of powerful tools forged to protect your code realm from the darkest of threats"
+  tabs:
+    mystical: "Mystical Connectors"
+    arcane: "Arcane Providers"
+  connectors:
+    sast:
+      description: 'Static Application Security Testing tools that analyze source code for security vulnerabilities'
+    secret:
+      description: 'Tools that detect secrets, credentials, and personally identifiable information in code'
+    sca:
+      description: 'Software Composition Analysis tools that identify vulnerabilities in third-party dependencies'
+    container:
+      description: 'Tools that scan container images for vulnerabilities and misconfigurations'
+    plexicus:
+      description: "Plexicus's proprietary security analysis and remediation platform"
+    threat_detection:
+      description: 'Tools that detect malware and other threats in code and artifacts'
+    scm:
+      description: 'Tools that secure the software supply chain management process'
+    cicd:
+      description: 'Tools that assess and secure CI/CD pipelines'
+    license:
+      description: 'Tools that identify and manage software licenses'
+    iac:
+      description: 'Tools that secure Infrastructure as Code configurations'
+    sbom:
+      description: 'Tools that generate Software Bill of Materials'
+
+  providers:
+      scm:
+        description: 'Source Code Management platforms that host and manage code repositories'
+      registry:
+        description: 'Container registries that store and manage container images'
+      cloud:
+        description: 'Cloud platforms for deploying and managing applications'
+      ticket:
+        description: 'Issue tracking and project management platforms'

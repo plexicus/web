@@ -4,6 +4,7 @@ how-it-works:
   discover:
     title: "Scopri"
     subtitle: "La nostra tecnologia di scansione avanzata rileva le vulnerabilità nei tuoi repository di codice, identificando problemi di sicurezza come le iniezioni SQL prima che diventino minacce."
+    hint: "Trova vulnerabilità"
     powered-by-plexicus:
       title: "Alimentato da Plexalyzer"
       subtitle: "La nostra tecnologia di scansione che monitora continuamente il tuo codice alla ricerca di vulnerabilità"
@@ -13,6 +14,7 @@ how-it-works:
   enrich:
     title: "Arricchire"
     subtitle: "Il nostro sistema alimentato da IA trasforma i rapporti di vulnerabilità di base in analisi complete con contesto dettagliato, valutazione dell'impatto e linee guida per la remediabilità."
+    hint: "Analizza e contestualizza"
     llm-vuln:
       analysis: "Analisi delle vulnerabilità alimentata da LLM"
       contextual-insight: "Intuizioni contestuali di sicurezza"
@@ -20,11 +22,17 @@ how-it-works:
   remediate:
     title: "Remediare"
     subtitle: "Il nostro agente IA genera e implementa automaticamente correzioni per le vulnerabilità rilevate, creando richieste di pull che puoi rivedere e approvare con un solo clic."
+    hint: "Correggi e implementa"
     codex-remedium:
       title: "Alimentato da Codex Remedium"
       subtitle: "Il nostro Agente IA che genera e implementa automaticamente le correzioni per le vulnerabilità"
     auto-gen: "Generazione automatica delle correzioni"
     pr-request: "Creazione di richiesta pull"
     approval-workflow: "Flusso di approvazione con un clic"
+  reports:
+    badge: "Rapporto Esclusivo"
+    title: "ASPM alimentato da IA accelera la remediabilità"
+    subtitle: "Scarica il nostro rapporto su come l'ASPM alimentato da IA accelera la remediabilità, riducendo i tempi di risposta del 95%"
+    button: "Scarica il Rapporto"
   hint: "Fai clic su un passaggio per navigare"
   nav: "Navigazione"

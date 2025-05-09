@@ -4,6 +4,7 @@ how-it-works:
   discover:
     title: "Descubrir"
     subtitle: "Nuestra tecnología avanzada de escaneo detecta vulnerabilidades en sus repositorios de código, identificando problemas de seguridad como inyecciones SQL antes de que se conviertan en amenazas."
+    hint: "Encontrar vulnerabilidades"
     powered-by-plexicus:
       title: "Impulsado por Plexalyzer"
       subtitle: "Nuestra tecnología de escaneo que monitorea continuamente su base de código en busca de vulnerabilidades"
@@ -13,6 +14,7 @@ how-it-works:
   enrich:
     title: "Enriquecer"
     subtitle: "Nuestro sistema impulsado por IA transforma los informes básicos de vulnerabilidades en análisis completos con contexto detallado, evaluación de impacto y orientación sobre remediación."
+    hint:  "Analizar y contextualizar"
     llm-vuln:
       analysis: "Análisis de vulnerabilidades impulsado por LLM"
       contextual-insight: "Información contextual de seguridad"
@@ -20,11 +22,17 @@ how-it-works:
   remediate:
     title: "Remediar"
     subtitle: "Nuestro agente IA genera e implementa automáticamente correcciones para las vulnerabilidades detectadas, creando solicitudes de extracción que puede revisar y aprobar con un solo clic."
+    hint: "Arreglar e implementar"
     codex-remedium:
       title: "Impulsado por Codex Remedium"
       subtitle: "Nuestro Agente IA que genera e implementa automáticamente correcciones para las vulnerabilidades"
     auto-gen: "Generación automática de correcciones"
     pr-request: "Creación de solicitud de extracción"
     approval-workflow: "Flujo de aprobación con un solo clic"
+  reports:
+    badge: "Informe Exclusivo"
+    title: "El ASPM impulsado por IA acelera la remediación"
+    subtitle: "Descargue nuestro informe sobre cómo el ASPM impulsado por IA acelera la remediación, reduciendo los tiempos de respuesta en un 95%"
+    button: "Descargar Informe"
   hint: "Haga clic en un paso para navegar"
   nav: "Navegación"
