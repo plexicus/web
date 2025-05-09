@@ -34,6 +34,7 @@ export default defineConfig({
 			  es: 'es-ES',
 			  fr: 'it-IT',
 			},
+			prefixDefaultLocale: true
 		  },
 	}), react()],
 });
