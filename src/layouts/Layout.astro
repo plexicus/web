@@ -3,15 +3,16 @@ import "../styles/globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { getLangFromUrl } from "../i18n/utils";
+import BaseHead from "@/components/BaseHead.astro";
 const lang = getLangFromUrl(Astro.url);
 ---
 <html lang="en">
   <head>
+    <BaseHead title="Plexicus" description="Plexicus" />
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
 		
   </head>
   <Navbar client:load lang={lang}/>
