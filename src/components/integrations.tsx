@@ -1,9 +1,7 @@
 'use client';
-
 import type React from 'react';
-
 import { useState } from 'react';
-
+import { useTranslations } from '@/i18n/utils';
 // Define types for our integration data
 type Tool = string;
 type Rarity = 'Common' | 'Uncommon' | 'Rare' | 'Mythic';
@@ -20,11 +18,11 @@ interface Integration {
   color: CardColor;
 }
 
-export default function Integrations() {
+export default function Integrations({ lang }) {
   // State for active tab and selected card
   const [activeTab, setActiveTab] = useState<'connectors' | 'providers'>('connectors');
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
-
+  const t = useTranslations(lang);
   // Integration data split into connectors and providers
   const integrationData = {
     connectors: [
@@ -40,7 +38,7 @@ export default function Integrations() {
           'Coverity Static Analysis',
           'DevSkim',
         ],
-        description: 'Static Application Security Testing tools that analyze source code for security vulnerabilities',
+        description: t('integration.connectors.sast.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +65,7 @@ export default function Integrations() {
       {
         name: 'Secrets / PII Scan',
         tools: ['GitLab Secret Detection', 'GitHub Secret Detection', 'TruffleHog', 'GitLeaks', 'Trivy-Secrets'],
-        description: 'Tools that detect secrets, credentials, and personally identifiable information in code',
+        description: t('integration.connectors.secret.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +100,7 @@ export default function Integrations() {
           'OWASP Dependency-Check',
           'Trivy-SCA',
         ],
-        description: 'Software Composition Analysis tools that identify vulnerabilities in third-party dependencies',
+        description: t('integration.connectors.sca.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +126,7 @@ export default function Integrations() {
       {
         name: 'Container Security',
         tools: ['Checkov', 'Grype', 'Trivy-Container'],
-        description: 'Tools that scan container images for vulnerabilities and misconfigurations',
+        description: t('integration.connectors.container.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +152,7 @@ export default function Integrations() {
       {
         name: 'Plexicus',
         tools: ['Plexalyzer'],
-        description: "Plexicus's proprietary security analysis and remediation platform",
+        description: t('integration.connectors.plexicus.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +184,7 @@ export default function Integrations() {
       {
         name: 'Threat Detection',
         tools: ['ClamAV'],
-        description: 'Tools that detect malware and other threats in code and artifacts',
+        description: t('integration.connectors.threat_detection.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -212,7 +210,7 @@ export default function Integrations() {
       {
         name: 'SCM Security',
         tools: ['ChainBench'],
-        description: 'Tools that secure the software supply chain management process',
+        description: t('integration.connectors.scm.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +235,7 @@ export default function Integrations() {
       {
         name: 'CI/CD Posture',
         tools: ['KICS'],
-        description: 'Tools that assess and secure CI/CD pipelines',
+        description: t('integration.connectors.cicd.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -264,7 +262,7 @@ export default function Integrations() {
       {
         name: 'License',
         tools: ['Trivy-License'],
-        description: 'Tools that identify and manage software licenses',
+        description: t('integration.connectors.license.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -290,7 +288,7 @@ export default function Integrations() {
       {
         name: 'IaC Security',
         tools: ['Hadolint', 'TFLint', 'Terrascan', 'KICS'],
-        description: 'Tools that secure Infrastructure as Code configurations',
+        description: t('integration.connectors.iac.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -318,7 +316,7 @@ export default function Integrations() {
       {
         name: 'SBOM',
         tools: ['Syft', 'Trivy-SBOM'],
-        description: 'Tools that generate Software Bill of Materials',
+        description: t('integration.connectors.sbom.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -349,7 +347,7 @@ export default function Integrations() {
       {
         name: 'SCM',
         tools: ['GitHub', 'GitLab', 'Bitbucket Cloud', 'Gitea'],
-        description: 'Source Code Management platforms that host and manage code repositories',
+        description: t('integration.providers.scm.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -376,7 +374,7 @@ export default function Integrations() {
       {
         name: 'Registry',
         tools: ['GitLab Container Registry'],
-        description: 'Container registries that store and manage container images',
+        description: t('integration.providers.registry.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -402,7 +400,7 @@ export default function Integrations() {
       {
         name: 'Cloud Deployment',
         tools: ['AWS', 'Azure', 'Google Cloud Platform', 'Oracle Cloud'],
-        description: 'Cloud platforms for deploying and managing applications',
+        description: t('integration.providers.cloud.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -425,7 +423,7 @@ export default function Integrations() {
       {
         name: 'Ticket Management',
         tools: ['Jira'],
-        description: 'Issue tracking and project management platforms',
+        description: t('integration.providers.ticket.description'),
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -566,10 +564,9 @@ export default function Integrations() {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">The Magical Integration Stack</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">{ t('integration.title') }</h2>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-            Harness the power of our integration ecosystem - a collection of powerful tools forged to protect your code
-            realm from the darkest of threats
+            { t('integration.subtitle') }
           </p>
         </div>
 
@@ -584,7 +581,7 @@ export default function Integrations() {
               } border border-[#8220ff]/20`}
               onClick={() => setActiveTab('connectors')}
             >
-              Mystical Connectors
+              { t('integration.tabs.mystical') }
             </button>
             <button
               type="button"
@@ -594,7 +591,7 @@ export default function Integrations() {
               } border border-[#8220ff]/20 border-l-0`}
               onClick={() => setActiveTab('providers')}
             >
-              Arcane Providers
+              { t('integration.tabs.arcane') }
             </button>
           </div>
         </div>

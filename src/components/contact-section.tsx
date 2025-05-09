@@ -1,15 +1,15 @@
 import { Button } from './ui/button';
-
-export default function ContactSection() {
+import { useTranslations } from '@/i18n/utils';
+export default function ContactSection({ lang }) {
+  const t = useTranslations(lang);
   return (
     <section className="py-16 text-white" style={{ backgroundColor: '#8220ff' }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight mb-6">Connect with Plexicus</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-6">{ t('contact.title') }</h2>
             <p className="text-white/90 mb-8 max-w-md">
-              Elevate your cybersecurity strategy with Plexicus. Contact us for a comprehensive consultation, discover
-              our products through a personalized demo, and learn how Plexicus can fortify your digital infrastructure.
+              { t('contact.subtitle') }
             </p>
 
             <div className="space-y-6">
@@ -32,7 +32,7 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">Addresses</h3>
+                  <h3 className="font-semibold text-lg">{ t('contact.addresses') }</h3>
                   <div className="text-white/80">
                     <p className="font-medium">USA</p>
                     <p>
@@ -72,7 +72,7 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">Hours</h3>
+                  <h3 className="font-semibold text-lg">{ t('contact.hours') }</h3>
                   <p className="text-white/80">Mon-Fri 9:00AM - 5:00PM</p>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">Email</h3>
+                  <h3 className="font-semibold text-lg">{ t('contact.email') }</h3>
                   <p className="text-white/80">info@plexicus.com</p>
                 </div>
               </div>
@@ -119,7 +119,7 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">Phone</h3>
+                  <h3 className="font-semibold text-lg">{ t('contact.phone') }</h3>
                   <p className="text-white/80">+1 510-298-1863</p>
                 </div>
               </div>
@@ -127,12 +127,12 @@ export default function ContactSection() {
           </div>
 
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
-            <h3 className="text-xl font-semibold mb-6">Contact Us</h3>
+            <h3 className="text-xl font-semibold mb-6">{ t('contact.form.title') }</h3>
             <form className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="first-name" className="block text-sm font-medium text-white/80 mb-1">
-                    First Name*
+                    { t('contact.form.first_name') }*
                   </label>
                   <input
                     type="text"
@@ -143,7 +143,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <label htmlFor="last-name" className="block text-sm font-medium text-white/80 mb-1">
-                    Last Name*
+                    { t('contact.form.last_name') }*
                   </label>
                   <input
                     type="text"
@@ -156,7 +156,7 @@ export default function ContactSection() {
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-1">
-                  Business Email*
+                  { t('contact.form.business_email') }*
                 </label>
                 <input
                   type="email"
@@ -168,7 +168,7 @@ export default function ContactSection() {
 
               <div>
                 <label htmlFor="company" className="block text-sm font-medium text-white/80 mb-1">
-                  Company*
+                  { t('contact.form.company') }*
                 </label>
                 <input
                   type="text"
@@ -180,7 +180,7 @@ export default function ContactSection() {
 
               <div>
                 <label htmlFor="job-title" className="block text-sm font-medium text-white/80 mb-1">
-                  Job Title*
+                  { t('contact.form.job_title') }*
                 </label>
                 <input
                   type="text"
@@ -197,12 +197,11 @@ export default function ContactSection() {
                   className="h-4 w-4 mt-1 border-white/30 rounded bg-white/5 text-primary focus:ring-primary"
                 />
                 <label htmlFor="privacy" className="ml-2 block text-sm text-white/70">
-                  I agree to receive other communications from Plexicus LLC. You can unsubscribe from these
-                  communications at any time.
+                  { t('contact.form.tnc') }
                 </label>
               </div>
 
-              <Button className="w-full bg-white text-primary hover:bg-white/90">Submit</Button>
+              <Button className="w-full bg-white text-primary hover:bg-white/90">{ t('contact.form.submit') }</Button>
             </form>
           </div>
         </div>

@@ -426,10 +426,10 @@ export default function HowItWorks({ lang }) {
 
                         <span className="text-xs mt-1 opacity-80 text-gray-700">
                           { step === 0
-                            ? 'Find vulnerabilities'
+                            ? t('how-it-works.discover.hint')
                             : step === 1
-                              ? 'Analyze & contextualize'
-                              : 'Fix & implement' }
+                              ? t('how-it-works.enrich.hint')
+                              : t('how-it-works.remediate.hint') }
                         </span>
                       </div>
                     </div>
@@ -1199,14 +1199,14 @@ export default function HowItWorks({ lang }) {
         <div className="mt-16 grid lg:grid-cols-2 gap-8 items-center">
           <div className="space-y-6 ml-8">
             <div className="inline-block px-4 py-2 bg-primary/10 text-primary font-medium rounded-full text-sm">
-              Exclusive Report
+              { t('how-it-works.reports.badge') }
             </div>
-            <h3 className="text-2xl font-bold tracking-tight text-gray-900">AI-powered ASPM accelerates remediation</h3>
+            <h3 className="text-2xl font-bold tracking-tight text-gray-900">{ t('how-it-works.reports.title') }</h3>
             <p className="text-gray-600">
-              Download our report on how AI-powered ASPM accelerates remediation, reducing response times by 95%
+              { t('how-it-works.reports.subtitle') }
             </p>
             <button className="bg-[#8220ff] text-white py-2 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300">
-              Download Report
+              { t('how-it-works.reports.button') }
             </button>
           </div>
           <div className="bg-gray-200 aspect-video rounded-lg flex items-center justify-center relative overflow-hidden shadow-lg">
