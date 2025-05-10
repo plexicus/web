@@ -13,7 +13,7 @@ type MenuItemType = {
   title: string;
   description: string;
   href: string;
-  icon: React.ReactNode;
+  icon: React.SVGProps<SVGSVGElement>;
 };
 
 type MenuType = {
@@ -1437,10 +1437,9 @@ export default function Navbar({ lang }) {
                           href={item.href}
                           className="flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors group"
                           onClick={() => setActiveMenu(null)}
-                          role="menuitem"
                         >
                           <div className="w-12 h-12 bg-[#8220ff]/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-[#8220ff]/20 transition-colors">
-                            { item.icon }
+                            { item.icon as React.ReactNode }
                           </div>
                           <div>
                             <h4 className="font-semibold text-gray-900 group-hover:text-[#8220ff] transition-colors">
@@ -1473,7 +1472,7 @@ export default function Navbar({ lang }) {
                                   <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-2 group-hover:bg-purple-200 transition-colors">
                                     { React.cloneElement(item.icon as React.ReactElement, {
                                       className: 'w-5 h-5 text-purple-700',
-                                    }) }
+                                    } as any) }
                                   </div>
                                   <h4 className="font-medium text-sm text-gray-900 group-hover:text-purple-800 transition-colors">
                                     { item.title }
@@ -1512,7 +1511,7 @@ export default function Navbar({ lang }) {
                       onClick={() => setMenuOpen(false)}
                     >
                       <div className="w-8 h-8 bg-primary/10 rounded-md mr-2 flex items-center justify-center">
-                        { React.cloneElement(item.icon, { width: 16, height: 16 }) }
+                        { React.cloneElement((item.icon as React.ReactElement), { width: 16, height: 16 } as any) }
                       </div>
                       <span className="text-sm">{ item.title }</span>
                     </Link>
