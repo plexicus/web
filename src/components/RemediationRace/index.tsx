@@ -62,7 +62,7 @@ export default function RemediationRace({ lang }) {
     }
 
     return Math.min(100, Math.max(0, ((currentTime - timeBeforeStep) / stepTime) * 100));
-  }
+  };
 
   /**
    * Hooks
@@ -103,15 +103,15 @@ export default function RemediationRace({ lang }) {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">
-            {t('vulnerability_remediation_race.title')}
+            { t('vulnerability_remediation_race.title') }
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            {t('vulnerability_remediation_race.subtitle')}
+            { t('vulnerability_remediation_race.subtitle') }
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          { /* Traditional Method */}
+          { /* Traditional Method */ }
           <TraditionalMethod
             getStepProcess={getStepProcess}
             remediationSteps={remediationSteps}
@@ -120,7 +120,7 @@ export default function RemediationRace({ lang }) {
             totalTraditionalTime={totalTraditionalTime}
           />
 
-          { /* Plexicus Method */}
+          { /* Plexicus Method */ }
           <PlexicusMethod
             getStepProcess={getStepProcess}
             remediationSteps={remediationSteps}
@@ -130,7 +130,7 @@ export default function RemediationRace({ lang }) {
           />
         </div>
 
-        { /* Cost Calculator - Interactive Version */}
+        { /* Cost Calculator - Interactive Version */ }
         <CostCalculator
           t={t}
           remediationSteps={remediationSteps}

@@ -42,7 +42,7 @@ export const LanguageSwitcher = ({ t }) => {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
           { Object.entries(languages).map(([lang, label]) => (
-            <DropdownMenuItem onClick={() => changeLanguage(lang)}>
+            <DropdownMenuItem onClick={() => changeLanguage(lang)} key={lang}>
               { label }
             </DropdownMenuItem>
           )) }

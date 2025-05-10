@@ -8,7 +8,7 @@ export default function CostCalculator({ t, remediationSteps, totalPlexicusTime,
     traditionalTime: number;
     plexicusTime: number;
   }[];
-  t: (key: keyof (typeof ui)[typeof defaultLang]) => any;
+  t: (key: keyof (typeof ui)[typeof defaultLang])=> any;
   totalPlexicusTime: number;
   totalTraditionalTime: number;
 }) {
@@ -62,21 +62,21 @@ export default function CostCalculator({ t, remediationSteps, totalPlexicusTime,
       <div className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200">
         <div className="p-6 md:p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            { /* Left Column - Form */}
+            { /* Left Column - Form */ }
             <div className="space-y-6">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900">{t('vulnerability_remediation_race.savings_calculator.title')}</h3>
+                <h3 className="text-2xl font-bold text-gray-900">{ t('vulnerability_remediation_race.savings_calculator.title') }</h3>
                 <p className="text-sm text-gray-500 mt-1">
-                  {t('vulnerability_remediation_race.savings_calculator.subtitle')}
+                  { t('vulnerability_remediation_race.savings_calculator.subtitle') }
                 </p>
               </div>
 
-              { /* Form Inputs */}
+              { /* Form Inputs */ }
               <div className="space-y-4 bg-gray-50 p-6 rounded-lg border border-gray-100">
-                { /* Developer Rate Input */}
+                { /* Developer Rate Input */ }
                 <div>
                   <label htmlFor="hourlyRate" className="block text-sm font-medium text-gray-700 mb-1">
-                    {t('vulnerability_remediation_race.savings_calculator.developer_hourly_rate')} ($)
+                    { t('vulnerability_remediation_race.savings_calculator.developer_hourly_rate') } ($)
                   </label>
                   <div className="relative rounded-md shadow-sm">
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -101,10 +101,10 @@ export default function CostCalculator({ t, remediationSteps, totalPlexicusTime,
                   </div>
                 </div>
 
-                { /* Vulnerability Count Input */}
+                { /* Vulnerability Count Input */ }
                 <div>
                   <label htmlFor="vulnCount" className="block text-sm font-medium text-gray-700 mb-1">
-                    {t('vulnerability_remediation_race.savings_calculator.number_of_vulnerabilities')}
+                    { t('vulnerability_remediation_race.savings_calculator.number_of_vulnerabilities') }
                   </label>
                   <div className="relative rounded-md shadow-sm">
                     <input
@@ -126,31 +126,31 @@ export default function CostCalculator({ t, remediationSteps, totalPlexicusTime,
                   </div>
                 </div>
 
-                { /* Summary Stats */}
+                { /* Summary Stats */ }
                 <div className="mt-6 pt-4 border-t border-gray-200">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-white p-4 rounded-lg border border-gray-200">
-                      <div className="text-sm text-gray-500">{t('vulnerability_remediation_race.savings_calculator.traditional_cost')}</div>
+                      <div className="text-sm text-gray-500">{ t('vulnerability_remediation_race.savings_calculator.traditional_cost') }</div>
                       <div className="text-2xl font-bold text-gray-900">
-                        ${(calculateTraditionalCost() * vulnerabilityCount).toLocaleString()}
+                        ${ (calculateTraditionalCost() * vulnerabilityCount).toLocaleString() }
                       </div>
                     </div>
                     <div className="bg-[#8220ff]/5 p-4 rounded-lg border border-[#8220ff]/20">
                       <div className="text-sm text-[#8220ff]">Plexicus Cost</div>
                       <div className="text-2xl font-bold text-[#8220ff]">
-                        ${(CALCULATE_COST * vulnerabilityCount).toLocaleString()}
+                        ${ (CALCULATE_COST * vulnerabilityCount).toLocaleString() }
                       </div>
                     </div>
                   </div>
                   <div className="mt-4 bg-gradient-to-r from-[#8220ff]/10 to-[#8220ff]/20 p-4 rounded-lg border border-[#8220ff]/20">
                     <div className="flex justify-between items-center">
-                      <div className="text-sm font-medium text-[#8220ff]">{t('vulnerability_remediation_race.savings_calculator.total_savings')}</div>
+                      <div className="text-sm font-medium text-[#8220ff]">{ t('vulnerability_remediation_race.savings_calculator.total_savings') }</div>
                       <div className="text-xl font-bold text-[#8220ff]">
                         $
-                        {(
+                        { (
                           (calculateTraditionalCost() - CALCULATE_COST) *
                           vulnerabilityCount
-                        ).toLocaleString()}
+                        ).toLocaleString() }
                       </div>
                     </div>
                     <div className="mt-2 w-full bg-white/50 h-2 rounded-full overflow-hidden">
@@ -160,19 +160,19 @@ export default function CostCalculator({ t, remediationSteps, totalPlexicusTime,
                       ></div>
                     </div>
                     <div className="mt-1 text-right text-sm font-medium text-[#8220ff]">
-                      {calculateSavingsPercentage()}% saved
+                      { calculateSavingsPercentage() }% saved
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            { /* Right Column - Excel Visualization */}
+            { /* Right Column - Excel Visualization */ }
             <div className="relative">
-              { /* Spreadsheet illustration - savings calculator */}
+              { /* Spreadsheet illustration - savings calculator */ }
               <div className="relative shadow-xl w-full h-full">
                 <div className="w-full h-full bg-white rounded-lg border border-gray-200 flex flex-col overflow-hidden">
-                  { /* Mac-style window header */}
+                  { /* Mac-style window header */ }
                   <div className="h-8 bg-gray-100 border-b border-gray-200 flex items-center px-3">
                     <div className="flex space-x-2 mr-4">
                       <div className="w-3 h-3 rounded-full bg-red-400 hover:bg-red-500 transition-colors"></div>
@@ -184,7 +184,7 @@ export default function CostCalculator({ t, remediationSteps, totalPlexicusTime,
                     </div>
                   </div>
 
-                  { /* Excel-like menu bar */}
+                  { /* Excel-like menu bar */ }
                   <div className="h-7 bg-[#217346] text-white text-xs flex items-center px-2 border-b border-[#185a34]">
                     <div className="flex space-x-3">
                       <span className="hover:bg-[#185a34] px-2 py-1 rounded">File</span>
@@ -195,7 +195,7 @@ export default function CostCalculator({ t, remediationSteps, totalPlexicusTime,
                     </div>
                   </div>
 
-                  { /* Spreadsheet header */}
+                  { /* Spreadsheet header */ }
                   <div className="h-10 bg-[#8220ff] text-white p-2 flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +218,7 @@ export default function CostCalculator({ t, remediationSteps, totalPlexicusTime,
                     <div className="text-sm font-bold">Plexicus Savings Calculator</div>
                   </div>
 
-                  { /* Excel-like formula bar */}
+                  { /* Excel-like formula bar */ }
                   <div className="h-7 bg-gray-50 border-b border-gray-200 flex items-center px-2 text-xs">
                     <div className="w-10 text-gray-500 mr-1">fx</div>
                     <div className="flex-1 bg-white border border-gray-300 rounded px-2 py-0.5 text-gray-700 font-mono">
@@ -226,78 +226,78 @@ export default function CostCalculator({ t, remediationSteps, totalPlexicusTime,
                     </div>
                   </div>
 
-                  { /* Column headers */}
+                  { /* Column headers */ }
                   <div className="flex border-b border-gray-200 bg-gray-50 text-xs font-medium text-gray-700">
                     <div className="w-1/3 p-2 border-r border-gray-200">Item</div>
                     <div className="w-1/3 p-2 border-r border-gray-200 text-center">Traditional</div>
                     <div className="w-1/3 p-2 text-center">Plexicus</div>
                   </div>
 
-                  { /* Spreadsheet rows */}
+                  { /* Spreadsheet rows */ }
                   <div className="flex-1 overflow-y-auto" style={{ minHeight: '300px' }}>
-                    { /* Time row */}
+                    { /* Time row */ }
                     <div className="flex border-b border-gray-200 text-xs">
                       <div className="w-1/3 p-2 border-r border-gray-200 font-medium">Time (min)</div>
-                      <div className="w-1/3 p-2 border-r border-gray-200 text-center">{totalTraditionalTime}</div>
-                      <div className="w-1/3 p-2 text-center text-[#8220ff] font-medium">{totalPlexicusTime}</div>
+                      <div className="w-1/3 p-2 border-r border-gray-200 text-center">{ totalTraditionalTime }</div>
+                      <div className="w-1/3 p-2 text-center text-[#8220ff] font-medium">{ totalPlexicusTime }</div>
                     </div>
 
-                    { /* Cost per vuln row */}
+                    { /* Cost per vuln row */ }
                     <div className="flex border-b border-gray-200 text-xs">
                       <div className="w-1/3 p-2 border-r border-gray-200 font-medium">Cost per vuln</div>
                       <div className="w-1/3 p-2 border-r border-gray-200 text-center">
-                        ${calculateTraditionalCost()}
+                        ${ calculateTraditionalCost() }
                       </div>
                       <div className="w-1/3 p-2 text-center text-[#8220ff] font-medium">$10</div>
                     </div>
 
-                    { /* Total vulns row */}
+                    { /* Total vulns row */ }
                     <div className="flex border-b border-gray-200 text-xs bg-gray-50">
                       <div className="w-1/3 p-2 border-r border-gray-200 font-medium">Total vulns</div>
-                      <div className="w-1/3 p-2 border-r border-gray-200 text-center">{vulnerabilityCount}</div>
-                      <div className="w-1/3 p-2 text-center">{vulnerabilityCount}</div>
+                      <div className="w-1/3 p-2 border-r border-gray-200 text-center">{ vulnerabilityCount }</div>
+                      <div className="w-1/3 p-2 text-center">{ vulnerabilityCount }</div>
                     </div>
 
-                    { /* Total cost row */}
+                    { /* Total cost row */ }
                     <div className="flex border-b border-gray-200 text-xs">
                       <div className="w-1/3 p-2 border-r border-gray-200 font-medium">Total cost</div>
                       <div className="w-1/3 p-2 border-r border-gray-200 text-center">
-                        ${(calculateTraditionalCost() * vulnerabilityCount).toLocaleString()}
+                        ${ (calculateTraditionalCost() * vulnerabilityCount).toLocaleString() }
                       </div>
                       <div className="w-1/3 p-2 text-center text-[#8220ff] font-medium">
-                        ${(CALCULATE_COST * vulnerabilityCount).toLocaleString()}
+                        ${ (CALCULATE_COST * vulnerabilityCount).toLocaleString() }
                       </div>
                     </div>
 
-                    { /* Savings row */}
+                    { /* Savings row */ }
                     <div className="flex border-b border-gray-200 text-xs bg-[#8220ff]/5">
                       <div className="w-1/3 p-2 border-r border-gray-200 font-bold">Savings</div>
                       <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold" >
                         $
-                        {(
+                        { (
                           (calculateTraditionalCost() - CALCULATE_COST) *
                           vulnerabilityCount
-                        ).toLocaleString()}
+                        ).toLocaleString() }
                       </div>
                     </div>
 
-                    { /* Percentage row */}
+                    { /* Percentage row */ }
                     <div className="flex text-xs bg-[#8220ff]/10">
                       <div className="w-1/3 p-2 border-r border-gray-200 font-bold">% Saved</div>
                       <div className="w-2/3 p-2 text-center text-[#8220ff] font-bold">
-                        {calculateSavingsPercentage()}%
+                        { calculateSavingsPercentage() }%
                       </div>
                     </div>
 
-                    { /* Formula row */}
+                    { /* Formula row */ }
                     <div className="flex border-t border-gray-300 text-xs bg-gray-50 mt-auto">
                       <div className="w-full p-2 font-mono text-gray-500 text-center">
-                        { /* Empty formula row */}
+                        { /* Empty formula row */ }
                       </div>
                     </div>
                   </div>
 
-                  { /* Spreadsheet footer */}
+                  { /* Spreadsheet footer */ }
                   <div className="h-10 bg-[#8220ff]/80 text-white p-2 text-xs flex items-center justify-between">
                     <div className="flex items-center">
                       <div className="w-3 h-3 rounded-full bg-green-400 mr-1"></div>

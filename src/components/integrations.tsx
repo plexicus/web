@@ -24,7 +24,7 @@ export default function Integrations({ lang }) {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const t = useTranslations(lang);
   // Integration data split into connectors and providers
-  const integrationData = {
+  const integrationData: { connectors: Integration[]; providers: Integration[] } = {
     connectors: [
       {
         name: 'SAST',
@@ -564,13 +564,13 @@ export default function Integrations({ lang }) {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">{t('integration.title')}</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">{ t('integration.title') }</h2>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-            {t('integration.subtitle')}
+            { t('integration.subtitle') }
           </p>
         </div>
 
-        { /* Tab navigation */}
+        { /* Tab navigation */ }
         <div className="flex justify-center mb-8">
           <div className="inline-flex rounded-md shadow-md" role="group">
             <button
@@ -578,110 +578,110 @@ export default function Integrations({ lang }) {
               className={`px-4 py-2 text-sm font-medium rounded-l-lg ${activeTab === 'connectors'
                 ? 'bg-[#8220ff] text-white shadow-[0_0_15px_rgba(130,32,255,0.5)]'
                 : 'bg-white text-gray-700 hover:bg-[#f5f0ff]'
-                } border border-[#8220ff]/20`}
+              } border border-[#8220ff]/20`}
               onClick={() => setActiveTab('connectors')}
             >
-              {t('integration.tabs.mystical')}
+              { t('integration.tabs.mystical') }
             </button>
             <button
               type="button"
               className={`px-4 py-2 text-sm font-medium rounded-r-lg ${activeTab === 'providers'
                 ? 'bg-[#8220ff] text-white shadow-[0_0_15px_rgba(130,32,255,0.5)]'
                 : 'bg-white text-gray-700 hover:bg-[#f5f0ff]'
-                } border border-[#8220ff]/20 border-l-0`}
+              } border border-[#8220ff]/20 border-l-0`}
               onClick={() => setActiveTab('providers')}
             >
-              {t('integration.tabs.arcane')}
+              { t('integration.tabs.arcane') }
             </button>
           </div>
         </div>
 
-        { /* Card grid */}
+        { /* Card grid */ }
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
-          {activeIntegrations.map((integration) => (
+          { activeIntegrations.map((integration) => (
             <div
               key={integration.name}
               className={`relative ${selectedCard === integration.name ? 'transform scale-105' : 'transform hover:scale-102'
-                } transition-all duration-300 cursor-pointer perspective-500`}
+              } transition-all duration-300 cursor-pointer perspective-500`}
               onClick={() => setSelectedCard(selectedCard === integration.name ? null : integration.name)}
             >
-              { /* Card with standard hover effect */}
+              { /* Card with standard hover effect */ }
               <div
                 className={`rounded-lg overflow-hidden border-2 ${getCardBorderColor(
                   integration.color,
                 )} ${getCardBackground(integration.color)} ${selectedCard === integration.name ? 'shadow-xl ring-2 ring-[#8220ff]' : 'shadow-md'
-                  } h-[420px] transform transition-all duration-300 hover:shadow-lg hover:translate-y-[-4px]`}
+                } h-[420px] transform transition-all duration-300 hover:shadow-lg hover:translate-y-[-4px]`}
               >
-                { /* Title bar */}
+                { /* Title bar */ }
                 <div className={`p-3 ${getTitleBarColor(integration.color)} flex items-center justify-between`}>
-                  <h3 className="font-bold">{integration.name}</h3>
-                  <div className="w-6 h-6">{integration.icon}</div>
+                  <h3 className="font-bold">{ integration.name }</h3>
+                  <div className="w-6 h-6">{ integration.icon }</div>
                 </div>
 
-                { /* Image area with creature shadow silhouette */}
+                { /* Image area with creature shadow silhouette */ }
                 <div className="p-5 bg-gradient-to-b from-black/80 to-black/60 text-white h-40 flex items-center justify-center relative overflow-hidden">
-                  { /* Creature shadow silhouette based on card color */}
+                  { /* Creature shadow silhouette based on card color */ }
                   <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                    {integration.color === 'blue' && (
+                    { integration.color === 'blue' && (
                       <svg viewBox="0 0 100 100" className="h-full w-auto">
                         <path
                           d="M50,20 C60,25 70,35 65,50 C60,65 70,75 50,80 C30,75 40,65 35,50 C30,35 40,25 50,20"
                           fill="currentColor"
                         />
                       </svg>
-                    )}
-                    {integration.color === 'green' && (
+                    ) }
+                    { integration.color === 'green' && (
                       <svg viewBox="0 0 100 100" className="h-full w-auto">
                         <path
                           d="M30,20 C50,15 70,25 75,40 C80,55 70,70 50,80 C30,70 20,55 25,40 C30,25 30,20 30,20"
                           fill="currentColor"
                         />
                       </svg>
-                    )}
-                    {integration.color === 'red' && (
+                    ) }
+                    { integration.color === 'red' && (
                       <svg viewBox="0 0 100 100" className="h-full w-auto">
                         <path
                           d="M50,20 C65,25 75,30 70,50 C65,70 55,75 50,80 C45,75 35,70 30,50 C25,30 35,25 50,20"
                           fill="currentColor"
                         />
                       </svg>
-                    )}
-                    {integration.color === 'black' && (
+                    ) }
+                    { integration.color === 'black' && (
                       <svg viewBox="0 0 100 100" className="h-full w-auto">
                         <path
                           d="M40,20 C60,15 65,30 70,40 C75,50 70,65 60,75 C50,85 40,75 30,65 C20,55 20,40 25,30 C30,20 40,20 40,20"
                           fill="currentColor"
                         />
                       </svg>
-                    )}
-                    {integration.color === 'purple' && (
+                    ) }
+                    { integration.color === 'purple' && (
                       <svg viewBox="0 0 100 100" className="h-full w-auto">
                         <path
                           d="M50,15 C65,20 70,35 75,45 C80,55 75,70 60,80 C45,85 35,75 25,60 C15,45 25,25 35,20 C45,15 50,15 50,15"
                           fill="currentColor"
                         />
                       </svg>
-                    )}
+                    ) }
                   </div>
                   <p className="text-sm italic text-center relative z-10 text-shadow px-2 py-3 leading-relaxed">
-                    {integration.description}
+                    { integration.description }
                   </p>
                 </div>
 
-                { /* Type line */}
+                { /* Type line */ }
                 <div className="bg-gray-800 text-white text-xs p-2 flex justify-between border-t border-b border-gray-600">
-                  <span>{activeTab === 'connectors' ? 'Security Connector' : 'Service Provider'}</span>
-                  <span className="font-semibold">{integration.rarity}</span>
+                  <span>{ activeTab === 'connectors' ? 'Security Connector' : 'Service Provider' }</span>
+                  <span className="font-semibold">{ integration.rarity }</span>
                 </div>
 
-                { /* Tool list */}
+                { /* Tool list */ }
                 <div className="bg-white h-[184px] overflow-y-auto p-2 custom-scrollbar">
-                  {integration.tools.map((tool, index) => (
+                  { integration.tools.map((tool, index) => (
                     <div
                       key={index}
                       className="flex justify-between items-center p-2 border-b border-gray-100 last:border-b-0"
                     >
-                      <span className="text-sm">{tool}</span>
+                      <span className="text-sm">{ tool }</span>
                       <div className="w-6 h-6 relative">
                         <img
                           src={getToolLogo(tool) || '/placeholder.svg'}
@@ -693,33 +693,33 @@ export default function Integrations({ lang }) {
                         />
                       </div>
                     </div>
-                  ))}
+                  )) }
                 </div>
 
-                { /* Stats bar */}
+                { /* Stats bar */ }
                 <div className="bg-gray-800 text-white text-xs p-2 flex justify-between border-t border-gray-600">
                   <div className="flex items-center">
                     <span className="mr-1">PWR</span>
                     <div className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center">
-                      {integration.power}
+                      { integration.power }
                     </div>
                   </div>
                   <div className="flex items-center">
                     <span className="mr-1">DEF</span>
                     <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center">
-                      {integration.defense}
+                      { integration.defense }
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
+          )) }
         </div>
 
-        { /* Selected card details */}
-        {selectedCard && (
+        { /* Selected card details */ }
+        { selectedCard && (
           <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200 mt-8 animate-fadeIn">
-            {activeIntegrations
+            { activeIntegrations
               .filter((integration) => integration.name === selectedCard)
               .map((integration) => (
                 <div key={`detail-${integration.name}`} className="grid md:grid-cols-2 gap-8">
@@ -728,30 +728,28 @@ export default function Integrations({ lang }) {
                       <div
                         className={`w-10 h-10 ${getTitleBarColor(integration.color)} rounded-full flex items-center justify-center mr-3`}
                       >
-                        {integration.icon}
+                        { integration.icon }
                       </div>
-                      <h3 className="text-2xl font-bold">{integration.name}</h3>
+                      <h3 className="text-2xl font-bold">{ integration.name }</h3>
                     </div>
-                    <p className="text-gray-700 mb-4">{integration.description}</p>
+                    <p className="text-gray-700 mb-4">{ integration.description }</p>
                     <div
                       className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${integration.rarity === 'Common'
                         ? 'bg-gray-200 text-gray-800'
                         : integration.rarity === 'Uncommon'
                           ? 'bg-blue-200 text-blue-800'
-                          : integration.rarity === 'Uncommon'
-                            ? 'bg-blue-200 text-blue-800'
-                            : integration.rarity === 'Rare'
-                              ? 'bg-yellow-200 text-yellow-800'
-                              : 'bg-orange-200 text-orange-800'
-                        }`}
+                          : integration.rarity === 'Rare'
+                            ? 'bg-yellow-200 text-yellow-800'
+                            : 'bg-orange-200 text-orange-800'
+                      }`}
                     >
-                      {integration.rarity}
+                      { integration.rarity }
                     </div>
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Supported Tools</h4>
                     <div className="grid grid-cols-2 gap-2">
-                      {integration.tools.map((tool, index) => (
+                      { integration.tools.map((tool, index) => (
                         <div key={index} className="flex items-center p-2 bg-gray-50 rounded">
                           <div className="w-6 h-6 relative mr-2">
                             <img
@@ -763,9 +761,9 @@ export default function Integrations({ lang }) {
                               }}
                             />
                           </div>
-                          <span className="text-sm">{tool}</span>
+                          <span className="text-sm">{ tool }</span>
                         </div>
-                      ))}
+                      )) }
                     </div>
                     <div className="mt-4 flex justify-between">
                       <div className="w-1/2">
@@ -776,7 +774,7 @@ export default function Integrations({ lang }) {
                             style={{ width: `${integration.power * 10}%` }}
                           ></div>
                         </div>
-                        <div className="text-right text-sm mt-1">{integration.power}/10</div>
+                        <div className="text-right text-sm mt-1">{ integration.power }/10</div>
                       </div>
                       <div className="w-1/2 pl-4">
                         <h4 className="font-semibold mb-2">Defense Rating</h4>
@@ -786,17 +784,17 @@ export default function Integrations({ lang }) {
                             style={{ width: `${integration.defense * 10}%` }}
                           ></div>
                         </div>
-                        <div className="text-right text-sm mt-1">{integration.defense}/10</div>
+                        <div className="text-right text-sm mt-1">{ integration.defense }/10</div>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
+              )) }
           </div>
-        )}
+        ) }
 
-        { /* Custom CSS for card effects */}
-        <style>{`
+        { /* Custom CSS for card effects */ }
+        <style>{ `
           .perspective-500 {
             /* Keeping this class for compatibility */
           }
