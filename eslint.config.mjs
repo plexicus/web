@@ -1,4 +1,5 @@
 import eslintPluginAstro from "eslint-plugin-astro";
+import eslintReact from "eslint-plugin-react"
 import stylisticTs from "@stylistic/eslint-plugin-ts";
 import stylisticJsx from "@stylistic/eslint-plugin-jsx";
 import { defineConfig, globalIgnores } from "eslint/config";
@@ -8,6 +9,7 @@ import tseslint from "typescript-eslint";
 export default defineConfig([
 	// add more generic rule sets here, such as:
 	// js.configs.recommended,
+	eslintReact.configs.flat['jsx-runtime'],
 	...eslintPluginAstro.configs.recommended,
 	{
 		files: ["**/*.{js,ts,jsx,tsx}"],
@@ -24,6 +26,7 @@ export default defineConfig([
 		},
 		rules: {
 			// General stylistic
+			"react/jsx-key": ["error"],
 			"@stylistic/indent": ["error", 2],
 			"@stylistic/semi": ["error", "always"],
 			"@stylistic/quotes": ["error", "single", { avoidEscape: true }],
