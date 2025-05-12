@@ -1,25 +1,34 @@
-// Function to flatten a nested YAML object
 export default function flattenYamlObject(obj: any, prefix: string = ''): Record<string, any> {
   let result: Record<string, any> = {};
- 
-  // Ensure that obj is a valid object and not null or undefined
+
   if (obj && typeof obj === 'object') {
     for (const key in obj) {
-      // Use Object.prototype.hasOwnProperty to avoid issues if obj doesn't inherit from Object
       if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        // If the key is 'default', skip adding the prefix
         const newKey = (key === 'default' && !prefix) ? '' : (prefix ? `${prefix}.${key}` : key);
-    
-        // If the value is an object, recursively flatten it
-        if (typeof obj[key] === 'object' && obj[key] !== null) {
-          result = { ...result, ...flattenYamlObject(obj[key], newKey) };
+        const value = obj[key];
+
+        if (Array.isArray(value)) {
+          result[newKey] = value;
+
+          value.forEach((item, index) => {
+            if (typeof item === 'object' && item !== null) {
+              result = {
+                ...result,
+                ...flattenYamlObject(item, `${newKey}.${index}`),
+              };
+            } else {
+              result[`${newKey}.${index}`] = item;
+            }
+          });
+
+        } else if (typeof value === 'object' && value !== null) {
+          result = { ...result, ...flattenYamlObject(value, newKey) };
         } else {
-          result[newKey] = obj[key];
+          result[newKey] = value;
         }
       }
     }
   }
-    
+
   return result;
 }
-    

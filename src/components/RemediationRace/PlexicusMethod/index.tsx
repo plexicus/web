@@ -10,13 +10,13 @@ import IconsTime from '@/components/icons/time';
 import { suffixMin } from '@/lib/formatters/suffix-min';
 
 interface PlexicusMethodProps {
-  getStepProcess: (index: number, isTraditional: boolean, type?: "active" | "progress" | "completed") => number | boolean
+  getStepProcess: (index: number, isTraditional: boolean, type?: 'active' | 'progress' | 'completed')=> number | boolean;
   remediationSteps: {
     name: string;
     traditionalTime: number;
     plexicusTime: number;
   }[];
-  t: (key: keyof (typeof ui)[typeof defaultLang]) => any;
+  t: (key: keyof (typeof ui)[typeof defaultLang])=> any;
   plexicusTime: number;
   totalPlexicusTime: number;
 }
@@ -27,7 +27,7 @@ export default function PlexicusMethod({ getStepProcess, remediationSteps, t, pl
       <div className="bg-[#8220ff] text-white p-4">
         <h3 className="text-xl font-bold">Plexicus</h3>
         <div className="flex items-center justify-between mt-2">
-          <div className="text-sm text-white/80">{t('vulnerability_remediation_race.traditional_method.time_elapsed')}</div>
+          <div className="text-sm text-white/80">{ t('vulnerability_remediation_race.traditional_method.time_elapsed') }</div>
           <div className="text-2xl font-mono font-bold flex items-center">
             <IconsTime
               className="mr-2 text-blue-500"
@@ -35,7 +35,7 @@ export default function PlexicusMethod({ getStepProcess, remediationSteps, t, pl
               height={32}
               color="#FFFFFF"
             />
-            {suffixMin(plexicusTime)}
+            { suffixMin(plexicusTime) }
           </div>
         </div>
         <div className="w-full bg-[#8220ff]/40 h-2 mt-2 rounded-full overflow-hidden">
@@ -46,7 +46,7 @@ export default function PlexicusMethod({ getStepProcess, remediationSteps, t, pl
         </div>
       </div>
       <div className="p-4">
-        {remediationSteps.map((step, index) => (
+        { remediationSteps.map((step, index) => (
           <div key={`plex-${index}`} className="mb-4 last:mb-0">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center">
@@ -56,13 +56,13 @@ export default function PlexicusMethod({ getStepProcess, remediationSteps, t, pl
                     : getStepProcess(index, false, 'active')
                       ? 'bg-[#8220ff]/10 text-[#8220ff] animate-pulse'
                       : 'bg-gray-100 text-gray-400'
-                    }`}
+                  }`}
                 >
-                  {getStepProcess(index, false, 'completed') ? (
+                  { getStepProcess(index, false, 'completed') ? (
                     <IconsCheck width="16" height="16" />
                   ) : (
                     index + 1
-                  )}
+                  ) }
                 </div>
                 <span
                   className={`font-medium ${getStepProcess(index, false, 'active')
@@ -70,9 +70,9 @@ export default function PlexicusMethod({ getStepProcess, remediationSteps, t, pl
                     : getStepProcess(index, false, 'completed')
                       ? 'text-gray-700'
                       : 'text-gray-400'
-                    }`}
+                  }`}
                 >
-                  {step.name}
+                  { step.name }
                 </span>
               </div>
               <span
@@ -81,41 +81,41 @@ export default function PlexicusMethod({ getStepProcess, remediationSteps, t, pl
                   : getStepProcess(index, false, 'completed')
                     ? 'text-gray-700'
                     : 'text-gray-400'
-                  }`}
+                }`}
               >
-                {suffixMin(step.plexicusTime)}
+                { suffixMin(step.plexicusTime) }
               </span>
             </div>
 
-            { /* Step visualization */}
+            { /* Step visualization */ }
             <div className="ml-11 mt-2 mb-4">
-              {getStepProcess(index, true, 'active') && (
+              { getStepProcess(index, true, 'active') && (
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 animate-fadeIn">
-                  {index === 0 && (
+                  { index === 0 && (
                     <div className="flex items-center">
                       <div className="w-10 h-10 bg-[#8220ff]/10 rounded-full flex items-center justify-center mr-3">
                         <IconsExclamationTriangle className="text-[#8220ff]" />
                       </div>
                       <div className="text-sm">
-                        <div className="font-medium">{t('vulnerability_remediation_race.plexicus.ai_powered_detection')}</div>
-                        <div className="text-gray-500">{t('vulnerability_remediation_race.plexicus.continuous_automated_scanning')}</div>
+                        <div className="font-medium">{ t('vulnerability_remediation_race.plexicus.ai_powered_detection') }</div>
+                        <div className="text-gray-500">{ t('vulnerability_remediation_race.plexicus.continuous_automated_scanning') }</div>
                       </div>
                     </div>
-                  )}
+                  ) }
 
-                  {index === 1 && (
+                  { index === 1 && (
                     <div className="flex items-center">
                       <div className="w-10 h-10 bg-[#8220ff]/10 rounded-full flex items-center justify-center mr-3">
                         <IconsDocument className="text-[#8220ff]" />
                       </div>
                       <div className="text-sm">
-                        <div className="font-medium">{t('vulnerability_remediation_race.plexicus.automated_prioritization')}</div>
-                        <div className="text-gray-500">{t('vulnerability_remediation_race.plexicus.ai_based_risk_assessment')}</div>
+                        <div className="font-medium">{ t('vulnerability_remediation_race.plexicus.automated_prioritization') }</div>
+                        <div className="text-gray-500">{ t('vulnerability_remediation_race.plexicus.ai_based_risk_assessment') }</div>
                       </div>
                     </div>
-                  )}
+                  ) }
 
-                  {index === 2 && (
+                  { index === 2 && (
                     <div className="flex items-center">
                       <div className="w-10 h-10 bg-[#8220ff]/10 rounded-full flex items-center justify-center mr-3">
                         <IconsInfoCircle className="text-[#8220ff]" />
@@ -125,9 +125,9 @@ export default function PlexicusMethod({ getStepProcess, remediationSteps, t, pl
                         <div className="text-gray-500">Automated root cause identification</div>
                       </div>
                     </div>
-                  )}
+                  ) }
 
-                  {index === 3 && (
+                  { index === 3 && (
                     <div className="flex items-center">
                       <div className="w-10 h-10 bg-[#8220ff]/10 rounded-full flex items-center justify-center mr-3">
                         <IconsCode className="text-[#8220ff]" />
@@ -137,9 +137,9 @@ export default function PlexicusMethod({ getStepProcess, remediationSteps, t, pl
                         <div className="text-gray-500">Automated code remediation</div>
                       </div>
                     </div>
-                  )}
+                  ) }
                 </div>
-              )}
+              ) }
             </div>
 
             <div className="ml-11">
@@ -150,7 +150,7 @@ export default function PlexicusMethod({ getStepProcess, remediationSteps, t, pl
                     : getStepProcess(index, false, 'active')
                       ? 'bg-[#8220ff]'
                       : 'bg-gray-200'
-                    }`}
+                  }`}
                   style={{
                     width: `${getStepProcess(index, false, 'active') ? getStepProcess(index, false) : getStepProcess(index, false, 'completed') ? 100 : 0}%`,
                   }}
@@ -158,7 +158,7 @@ export default function PlexicusMethod({ getStepProcess, remediationSteps, t, pl
               </div>
             </div>
           </div>
-        ))}
+        )) }
       </div>
     </div>
   );

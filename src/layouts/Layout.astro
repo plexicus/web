@@ -1,14 +1,24 @@
 ---
 import "../styles/globals.css";
+
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import { getLangFromUrl } from "../i18n/utils";
 import BaseHead from "@/components/BaseHead.astro";
+
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import { getLangFromUrl } from "../i18n/utils";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
 const lang = getLangFromUrl(Astro.url);
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 ---
 <html lang="en">
   <head>
-    <BaseHead title="Plexicus" description="Plexicus" />
+    <BaseHead title={title} description={description} />
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />

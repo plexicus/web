@@ -1,0 +1,28 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import CompetitorSection from "@/components/Comparison/CompetitorSection.astro";
+import HeroSectionCompetitor from "@/components/HeroSection/competitor";
+import Layout from "@/layouts/Layout.astro";
+
+import type { Competitor } from "@/types/competitor";
+
+/**
+ * Variables
+ */
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const competitors = t("competitor.list") as Competitor[];
+const title = t("competitor.title");
+const description = t("competitor.description");
+const comparison = t("competitor.link");
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <!-- Hero Section -->
+    <HeroSectionCompetitor lang={lang} />
+    <!-- Competitor Section -->
+    <CompetitorSection competitors={competitors} comparison={comparison} />
+  </main>
+</Layout>
