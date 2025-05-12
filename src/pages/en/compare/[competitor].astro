@@ -1,0 +1,10 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { competitor: "armorcode" } },
+    { params: { competitor: "apiiro" } },
+    { params: { competitor: "legit-security" } },
+  ];
+}
+return Astro.redirect(`/compare/${Astro.params.competitor}`);
+---
