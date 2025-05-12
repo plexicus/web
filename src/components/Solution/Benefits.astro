@@ -1,0 +1,46 @@
+---
+interface Props {
+  benefits: string[];
+  caseStudy?: {
+    title: string;
+    description: string;
+    results: string[];
+    link: string;
+  };
+}
+
+const { benefits, caseStudy } = Astro.props;
+---
+
+<section class="py-16">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row gap-12">
+      <div class="md:w-1/2">
+        <h2 class="text-3xl font-bold mb-6">Benefits</h2>
+        <ul class="space-y-4">
+          {benefits.map(benefit => (
+            <li class="flex items-start">
+              <span class="text-purple-600 mr-3">✓</span>
+              <span>{benefit}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      {caseStudy && (
+        <div class="md:w-1/2">
+          <div class="bg-purple-50 p-8 rounded-lg">
+            <h3 class="text-2xl font-bold mb-4">{caseStudy.title}</h3>
+            <p class="mb-4">{caseStudy.description}</p>
+            <ul class="space-y-2 mb-6">
+              {caseStudy.results.map(result => (
+                <li>• {result}</li>
+              ))}
+            </ul>
+            <a href={caseStudy.link} class="text-purple-600 font-medium hover:underline">Read the full case study →</a>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
