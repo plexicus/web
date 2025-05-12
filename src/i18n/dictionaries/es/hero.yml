@@ -1,5 +1,8 @@
 hero:
   subtitle: "Nuestro ASPM está diseñado para ser su Agente de Ciberseguridad IA, ofreciendo soporte continuo, orientación y soluciones automatizadas para mantener su cadena de suministro de software segura contra amenazas en evolución"
-  title: "Agente IA\nRemediador\nVulnerabilidades"
+  title: "Agente AI\nRemediador\nVulnerabilidades"
   get_started: "Comenzar"
   learn_more: "Aprender Más"
+  competitor:
+    title: "Compara Plexicus"
+    subtitle: "Vea cómo Plexicus se compara con otras plataformas de gestión de postura de seguridad de aplicaciones."

@@ -3,3 +3,6 @@ hero:
   title: "Agente AI\nRemediatore\nVulnerabilità"
   get_started: "Inizia"
   learn_more: "Scopri di più"
+  competitor:
+    title: "Confronta Plexicus"
+    subtitle: "Vedi come Plexicus si confronta con altre piattaforme di gestione della postura di sicurezza delle applicazioni."
