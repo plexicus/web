@@ -1,0 +1,23 @@
+---
+import SolutionCard from "@/components/Card/Solution.astro";
+
+interface Props {
+  solutions: { title: string; description: string }[];
+}
+
+const { solutions } = Astro.props;
+---
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-12 text-center">Our Core Solutions</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {solutions.map(solution => (
+        <SolutionCard 
+          title={solution.title}
+          description={solution.description}
+        />
+      ))}
+    </div>
+  </div>
+</section>

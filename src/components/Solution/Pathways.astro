@@ -1,0 +1,30 @@
+---
+interface Pathway {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  pathways: Pathway[];
+}
+
+const { title, subtitle, pathways } = Astro.props;
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-4">{title}</h2>
+    <p class="text-lg mb-12">{subtitle}</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {pathways.map(pathway => (
+        <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-all group">
+          <h3 class="text-xl font-semibold mb-4 group-hover:text-purple-600 transition-colors">{pathway.title}</h3>
+          <p class="text-gray-600 mb-6">{pathway.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -21,6 +21,7 @@ type MenuType = {
   shortTitle: string;
   image: string;
   items: MenuItemType[];
+  link?: string;
 };
 
 export default function Navbar({ lang }) {
@@ -183,13 +184,14 @@ export default function Navbar({ lang }) {
     },
     solutions: {
       title: t('nav.solutions.title'),
+      link: '/solutions',
       shortTitle: 'Solutions',
       image: 'solutions-diagram',
       items: [
         {
           title: t('nav.solutions.fintech'),
           description: 'Security solutions for financial technology',
-          href: '/solutions/fintech',
+          href: '/solutions/fintech-solutions',
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -212,7 +214,7 @@ export default function Navbar({ lang }) {
         {
           title: t('nav.solutions.healthtech'),
           description: 'HIPAA compliant security solutions',
-          href: '/solutions/healthtech',
+          href: '/solutions/healthcare-solutions',
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -233,33 +235,8 @@ export default function Navbar({ lang }) {
         },
         {
           title: t('nav.solutions.hrtech'),
-          description: 'Secure HR and employee management systems',
-          href: '/solutions/hrtech',
-          icon: (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-primary"
-              aria-hidden="true"
-            >
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-          ),
-        },
-        {
-          title: t('nav.solutions.hrtech'),
           description: 'Security for legal technology platforms',
-          href: '/solutions/legaltech',
+          href: '/solutions/hrtech-solutions',
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -282,7 +259,7 @@ export default function Navbar({ lang }) {
         {
           title: t('nav.solutions.group_companies'),
           description: 'Solutions for corporate groups and holdings',
-          href: '/solutions/group-companies',
+          href: '/solutions/group-companies-solutions',
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -305,7 +282,7 @@ export default function Navbar({ lang }) {
         {
           title: t('nav.solutions.agencies'),
           description: 'Security for digital and marketing agencies',
-          href: '/solutions/agencies',
+          href: '/solutions/agencies-solutions',
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -328,7 +305,7 @@ export default function Navbar({ lang }) {
         {
           title: t('nav.solutions.startups'),
           description: 'Scalable security for growing companies',
-          href: '/solutions/startups',
+          href: '/solutions/startup-solutions',
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -353,7 +330,7 @@ export default function Navbar({ lang }) {
         {
           title: t('nav.solutions.enterprise'),
           description: 'Comprehensive security for large organizations',
-          href: '/solutions/enterprise',
+          href: '/solutions/enterprise-solutions',
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -382,7 +359,7 @@ export default function Navbar({ lang }) {
         {
           title: t('nav.solutions.mobile_apps'),
           description: 'Security for iOS and Android applications',
-          href: '/solutions/mobile-apps',
+          href: '/solutions/mobile-app-solutions',
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -405,7 +382,7 @@ export default function Navbar({ lang }) {
         {
           title: t('nav.solutions.manufacturing'),
           description: 'Security for industrial and IoT systems',
-          href: '/solutions/manufacturing',
+          href: '/solutions/manufacturing-solutions',
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -427,7 +404,7 @@ export default function Navbar({ lang }) {
         {
           title: t('nav.solutions.government'),
           description: 'Security solutions for government agencies',
-          href: '/solutions/governments',
+          href: '/solutions/government-solutions',
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -453,7 +430,7 @@ export default function Navbar({ lang }) {
         {
           title: t('nav.solutions.retailtech'),
           description: 'Security for e-commerce and retail platforms',
-          href: '/solutions/retailtech',
+          href: '/solutions/retailtech-solutions',
           icon: (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1413,9 +1390,17 @@ export default function Navbar({ lang }) {
 
                   { /* Text section */ }
                   <div className="bg-gray-50 rounded-lg p-4">
-                    <h3 className="text-xl font-bold text-[#8220ff]">
-                      { menus[activeMenu as keyof typeof menus].title }
-                    </h3>
+                    { menus[activeMenu as keyof typeof menus].link ? (
+                      <Link href={menus[activeMenu as keyof typeof menus].link}>
+                        <h3 className="text-xl font-bold text-[#8220ff]">
+                          { menus[activeMenu as keyof typeof menus].title }
+                        </h3>
+                      </Link>
+                    ): (
+                      <h3 className="text-xl font-bold text-[#8220ff]">
+                        { menus[activeMenu as keyof typeof menus].title }
+                      </h3>
+                    ) }
                     <p className="text-gray-700">
                       { activeMenu === 'products'
                         ? 'Explore our product'

@@ -1,0 +1,21 @@
+---
+export function getStaticPaths() {
+  const slugs: string[] = [
+    "fintech-solutions",
+    "healthcare-solutions",
+    "hrtech-solutions",
+    "group-companies-solutions",
+    "agencies-solutions",
+    "startup-solutions",
+    "mobile-app-solutions",
+    "enterprise-solutions",
+    "government-solutions",
+    "retailtech-solutions",
+    "manufacturing-solutions",
+  ];
+  return slugs.map((slug) => ({
+    params: { industry: slug },
+  }));
+}
+return Astro.redirect(`/solutions/${Astro.params.industry}`);
+---
