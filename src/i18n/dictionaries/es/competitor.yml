@@ -1,0 +1,97 @@
+competitor:
+  title: "Comparar Plexicus | Comparación de plataformas ASPM"
+  description: "Compara Plexicus con las principales plataformas ASPM para ver cómo destaca en el mercado"
+  link: Ver comparación
+  detail:
+    title: "Plexicus vs. {name} | Comparación ASPM"
+    subtitle: "Vea cómo Plexicus ofrece una gestión superior de la postura de seguridad de las aplicaciones en comparación con {name}."
+    glance:
+      title: De un vistazo
+      subtitle: Plataforma completa de gestión de la seguridad de las aplicaciones con detección, evaluación y corrección automatizadas.
+      features:
+        - Inventario exhaustivo de activos
+        - Corrección automatizada
+        - Informes de cumplimiento integrados
+        - Interfaz fácil de usar para desarrolladores
+    feature:
+      title: Comparación de características
+      subtitle: Características
+      data:
+        - name: "Descubrimiento completo de activos"
+          plexicus: true
+          competitor:
+            - armorcode
+          description: "Descubrir e inventariar automáticamente todos los activos de las aplicaciones"
+        - name: "Evaluación de riesgos en tiempo real"
+          plexicus: true
+          competitor:
+            - apiiro
+            - armorcode
+          description: "Monitoreo y evaluación continua de riesgos de seguridad"
+        - name: "Corrección automatizada"
+          plexicus: true
+          competitor: false
+          description: "Flujos de trabajo de corrección automatizada para vulnerabilidades identificadas"
+        - name: "Integración con CI/CD"
+          plexicus: true
+          competitor: true
+          description: "Integración sin problemas con las pipelines de CI/CD populares"
+        - name: "Extensibilidad de API"
+          plexicus: true
+          competitor:
+            - armorcode
+          description: "API abierta para integraciones y flujos de trabajo personalizados"
+        - name: "Interfaz fácil de usar para desarrolladores"
+          plexicus: true
+          competitor:
+            - apiiro
+          description: "Diseñado con los desarrolladores en mente para una mejor adopción"
+        - name: "Extensibilidad de API"
+          plexicus: true
+          competitor:
+            - armorcode
+          description: "API abierta para integraciones y flujos de trabajo personalizados"
+        - name: "Interfaz fácil de usar para desarrolladores"
+          plexicus: true
+          competitor:
+            - apiiro
+          description: "Diseñado con los desarrolladores en mente para una mejor adopción"
+    why-plexicus:
+      title: Por qué elegir Plexicus?
+      cards:
+        - title: Cubrimiento Completo
+          description: Plexicus proporciona una visibilidad end-to-end a través de todo su ecosistema de aplicaciones, no solo componentes específicos.
+        - title: Cumplimiento Simplificado
+          description: Los informes de cumplimiento y documentación automatizados ahorran horas de trabajo manual cada mes.
+        - title: Menor Coste Total
+          description: Consolidar múltiples herramientas en una plataforma, reduciendo los costos de licencias y la sobrecarga de gestión.
+    cta:
+      title: Listo para ver Plexicus en acción?
+      subtitle: Programa una demo personalizada para ver cómo Plexicus puede transformar tu postura de seguridad de aplicaciones.
+      buttonText: Obtener una Demo
+      buttonLink: "/request-demo"
+  list:
+    - id: armorcode
+      name: ArmorCode
+      detail: Solución tradicional de ASPM con limitada capacidad de integración
+      description: Descubre cómo Plexicus compara con ArmorCode para la gestión de la postura de seguridad de las aplicaciones.
+      weaknesses:
+        - Ecosistema de API limitado
+        - Implementación compleja
+        - Costo total de propiedad más alto
+    - id: apiiro
+      name: Apiiro
+      detail: Plataforma de riesgo de código con gestión básica de la postura de seguridad de las aplicaciones
+      description: Descubre los beneficios de Plexicus sobre Apiiro para la seguridad de las aplicaciones completas.
+      weaknesses:
+        - Falta de inventario exhaustivo de activos
+        - Flujos de corrección limitados
+        - Enfoque limitado en los riesgos de código solo
+    - id: legit-security
+      name: Legit Security
+      detail: Plataforma de seguridad enfocada en la cadena de suministro de software
+      description: Compara Plexicus con Legit Security para la gestión completa de la postura de seguridad de las aplicaciones.
+      weaknesses:
+        - Vista holística de la aplicación faltante
+        - Opciones de personalización limitadas
+        - Curva de aprendizaje pronunciada

@@ -1,0 +1,97 @@
+competitor:
+  title: "Compare Plexicus | ASPM Platform Comparison"
+  description: "Compare Plexicus with leading ASPM platforms to see how it stands out in the market."
+  link: View comparison
+  detail:
+    title: "Plexicus vs. {name} | ASPM Comparison"
+    subtitle: "See how Plexicus delivers superior application security posture management compared to {name}."
+    glance:
+      title: At a Glance
+      subtitle: Complete application security posture management platform with automated discovery, assessment, and remediation.
+      features:
+        - Comprehensive asset inventory
+        - Automated remediation
+        - Integrated compliance reporting
+        - Developer-friendly interface
+    feature:
+      title: Feature Comparison
+      subtitle: Feature
+      data:
+        - name: "Complete Asset Discovery"
+          plexicus: true
+          competitor:
+            - armorcode
+          description: "Automatically discover and inventory all application assets"
+        - name: "Real-time Risk Assessment"
+          plexicus: true
+          competitor:
+            - apiiro
+            - armorcode
+          description: "Continuous monitoring and assessment of security risks"
+        - name: "Automated Remediation"
+          plexicus: true
+          competitor: false
+          description: "One-click remediation workflows for identified vulnerabilities"
+        - name: "CI/CD Integration"
+          plexicus: true
+          competitor: true
+          description: "Seamless integration with popular CI/CD pipelines"
+        - name: "API Extensibility"
+          plexicus: true
+          competitor:
+            - armorcode
+          description: "Open API for custom integrations and workflows"
+        - name: "Developer-friendly Interface"
+          plexicus: true
+          competitor:
+            - apiiro
+          description: "Designed with developers in mind for better adoption"
+        - name: "API Extensibility"
+          plexicus: true
+          competitor:
+            - armorcode
+          description: "Open API for custom integrations and workflows"
+        - name: "Developer-friendly Interface"
+          plexicus: true
+          competitor:
+            - apiiro
+          description: "Designed with developers in mind for better adoption"
+    why-plexicus:
+      title: Why Choose Plexicus?
+      cards:
+        - title: Comprehensive Coverage
+          description: Plexicus provides end-to-end visibility across your entire application landscape, not just specific components.
+        - title: Simplified Compliance
+          description: Automated compliance reporting and documentation saves hours of manual work each month.
+        - title: Lower Total Cost
+          description: Consolidate multiple tools into one platform, reducing licensing costs and management overhead.
+    cta:
+      title: Ready to see Plexicus in action?
+      subtitle: Schedule a personalized demo to see how Plexicus can transform your application security posture.
+      buttonText: Get a Demo
+      buttonLink: "/request-demo"
+  list:
+    - id: armorcode
+      name: ArmorCode
+      detail: Traditional ASPM solution with limited integration capabilities
+      description: See how Plexicus compares to ArmorCode for application security posture management.
+      weaknesses:
+        - Limited API ecosystem
+        - Complex deployment
+        - Higher total cost of ownership
+    - id: apiiro
+      name: Apiiro
+      detail: Code risk platform with basic security posture management
+      description: Discover the advantages of Plexicus over Apiiro for comprehensive application security.
+      weaknesses:
+        - Lacks comprehensive asset inventory
+        - Limited remediation workflows
+        - Narrow focus on code risks only
+    - id: legit-security
+      name: Legit Security
+      detail: Security platform focused on software supply chain
+      description: Compare Plexicus with Legit Security for complete application security posture management.
+      weaknesses:
+        - Missing holistic application view
+        - Limited customization options
+        - Steep learning curve

@@ -791,7 +791,7 @@ export default function Navbar({ lang }) {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 py-2"
       style={{
         background: isScrolled ? '#8220ff' : 'transparent',
         boxShadow: isScrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none',
@@ -966,10 +966,10 @@ export default function Navbar({ lang }) {
             className="fixed inset-0 bg-black/20 z-30"
             onClick={() => setActiveMenu(null)}
             aria-hidden="true"
-            style={{ top: '64px' }} // Asegura que el overlay comience debajo del navbar
+            style={{ top: '72px' }} // Asegura que el overlay comience debajo del navbar
           ></div>
           <div
-            className="absolute left-0 right-0 top-16 z-40 bg-white shadow-xl border-t border-gray-100 transition-all duration-300 transform"
+            className="absolute left-0 right-0 top-18 z-40 bg-white shadow-xl border-t border-gray-100 transition-all duration-300 transform"
             onMouseEnter={() => handleMenuEnter(activeMenu)}
             onMouseLeave={handleMenuLeave}
             role="menu"
@@ -1453,8 +1453,8 @@ export default function Navbar({ lang }) {
                     { activeMenu === 'resources' && (
                       <div className="col-span-1 sm:col-span-2 mt-4">
                         <div className="bg-purple-50 p-4 rounded-lg border border-purple-100">
-                          <h3 className="text-sm font-medium text-purple-800 mb-3">Compare Plexicus</h3>
-                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                          <Link href="/compare" className="text-sm font-medium text-purple-800">Compare Plexicus</Link>
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3">
                             { menus.resources.items
                               .filter(
                                 (item) =>
