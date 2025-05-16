@@ -1,1 +1,0 @@
-import{j as f}from"./jsx-runtime.D_zvdyIk.js";const p=({href:n,children:o,className:a="",target:e="_self",rel:i="noopener noreferrer",onClick:r})=>{const s=t=>{e!=="_blank"&&(t.preventDefault(),window.location.href=n),r&&r(t)};return f.jsx("a",{href:n,className:a,target:e,rel:i,onClick:s,"aria-label":typeof o=="string"?o:void 0,children:o})};export{p as L};
