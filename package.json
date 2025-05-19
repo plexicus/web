@@ -29,7 +29,7 @@
 		"lucide-react": "^0.503.0",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
-		"shared-ui": "github:plexicus/ui-lib#v0.0.1-b",
+		"shared-ui": "github:plexicus/ui-lib#v0.0.2-b",
 		"tailwind-merge": "^3.2.0",
 		"tailwindcss": "^4.1.4",
 		"tailwindcss-animate": "^1.0.7",
