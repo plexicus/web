@@ -1,13 +1,12 @@
 ---
 import "../styles/globals.css";
 
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
 import BaseHead from "@/components/BaseHead.astro";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import { SITE_URL, SITE_PORT } from 'astro:env/client';
 import { getLangFromUrl } from "../i18n/utils";
-
+import { NavbarPlexicus, FooterPlexicus } from 'shared-ui'
 interface Props {
 	title?: string;
 	description?: string;
@@ -25,10 +24,10 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     <meta name="generator" content={Astro.generator} />
 		
   </head>
-  <Navbar client:load lang={lang}/>
+  <NavbarPlexicus client:load lang={lang} fullSiteUrl={`${SITE_URL}:${SITE_PORT}`} />
   <body>
     <!-- Wrap the slot element with your existing layout templating -->
     <slot />
   </body>
-  <Footer />
+  <FooterPlexicus client:only />
 </html>
