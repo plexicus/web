@@ -5,10 +5,10 @@ export default function ContactSection({ lang }) {
   return (
     <section className="py-16 text-white" style={{ backgroundColor: '#8220ff' }}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="grid md:grid-cols-2 gap-12 items-end">
+          <div className='w-full order-last md:order-first'>
             <h2 className="text-3xl font-bold tracking-tight mb-6">{ t('contact.title') }</h2>
-            <p className="text-white/90 mb-8 max-w-md">
+            <p className="text-white/90 mb-8">
               { t('contact.subtitle') }
             </p>
 
