@@ -1,0 +1,51 @@
+# en/legal-notice.yml
+legal_notice:
+  toc:
+    title: "Table of Contents"
+    collapse_aria_label: "Collapse table of contents"
+    expand_aria_label: "Expand table of contents"
+    current_section_label: "Current:"
+    sections:
+      introduction: "Introduction"
+      termsOfUse: "Terms of Use"
+      intellectualProperty: "Intellectual Property Rights"
+      thirdPartyIP: "Third-Party Intellectual Property"
+      jurisdiction: "Jurisdiction and Applicable Law"
+
+  content:
+    main_title: "Legal Notice"
+    introduction:
+      heading: "Introduction"
+      paragraph1: "The information contained in this website is intended to facilitate knowledge of the different services offered by PLEXICUS, LLC. (hereinafter Plexicus), with the address, El Camino Real # 2456 Santa Clara, CA 95050 United States."
+    terms_of_use:
+      heading: "Terms of Use"
+      paragraph1: "The use of this website grants the condition of user and necessarily implies the full acceptance of these terms of use. If you do not agree with these terms, please refrain from using the website."
+      paragraph2: "This Legal Notice is subject to changes and updates. We recommend reviewing it whenever you access the website."
+      user_responsibilities:
+        heading: "User Responsibilities"
+        paragraph1: "The user agrees to make diligent use of this website, in accordance with current legislation, this Legal Notice, and any other communication made known through this or any other means, as well as the norms of coexistence, morals, and generally accepted good manners."
+        paragraph2: "Plexicus is not responsible for the incorrect use that users make of the information or contents of the service, such acts being the sole responsibility of the user."
+      limitations_of_liability:
+        heading: "Limitations of Liability"
+        paragraph1: "Plexicus will not be responsible for possible damages that may arise from computer viruses or other harmful elements that, through no fault of Plexicus, could affect the user."
+        paragraph2: "Plexicus is not responsible for any damage or harm that may be caused by third parties through illegitimate interference in our system without the consent of Plexicus."
+        paragraph3: "The information contained on these websites is current as of the date of the last update and must be considered indicative for the user. Plexicus reserves all rights to modify, limit or cancel access to and the contents of the website at any time."
+        paragraph4: "Plexicus rejects any responsibility that may arise from the existence of technical problems or mechanical failures in the computer equipment produced during the Internet connection. Plexicus does not guarantee that access to the website will be uninterrupted nor that it is free from error or that it cannot cause any damage."
+        paragraph5: "Plexicus is not responsible for all the information found on these web pages, nor for the content not produced by Plexicus, coming from outside sources. Plexicus is not liable for any consequence, damage or harm that may arise from the access or use of the information."
+        paragraph6: "Plexicus rejects all responsibility for information or content of third-party web pages connected through links to these pages. Under no circumstances will Plexicus be responsible for any damage suffered by the user by accessing or using such sites or their contents."
+        paragraph7: "Plexicus guarantees the confidentiality of personal data provided by users in accordance with current legislation on the protection of personal data and the Privacy Policy."
+    intellectual_property:
+      heading: "Intellectual and Industrial Property Rights"
+      paragraph1: "\"PLEXICUS\" and \"COVULOR\", the names, logos and titles used on our website \"https://www.plexicus.com/\" and that identify Plexicus's products and services are registered trademarks of our company. Other logos, names, titles or trademarks that may appear on \"https://www.plexicus.com/\" may be the property of clients and/or entities affiliated or not affiliated with our Portal."
+      paragraph2: "The information, images, texts, documents and any other content located on \"https://www.plexicus.com/\" may be consulted solely for informational purposes by any visitor to our website. Plexicus reserves the right to restrict access to its network or its contents."
+      paragraph3: "Plexicus can modify the terms and conditions of use of the website \"https://www.plexicus.com/\" at any time and without prior notice. Visitors to the \"https://www.plexicus.com/\" website are responsible for reviewing the contents of this Legal Notice to ascertain the terms and conditions of use of our Portal."
+    third_party_ip:
+      heading: "Third-Party Intellectual Property"
+      paragraph1: "Any individual (visitor or not of our website) who considers that their intellectual property rights have been infringed by the unauthorized use of their protected works as published on \"https://www.plexicus.com/\" can contact our company and request that the content be removed. If substantiated, your request will be complied with immediately."
+    jurisdiction:
+      heading: "Jurisdiction and Applicable Law"
+      paragraph1: "The legislation applicable to the content of this Website will be that of Spain and the jurisdiction to which PLEXICUS submits as the owner of this page for the resolution of any conflict or litigious issue that may arise from its relationship with the user is that of the competent Courts and Tribunals of Madrid, Spain."
+      footer:
+        copyright: "PLEXICUS, LLC. All rights reserved"
+        contact_phone: "Telephone: +1 510-298-1863 – email: info [@] plexicus.com"
+        contact_address: "Address: El Camino Real #2456 Santa Clara, CA 95050 United States"
