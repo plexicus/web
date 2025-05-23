@@ -1,0 +1,50 @@
+legal_notice:
+  toc:
+    title: "Indice dei Contenuti"
+    collapse_aria_label: "Comprimi indice dei contenuti"
+    expand_aria_label: "Espandi indice dei contenuti"
+    current_section_label: "Attuale:"
+    sections:
+      introduction: "Introduzione"
+      termsOfUse: "Condizioni d'Uso"
+      intellectualProperty: "Diritti di Proprietà Intellettuale"
+      thirdPartyIP: "Proprietà Intellettuale di Terzi"
+      jurisdiction: "Giurisdizione e Legge Applicabile"
+
+  content:
+    main_title: "Avviso Legale"
+    introduction:
+      heading: "Introduzione"
+      paragraph1: "Le informazioni contenute in questo sito web sono intese a facilitare la conoscenza dei diversi servizi offerti da PLEXICUS, LLC. (di seguito Plexicus), con sede in El Camino Real # 2456 Santa Clara, CA 95050 Stati Uniti."
+    terms_of_use:
+      heading: "Condizioni d'Uso"
+      paragraph1: "L'uso di questo sito web conferisce la condizione di utente e implica necessariamente la piena accettazione delle presenti condizioni d'uso. Se non si accettano queste condizioni, si prega di astenersi dall'utilizzare il sito web."
+      paragraph2: "Il presente Avviso Legale è soggetto a modifiche e aggiornamenti. Si consiglia di consultarlo ogni volta che si accede al sito web."
+      user_responsibilities:
+        heading: "Responsabilità dell'Utente"
+        paragraph1: "L'utente si impegna a fare un uso diligente di questo sito web, in conformità con la legislazione vigente, il presente Avviso Legale e qualsiasi altra comunicazione resa nota tramite questo o qualsiasi altro mezzo, nonché le norme di convivenza, la morale e il buon costume generalmente accettati."
+        paragraph2: "Plexicus non è responsabile dell'uso scorretto che gli utenti fanno delle informazioni o dei contenuti del servizio, essendo tali atti di esclusiva responsabilità dell'utente."
+      limitations_of_liability:
+        heading: "Limitazioni di Responsabilità"
+        paragraph1: "Plexicus non sarà responsabile per eventuali danni che possano derivare da virus informatici o altri elementi dannosi che, senza colpa di Plexicus, potrebbero influire sull'utente."
+        paragraph2: "Plexicus non è responsabile per eventuali danni o pregiudizi che possano essere causati da terzi tramite interferenze illegittime nel nostro sistema senza il consenso di Plexicus."
+        paragraph3: "Le informazioni contenute in queste pagine web sono aggiornate alla data dell'ultimo aggiornamento e devono essere considerate indicative per l'utente. Plexicus si riserva tutti i diritti di modificare, limitare o annullare l'accesso e i contenuti del sito web in qualsiasi momento."
+        paragraph4: "Plexicus declina ogni responsabilità che possa derivare dall'esistenza di problemi tecnici o guasti meccanici nelle apparecchiature informatiche prodotti durante la connessione a Internet. Plexicus non garantisce che l'accesso al sito web sarà ininterrotto né che sia privo di errori o che non possa causare alcun danno."
+        paragraph5: "Plexicus non è responsabile di tutte le informazioni presenti in queste pagine web, né dei contenuti non prodotti da Plexicus, provenienti da fonti esterne. Plexicus non è responsabile per alcuna conseguenza, danno o pregiudizio che possa derivare dall'accesso o dall'uso delle informazioni."
+        paragraph6: "Plexicus declina ogni responsabilità per informazioni o contenuti di pagine web di terzi collegate tramite link a queste pagine. In nessun caso Plexicus sarà responsabile per eventuali danni subiti dall'utente accedendo o utilizzando tali siti o i loro contenuti."
+        paragraph7: "Plexicus garantisce la riservatezza dei dati personali forniti dagli utenti in conformità con la legislazione vigente in materia di protezione dei dati personali e la Politica sulla Privacy."
+    intellectual_property:
+      heading: "Diritti di Proprietà Intellettuale e Industriale"
+      paragraph1: "\"PLEXICUS\" e \"COVULOR\", i nomi, i loghi e i titoli utilizzati sul nostro sito web \"https://www.plexicus.com/\" e che identificano i prodotti e servizi di Plexicus sono marchi registrati della nostra azienda. Altri loghi, nomi, titoli o marchi che potrebbero apparire su \"https://www.plexicus.com/\" potrebbero essere di proprietà di clienti e/o entità affiliate o non affiliate al nostro Portale."
+      paragraph2: "Le informazioni, le immagini, i testi, i documenti e qualsiasi altro contenuto presente su \"https://www.plexicus.com/\" possono essere consultati unicamente a scopo informativo da qualsiasi visitatore del nostro sito web. Plexicus si riserva il diritto di limitare l'accesso alla sua rete o ai suoi contenuti."
+      paragraph3: "Plexicus può modificare i termini e le condizioni d'uso del sito web \"https://www.plexicus.com/\" in qualsiasi momento e senza preavviso. I visitatori del sito web \"https://www.plexicus.com/\" sono responsabili di rivedere il contenuto del presente Avviso Legale per conoscere i termini e le condizioni d'uso del nostro Portale."
+    third_party_ip:
+      heading: "Proprietà Intellettuale di Terzi"
+      paragraph1: "Qualsiasi individuo (visitatore o meno del nostro sito web) che ritenga che i propri diritti di proprietà intellettuale siano stati violati dall'uso non autorizzato delle proprie opere protette pubblicate su \"https://www.plexicus.com/\" può contattare la nostra azienda e richiedere la rimozione del contenuto. Se giustificata, la sua richiesta sarà accolta immediatamente."
+    jurisdiction:
+      heading: "Giurisdizione e Legge Applicabile"
+      paragraph1: "La legislazione applicabile al contenuto di questo Sito Web sarà quella di Spagna e Italia, e la giurisdizione a cui PLEXICUS si sottomette in quanto proprietario di questa pagina per la risoluzione di qualsiasi conflitto o questione controversa che possa sorgere dal suo rapporto con l'utente è quella dei Tribunali competenti di Spagna e Italia."
+      footer:
+        copyright: "PLEXICUS, LLC. Tutti i diritti riservati"
+        contact_phone: "Telefono: +1 510-298-1863 – email: info [@] plexicus.com"
+        contact_address: "Indirizzo: El Camino Real #2456 Santa Clara, CA 95050 Stati Uniti"

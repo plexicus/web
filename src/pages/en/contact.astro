@@ -1,0 +1,25 @@
+---
+/**
+ * Components
+ */
+import Layout from "@/layouts/Layout.astro";
+import ContactSection from "@/components/contact-section";
+
+/**
+ * Utils
+ */
+import { getLangFromUrl } from "@/i18n/utils";
+
+/**
+ * Variables
+ */
+const lang = getLangFromUrl(Astro.url);
+---
+
+<Layout>
+  <div class="bg-[#8220ff] min-h-screen flex items-center w-full justify-center">
+    <main>
+      <ContactSection lang={lang} client:load />
+    </main>
+  </div>
+</Layout>
