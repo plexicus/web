@@ -1,0 +1,26 @@
+---
+/**
+ * Components
+ */
+import Layout from "@/layouts/Layout.astro"
+import HeroBenefits from "@/components/Benefits/Hero.astro"
+import ContentBenefits from "@/components/Benefits/ContentBenefits.astro"
+
+/**
+ * Utils
+ */
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+
+<Layout>
+  <HeroBenefits
+    imageUrl="/images/benefits/illustration-benefits.png"
+    title={t("benefits.hero.title")}
+    description={t("benefits.hero.description")}
+  />
+  <ContentBenefits/>
+</Layout>
