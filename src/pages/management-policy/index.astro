@@ -1,22 +1,22 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import PrivacyPolicy from "@/components/PrivacyPolicy/privacy-policy";
+import Layout from "@/layouts/Layout.astro"
+import ManagementPolicy from "@/components/ManagementPolicy/management-policy";
 /**
  * Utils
  */
 import { getLangFromUrl } from "@/i18n/utils";
-
 /**
  * Variables
  */
 const lang = getLangFromUrl(Astro.url);
+
 ---
 
 <Layout>
-  <div class="flex min-h-screen flex-col">
+  <div class="flex  flex-col">
     <div class="bg-[#8220ff] w-full h-[64px]"></div>
     <main>
-      <PrivacyPolicy lang={lang} client:load/>
+        <ManagementPolicy lang={lang} client:load/>
     </main>
   </div>
 </Layout>
