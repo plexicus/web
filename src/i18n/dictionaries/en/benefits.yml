@@ -1,0 +1,43 @@
+benefits:
+  hero: 
+    title: "Unlocking Strategic Advantages with PLEXICUS: Enhancing Security in the Development Lifecycle"
+    description: "Explore how PLEXICUS transforms your DevSecOps journey by providing a seamless integration of proactive security measures, ensuring a robust and secure development process with cutting-edge tools designed for optimal cybersecurity."
+  title: "Strategic Advantages of PLEXICUS"
+  description: "Our comprehensive security platform provides multiple benefits that transform how teams approach security in the development lifecycle."
+  list:
+    - title: "Seamless Integration with CI/CD Pipelines"
+      description: "Security becomes a built-in part of development, reducing vulnerabilities early in the lifecycle."
+      icon: "Layers"
+
+    - title: "Automated Vulnerability Management"
+      description: "Reduces manual work with AI-driven detection, prioritization, and remediation of vulnerabilities, streamlining the development lifecycle."
+      icon: "ShieldCheck"
+
+    - title: "Intelligent Prioritization with Damage Potential"
+      description: "Enables teams to focus on high-impact issues through smart prioritization metrics, optimizing time and resources."
+      icon: "BarChart"
+
+    - title: "Real-time Security Feedback"
+      description: "Developers are immediately alerted to issues during development, allowing quick fixes at the source."
+      icon: "Bell"
+
+    - title: "Continuous Monitoring and Reporting"
+      description: "Offers ongoing visibility into application security and supports compliance through detailed reporting."
+      icon: "LineChart"
+
+    - title: "Scalability for Growing Teams"
+      description: "Adaptable for both small teams and large enterprises, supporting growth while maintaining strong security practices."
+      icon: "Users"
+
+    - title: "Enhanced Collaboration"
+      description: "Encourages better communication between dev, sec, and ops through integrated workflows, promoting efficient DevSecOps practices."
+      icon: "Zap"
+
+    - title: "Accelerated Time-to-Fix"
+      description: "AI-generated remediation playbooks and code fixes shorten the resolution cycle for identified vulnerabilities."
+      icon: "Clock"
+
+    - title: "Compliance and Visibility"
+      description: "Provides detailed and actionable security reports that align with regulatory standards and organizational policies."
+      icon: "FileCheck"
+  

@@ -1,0 +1,42 @@
+benefits:
+  hero: 
+    title: "Sbloccare Vantaggi Strategici con PLEXICUS: Migliorare la Sicurezza nel Ciclo di Vita dello Sviluppo"
+    description: "Scopri come PLEXICUS trasforma il tuo percorso DevSecOps fornendo un'integrazione senza soluzione di continuità di misure di sicurezza proattive, garantendo un processo di sviluppo robusto e sicuro con strumenti all'avanguardia progettati per una cybersecurity ottimale."
+  title: "Vantaggi Strategici di PLEXICUS"
+  description: "La nostra piattaforma di sicurezza completa offre molteplici benefici che trasformano il modo in cui i team affrontano la sicurezza nel ciclo di vita dello sviluppo."
+  list:
+    - title: "Integrazione Perfetta con Pipeline CI/CD"
+      description: "La sicurezza diventa parte integrante dello sviluppo, riducendo le vulnerabilità nelle prime fasi del ciclo di vita."
+      icon: "Layers"
+
+    - title: "Gestione Automatizzata delle Vulnerabilità"
+      description: "Riduce il lavoro manuale con rilevamento, prioritizzazione e rimedio delle vulnerabilità guidati dall'IA, snellendo il ciclo di sviluppo."
+      icon: "ShieldCheck"
+
+    - title: "Prioritizzazione Intelligente con Potenziale di Danno"
+      description: "Consente ai team di concentrarsi su problemi ad alto impatto tramite metriche di prioritizzazione intelligenti, ottimizzando tempo e risorse."
+      icon: "BarChart"
+
+    - title: "Feedback di Sicurezza in Tempo Reale"
+      description: "Gli sviluppatori vengono immediatamente avvisati di problemi durante lo sviluppo, permettendo correzioni rapide alla fonte."
+      icon: "Bell"
+
+    - title: "Monitoraggio e Reporting Continuo"
+      description: "Offre visibilità continua sulla sicurezza dell'applicazione e supporta la conformità tramite report dettagliati."
+      icon: "LineChart"
+
+    - title: "Scalabilità per Team in Crescita"
+      description: "Adattabile sia per piccoli team che per grandi imprese, supportando la crescita mantenendo solide pratiche di sicurezza."
+      icon: "Users"
+
+    - title: "Collaborazione Migliorata"
+      description: "Favorisce una migliore comunicazione tra sviluppo, sicurezza e operazioni tramite flussi di lavoro integrati, promuovendo pratiche DevSecOps efficienti."
+      icon: "Zap"
+
+    - title: "Tempo di Risoluzione Accelerato"
+      description: "I playbook di rimedio e le correzioni di codice generate dall'IA abbreviano il ciclo di risoluzione delle vulnerabilità identificate."
+      icon: "Clock"
+
+    - title: "Conformità e Visibilità"
+      description: "Fornisce report di sicurezza dettagliati e azionabili che si allineano agli standard normativi e alle politiche organizzative."
+      icon: "FileCheck"

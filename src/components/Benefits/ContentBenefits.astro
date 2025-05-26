@@ -1,0 +1,55 @@
+---
+import BenefitCard from "@/components/Card/Benefit";
+/**
+ * Utils
+ */
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+
+/**
+ * Variables
+ */
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const benefits = t("benefits.list") as {
+  title: string;
+  description: string;
+  icon: string;
+}[];
+
+---
+
+<section class="py-16 md:py-24 bg-white relative">
+  <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+
+  <div class="container mx-auto px-4 md:px-6 relative z-10">
+    <div class="text-center mb-12 md:mb-16 animate-fade-in">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+        {t("benefits.title")}
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        {t("benefits.description")}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {
+        benefits.map((benefit, index) => {
+          return (
+            <div
+              class="animate-fade-up"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <BenefitCard
+                className="h-60 md:h-54"
+                title={benefit.title}
+                description={benefit.description}
+                iconName={benefit.icon}
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

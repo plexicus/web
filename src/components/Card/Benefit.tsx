@@ -2,15 +2,42 @@
 import React from 'react';
 import { Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import {
+  ShieldCheck,
+  Zap,
+  BarChart,
+  Bell,
+  LineChart,
+  Users,
+  Layers,
+  Clock,
+  FileCheck,
+} from "lucide-react";
 
 interface BenefitCardProps {
   title: string;
   description: string;
-  icon?: React.ReactNode;
+  iconName?: string;
   className?: string;
 }
 
-const BenefitCard = ({ title, description, icon = <Shield className="w-6 h-6" />, className }: BenefitCardProps) => {
+const BenefitCard = ({ title, description, iconName = 'Shield', className }: BenefitCardProps) => {
+
+  const iconMap: Record<string, React.ReactNode> = {
+    Layers: <Layers className="w-6 h-6" />,
+    ShieldCheck: <ShieldCheck className="w-6 h-6" />,
+    BarChart: <BarChart className="w-6 h-6" />,
+    Bell: <Bell className="w-6 h-6" />,
+    LineChart: <LineChart className="w-6 h-6" />,
+    Users: <Users className="w-6 h-6" />,
+    Zap: <Zap className="w-6 h-6" />,
+    Clock: <Clock className="w-6 h-6" />,
+    FileCheck: <FileCheck className="w-6 h-6" />,
+    Shield: <Shield className="w-6 h-6" />
+  };
+
+  const icon = iconMap[iconName] || iconMap['Shield'];
+
   return (
     <div className={cn(
       "bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-500",
