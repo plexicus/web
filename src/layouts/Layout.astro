@@ -2,19 +2,28 @@
 import "../styles/globals.css";
 
 import BaseHead from "@/components/BaseHead.astro";
-import {NavbarPlexicus,FooterPlexicus} from 'shared-ui'
+
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
-import { SITE_URL, SITE_PORT } from 'astro:env/client';
+import {
+  SITE_URL,
+  SITE_PORT,
+  BLOG_PORT,
+  BLOG_SITE_URL,
+} from "astro:env/client";
 import { getLangFromUrl } from "../i18n/utils";
+
+import { NavbarPlexicus, FooterPlexicus } from "shared-ui";
+
 interface Props {
-	title?: string;
-	description?: string;
+  title?: string;
+  description?: string;
 }
 
 const lang = getLangFromUrl(Astro.url);
 const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 ---
+
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
@@ -22,12 +31,21 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-		
   </head>
-  <NavbarPlexicus client:load lang={lang} fullSiteUrl={`${SITE_URL}:${SITE_PORT}`} />
+  <NavbarPlexicus
+    client:load
+    lang={lang}
+    fullSiteUrl={`${SITE_URL}:${SITE_PORT}`}
+    fullBlogUrl={`${BLOG_SITE_URL}:${BLOG_PORT}`}
+  />
   <body>
     <!-- Wrap the slot element with your existing layout templating -->
     <slot />
   </body>
-  <FooterPlexicus client:only />
+  <FooterPlexicus
+    client:only
+    lang={lang}
+    fullSiteUrl={`${SITE_URL}:${SITE_PORT}`}
+    fullBlogUrl={`${BLOG_SITE_URL}:${BLOG_PORT}`}
+  />
 </html>

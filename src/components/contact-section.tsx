@@ -21,9 +21,7 @@ export default function ContactSection({ lang }) {
     embedForm.setAttribute('data-hubspot-rendered', 'true');
 
     embedForm.addEventListener('load', () => {
-      // @TS-ignore
       if ((window as any).hbspt) {
-        // @TS-ignore
         (window as any).hbspt.forms.create({
           portalId: '43769202',
           formId: '076aaef8-47be-4fc8-b09b-0ff8169919c2',
