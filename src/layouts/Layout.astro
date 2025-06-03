@@ -3,6 +3,7 @@ import "../styles/globals.css";
 
 import BaseHead from "@/components/BaseHead.astro";
 
+
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 import {
   SITE_URL,
@@ -11,7 +12,9 @@ import {
   BLOG_SITE_URL,
 } from "astro:env/client";
 import { getLangFromUrl } from "../i18n/utils";
+
 import { NavbarPlexicus, FooterPlexicus } from "shared-ui";
+
 interface Props {
   title?: string;
   description?: string;
