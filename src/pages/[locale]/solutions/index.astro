@@ -9,11 +9,16 @@ import SolutionList from "@/components/Solution/List.astro";
  * Utils
  */
 import type { Solution } from "@/types/solution";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getLangFromUrl, useTranslations, generateLocalizedPaths } from "@/i18n/utils";
 
 /**
  * Variables
  */
+
+export async function getStaticPaths() {
+  const paths = await generateLocalizedPaths();
+  return paths;
+}
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const solutions = t("solutions.items") as { title: string; description: string }[];

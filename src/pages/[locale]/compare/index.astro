@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getLangFromUrl, useTranslations, generateLocalizedPaths } from "@/i18n/utils";
 import CompetitorSection from "@/components/Comparison/CompetitorSection.astro";
 import HeroSectionCompetitor from "@/components/HeroSection/competitor";
 import Layout from "@/layouts/Layout.astro";
@@ -16,6 +16,10 @@ const competitors = t("competitor.list") as Competitor[];
 const title = t("competitor.title");
 const description = t("competitor.description");
 const comparison = t("competitor.link");
+export async function getStaticPaths() {
+  const paths = await generateLocalizedPaths();
+  return paths;
+}
 ---
 
 <Layout title={title} description={description}>

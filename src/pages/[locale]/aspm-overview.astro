@@ -1,0 +1,27 @@
+---
+/**
+ * Components
+ */
+import Layout from "@/layouts/Layout.astro";
+import AspmPage from "@/components/ASPM-Overview";
+/**
+ * Utils
+ */
+import { getLangFromUrl, generateLocalizedPaths } from "@/i18n/utils";
+/**
+ * Variables
+ */
+const lang = getLangFromUrl(Astro.url);
+export async function getStaticPaths() {
+  const paths = await generateLocalizedPaths();
+  return paths;
+}
+---
+
+<Layout>
+  <div class="min-h-screen flex items-center w-full justify-center">
+    <main class="w-screen overflow-x-hidden">
+      <AspmPage lang={lang} client:load />
+    </main>
+  </div>
+</Layout>
