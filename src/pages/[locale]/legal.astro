@@ -1,0 +1,29 @@
+---
+/**
+ * Components
+ */
+import Layout from "@/layouts/Layout.astro";
+import LegalNoticeComponent from "@/components/legal-notice";
+
+/**
+ * Utils
+ */
+import { getLangFromUrl, generateLocalizedPaths } from "@/i18n/utils";
+
+/**
+ * Variables
+ */
+const lang = getLangFromUrl(Astro.url);
+export async function getStaticPaths() {
+  const paths = await generateLocalizedPaths();
+  return paths;
+}
+---
+<Layout>
+  <div class="flex min-h-screen flex-col">
+    <main>
+      <LegalNoticeComponent lang={lang} client:load/>
+    </main>
+  </div>
+</Layout>
+

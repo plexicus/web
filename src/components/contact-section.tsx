@@ -1,14 +1,42 @@
+import { useEffect } from 'react';
 import { Button } from './ui/button';
 import { useTranslations } from '@/i18n/utils';
 export default function ContactSection({ lang }) {
   const t = useTranslations(lang);
+  useEffect(() => {
+
+    const trackForm = document.createElement('script');
+    trackForm.src = 'https://js.hs-scripts.com/43769202.js';
+    trackForm.id = 'hs-script-loader';
+    trackForm.type = 'text/javascript';
+    trackForm.defer = true;
+    trackForm.async = true;
+
+    const embedForm = document.createElement('script');
+    embedForm.src = 'https://js.hsforms.net/forms/v2.js?ver=11.3.6';
+    document.body.appendChild(embedForm);
+    // Add the desired attributes
+    embedForm.setAttribute('data-hs-shell', 'true');
+    embedForm.setAttribute('data-hs-frame', 'true');
+    embedForm.setAttribute('data-hubspot-rendered', 'true');
+
+    embedForm.addEventListener('load', () => {
+      if ((window as any).hbspt) {
+        (window as any).hbspt.forms.create({
+          portalId: '43769202',
+          formId: '076aaef8-47be-4fc8-b09b-0ff8169919c2',
+          target: '#hbspt-form-1747992927000-4374046073',
+        });
+      }
+    });
+  }, []);
   return (
     <section className="py-16 text-white" style={{ backgroundColor: '#8220ff' }}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="grid md:grid-cols-2 gap-12 items-start md:py-[100px]">
+          <div className="w-full order-last md:order-first">
             <h2 className="text-3xl font-bold tracking-tight mb-6">{ t('contact.title') }</h2>
-            <p className="text-white/90 mb-8 max-w-md">
+            <p className="text-white/90 mb-8">
               { t('contact.subtitle') }
             </p>
 
@@ -125,84 +153,9 @@ export default function ContactSection({ lang }) {
               </div>
             </div>
           </div>
-
-          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
-            <h3 className="text-xl font-semibold mb-6">{ t('contact.form.title') }</h3>
-            <form className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="first-name" className="block text-sm font-medium text-white/80 mb-1">
-                    { t('contact.form.first_name') }*
-                  </label>
-                  <input
-                    type="text"
-                    id="first-name"
-                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"
-                    placeholder="John"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="last-name" className="block text-sm font-medium text-white/80 mb-1">
-                    { t('contact.form.last_name') }*
-                  </label>
-                  <input
-                    type="text"
-                    id="last-name"
-                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"
-                    placeholder="Doe"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-1">
-                  { t('contact.form.business_email') }*
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"
-                  placeholder="john.doe@company.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-white/80 mb-1">
-                  { t('contact.form.company') }*
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"
-                  placeholder="Acme Inc."
-                />
-              </div>
-
-              <div>
-                <label htmlFor="job-title" className="block text-sm font-medium text-white/80 mb-1">
-                  { t('contact.form.job_title') }*
-                </label>
-                <input
-                  type="text"
-                  id="job-title"
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/20"
-                  placeholder="Security Engineer"
-                />
-              </div>
-
-              <div className="flex items-start">
-                <input
-                  id="privacy"
-                  type="checkbox"
-                  className="h-4 w-4 mt-1 border-white/30 rounded bg-white/5 text-primary focus:ring-primary"
-                />
-                <label htmlFor="privacy" className="ml-2 block text-sm text-white/70">
-                  { t('contact.form.tnc') }
-                </label>
-              </div>
-
-              <Button className="w-full bg-white text-primary hover:bg-white/90">{ t('contact.form.submit') }</Button>
-            </form>
+          <div className="bg-white/80 backdrop-blur-sm p-8 rounded-lg h-full w-full">
+            <h3 className="text-xl font-semibold mb-6 text-black">{ t('contact.form.title') }</h3>
+            <div id="hbspt-form-1747992927000-4374046073" className="h-full w-full"></div>
           </div>
         </div>
       </div>

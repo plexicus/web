@@ -1,0 +1,29 @@
+---
+/**
+ * Components
+ */
+import Layout from "@/layouts/Layout.astro";
+import ContactSection from "@/components/contact-section";
+
+/**
+ * Utils
+ */
+import { getLangFromUrl, generateLocalizedPaths } from "@/i18n/utils";
+
+/**
+ * Variables
+ */
+const lang = getLangFromUrl(Astro.url);
+export async function getStaticPaths() {
+  const paths = await generateLocalizedPaths();
+  return paths;
+}
+---
+
+<Layout>
+  <div class="bg-[#8220ff] min-h-screen flex items-center w-full justify-center">
+    <main>
+      <ContactSection lang={lang} client:load />
+    </main>
+  </div>
+</Layout>

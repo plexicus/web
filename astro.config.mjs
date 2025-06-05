@@ -12,8 +12,8 @@ export default defineConfig({
 		schema: {
 			BLOG_SITE_URL: envField.string({ context: "client", access: "public", default: 'https://blog.plexicus.ai' }),
 			SITE_URL: envField.string({ context: "client", access: "public", default: 'https://plexicus.ai' }),
-			BLOG_PORT: envField.number({ context: "client", access: "public", default: 9000 }),
-			SITE_PORT: envField.number({ context: "client", access: "public", default: 8000 }),
+			BLOG_PORT: envField.number({ context: "client", access: "public", default: 443 }),
+			SITE_PORT: envField.number({ context: "client", access: "public", default: 443 }),
 		}
 	},
 	server: { port: SITE_PORT ? Number(SITE_PORT) : 8000 },

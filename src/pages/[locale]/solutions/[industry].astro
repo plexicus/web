@@ -1,0 +1,94 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import HeroSection from "@/components/HeroSection/Solution.astro";
+import IntroSection from "@/components/Solution/Intro.astro";
+import FeatureGrid from "@/components/Solution/FeatureGrid.astro";
+import BenefitsSection from "@/components/Solution/Benefits.astro";
+import SolutionPathways from "@/components/Solution/Pathways.astro";
+import PartnershipSection from "@/components/Solution/Partnership.astro";
+import CTASection from "@/components/CTA/section";
+
+import type { Solution } from "@/types/solution";
+import { getLangFromUrl, useTranslations, generateLocalizedPaths } from "@/i18n/utils";
+export function getStaticPaths() {
+  const slugs: string[] = [
+    "fintech-solutions",
+    "healthcare-solutions",
+    "hrtech-solutions",
+    "group-companies-solutions",
+    "agencies-solutions",
+    "startup-solutions",
+    "mobile-app-solutions",
+    "enterprise-solutions",
+    "government-solutions",
+    "retailtech-solutions",
+    "manufacturing-solutions",
+  ];
+
+  const paths = generateLocalizedPaths({ slugs, dynamicKey: "industry" });
+  return paths;
+}
+
+/**
+ * Utils
+ */
+
+
+const { locale } = Astro.params;
+const t = useTranslations(locale);
+
+/**
+ * Inline Middleware
+ */
+const solutions = t("solutions.list") as Solution[];
+
+if (!solutions.find((s) => s.detail.slug === Astro.params.industry)) {
+  return Astro.redirect("/404");
+}
+
+/**
+ * Variables
+ */
+const industry = solutions.find((s) => s.detail.slug === Astro.params.industry);
+
+---
+
+<Layout title={`${industry.title} | Plexicus`}>
+  <HeroSection 
+    title={industry.title}
+    description={industry.description}
+    backgroundImage={industry.detail.heroImage}
+  />
+  <IntroSection 
+    title={industry.detail.intro.title}
+    description={industry.detail.intro.description}
+  />
+  <FeatureGrid 
+    title="Key Features"
+    features={industry.detail.features}
+  />
+  <BenefitsSection 
+    benefits={industry.detail.benefits}
+  />
+  <SolutionPathways 
+    title="Solution Pathways"
+    subtitle="Explore our specialized solutions for the healthcare industry"
+    pathways={industry.detail.pathways}
+  />
+  <PartnershipSection 
+    title={industry.detail.partnership.title}
+    description={industry.detail.partnership.description}
+    buttonText={industry.detail.partnership.buttonText}
+    buttonLink={industry.detail.partnership.buttonLink}
+    image={industry.detail.partnership.image}
+  />
+  <CTASection 
+    title={`Ready to secure your ${industry.title.toLowerCase().replace(" solutions", "")} organization?`}
+    description="Our team of security experts is ready to help you implement a comprehensive security and compliance solution."
+    buttonText={"Contact Us"} 
+    buttonLink={"/contact"}
+    secondaryButtonText="Request a Demo"
+    secondaryButtonLink="/demo"
+    client:load
+  />
+</Layout>

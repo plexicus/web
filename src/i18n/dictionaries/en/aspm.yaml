@@ -1,0 +1,174 @@
+aspm:
+  pageTitle: "Application Security Posture Management | Plexicus"
+  hero:
+    title: "Elevate Your Application Security with Intelligent ASPM"
+    subtitle:
+      "Plexicus delivers a new era of Application Security Posture Management (ASPM), leveraging advanced AI to proactively identify, intelligently analyze, and automatically remediate vulnerabilities across your entire software development lifecycle. Empower your teams to build and deploy secure applications with unprecedented speed and confidence."
+    discoverButton: "Discover Plexicus"
+  landscape:
+    title: "Navigating the Complexities of Modern Application Security"
+    subtitle:
+      "In today's dynamic development environments, organizations face mounting pressure to innovate rapidly while defending against an increasingly sophisticated threat landscape. Common challenges include managing security across complex architectures, addressing vulnerabilities within fast-paced CI/CD pipelines, reducing alert fatigue, and ensuring security empowers development. Traditional approaches often struggle, highlighting the need for a more intelligent and integrated security posture."
+  introduction:
+    title: "Plexicus ASPM: Your Intelligent Security Co-Pilot"
+    paragraph1:
+      "Plexicus ASPM is engineered to overcome these challenges by providing a unified, AI-driven platform that integrates seamlessly into your development workflows. We transform application security from a reactive chore into a proactive, intelligent, and automated process."
+    paragraph2:
+      "Gain comprehensive visibility, actionable insights, and powerful automation to secure your applications from code to cloud."
+    imageAlt: "Unified Security Dashboard Visual"
+  capabilities:
+    title: "How Plexicus Secures Your Applications"
+    subtitle: "Key Pillars of the Plexicus ASPM Platform"
+    discovery:
+      title: "Comprehensive Vulnerability Discovery"
+      description:
+        "Plexicus employs advanced, AI-powered scanning capabilities to continuously and comprehensively identify vulnerabilities across your applications, dependencies, and infrastructure. Our intelligent discovery engine proactively pinpoints potential weaknesses early in the development lifecycle and in production, providing a complete view of your security posture."
+    enrichment:
+      title: "AI-Powered Enrichment"
+      description:
+        "Move beyond alert overload. Plexicus's AI engine enriches raw vulnerability data with critical context, including detailed impact assessments, exploitability analysis, and clear business risk prioritization. We transform basic findings into actionable intelligence, enabling your teams to focus on the threats that matter most."
+    remediation:
+      title: "Automated Remediation"
+      description:
+        "Drastically reduce your mean time to remediate (MTTR). Plexicus's AI agent not only provides precise remediation guidance but also automatically generates code fixes for many detected vulnerabilities. These fixes are delivered as ready-to-review pull requests, allowing your developers to approve and implement solutions with a single click."
+  integrations:
+    title: "Unified Security: Integrating with Your Essential Tools & Platforms"
+    subtitle:
+      "Plexicus enhances your existing security investments by seamlessly integrating with a wide array of tools and platforms across your software development lifecycle. Harness the collective power of your security ecosystem for comprehensive protection and streamlined workflows."
+    connectorsTitle: "Key Security Tool Connectors"
+    providersTitle: "Platform & Infrastructure Integrations"
+    connectors:
+      - key: "sast"
+        title: "SAST"
+        description:
+          "Static Application Security Testing tools that analyze source code for security vulnerabilities."
+        icon: "SAST"
+      - key: "secret"
+        title: "Secret Detection"
+        description: "Tools that detect secrets, credentials, and personally identifiable information in code."
+        icon: "SEC"
+      - key: "sca"
+        title: "SCA"
+        description: "Software Composition Analysis tools that identify vulnerabilities in third-party dependencies."
+        icon: "SCA"
+      - key: "container"
+        title: "Container Security"
+        description: "Tools that scan container images for vulnerabilities and misconfigurations."
+        icon: "CON"
+      - key: "threat"
+        title: "Threat Detection"
+        description: "Tools that detect malware and other threats in code and artifacts."
+        icon: "THR"
+      - key: "scmSecurity"
+        title: "SCM Security"
+        description: "Tools that secure the software supply chain management process."
+        icon: "SCMS"
+      - key: "cicd"
+        title: "CI/CD Security"
+        description: "Tools that assess and secure CI/CD pipelines."
+        icon: "CI/CD"
+      - key: "license"
+        title: "License Management"
+        description: "Tools that identify and manage software licenses."
+        icon: "LIC"
+      - key: "iac"
+        title: "IaC Security"
+        description: "Tools that secure Infrastructure as Code configurations."
+        icon: "IaC"
+      - key: "sbom"
+        title: "SBOM Generation"
+        description: "Tools that generate Software Bill of Materials."
+        icon: "SBOM"
+      - key: "plexicusNative"
+        title: "Plexicus Native Analysis"
+        description:
+          "Plexicus's proprietary security analysis and remediation platform, working in concert with other tools or as a standalone solution."
+        icon: "PX"
+    providers:
+      - key: "scm"
+        title: "SCM Platforms"
+        description: "Source Code Management platforms that host and manage code repositories."
+        icon: "SCM"
+        tools:
+          - key: "github"
+            name: "GitHub"
+            description: "Seamless PR integration for automated fixes, repository scanning, and workflow automation."
+            icon: "GH"
+          - key: "gitlab"
+            name: "GitLab"
+            description: "Repository scanning, merge request automation, and security insights within GitLab."
+            icon: "GL"
+          - key: "bitbucket"
+            name: "Bitbucket"
+            description:
+              "Connect with Bitbucket repositories for comprehensive code analysis and security management."
+            icon: "BB"
+      - key: "registry"
+        title: "Container Registries"
+        description: "Container registries that store and manage container images."
+        icon: "REG"
+        tools:
+          - key: "ecr"
+            name: "AWS ECR"
+            description: "Scan images for vulnerabilities before deployment."
+            icon: "ECR"
+          - key: "acr"
+            name: "Azure CR"
+            description: "Integrate with Azure Container Registry for image security."
+            icon: "ACR"
+      - key: "cloud"
+        title: "Cloud Platforms"
+        description: "Cloud platforms for deploying and managing applications."
+        icon: "CLOUD"
+        tools:
+          - key: "aws"
+            name: "Amazon Web Services"
+            description: "Secure your AWS workloads and infrastructure."
+            icon: "AWS"
+          - key: "azure"
+            name: "Microsoft Azure"
+            description: "Enhance security for applications deployed on Azure."
+            icon: "AZR"
+          - key: "gcp"
+            name: "Google Cloud Platform"
+            description: "Manage security posture for GCP environments."
+            icon: "GCP"
+      - key: "ticket"
+        title: "Issue Tracking"
+        description: "Issue tracking and project management platforms."
+        icon: "TICKET"
+        tools:
+          - key: "jira"
+            name: "Jira"
+            description: "Automatically create and track security issues in Jira."
+            icon: "JRA"
+          - key: "asana"
+            name: "Asana"
+            description: "Integrate security tasks into your Asana projects."
+            icon: "ASN"
+  advantage:
+    title: "The Plexicus Difference: Secure Smarter, Not Harder"
+    points:
+      - title: "AI-Driven Intelligence"
+        description:
+          "Leverage cutting-edge AI for superior threat detection, contextual understanding, and automated response."
+      - title: "Seamless DevSecOps Integration"
+        description:
+          "Embed security directly into your development pipelines with automated workflows, developer-friendly tools, and extensive ecosystem connectivity."
+      - title: "Reduced Alert Fatigue"
+        description: "Focus on genuine threats with intelligent prioritization and false positive reduction."
+      - title: "Accelerated Remediation"
+        description:
+          "Significantly shorten fix times with AI-generated code suggestions and streamlined approval processes."
+      - title: "Comprehensive Visibility & Control"
+        description:
+          "Gain a unified view of your application security risks across the entire SDLC, enhanced by deep integrations."
+      - title: "Enhanced Efficiency"
+        description:
+          "Free up your security and development teams to focus on strategic initiatives by automating repetitive tasks."
+  cta:
+    title: "Ready to Transform Your Application Security?"
+    subtitle:
+      "Discover how Plexicus can help your organization build and maintain secure applications with confidence. Request a personalized demo to see our AI-powered ASPM platform and its extensive integration capabilities in action."
+    demoButton: "Request a Demo"
+    contactButton: "Contact Sales"

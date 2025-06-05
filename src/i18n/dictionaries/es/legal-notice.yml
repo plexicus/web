@@ -1,0 +1,50 @@
+legal_notice:
+  toc:
+    title: "Tabla de Contenidos"
+    collapse_aria_label: "Contraer tabla de contenidos"
+    expand_aria_label: "Expandir tabla de contenidos"
+    current_section_label: "Actual:"
+    sections:
+      introduction: "Introducción"
+      termsOfUse: "Condiciones de Uso"
+      intellectualProperty: "Derechos de Propiedad Intelectual"
+      thirdPartyIP: "Propiedad Intelectual de Terceros"
+      jurisdiction: "Jurisdicción y Ley Aplicable"
+
+  content:
+    main_title: "Aviso Legal"
+    introduction:
+      heading: "Introducción"
+      paragraph1: "La información contenida en este sitio web tiene como finalidad facilitar el conocimiento de los diferentes servicios ofrecidos por PLEXICUS, LLC. (en adelante Plexicus), con domicilio en El Camino Real # 2456 Santa Clara, CA 95050 Estados Unidos."
+    terms_of_use:
+      heading: "Condiciones de Uso"
+      paragraph1: "El uso de este sitio web otorga la condición de usuario e implica necesariamente la aceptación plena de las presentes condiciones de uso. Si no está de acuerdo con estas condiciones, absténgase de utilizar el sitio web."
+      paragraph2: "El presente Aviso Legal está sujeto a cambios y actualizaciones. Le recomendamos revisarlo cada vez que acceda al sitio web."
+      user_responsibilities:
+        heading: "Responsabilidades del Usuario"
+        paragraph1: "El usuario se compromete a hacer un uso diligente de este sitio web, de conformidad con la legislación vigente, el presente Aviso Legal y cualquier otra comunicación que se le haya dado a conocer a través de este o cualquier otro medio, así como las normas de convivencia, la moral y las buenas costumbres generalmente aceptadas."
+        paragraph2: "Plexicus no se hace responsable del uso incorrecto que los usuarios hagan de la información o contenidos del servicio, siendo dichos actos responsabilidad exclusiva del usuario."
+      limitations_of_liability:
+        heading: "Limitaciones de Responsabilidad"
+        paragraph1: "Plexicus no será responsable de los posibles daños que puedan derivarse de virus informáticos u otros elementos nocivos que, sin culpa de Plexicus, pudieran afectar al usuario."
+        paragraph2: "Plexicus no se hace responsable de los daños o perjuicios que puedan ser causados por terceros mediante intromisiones ilegítimas en nuestro sistema sin el consentimiento de Plexicus."
+        paragraph3: "La información contenida en estas páginas web es la vigente en la fecha de su última actualización y debe considerarse indicativa para el usuario. Plexicus se reserva todos los derechos a modificar, limitar o cancelar el acceso y los contenidos del sitio web en cualquier momento."
+        paragraph4: "Plexicus rechaza cualquier responsabilidad que pueda derivarse de la existencia de problemas técnicos o fallos mecánicos en los equipos informáticos producidos durante la conexión a Internet. Plexicus no garantiza que el acceso al sitio web sea ininterrumpido ni que esté libre de errores o que no pueda causar ningún daño."
+        paragraph5: "Plexicus no se hace responsable de toda la información que se encuentre en estas páginas web, ni de los contenidos no producidos por Plexicus, procedentes de fuentes externas. Plexicus no se hace responsable de ninguna consecuencia, daño o perjuicio que pueda derivarse del acceso o uso de la información."
+        paragraph6: "Plexicus rechaza toda responsabilidad por la información o contenidos de páginas web de terceros conectadas a través de enlaces a estas páginas. Bajo ninguna circunstancia Plexicus será responsable de los daños sufridos por el usuario al acceder o utilizar dichos sitios o sus contenidos."
+        paragraph7: "Plexicus garantiza la confidencialidad de los datos personales facilitados por los usuarios de conformidad con la legislación vigente en materia de protección de datos personales y la Política de Privacidad."
+    intellectual_property:
+      heading: "Derechos de Propiedad Intelectual e Industrial"
+      paragraph1: "\"PLEXICUS\" y \"COVULOR\", los nombres, logotipos y títulos utilizados en nuestro sitio web \"https://www.plexicus.com/\" y que identifican los productos y servicios de Plexicus son marcas registradas de nuestra empresa. Otros logotipos, nombres, títulos o marcas que puedan aparecer en \"https://www.plexicus.com/\" pueden ser propiedad de clientes y/o entidades afiliadas o no afiliadas a nuestro Portal."
+      paragraph2: "La información, imágenes, textos, documentos y cualquier otro contenido ubicado en \"https://www.plexicus.com/\" podrán ser consultados únicamente con fines informativos por cualquier visitante de nuestro sitio web. Plexicus se reserva el derecho de restringir el acceso a su red o a sus contenidos."
+      paragraph3: "Plexicus puede modificar los términos y condiciones de uso del sitio web \"https://www.plexicus.com/\" en cualquier momento y sin previo aviso. Los visitantes del sitio web \"https://www.plexicus.com/\" son responsables de revisar el contenido del presente Aviso Legal para conocer los términos y condiciones de uso de nuestro Portal."
+    third_party_ip:
+      heading: "Propiedad Intelectual de Terceros"
+      paragraph1: "Cualquier persona (visitante o no de nuestro sitio web) que considere que sus derechos de propiedad intelectual han sido infringidos por el uso no autorizado de sus obras protegidas publicadas en \"https://www.plexicus.com/\" puede ponerse en contacto con nuestra empresa y solicitar que se elimine el contenido. Si se justifica, su solicitud será atendida de inmediato."
+    jurisdiction:
+      heading: "Jurisdicción y Ley Aplicable"
+      paragraph1: "La legislación aplicable al contenido de este Sitio Web será la de España e Italia, y la jurisdicción a la que PLEXICUS se somete como titular de esta página para la resolución de cualquier conflicto o cuestión litigiosa que pueda surgir de su relación con el usuario es la de los Juzgados y Tribunales competentes de España e Italia."
+      footer:
+        copyright: "PLEXICUS, LLC. Todos los derechos reservados"
+        contact_phone: "Teléfono: +1 510-298-1863 – correo electrónico: info [@] plexicus.com"
+        contact_address: "Dirección: El Camino Real #2456 Santa Clara, CA 95050 Estados Unidos"

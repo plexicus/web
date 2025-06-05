@@ -1,0 +1,29 @@
+---
+/**
+ * Components
+ */
+import Layout from "@/layouts/Layout.astro";
+import PricingSection from "@/components/pricing-section";
+
+/**
+ * Utils
+ */
+import { getLangFromUrl, generateLocalizedPaths } from "@/i18n/utils";
+
+/**
+ * Variables
+ */
+const lang = getLangFromUrl(Astro.url);
+export async function getStaticPaths() {
+  const paths = await generateLocalizedPaths();
+  return paths;
+}
+---
+<Layout>
+  <div class="flex min-h-screen flex-col">
+    <main>
+      <PricingSection lang={lang} client:load/>
+    </main>
+  </div>
+</Layout>
+

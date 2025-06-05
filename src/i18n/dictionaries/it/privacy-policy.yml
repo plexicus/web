@@ -1,0 +1,119 @@
+privacy_policy:
+  title: "Informativa sulla Privacy"
+  last_updated: "Ultimo aggiornamento"
+  table_of_content: "Indice"
+  introduction:
+    title: "Introduzione"
+    content:
+      paragraph1: "Questa è l'Informativa sulla Privacy di Plexicus, S.L., un'azienda stabilita nell'Unione Europea. Questa politica descrive le nostre pratiche riguardo la raccolta e l'utilizzo dei tuoi dati personali e stabilisce i tuoi diritti alla privacy."
+      paragraph2: "Comprendiamo che tu sia consapevole e tenga alla tua privacy personale, e lo prendiamo seriamente. Questa Informativa sulla Privacy descrive le nostre politiche e pratiche riguardo la raccolta e l'utilizzo dei tuoi dati personali e stabilisce i tuoi diritti alla privacy."
+      paragraph3: "Come azienda con radici nell'Unione Europea, che considera la conformità alla legislazione sulla privacy un principio fondamentale della propria organizzazione, abbiamo creato questa Informativa sulla Privacy sulla base del Regolamento Generale sulla Protezione dei Dati (GDPR) (Regolamento (UE) 2016/679 del Parlamento Europeo e del Consiglio del 27 aprile 2016)."
+  data_collection:
+    title: "Come raccogliamo e utilizziamo le informazioni"
+    paragraph1: "Raccogliamo informazioni personali su di te in vari modi, tra cui:"
+    paragraph2:
+      item1: "Informazioni che ci fornisci direttamente quando utilizzi i nostri servizi"
+      item2: "Informazioni che raccogliamo automaticamente tramite cookie e tecnologie simili"
+      item3: "Informazioni che riceviamo da terze parti"
+    paragraph3: "Trattiamo i tuoi dati personali per i seguenti scopi:"
+    paragraph4:
+      item1: "Per fornire e mantenere i nostri servizi"
+      item2: "Per informarti su modifiche ai nostri servizi"
+      item3: "Per permetterti di partecipare a funzionalità interattive dei nostri servizi"
+      item4: "Per fornire assistenza clienti"
+      item5: "Per raccogliere analisi o informazioni utili al fine di migliorare i nostri servizi"
+      item6: "Per monitorare l'utilizzo dei nostri servizi"
+      item7: "Per rilevare, prevenire e affrontare problemi tecnici"
+      item8: "Per soddisfare qualsiasi altro scopo per il quale ci hai fornito i dati"
+  legal_basis:
+    title: "Base giuridica per il trattamento"
+    paragraph1: "Ai sensi del GDPR, dobbiamo avere una base legale per trattare i tuoi dati personali. Ci basiamo sulle seguenti basi legali:"
+    paragraph2:
+      item1:
+        title: "Consenso:"
+        content: "Quando ci hai fornito un consenso esplicito per trattare i tuoi dati personali."
+      item2:
+        title: "Contratto:"
+        content: "Quando il trattamento è necessario per l'esecuzione di un contratto con te."
+      item3:
+        title: "Obbligo legale:"
+        content: "Quando il trattamento è necessario per adempiere a un obbligo legale."
+      item4:
+        title: "Interessi legittimi:"
+        content: "Quando il trattamento è necessario per i nostri legittimi interessi o quelli di terze parti."
+  data_sharing:
+    title: "Condivisione delle informazioni con terze parti"
+    paragraph1: "Potremmo condividere le tue informazioni personali con:"
+    paragraph2:
+      item1: "Fornitori di servizi che svolgono servizi per nostro conto"
+      item2: "Partner commerciali con cui offriamo prodotti o servizi congiuntamente"
+      item3: "Società affiliate all'interno del nostro gruppo aziendale"
+      item4: "Come richiesto dalla legge, ad esempio per rispettare una citazione in giudizio o un procedimento legale simile"
+      item5: "Quando crediamo in buona fede che la divulgazione sia necessaria per proteggere i nostri diritti, la tua sicurezza o quella di altri, per indagare su frodi o rispondere a richieste governative"
+    paragraph3: "Richiediamo a tutte le terze parti di rispettare la sicurezza dei tuoi dati personali e di trattarli in conformità con la legge."
+  cookies:
+    title: "Cookie e Tecnologie di Tracciamento"
+    paragraph1: "Utilizziamo cookie e tecnologie di tracciamento simili per monitorare l'attività sui nostri servizi e conservare alcune informazioni."
+    paragraph2: "I cookie sono file con una piccola quantità di dati che possono includere un identificatore univoco anonimo. I cookie vengono inviati al tuo browser da un sito web e memorizzati sul tuo dispositivo."
+    paragraph3: "Puoi configurare il tuo browser per rifiutare tutti i cookie o per segnalare quando un cookie viene inviato. Tuttavia, se non accetti i cookie, potresti non essere in grado di utilizzare alcune parti dei nostri servizi."
+  data_transfer:
+    title: "Trasferimento dei dati personali al di fuori dello SEE"
+    paragraph1: "Potremmo trasferire i tuoi dati personali a paesi al di fuori dello Spazio Economico Europeo (SEE). Ogni volta che trasferiamo i tuoi dati personali fuori dallo SEE, garantiamo un livello di protezione simile implementando almeno una delle seguenti salvaguardie:"
+    paragraph2:
+      item1: "Trasferiremo i tuoi dati personali solo a paesi che sono stati ritenuti fornire un livello adeguato di protezione dei dati personali dalla Commissione Europea."
+      item2: "Quando utilizziamo determinati fornitori di servizi, potremmo utilizzare contratti specifici approvati dalla Commissione Europea che offrono ai dati personali la stessa protezione che hanno in Europa."
+      item3: "Quando utilizziamo fornitori con sede negli Stati Uniti, potremmo trasferire i dati se fanno parte del Privacy Shield che richiede loro di fornire una protezione simile ai dati personali condivisi tra l'Europa e gli Stati Uniti."
+  data_subject_rights:
+    title: "Diritti dell’interessato"
+    paragraph1: "Ai sensi del GDPR, hai i seguenti diritti:"
+    paragraph2:
+      item1:
+        title: "Diritto di accesso:"
+        content: "Hai il diritto di richiedere copie dei tuoi dati personali."
+      item2:
+        title: "Diritto di rettifica:"
+        content: "Hai il diritto di richiedere che correggiamo qualsiasi informazione che ritieni inesatta o completiamo le informazioni che ritieni incomplete."
+      item3:
+        title: "Diritto alla cancellazione:"
+        content: "Hai il diritto di richiedere che cancelliamo i tuoi dati personali, a determinate condizioni."
+      item4:
+        title: "Diritto di limitazione del trattamento:"
+        content: "Hai il diritto di richiedere che limitiamo il trattamento dei tuoi dati personali, a determinate condizioni."
+      item5:
+        title: "Diritto di opposizione al trattamento:"
+        content: "Hai il diritto di opporti al trattamento dei tuoi dati personali, a determinate condizioni."
+      item6:
+        title: "Diritto alla portabilità dei dati:"
+        content: "Hai il diritto di richiedere che trasferiamo i dati raccolti a un'altra organizzazione o direttamente a te, a determinate condizioni."
+    paragraph3: "Se fai una richiesta, abbiamo un mese di tempo per risponderti. Se desideri esercitare uno qualsiasi di questi diritti, contattaci all’indirizzo email: info@plexicus.com"
+  data_retention:
+    title: "Conservazione dei dati"
+    paragraph1: "Conserveremo i tuoi dati personali solo per il tempo necessario agli scopi indicati in questa Informativa sulla Privacy. Conserveremo e utilizzeremo i tuoi dati nella misura necessaria per rispettare i nostri obblighi legali, risolvere controversie e far valere i nostri accordi legali e politiche."
+    paragraph2: "Conserveremo anche i dati di utilizzo per scopi di analisi interna. I dati di utilizzo sono generalmente conservati per un periodo più breve, tranne nei casi in cui vengano utilizzati per migliorare la sicurezza o la funzionalità dei nostri servizi, o quando siamo legalmente obbligati a conservarli per periodi più lunghi."
+  security:
+    title: "Sicurezza dei tuoi dati"
+    paragraph1: "La sicurezza dei tuoi dati è importante per noi, ma ricorda che nessun metodo di trasmissione su Internet o metodo di archiviazione elettronica è sicuro al 100%. Pur impegnandoci ad utilizzare mezzi commercialmente accettabili per proteggere i tuoi dati personali, non possiamo garantirne la sicurezza assoluta."
+  changes:
+    title: "Modifiche a questa Informativa sulla Privacy"
+    paragraph1: "Potremmo aggiornare periodicamente la nostra Informativa sulla Privacy. Ti informeremo di eventuali modifiche pubblicando la nuova Informativa sulla Privacy in questa pagina."
+    paragraph2: "Ti informeremo via email e/o con un avviso ben visibile sui nostri servizi, prima che la modifica diventi effettiva, aggiornando la data 'Ultimo aggiornamento' in cima a questa pagina."
+    paragraph3: "Ti consigliamo di consultare periodicamente questa Informativa sulla Privacy per eventuali modifiche. Le modifiche sono efficaci al momento della pubblicazione su questa pagina."
+  contact:
+    title: "Contattaci"
+    paragraph1: "Se hai domande su questa Informativa sulla Privacy, ti preghiamo di contattarci:"
+    paragraph2:
+      item1: "Via email: info@plexicus.com"
+      item2: "Visitando questa pagina del nostro sito: www.plexicus.ai/contact"
+      item3: "Per telefono: +1 510-298-1863"
+      item4: "Per posta: Plexicus, S.L., Calle Sabino Arana Etorbidea 8, 2ª 48013 Bilbao, Spagna"
+  dpo:
+    title: "Responsabile della Protezione dei Dati"
+    paragraph1: "Abbiamo nominato un Responsabile della Protezione dei Dati (DPO) che è responsabile della gestione delle domande relative a questa Informativa sulla Privacy. Se hai domande su questa politica, comprese le richieste per esercitare i tuoi diritti legali, contatta il DPO utilizzando i dettagli di seguito."
+    paragraph2: "Responsabile della Protezione dei Dati"
+common:
+  company_name: "Plexicus, S.L."
+  address: "Calle Sabino Arana Etorbidea 8, 2ª 48013 Bilbao"
+  company_country: "Spagna"
+  email: "info@plexicus.com"
+  label:
+    email: "Email"
