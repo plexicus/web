@@ -9,10 +9,14 @@ import ContentBenefits from "@/components/Benefits/ContentBenefits.astro";
 /**
  * Utils
  */
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getLangFromUrl, useTranslations, generateLocalizedPaths } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+export async function getStaticPaths() {
+  const paths = await generateLocalizedPaths();
+  return paths;
+}
 ---
 
 

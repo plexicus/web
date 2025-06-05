@@ -6,11 +6,11 @@ export default function ContactSection({ lang }) {
   useEffect(() => {
 
     const trackForm = document.createElement('script');
-    trackForm.src = 'https://js.hs-scripts.com/43769202.js'
-    trackForm.id = 'hs-script-loader'
-    trackForm.type = 'text/javascript'
-    trackForm.defer = true
-    trackForm.async = true
+    trackForm.src = 'https://js.hs-scripts.com/43769202.js';
+    trackForm.id = 'hs-script-loader';
+    trackForm.type = 'text/javascript';
+    trackForm.defer = true;
+    trackForm.async = true;
 
     const embedForm = document.createElement('script');
     embedForm.src = 'https://js.hsforms.net/forms/v2.js?ver=11.3.6';
@@ -25,8 +25,8 @@ export default function ContactSection({ lang }) {
         (window as any).hbspt.forms.create({
           portalId: '43769202',
           formId: '076aaef8-47be-4fc8-b09b-0ff8169919c2',
-          target: '#hbspt-form-1747992927000-4374046073'
-        })
+          target: '#hbspt-form-1747992927000-4374046073',
+        });
       }
     });
   }, []);
@@ -34,10 +34,10 @@ export default function ContactSection({ lang }) {
     <section className="py-16 text-white" style={{ backgroundColor: '#8220ff' }}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-start md:py-[100px]">
-          <div className='w-full order-last md:order-first'>
-            <h2 className="text-3xl font-bold tracking-tight mb-6">{t('contact.title')}</h2>
+          <div className="w-full order-last md:order-first">
+            <h2 className="text-3xl font-bold tracking-tight mb-6">{ t('contact.title') }</h2>
             <p className="text-white/90 mb-8">
-              {t('contact.subtitle')}
+              { t('contact.subtitle') }
             </p>
 
             <div className="space-y-6">
@@ -60,7 +60,7 @@ export default function ContactSection({ lang }) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">{t('contact.addresses')}</h3>
+                  <h3 className="font-semibold text-lg">{ t('contact.addresses') }</h3>
                   <div className="text-white/80">
                     <p className="font-medium">USA</p>
                     <p>
@@ -100,7 +100,7 @@ export default function ContactSection({ lang }) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">{t('contact.hours')}</h3>
+                  <h3 className="font-semibold text-lg">{ t('contact.hours') }</h3>
                   <p className="text-white/80">Mon-Fri 9:00AM - 5:00PM</p>
                 </div>
               </div>
@@ -124,7 +124,7 @@ export default function ContactSection({ lang }) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">{t('contact.email')}</h3>
+                  <h3 className="font-semibold text-lg">{ t('contact.email') }</h3>
                   <p className="text-white/80">info@plexicus.com</p>
                 </div>
               </div>
@@ -147,14 +147,14 @@ export default function ContactSection({ lang }) {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">{t('contact.phone')}</h3>
+                  <h3 className="font-semibold text-lg">{ t('contact.phone') }</h3>
                   <p className="text-white/80">+1 510-298-1863</p>
                 </div>
               </div>
             </div>
           </div>
           <div className="bg-white/80 backdrop-blur-sm p-8 rounded-lg h-full w-full">
-            <h3 className="text-xl font-semibold mb-6 text-black">{t('contact.form.title')}</h3>
+            <h3 className="text-xl font-semibold mb-6 text-black">{ t('contact.form.title') }</h3>
             <div id="hbspt-form-1747992927000-4374046073" className="h-full w-full"></div>
           </div>
         </div>

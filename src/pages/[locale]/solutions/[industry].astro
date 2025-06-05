@@ -9,8 +9,7 @@ import PartnershipSection from "@/components/Solution/Partnership.astro";
 import CTASection from "@/components/CTA/section";
 
 import type { Solution } from "@/types/solution";
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
-
+import { getLangFromUrl, useTranslations, generateLocalizedPaths } from "@/i18n/utils";
 export function getStaticPaths() {
   const slugs: string[] = [
     "fintech-solutions",
@@ -25,20 +24,24 @@ export function getStaticPaths() {
     "retailtech-solutions",
     "manufacturing-solutions",
   ];
-  return slugs.map((slug) => ({
-    params: { industry: slug },
-  }));
+
+  const paths = generateLocalizedPaths({ slugs, dynamicKey: "industry" });
+  return paths;
 }
 
 /**
  * Utils
  */
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+
+
+const { locale } = Astro.params;
+const t = useTranslations(locale);
+
 /**
  * Inline Middleware
  */
 const solutions = t("solutions.list") as Solution[];
+
 if (!solutions.find((s) => s.detail.slug === Astro.params.industry)) {
   return Astro.redirect("/404");
 }
@@ -47,6 +50,7 @@ if (!solutions.find((s) => s.detail.slug === Astro.params.industry)) {
  * Variables
  */
 const industry = solutions.find((s) => s.detail.slug === Astro.params.industry);
+
 ---
 
 <Layout title={`${industry.title} | Plexicus`}>

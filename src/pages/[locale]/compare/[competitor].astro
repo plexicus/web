@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getLangFromUrl, useTranslations, generateLocalizedPaths } from "@/i18n/utils";
 import ComparisonCtaSection from "@/components/CTA/section";
 import ComparisonFeature from "@/components/Comparison/feature";
 import ComparisonGlance from "@/components/Comparison/glance";
@@ -9,12 +9,16 @@ import Layout from "@/layouts/Layout.astro";
 
 import type { Competitor } from "@/types/competitor";
 
+
 export function getStaticPaths() {
-  return [
-    { params: { competitor: "armorcode" } },
-    { params: { competitor: "apiiro" } },
-    { params: { competitor: "legit-security" } },
+  const slugs: string[] = [
+    "armorcode",
+    "apiiro",
+    "legit-security",
   ];
+
+  const paths = generateLocalizedPaths({ slugs, dynamicKey: "competitor" });
+  return paths;
 }
 
 /**
