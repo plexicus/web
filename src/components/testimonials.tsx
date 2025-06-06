@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useTimeoutManager } from '../lib/timeout-manager';
 import { useTranslations } from '../i18n/utils';
-
+// import Image from './ui/image';
 export default function Testimonials({ lang }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -167,7 +167,7 @@ export default function Testimonials({ lang }) {
                 <img
                   src={testimonials[activeIndex].image || '/placeholder.svg'}
                   alt={testimonials[activeIndex].name}
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                 />
                 { /* Subtle gradient overlay */ }
                 <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent md:bg-gradient-to-t md:from-black/40 md:via-transparent md:to-transparent"></div>
