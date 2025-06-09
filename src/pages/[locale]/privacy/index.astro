@@ -4,12 +4,15 @@ import PrivacyPolicy from "@/components/PrivacyPolicy/privacy-policy";
 /**
  * Utils
  */
-import { getLangFromUrl } from "@/i18n/utils";
-
+import { getLangFromUrl, generateLocalizedPaths } from "@/i18n/utils";
 /**
  * Variables
  */
 const lang = getLangFromUrl(Astro.url);
+export async function getStaticPaths() {
+  const paths = await generateLocalizedPaths();
+  return paths;
+}
 ---
 
 <Layout>
