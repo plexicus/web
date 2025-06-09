@@ -2,9 +2,10 @@
 
 # dependencies
 /node_modules
-pnpm-lock.yaml
+
 # astro.js
 .astro
+.DS_Store
 /out/
 
 # production
@@ -25,3 +26,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+pnpm-lock.yaml
+yarn.lock
+package-lock*
