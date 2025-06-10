@@ -1,4 +1,3 @@
-'use client';
 
 import type React from 'react';
 
@@ -35,6 +34,7 @@ interface BoxPosition {
 interface LineSegment {
   path: string;
   step: number;
+  label?: string;
 }
 
 interface WorkflowStep {
@@ -44,9 +44,13 @@ interface WorkflowStep {
   icons?: React.ReactNode[];
   label: string;
   description: string;
-  color: string;
-  activeColor: string;
-  shadow: string;
+  bgColor: string;
+  aspect: string;
+  activeBgColor: string;
+  borderColor: string;
+  activeBorderColor: string;
+  iconColor: string;
+  activeIconColor: string;
   shape: string;
   isWide?: boolean;
   // Layout configuration
@@ -56,7 +60,7 @@ interface WorkflowStep {
   tooltipSide: 'top' | 'bottom';
 }
 
-export default function HeroAnimation() {
+export default function AnimatedGrid() {
   // Track the current animation step
   const [currentStep, setCurrentStep] = useState(0);
   const [isAnimating, setIsAnimating] = useState(true);
@@ -112,11 +116,13 @@ export default function HeroAnimation() {
         {
           path: `M ${boxes.gitpr.right} ${boxes.gitpr.y} L ${boxes.search.left} ${boxes.search.y}`,
           step: 1,
+          label: 'Submit',
         },
         // Segment 2: Search to Review
         {
           path: `M ${boxes.search.right} ${boxes.search.y} L ${boxes.review.left} ${boxes.review.y}`,
           step: 3,
+          label: 'Analyze',
         },
         // Segment 3: Review to Remediation - with higher elbow and rounded corners
         {
@@ -126,16 +132,19 @@ export default function HeroAnimation() {
                  Q ${boxes.remediation.x} ${boxes.review.bottom + 20} ${boxes.remediation.x} ${boxes.review.bottom + 30}
                  L ${boxes.remediation.x} ${boxes.remediation.top}`,
           step: 5,
+          label: 'Process',
         },
         // Segment 4: Remediation to Approval
         {
           path: `M ${boxes.remediation.left} ${boxes.remediation.y} L ${boxes.approval.right} ${boxes.approval.y}`,
           step: 7,
+          label: 'Validate',
         },
         // Segment 5: Approval to Git Merge
         {
           path: `M ${boxes.approval.left} ${boxes.approval.y} L ${boxes.gitmerge.right} ${boxes.gitmerge.y}`,
           step: 9,
+          label: 'Complete',
         },
       ];
       setLineSegments(segments);
@@ -179,11 +188,11 @@ export default function HeroAnimation() {
   const boxVariants = {
     hidden: { scale: 1 },
     visible: {
-      scale: [1, 1.15, 1],
-      transition: { duration: 2, ease: 'easeInOut' },
+      scale: [1, 1.05, 1],
+      transition: { duration: 1.5, ease: 'easeInOut' },
     },
     breathing: {
-      scale: [1, 1.05, 1],
+      scale: [1, 1.02, 1],
       transition: {
         duration: 2,
         repeat: Number.POSITIVE_INFINITY,
@@ -200,37 +209,45 @@ export default function HeroAnimation() {
     },
   };
 
-  // Workflow steps data with layout configuration
+  // Workflow steps data with monochromatic purple theme
   const workflowSteps: WorkflowStep[] = [
     {
       id: 'gitpr',
       index: 0,
-      icon: <GitPullRequest size={28} />,
+      icon: <GitPullRequest size={24} />,
       label: 'Git PR',
       description: 'Create and submit a pull request with your code changes for review',
-      color: 'bg-gradient-to-br from-purple-500 to-purple-600',
-      activeColor: 'bg-gradient-to-br from-purple-600 to-purple-700',
-      shadow: 'shadow-purple-200',
-      shape: 'pill',
+      bgColor: 'bg-white',
+      activeBgColor: 'bg-white',
+      borderColor: 'border-purple-200',
+      activeBorderColor: 'border-purple-200',
+      iconColor: 'text-purple-600',
+      activeIconColor: 'text-purple-600',
+      shape: 'rounded',
       row: 'top',
       position: 0,
       flexSize: 1,
       tooltipSide: 'bottom',
+      aspect: 'w-1/4 flex-grow aspect-square',
     },
     {
       id: 'search',
       index: 1,
-      icon: <Search size={28} />,
+      icon: <Search size={24} />,
       label: 'Search',
       description: 'Automatically scan and discover security vulnerabilities in your code',
-      color: 'bg-gradient-to-br from-blue-500 to-blue-600',
-      activeColor: 'bg-gradient-to-br from-blue-600 to-blue-700',
-      shadow: 'shadow-blue-200',
-      shape: 'pill',
+      bgColor: 'bg-white',
+      activeBgColor: 'bg-white',
+      borderColor: 'border-purple-200',
+      activeBorderColor: 'border-purple-200',
+      iconColor: 'text-purple-600',
+      activeIconColor: 'text-purple-600',
+      shape: 'rounded',
       row: 'top',
       position: 1,
       flexSize: 1,
       tooltipSide: 'bottom',
+      aspect: 'w-1/4 flex-grow aspect-square',
     },
     {
       id: 'review',
@@ -242,29 +259,37 @@ export default function HeroAnimation() {
       ],
       label: 'Review',
       description: 'Analyze findings and assess the security impact of discovered issues',
-      color: 'bg-gradient-to-br from-cyan-500 to-cyan-600',
-      activeColor: 'bg-gradient-to-br from-cyan-600 to-cyan-700',
-      shadow: 'shadow-cyan-200',
-      shape: 'pill',
+      bgColor: 'bg-white',
+      activeBgColor: 'bg-white',
+      borderColor: 'border-purple-200',
+      activeBorderColor: 'border-purple-200',
+      iconColor: 'text-purple-600',
+      activeIconColor: 'text-purple-600',
+      shape: 'rounded',
       row: 'top',
       position: 2,
       flexSize: 2,
       tooltipSide: 'bottom',
+      aspect: 'w-1/2 flex-grow aspect-2/1',
     },
     {
       id: 'remediation',
       index: 3,
-      icon: <Wrench size={28} />,
+      icon: <Wrench size={24} />,
       label: 'Remediation',
       description: 'Apply automated fixes and security patches to resolve identified issues',
-      color: 'bg-gradient-to-br from-orange-500 to-orange-600',
-      activeColor: 'bg-gradient-to-br from-orange-600 to-orange-700',
-      shadow: 'shadow-orange-200',
-      shape: 'pill',
+      bgColor: 'bg-white',
+      activeBgColor: 'bg-white',
+      borderColor: 'border-purple-200',
+      activeBorderColor: 'border-purple-200',
+      iconColor: 'text-purple-600',
+      activeIconColor: 'text-purple-600',
+      shape: 'rounded',
       row: 'bottom',
       position: 2, // Right side of bottom row
       flexSize: 1,
       tooltipSide: 'top',
+      aspect: 'w-1/4 flex-grow aspect-square',
     },
     {
       id: 'approval',
@@ -276,33 +301,37 @@ export default function HeroAnimation() {
       description: isEdited
         ? 'Code has been modified based on review feedback and is ready for re-evaluation'
         : 'Review the security findings and decide whether to approve or request changes',
-      color: isEdited
-        ? 'bg-gradient-to-br from-yellow-500 to-yellow-600'
-        : 'bg-gradient-to-br from-green-500 to-green-600',
-      activeColor: isEdited
-        ? 'bg-gradient-to-br from-yellow-600 to-yellow-700'
-        : 'bg-gradient-to-br from-green-600 to-green-700',
-      shadow: isEdited ? 'shadow-yellow-200' : 'shadow-green-200',
-      shape: 'pill',
+      bgColor: 'bg-white',
+      activeBgColor: 'bg-white',
+      borderColor: 'border-purple-200',
+      activeBorderColor: 'border-purple-200',
+      iconColor: 'text-purple-600',
+      activeIconColor: 'text-purple-600',
+      shape: 'rounded',
       row: 'bottom',
       position: 1, // Center of bottom row
       flexSize: 2,
       tooltipSide: 'top',
+      aspect: 'w-1/2 flex-grow aspect-2/1',
     },
     {
       id: 'gitmerge',
       index: 5,
-      icon: <GitMerge size={28} />,
+      icon: <GitMerge size={24} />,
       label: 'Git Merge',
       description: 'Merge the approved changes into the main branch after all checks pass',
-      color: 'bg-gradient-to-br from-purple-500 to-purple-600',
-      activeColor: 'bg-gradient-to-br from-purple-600 to-purple-700',
-      shadow: 'shadow-purple-200',
-      shape: 'pill',
+      bgColor: 'bg-white',
+      activeBgColor: 'bg-white',
+      borderColor: 'border-purple-200',
+      activeBorderColor: 'border-purple-200',
+      iconColor: 'text-purple-600',
+      activeIconColor: 'text-purple-600',
+      shape: 'rounded',
       row: 'bottom',
       position: 0, // Left side of bottom row
       flexSize: 1,
       tooltipSide: 'top',
+      aspect: 'w-1/4 flex-grow aspect-square',
     },
   ];
 
@@ -357,7 +386,7 @@ export default function HeroAnimation() {
       case 'rounded':
         return 'rounded-2xl';
       default:
-        return 'rounded-xl';
+        return 'rounded-lg';
     }
   };
 
@@ -368,40 +397,69 @@ export default function HeroAnimation() {
 
   // Render a single box component
   const renderBox = (step: WorkflowStep) => (
-    <div key={step.id} style={{ flex: step.flexSize }}>
+    <div key={step.id} style={{ flex: step.flexSize }} className={`relative ${step.aspect}`}>
+      { /* Label above first box in each row */ }
+
       <Tooltip>
         <TooltipTrigger asChild>
           <motion.div
             ref={(el) => {
               boxRefs.current[step.id] = el;
             }}
-            className={`w-full h-20 ${getBoxShapeClass(step.shape)} flex items-center justify-center text-white font-bold shadow-lg relative z-10 cursor-pointer transition-all duration-300 px-4 ${
-              isBoxAnimating(step.index) ? step.activeColor : step.color
-            } ${step.shadow} ${isBoxAnimating(step.index) ? 'shadow-xl' : 'shadow-md'}`}
+            className={`w-full h-full p-4 ${getBoxShapeClass(step.shape)} relative bg-white rounded-2xl border transition-all duration-500 ${
+              isBoxAnimating(step.index)
+                ? 'border-purple-300 shadow-active'
+                : currentStep >= step.index * 2
+                  ? 'border-purple-200 bg-purple-50'
+                  : 'border-gray-200 opacity-80'
+            }`}
+            style={{
+              boxShadow: isBoxAnimating(step.index)
+                ? '0 10px 25px -5px rgba(139, 92, 246, 0.4), 0 8px 10px -6px rgba(139, 92, 246, 0.2)'
+                : currentStep >= step.index * 2
+                  ? '0 4px 12px -4px rgba(139, 92, 246, 0.15)'
+                  : '0 2px 8px -4px rgba(0, 0, 0, 0.1)',
+            }}
             variants={boxVariants}
             initial="hidden"
             animate={isBoxAnimating(step.index) ? 'visible' : isBoxWaiting(step.index) ? 'breathing' : 'hidden'}
             onAnimationComplete={isBoxAnimating(step.index) ? handleAnimationComplete : undefined}
             whileHover={{
-              scale: 1.05,
-              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+              scale: 1.02,
+              boxShadow: '0 8px 25px -6px rgba(139, 92, 246, 0.2), 0 0 0 1px rgba(139, 92, 246, 0.1)',
+              transition: { duration: 0.2 },
             }}
           >
-            { step.icons ? (
-              <div className="flex items-center gap-4">
-                { step.icons.map((icon, iconIndex) => (
-                  <div key={iconIndex}>{ icon }</div>
-                )) }
+            { /* Card Corners */ }
+            <div className="absolute top-2 left-2 w-2 h-2 bg-gray-200 rounded-full"></div>
+            <div className="absolute top-2 right-2 w-2 h-2 bg-gray-200 rounded-full"></div>
+            <div className="absolute bottom-2 left-2 w-2 h-2 bg-gray-200 rounded-full"></div>
+            <div className="absolute bottom-2 right-2 w-2 h-2 bg-gray-200 rounded-full"></div>
+
+            { /* Icon Circle */ }
+            <div className="flex justify-center items-center h-full mb-2">
+              <div
+                className={`w-16 h-16 md:w-14 md:h-14 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-500 ${
+                  currentStep >= step.index * 2 ? 'bg-[#f0e9e2] text-purple-600' : 'bg-gray-100 text-gray-400'
+                }`}
+              >
+                <div
+                  className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                    currentStep >= step.index * 2 ? 'bg-white text-purple-600 shadow-sm' : 'bg-gray-50 text-gray-400'
+                  }`}
+                >
+                  <div className="w-6 h-6 text-current">
+                    { step.icons ? <div className="flex items-center justify-center">{ step.icons[0] }</div> : step.icon }
+                  </div>
+                </div>
               </div>
-            ) : (
-              step.icon
-            ) }
+            </div>
           </motion.div>
         </TooltipTrigger>
-        <TooltipContent side={step.tooltipSide} className="max-w-xs z-50">
+        <TooltipContent side={step.tooltipSide} className="max-w-xs z-50 bg-white border-gray-200 text-gray-800">
           <div className="text-center">
             <div className="font-semibold mb-1">{ step.label }</div>
-            <div className="text-xs py-2">{ step.description }</div>
+            <div className="text-xs text-gray-600">{ step.description }</div>
           </div>
         </TooltipContent>
       </Tooltip>
@@ -412,7 +470,7 @@ export default function HeroAnimation() {
     <TooltipProvider>
       <div className="w-full max-w-6xl mx-auto">
         { /* Current step indicator */ }
-        <div className="mb-4 text-gray-600 font-mono text-sm bg-white backdrop-blur-sm px-3 py-1 rounded-full shadow-sm border border-gray-200 inline-block">
+        <div className="mb-4 text-gray-700 font-mono text-sm bg-white px-4 py-2 rounded-xl border border-gray-200 inline-block shadow-md">
           { isAnimating ? (
             <div>
               { currentStep % 2 === 0 ? workflowSteps[Math.floor(currentStep / 2)]?.label || 'Unknown' : 'Connecting...' }
@@ -424,7 +482,10 @@ export default function HeroAnimation() {
         </div>
 
         { /* Main diagram container */ }
-        <div ref={containerRef} className="relative bg-white rounded-3xl p-8 shadow-2xl border border-gray-200">
+        <div
+          ref={containerRef}
+          className="relative rounded-2xl p-3 md:p-6 sm:p-4 border border-gray-200 bg-[#F2EAFF] shadow-lg"
+        >
           { /* Sequential animated workflow lines */ }
           <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 5 }}>
             { lineSegments.map((segment, index) => (
@@ -432,7 +493,7 @@ export default function HeroAnimation() {
                 { /* Line segment */ }
                 <motion.path
                   d={segment.path}
-                  stroke="#3b82f6"
+                  stroke="#C4B5FD"
                   strokeWidth="8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -449,7 +510,7 @@ export default function HeroAnimation() {
                     cx="0"
                     cy="0"
                     r="6"
-                    fill="#3b82f6"
+                    fill="#8B5CF6"
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{
                       scale: [0.5, 1.2, 0.5],
@@ -473,36 +534,44 @@ export default function HeroAnimation() {
             )) }
           </svg>
 
-          { /* Flexbox layout for boxes - NOW USING SINGLE ITERATION! */ }
-          <div className="flex flex-col gap-16">
+          { /* Flexbox layout for boxes */ }
+          <div className="flex flex-col gap-10 md:gap-16 sm:gap-12">
             { /* Top row */ }
-            <div className="flex items-center justify-between gap-8">{ topRowBoxes.map(renderBox) }</div>
+            <div className="flex items-center justify-between md:gap-6 gap-3">
+              { topRowBoxes.map(renderBox) }
+            </div>
 
             { /* Bottom row */ }
-            <div className="flex items-center justify-between gap-8">{ bottomRowBoxes.map(renderBox) }</div>
+            <div className="flex items-center justify-between md:gap-6 gap-3">
+              { bottomRowBoxes.map(renderBox) }
+            </div>
           </div>
         </div>
 
         { /* Action buttons */ }
         { isAtApprovalStep && (
-          <div className="mt-6 flex justify-center">
-            <div className="bg-white rounded-full p-4 shadow-xl border border-gray-200 flex gap-3">
-              <motion.div variants={shakeVariants} animate={showDecisionShake ? 'shake' : ''} className="flex gap-3">
+          <div className="mt-8 md:mt-6 sm:mt-4 flex justify-center">
+            <div className="bg-white rounded-xl p-4 sm:p-3 border border-gray-200 flex gap-4 sm:gap-2 shadow-lg">
+              <motion.div
+                variants={shakeVariants}
+                animate={showDecisionShake ? 'shake' : ''}
+                className="flex gap-4 sm:gap-2"
+              >
                 <Button
-                  variant="outline"
-                  className="px-5 py-2 bg-gradient-to-r from-yellow-400 to-yellow-500 border-yellow-600 text-yellow-900 font-semibold rounded-full hover:from-yellow-500 hover:to-yellow-600 shadow-lg transition-all duration-300 hover:scale-105"
+                  variant="ghost"
+                  className="px-5 py-2 sm:px-3 sm:py-1 bg-white text-purple-600 font-medium rounded-lg hover:bg-gray-50 border border-purple-200 transition-all duration-300 hover:scale-105 shadow-md"
                   onClick={handleEdit}
                 >
-                  <Edit size={14} className="mr-2" />
-                  Edit
+                  <Edit size={16} className="mr-2 sm:mr-1" />
+                  <span className="sm:text-sm">Edit</span>
                 </Button>
 
                 <Button
-                  className="px-5 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-full hover:from-green-600 hover:to-green-700 shadow-lg transition-all duration-300 hover:scale-105"
+                  className="px-5 py-2 sm:px-3 sm:py-1 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 border border-purple-600 transition-all duration-300 hover:scale-105 shadow-md"
                   onClick={handleApprove}
                 >
-                  <Check size={14} className="mr-2" />
-                  Approve
+                  <Check size={16} className="mr-2 sm:mr-1" />
+                  <span className="sm:text-sm">Approve</span>
                 </Button>
               </motion.div>
             </div>
