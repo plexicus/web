@@ -1,0 +1,40 @@
+---
+/**
+ * Components
+ */
+ import Layout from "@/layouts/Layout.astro";
+import HeroSection from "@/components/HeroSection/use-case";
+import FeaturesSection from "@/components/UseCase/features";
+import CTASection from "@/components/CTA/section";
+
+/**
+ * Utils
+ */
+import { getLangFromUrl, useTranslations, generateLocalizedPaths } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+export async function getStaticPaths() {
+  const paths = await generateLocalizedPaths();
+  return paths;
+}
+
+/**
+ * Variables
+ */
+---
+
+
+<Layout>
+  <HeroSection lang={lang} client:load />
+  <FeaturesSection client:load lang={lang}/>
+  <CTASection 
+    title={t("use-case.cta.title")}
+    description={t("use-case.cta.description")}
+    buttonText={t("use-case.cta.buttonText")} 
+    buttonLink={t("use-case.cta.buttonLink")}
+    secondaryButtonText={t("use-case.cta.secondaryButtonText")}
+    secondaryButtonLink={t("use-case.cta.secondaryButtonLink")}
+    client:load
+  />
+</Layout>
