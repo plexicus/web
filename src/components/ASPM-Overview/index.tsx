@@ -137,7 +137,12 @@ export default function AspmPage({ lang }) {
   return (
     <>
       { /* Section 1: Hero Section */ }
-      <header className="py-20 md:py-32 bg-gradient-to-br from-black via-purple-900 to-indigo-900 text-white">
+      <header
+        className="py-20 md:py-32 text-white"
+        style={{
+          background: 'radial-gradient(circle at right, #000000 0%, #1a1a1a 40%, #4a0ba3 70%, #8220ff 100%)',
+        }}
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 mx-auto px-6 text-left container gap-4">
           <div>
             { /* Allow HTML in title if needed */ }
