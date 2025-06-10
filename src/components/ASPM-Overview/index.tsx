@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Crystal from './crystal';
+import HeroAnimation from './hero';
 import Image from '@/components/ui/image';
 import LifecycleTabs from './lifecycle-tabs';
 import { SearchIcon, BrainIcon, ShieldCheckIcon, ChevronDownIcon } from './icons';
@@ -137,8 +137,13 @@ export default function AspmPage({ lang }) {
   return (
     <>
       { /* Section 1: Hero Section */ }
-      <header className="py-20 md:py-32 bg-gradient-to-br from-black via-purple-900 to-indigo-900 text-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 mx-auto px-6 text-left container">
+      <header
+        className="py-20 md:py-32 text-white"
+        style={{
+          background: 'radial-gradient(circle at right, #000000 0%, #1a1a1a 40%, #4a0ba3 70%, #8220ff 100%)',
+        }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto px-6 text-left container gap-4">
           <div>
             { /* Allow HTML in title if needed */ }
             <h1
@@ -157,7 +162,7 @@ export default function AspmPage({ lang }) {
             </a>
           </div>
           <div className="w-full h-[500px] mt-10 md:mt-0">
-            <Crystal theme="dark" />
+            <HeroAnimation />
           </div>
         </div>
       </header>
