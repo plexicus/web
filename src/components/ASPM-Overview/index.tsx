@@ -7,7 +7,7 @@ import { SecurityIcons } from './security-icons';
 import { Brain, GitMerge, BellOff, Zap, Eye, Gauge, ArrowRight } from 'lucide-react';
 import { useTranslations } from '@/i18n/utils';
 import CTASection from '../CTA/section';
-
+import NavigateComplexitySection from './navigate-complexity';
 interface categoryData{ 
   key: string;
   title: string; 
@@ -170,12 +170,13 @@ export default function AspmPage({ lang }) {
       { /* Section 2: The Evolving Landscape */ }
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+          {/* <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
             { t('aspm.landscape.title') }
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12 text-center">
             { t('aspm.landscape.subtitle') }
-          </p>
+          </p> */}
+          <NavigateComplexitySection/>
 
           { /* Lifecycle tabs showing ASPM integration across development stages */ }
           <div className="mt-10 max-w-6xl mx-auto">
