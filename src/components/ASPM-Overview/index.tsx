@@ -8,6 +8,7 @@ import { Brain, GitMerge, BellOff, Zap, Eye, Gauge, ArrowRight } from 'lucide-re
 import { useTranslations } from '@/i18n/utils';
 import CTASection from '../CTA/section';
 import NavigateComplexitySection from './navigate-complexity';
+import AspmIntegrationSection from './aspm-integration-section';
 interface categoryData{ 
   key: string;
   title: string; 
@@ -179,9 +180,10 @@ export default function AspmPage({ lang }) {
           <NavigateComplexitySection/>
 
           { /* Lifecycle tabs showing ASPM integration across development stages */ }
-          <div className="mt-10 max-w-6xl mx-auto">
+          <div >
+            <AspmIntegrationSection/>
             { /* LifecycleTabs component will need to be updated to use localization internally */ }
-            <LifecycleTabs />
+            {/* <LifecycleTabs /> */}
           </div>
         </div>
       </section>
