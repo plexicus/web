@@ -1,17 +1,23 @@
-"use client"
+'use client';
 
-import { motion } from "framer-motion"
-import DevSecOpsFlow from "./DevSecOpsFlow"
+import { motion } from 'framer-motion';
+import DevSecOpsFlow from './DevSecOpsFlow';
 
 export default function BenefitsHero() {
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-br from-black via-purple-900 to-indigo-900 text-white relative overflow-hidden">
-      {/* Background decoration */}
+    <section
+      className="py-20 md:py-32 text-white relative overflow-hidden"
+      style={{
+        background: 'radial-gradient(circle at right, #000000 0%, #1a1a1a 40%, #4a0ba3 70%, #8220ff 100%)',
+        boxShadow: 'inset 0 0 100px rgba(0,0,0,0.3)',
+      }}
+    >
+      { /* Background decoration */ }
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Content */}
+          { /* Left Side - Content */ }
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -20,18 +26,18 @@ export default function BenefitsHero() {
           >
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Unlocking Strategic{" "}
+                Unlocking Strategic{ ' ' }
                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   Advantages
-                </span>{" "}
+                </span>{ ' ' }
                 with PLEXICUS
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+              <p className="text-xl md:text-2xl text-white leading-relaxed">
                 Enhancing Security in the Development Lifecycle
               </p>
 
-              <p className="text-lg text-gray-400 leading-relaxed">
+              <p className="text-lg text-white leading-relaxed">
                 Explore how PLEXICUS transforms your DevSecOps journey by providing a seamless integration of proactive
                 security measures, ensuring a robust and secure development process with cutting-edge tools designed for
                 optimal cybersecurity.
@@ -48,7 +54,7 @@ export default function BenefitsHero() {
             </div>
           </motion.div>
 
-          {/* Right Side - DevSecOps Flow Visualization */}
+          { /* Right Side - DevSecOps Flow Visualization */ }
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -59,5 +65,5 @@ export default function BenefitsHero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

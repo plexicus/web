@@ -47,10 +47,10 @@ export default function DevSecOpsFlow() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-center"
+            className="bg-gradient-to-r from-[#8220ff] to-[#6010cc] backdrop-blur-sm rounded-lg p-4 text-center"
           >
             <div
-              className={`w-12 h-12 mx-auto mb-3 rounded-lg bg-gradient-to-r ${stage.color} flex items-center justify-center`}
+              className={'w-12 h-12 mx-auto mb-3 rounded-lg bg-white/20 flex items-center justify-center'}
             >
               { stage.icon }
             </div>
