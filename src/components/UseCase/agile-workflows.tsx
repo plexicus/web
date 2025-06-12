@@ -71,7 +71,7 @@ export default function AgileWorkflows() {
             }
             return prev + 3;
           });
-        }, 25);
+        }, 50);
       }
     }, 50);
   };

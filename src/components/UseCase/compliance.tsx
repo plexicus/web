@@ -74,7 +74,7 @@ export default function ComplianceAutomation() {
             }
             return prev + 3;
           });
-        }, 25);
+        }, 50);
       }
     }, 50);
   };

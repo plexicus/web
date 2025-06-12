@@ -71,7 +71,7 @@ export default function AIRemediation() {
             }
             return prev + 2;
           });
-        }, 35);
+        }, 50);
       }
     }, 50);
   };

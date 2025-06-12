@@ -78,7 +78,7 @@ export default function DevSecOpsPipeline() {
             }
             return prev + 3;
           });
-        }, 25);
+        }, 50);
       }
     }, 50);
   };
