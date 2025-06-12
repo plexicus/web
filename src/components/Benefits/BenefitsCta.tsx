@@ -2,12 +2,15 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight, Shield, Zap, Users } from 'lucide-react';
+import { useTranslations } from '../../i18n/utils'; // Assuming correct relative path
 
-export default function BenefitsCta() {
+export default function BenefitsCta({ lang }) {
+  const t = useTranslations(lang);
+
   const ctaFeatures = [
-    { icon: <Shield className="w-5 h-5" />, text: 'Enterprise-grade security' },
-    { icon: <Zap className="w-5 h-5" />, text: 'AI-powered automation' },
-    { icon: <Users className="w-5 h-5" />, text: 'Seamless team collaboration' },
+    { icon: <Shield className="w-5 h-5" />, text: t('benefits.cta.features.security') },
+    { icon: <Zap className="w-5 h-5" />, text: t('benefits.cta.features.automation') },
+    { icon: <Users className="w-5 h-5" />, text: t('benefits.cta.features.collaboration') },
   ];
 
   return (
@@ -21,16 +24,11 @@ export default function BenefitsCta() {
           className="text-center max-w-4xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Secure Faster. Scale Smarter.{ ' ' }
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Collaborate Better
-            </span>{ ' ' }
-            — with PLEXICUS.
+            { t('benefits.cta.title') }
           </h2>
 
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            Transform your DevSecOps journey with cutting-edge security automation that adapts to your team's needs and
-            scales with your growth.
+            { t('benefits.cta.subtitle') }
           </p>
 
           { /* Feature highlights */ }
@@ -57,7 +55,7 @@ export default function BenefitsCta() {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-white text-purple-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center gap-2"
             >
-              Start Your Free Trial
+              { t('benefits.cta.buttons.trial') }
               <ArrowRight className="w-5 h-5" />
             </motion.button>
 
@@ -66,7 +64,7 @@ export default function BenefitsCta() {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 border border-purple-400 text-purple-300 font-semibold rounded-lg hover:bg-purple-800 transition-colors duration-200"
             >
-              Schedule Demo
+              { t('benefits.cta.buttons.demo') }
             </motion.button>
 
             <motion.button
@@ -74,7 +72,7 @@ export default function BenefitsCta() {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 border border-purple-400 text-purple-300 font-semibold rounded-lg hover:bg-purple-800 transition-colors duration-200"
             >
-              View Pricing
+              { t('benefits.cta.buttons.pricing') }
             </motion.button>
           </div>
         </motion.div>
