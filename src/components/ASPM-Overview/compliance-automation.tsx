@@ -1,5 +1,3 @@
-'use client';
-
 import { motion } from 'framer-motion';
 import { Shield, CheckCircle, FileText, Award } from 'lucide-react';
 import { useTranslations } from '../../i18n/utils';
