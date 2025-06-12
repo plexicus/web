@@ -1,110 +1,105 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { AlertTriangle, CheckCircle, Terminal } from 'lucide-react';
 import { useTranslations } from '../../i18n/utils';
-
+import SecurityFlowDiagram from './security-flow-diagram';
 export default function TechnicalProblemSection({ lang }) {
   const t = useTranslations(lang);
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            { t('aspm.technicalProblem.title') }{ ' ' }
-            <span className="text-purple-600">{ t('aspm.technicalProblem.titleHighlight') }</span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            { t('aspm.technicalProblem.subtitle') }
-          </p>
-        </div>
+    <>
+      <section className="py-16 md:py-24 bg-gradient-to-br from-white via-purple-50 to-white relative overflow-hidden">
+        { /* Background decoration */ }
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-200 to-blue-200 rounded-full blur-3xl opacity-20 -translate-y-48 -translate-x-48"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-blue-200 to-purple-200 rounded-full blur-3xl opacity-20 translate-y-48 translate-x-48"></div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          { /* Before Plexicus */ }
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <AlertTriangle className="w-8 h-8 text-red-500" />
-              <h3 className="text-2xl font-bold text-gray-900">{ t('aspm.technicalProblem.before.title') }</h3>
-            </div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            { /* Left Side - Title and Description */ }
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                { t('aspm.technicalProblem.title') }{ ' ' }
+                <span className="text-purple-600">{ t('aspm.technicalProblem.titleHighlight') }</span>
+              </h2>
 
-            <div className="bg-gray-900 rounded-lg p-6 text-green-400 font-mono text-sm overflow-x-auto">
-              <div className="space-y-3">
-                <div className="text-gray-400">{ t('aspm.technicalProblem.before.codeComment') }</div>
-                <div>{ t('aspm.technicalProblem.before.commands.0') }</div>
-                <div>{ t('aspm.technicalProblem.before.commands.1') }</div>
-                <div>{ t('aspm.technicalProblem.before.commands.2') }</div>
-                <div>{ t('aspm.technicalProblem.before.commands.3') }</div>
-                <div>{ t('aspm.technicalProblem.before.commands.4') }</div>
-                <div>{ t('aspm.technicalProblem.before.commands.5') }</div>
-                <div className="text-gray-400 mt-4">
-                  { t('aspm.technicalProblem.before.resultComment') }
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                { t('aspm.technicalProblem.subtitle') }
+              </p>
+
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-gray-800">Key Challenges:</h3>
+                <div className="space-y-3">
+                  { [
+                    {
+                      title: 'Complex Architectures',
+                      description: 'Managing security across microservices, containers, and cloud-native environments',
+                      stat: '73% increase in complexity',
+                    },
+                    {
+                      title: 'Fast-Paced CI/CD',
+                      description: 'Addressing vulnerabilities within rapid deployment cycles',
+                      stat: '5x faster deployments',
+                    },
+                    {
+                      title: 'Alert Fatigue',
+                      description: 'Reducing noise from disparate security tools',
+                      stat: '1000+ daily alerts',
+                    },
+                    {
+                      title: 'Security vs Speed',
+                      description: 'Ensuring security empowers rather than hinders development',
+                      stat: '40% slower releases',
+                    },
+                  ].map((challenge, index) => (
+                    <motion.div
+                      key={index}
+                      className="flex items-start space-x-3 p-3 rounded-lg bg-white border border-purple-100 shadow-sm"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
+                      <div className="w-2 h-2 rounded-full bg-[#8220ff] mt-2 flex-shrink-0"></div>
+                      <div className="flex-1">
+                        <h4 className="font-medium text-gray-900">{ challenge.title }</h4>
+                        <p className="text-sm text-gray-600 mt-1">{ challenge.description }</p>
+                        <span className="text-xs font-bold text-[#8220ff] bg-purple-50 px-2 py-1 rounded-full inline-block mt-2">
+                          { challenge.stat }
+                        </span>
+                      </div>
+                    </motion.div>
+                  )) }
                 </div>
               </div>
-            </div>
 
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Terminal className="w-5 h-5 text-red-500" />
-                <span className="font-semibold text-red-700">{ t('aspm.technicalProblem.before.resultLabel') }</span>
+              <div className="pt-4">
+                <p className="text-gray-600 italic">
+                  Traditional security approaches struggle with these challenges, highlighting the need for a more
+                  intelligent and integrated security posture management solution.
+                </p>
               </div>
-              <ul className="text-red-600 space-y-1 text-sm">
-                <li>• { t('aspm.technicalProblem.before.results.0') }</li>
-                <li>• { t('aspm.technicalProblem.before.results.1') }</li>
-                <li>• { t('aspm.technicalProblem.before.results.2') }</li>
-                <li>• { t('aspm.technicalProblem.before.results.3') }</li>
-              </ul>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          { /* After Plexicus */ }
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <CheckCircle className="w-8 h-8 text-green-500" />
-              <h3 className="text-2xl font-bold text-gray-900">{ t('aspm.technicalProblem.after.title') }</h3>
-            </div>
-
-            <div className="bg-gray-900 rounded-lg p-6 text-green-400 font-mono text-sm overflow-x-auto">
-              <div className="space-y-3">
-                <div>{ t('aspm.technicalProblem.after.command') }</div>
-                <div className="text-gray-400 mt-4">{ t('aspm.technicalProblem.after.autoComment') }</div>
-                <div className="text-blue-400 space-y-1 ml-4">
-                  <div>{ t('aspm.technicalProblem.after.autoActions.0') }</div>
-                  <div>{ t('aspm.technicalProblem.after.autoActions.1') }</div>
-                  <div>{ t('aspm.technicalProblem.after.autoActions.2') }</div>
-                  <div>{ t('aspm.technicalProblem.after.autoActions.3') }</div>
-                </div>
-                <div className="text-gray-400 mt-4">{ t('aspm.technicalProblem.after.resultComment') }</div>
-              </div>
-            </div>
-
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="font-semibold text-green-700">{ t('aspm.technicalProblem.after.resultLabel') }</span>
-              </div>
-              <ul className="text-green-600 space-y-1 text-sm">
-                <li>• { t('aspm.technicalProblem.after.results.0') }</li>
-                <li>• { t('aspm.technicalProblem.after.results.1') }</li>
-                <li>• { t('aspm.technicalProblem.after.results.2') }</li>
-                <li>• { t('aspm.technicalProblem.after.results.3') }</li>
-              </ul>
-            </div>
-          </motion.div>
+            { /* Right Side - Security Flow Illustration */ }
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <SecurityFlowDiagram />
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
+
   );
 }
