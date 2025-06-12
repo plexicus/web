@@ -3,7 +3,7 @@
  * Components
  */
 import Layout from "@/layouts/Layout.astro";
-import AspmPage from "@/components/ASPM-Overview";
+import AspmMainPage from "@/components/ASPM-Overview/aspm-page";
 /**
  * Utils
  */
@@ -17,7 +17,7 @@ const lang = getLangFromUrl(Astro.url);
 <Layout>
   <div class="min-h-screen flex items-center w-full justify-center">
     <main class="w-screen overflow-x-hidden">
-      <AspmPage lang={lang} client:load />
+      <AspmMainPage lang="en" client:load />
     </main>
   </div>
 </Layout>
