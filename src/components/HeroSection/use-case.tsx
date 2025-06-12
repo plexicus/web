@@ -1,310 +1,324 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { useTranslations } from '@/i18n/utils';
+import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import {
+  Shield,
+  Zap,
+  Users,
+  ArrowRight,
+  Search,
+  BarChart3,
+  Wrench,
+  Cloud,
+  CheckCircle,
+  GitBranch,
+  Lock,
+  Eye,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
-export default function InteractiveHeroSection({ lang }) {
-  const t = useTranslations(lang);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number | null>(null);
+export default function UseCasesHero() {
   const [currentStep, setCurrentStep] = useState(0);
+  const [isTyping, setIsTyping] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [processingProgress, setProcessingProgress] = useState(0);
+  const [typedText, setTypedText] = useState('');
+  const [hasStarted, setHasStarted] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  // Compact layout that fits within max-w-4xl
-  const steps = [
-    { id: 'code', label: 'Code', x: 80, y: 80, icon: '💻' },
-    { id: 'scan', label: 'Scan', x: 200, y: 80, icon: '🔍' },
-    { id: 'analyze', label: 'Analyze', x: 320, y: 80, icon: '🧠' },
-    { id: 'remediate', label: 'Fix', x: 440, y: 80, icon: '⚡' },
-    { id: 'deploy', label: 'Deploy', x: 560, y: 80, icon: '🚀' },
+  const workflowSteps = [
+    {
+      id: 'commit',
+      icon: GitBranch,
+      title: 'Developer Commits Code',
+      description: 'Sarah pushes authentication feature to main branch',
+      command: 'git push origin feature/user-auth',
+      result: '✓ Code committed with security context',
+      color: 'from-blue-500 to-blue-600',
+      explanation: 'PLEXICUS automatically detects code changes and initiates security workflow',
+    },
+    {
+      id: 'scan',
+      icon: Search,
+      title: 'Intelligent Security Scanning',
+      description: 'Multi-layer security analysis across SAST, SCA, and IaC',
+      command: 'plexicus scan --comprehensive --ai-enhanced',
+      result: '✓ 127 files scanned, 3 critical vulnerabilities detected',
+      color: 'from-purple-500 to-purple-600',
+      explanation: 'AI-powered scanners identify potential security risks with contextual understanding',
+    },
+    {
+      id: 'analyze',
+      icon: BarChart3,
+      title: 'AI Risk Correlation',
+      description: 'Advanced threat intelligence and risk prioritization',
+      command: 'plexicus analyze --risk-correlation --business-impact',
+      result: '✓ Risk scoring complete, 2 high-priority issues identified',
+      color: 'from-indigo-500 to-indigo-600',
+      explanation: 'Machine learning algorithms correlate vulnerabilities with business impact and threat landscape',
+    },
+    {
+      id: 'authorize',
+      icon: Lock,
+      title: 'Permission Validation',
+      description: 'Automated authorization flow and access control verification',
+      command: 'plexicus validate --permissions --rbac-compliance',
+      result: '✓ Authorization matrix validated, access controls verified',
+      color: 'from-orange-500 to-orange-600',
+      explanation: 'Intelligent permission system ensures proper access controls are in place',
+    },
+    {
+      id: 'remediate',
+      icon: Wrench,
+      title: 'Auto-Remediation Engine',
+      description: 'AI-powered vulnerability fixing with developer approval',
+      command: 'plexicus remediate --auto-fix --preserve-functionality',
+      result: '✓ 2 vulnerabilities auto-fixed, 1 requires developer review',
+      color: 'from-green-500 to-green-600',
+      explanation: 'Smart remediation engine fixes issues while maintaining code functionality and developer intent',
+    },
+    {
+      id: 'deploy',
+      icon: Cloud,
+      title: 'Secure Deployment',
+      description: 'Production deployment with continuous monitoring',
+      command: 'plexicus deploy --secure --runtime-protection',
+      result: '✓ Secure deployment complete with runtime threat detection active',
+      color: 'from-teal-500 to-teal-600',
+      explanation: 'Code is securely deployed with continuous monitoring and runtime protection enabled',
+    },
   ];
 
-  const connections = [
-    { from: 0, to: 1 },
-    { from: 1, to: 2 },
-    { from: 2, to: 3 },
-    { from: 3, to: 4 },
-  ];
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    // Set canvas size to fit container
-    const resizeCanvas = () => {
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * window.devicePixelRatio;
-      canvas.height = rect.height * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    let animationProgress = 0;
-    let cursorX = steps[0].x;
-    let cursorY = steps[0].y;
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Update animation progress
-      animationProgress += 0.01;
-
-      // Reset animation when complete
-      if (animationProgress > connections.length + 1.5) {
-        animationProgress = 0;
-        cursorX = steps[0].x;
-        cursorY = steps[0].y;
-      }
-
-      let activeCursorConnection = -1;
-      let maxProgress = 0;
-
-      // Draw connections with short dotted lines
-      connections.forEach((connection, index) => {
-        const fromStep = steps[connection.from];
-        const toStep = steps[connection.to];
-        const connectionProgress = Math.max(0, Math.min(1, animationProgress - index));
-
-        if (connectionProgress > 0) {
-          drawShortDottedLine(ctx, fromStep.x, fromStep.y, toStep.x, toStep.y, connectionProgress);
-
-          // Track which connection should have the cursor
-          if (connectionProgress < 1 && connectionProgress > maxProgress) {
-            maxProgress = connectionProgress;
-            activeCursorConnection = index;
-          }
-        }
-      });
-
-      // Update cursor position based on active connection
-      if (activeCursorConnection >= 0) {
-        const connection = connections[activeCursorConnection];
-        const fromStep = steps[connection.from];
-        const toStep = steps[connection.to];
-        const t = Math.max(0, Math.min(1, animationProgress - activeCursorConnection));
-
-        cursorX = fromStep.x + (toStep.x - fromStep.x) * t;
-        cursorY = fromStep.y + (toStep.y - fromStep.y) * t;
-      }
-
-      // Draw steps
-      steps.forEach((step, index) => {
-        const stepProgress = animationProgress - index * 0.8;
-        const isActive = stepProgress > 0;
-        const isCompleted = stepProgress > 1;
-        drawCompactStep(ctx, step, isActive, isCompleted);
-      });
-
-      // Draw simple cursor
-      if (animationProgress < connections.length + 0.5) {
-        drawSimpleCursor(ctx, cursorX, cursorY);
-      }
-
-      // Update current step
-      const newStep = Math.min(Math.floor(animationProgress), steps.length - 1);
-      if (newStep !== currentStep && newStep >= 0) {
-        setCurrentStep(newStep);
-      }
-
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    const drawShortDottedLine = (
-      ctx: CanvasRenderingContext2D,
-      x1: number,
-      y1: number,
-      x2: number,
-      y2: number,
-      progress: number,
-    ) => {
-      const dx = x2 - x1;
-      const dy = y2 - y1;
-      const length = Math.sqrt(dx * dx + dy * dy);
-      const dotSpacing = 12; // Wider spacing for cleaner look
-      const numDots = Math.floor(length / dotSpacing);
-
-      ctx.fillStyle = '#7121D4';
-
-      for (let i = 0; i <= numDots * progress; i++) {
-        const t = i / numDots;
-        const x = x1 + dx * t;
-        const y = y1 + dy * t;
-
-        ctx.beginPath();
-        ctx.arc(x, y, 3, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    };
-
-    const drawCompactStep = (ctx: CanvasRenderingContext2D, step: any, isActive: boolean, isCompleted: boolean) => {
-      // Draw step circle
-      ctx.beginPath();
-      ctx.arc(step.x, step.y, 22, 0, Math.PI * 2);
-
-      if (isCompleted) {
-        ctx.fillStyle = '#7D20F6';
-      } else if (isActive) {
-        ctx.fillStyle = '#F1EFFB';
+  const typeText = (text: string, callback: ()=> void) => {
+    setIsTyping(true);
+    setTypedText('');
+    let i = 0;
+    const timer = setInterval(() => {
+      if (i < text.length) {
+        setTypedText(text.slice(0, i + 1));
+        i++;
       } else {
-        ctx.fillStyle = '#F8F9FA';
+        clearInterval(timer);
+        setIsTyping(false);
+        // Start processing animation
+        setIsProcessing(true);
+        setProcessingProgress(0);
+
+        // Animate progress bar
+        const progressTimer = setInterval(() => {
+          setProcessingProgress((prev) => {
+            if (prev >= 100) {
+              clearInterval(progressTimer);
+              setIsProcessing(false);
+              setTimeout(callback, 200);
+              return 100;
+            }
+            return prev + 2;
+          });
+        }, 30);
       }
+    }, 40);
+  };
 
-      ctx.fill();
+  const processStep = (stepIndex: number) => {
+    if (stepIndex >= workflowSteps.length) return;
 
-      // Draw border
-      ctx.strokeStyle = isActive || isCompleted ? '#6C1CD4' : '#E5E7EB';
-      ctx.lineWidth = 2;
-      ctx.stroke();
+    const step = workflowSteps[stepIndex];
+    typeText(step.command, () => {
+      setTimeout(() => {
+        setCurrentStep(stepIndex + 1);
+        setTimeout(() => {
+          if (stepIndex + 1 < workflowSteps.length) {
+            processStep(stepIndex + 1);
+          }
+        }, 3000);
+      }, 500);
+    });
+  };
 
-      // Draw icon
-      ctx.fillStyle = isActive || isCompleted ? 'white' : '#6B7280';
-      ctx.font = '16px Arial';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(step.icon, step.x, step.y);
+  // Intersection Observer to detect when section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setIsInView(true);
+          const timer = setTimeout(() => {
+            setHasStarted(true);
+            setCurrentStep(0);
+            processStep(0);
+          }, 1500);
+          return () => clearTimeout(timer);
+        }
+      },
+      { threshold: 0.2 },
+    );
 
-      // Draw label below
-      ctx.fillStyle = '#374151';
-      ctx.font = 'bold 12px Arial';
-      ctx.fillText(step.label, step.x, step.y + 40);
-    };
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
-    const drawSimpleCursor = (ctx: CanvasRenderingContext2D, x: number, y: number) => {
-      // Simple arrow cursor
-      ctx.fillStyle = '#374151';
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x + 12, y + 12);
-      ctx.lineTo(x + 8, y + 16);
-      ctx.lineTo(x + 4, y + 20);
-      ctx.closePath();
-      ctx.fill();
+    return () => observer.disconnect();
+  }, [hasStarted]);
 
-      // White outline
-      ctx.strokeStyle = 'white';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-    };
-
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, []);
+  const currentStepData = workflowSteps[Math.floor(currentStep)] || workflowSteps[0];
 
   return (
     <section
-      className="relative overflow-hidden py-16 -mt-16 pt-32"
+      ref={sectionRef}
+      className="py-20 md:py-32 relative overflow-hidden"
       style={{
         background: 'radial-gradient(circle at right, #000000 0%, #1a1a1a 40%, #4a0ba3 70%, #8220ff 100%)',
-        boxShadow: 'inset 0 0 100px rgba(0,0,0,0.3)',
+        boxShadow: 'inset 0 0 100px rgba(0, 0, 0, 0.3)',
       }}
-      aria-label="Hero section"
     >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center pt-16 md:pt-20 lg:pt-24">
-          <div className="space-y-4 relative z-10">
-            <h1 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
-              { t('use-case.hero.title') }
+      { /* Background Pattern */ }
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.05),transparent_50%)]"></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          { /* Header Content */ }
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-4"
+          >
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white mb-8">
+              🚀 PLEXICUS Use Cases:{ ' ' }
+              <span className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+                Secure DevSecOps
+              </span>{ ' ' }
+              at Every Stage
             </h1>
-            <p className="max-w-[600px] text-white/90 md:text-xl">
-              { t('use-case.hero.subtitle') }
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button
-                onClick={() => {
-                  const featuresSection = document.getElementById('features');
-                  if (featuresSection) {
-                    featuresSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="px-6 py-3 bg-white text-[#7D20F6] font-semibold rounded-lg hover:bg-gray-100 transition-colors"
-              >
-                { t('use-case.hero.buttons').at(0) }
-              </button>
-              <button
-                onClick={() => {
-                  const featuresSection = document.getElementById('features');
-                  if (featuresSection) {
-                    featuresSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="px-6 py-3 bg-white/10 text-white font-semibold border border-white/20 rounded-lg hover:bg-white/20 transition-colors"
-              >
-                { t('use-case.hero.buttons').at(1) }
-              </button>
+
+            <div className="flex flex-col mb-8">
+              <p className="text-xl md:text-2xl text-purple-100 leading-relaxed mb-6">
+                <strong>Transform your software delivery lifecycle with PLEXICUS</strong> — the intelligent platform for
+                embedding security, streamlining compliance, and accelerating secure development.
+              </p>
+              <div className="flex items-center justify-center gap-2 text-lg text-purple-200">
+                <span>
+                  From code commit to production, discover how leading teams use PLEXICUS to automate, monitor, and
+                  remediate security risks without sacrificing velocity.
+                </span>
+              </div>
             </div>
-          </div>
-
-          <div className="relative flex flex-col items-center justify-center lg:justify-end">
-            <div className="relative w-full max-w-4xl">
-              { /* Background glow effect */ }
-              <div className="absolute inset-0 blur-3xl bg-gradient-to-br from-white via-purple-300 to-[#8121FF] opacity-20 rounded-[32px] transform scale-110"></div>
-
-              { /* Interactive Canvas */ }
-              <div
-                className="w-full rounded-t-xl overflow-hidden relative z-10 bg-gradient-to-br from-[#F8F9FA] to-white"
-                style={{
-                  borderTopLeftRadius: '16px',
-                  borderTopRightRadius: '16px',
-                  position: 'relative',
-                  minHeight: '200px',
-                }}
+            { /* CTA Buttons */ }
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Button
+                size="lg"
+                className="bg-white text-purple-700 hover:bg-purple-50 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
-                <canvas
-                  ref={canvasRef}
-                  className="w-auto h-full bg-[#F4EDFF]/40"
-                  style={{ width: '100%', height: '200px' }}
-                  width="640"
-                  height="200"
-                />
+                Start Your Free Trial
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-sm transition-all duration-300"
+              >
+                Schedule Demo
+              </Button>
+            </motion.div>
+          </motion.div>
 
-                { /* Process Labels */ }
-                <div className="absolute top-3 left-3 bg-white/90 rounded-lg px-2 py-1 shadow-sm">
-                  <div className="text-xs font-medium text-gray-700">{ t('use-case.labels.legend') }</div>
-                </div>
-
-                { /* Legend */ }
-                <div className="absolute bottom-3 right-3 bg-white/90 rounded-lg px-2 py-1 shadow-sm">
-                  <div className="flex items-center space-x-3 text-xs">
-                    <div className="flex items-center space-x-1">
-                      <div className="w-2 h-2 bg-[#F1EFFB] border-[#7D20F6] border rounded-full"></div>
-                      <span className="text-gray-600">{ t('use-case.labels.active') }</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <div className="w-2 h-2 bg-[#7D20F6] rounded-full"></div>
-                      <span className="text-gray-600">{ t('use-case.labels.done') }</span>
-                    </div>
+          { /* Interactive Workflow Demo */ }
+          <div className="flex flex-col gap-3 items-center">
+            { /* Left Side - Current Step Info */ }
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="w-full space-y-6"
+            >
+              { /* Feature Points */ }
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="flex flex-col gap-3 mb-8"
+              >
+                <div className="flex items-center gap-3 text-purple-100">
+                  <div className="p-2 bg-white/10 rounded-full">
+                    <Shield className="w-5 h-5 text-white" />
                   </div>
+                  <span className="text-lg">Enterprise-grade security</span>
+                </div>
+                <div className="flex items-center gap-3 text-purple-100">
+                  <div className="p-2 bg-white/10 rounded-full">
+                    <Zap className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-lg">AI-powered automation</span>
+                </div>
+                <div className="flex items-center gap-3 text-purple-100">
+                  <div className="p-2 bg-white/10 rounded-full">
+                    <Users className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-lg">Seamless team collaboration</span>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            { /* Right Side - Terminal and Visual Pipeline */ }
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="w-full space-y-6"
+            >
+              { /* Terminal */ }
+              <div className="bg-gray-900 rounded-lg p-6 font-mono text-sm border border-white/10">
+                <div className="flex items-center mb-4">
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  </div>
+                  <span className="ml-4 text-gray-400">PLEXICUS DevSecOps Workflow</span>
+                </div>
+
+                <div className="space-y-2 min-h-[200px]">
+                  { workflowSteps.slice(0, Math.floor(currentStep)).map((step, index) => (
+                    <motion.div key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1">
+                      <div className="text-green-400">$ { step.command }</div>
+                      <div className="text-gray-300 pl-2">{ step.result }</div>
+                    </motion.div>
+                  )) }
+
+                  { isTyping && (
+                    <div className="text-green-400">
+                      $ { typedText }
+                      <span className="animate-pulse">|</span>
+                    </div>
+                  ) }
+
+                  { isProcessing && (
+                    <div className="space-y-2">
+                      <div className="text-yellow-400">Processing...</div>
+                      <div className="w-full bg-gray-700 rounded-full h-2">
+                        <motion.div
+                          className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full"
+                          style={{ width: `${processingProgress}%` }}
+                          transition={{ duration: 0.1 }}
+                        />
+                      </div>
+                      <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }% complete</div>
+                    </div>
+                  ) }
                 </div>
               </div>
-            </div>
-            { /* Current Step Indicator */ }
-            <div className="relative w-full p-4 bg-[#7D20F6] rounded-b-lg backdrop-blur-sm">
-              <div className="text-white text-sm mb-2">{ t('use-case.labels.currentProcess') }:</div>
-              <div className="text-white font-semibold text-lg">
-                { currentStep < steps.length ? steps[currentStep].label : t('use-case.labels.processComplete') }
-              </div>
-              <div className="text-white/70 text-sm mt-1">
-                { currentStep < steps.length ? t('use-case.labels.step', { count: currentStep + 1, total: steps.length }) : t('use-case.labels.readyForNextCycle') }
-              </div>
 
-              { /* Progress Bar */ }
-              <div className="mt-3 w-full bg-white/20 rounded-full h-2">
-                <div
-                  className="bg-white h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
-                />
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

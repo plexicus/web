@@ -4,9 +4,8 @@ import { motion } from 'framer-motion';
 import { Code, GitBranch, Cloud, Brain, Eye, CheckCircle, Zap } from 'lucide-react';
 import { useTranslations } from '../../i18n/utils';
 
-export default function AspmHero({ lang }) {
-  console.log({ lang });
-  const t = useTranslations(lang);
+export default function AspmHero() {
+  const t = useTranslations('en');
 
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-black via-purple-900 to-indigo-900 text-white relative overflow-hidden">
