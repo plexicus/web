@@ -108,33 +108,6 @@ curl -X POST "https://api.plexicus.com/receive_plexalyzer_message" \
             </motion.div>
           )) }
         </div>
-
-        { /* CTA Section */ }
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 text-center"
-        >
-          <div className="bg-gradient-to-r from-[#8220ff] to-[#6010cc] rounded-xl p-8">
-            <h3 className="text-2xl font-bold mb-4">{ t('aspm.getStarted.ctaTitle') }</h3>
-            <p className="text-lg text-purple-100 mb-6 max-w-2xl mx-auto">
-              { t('aspm.getStarted.ctaSubtitle') }
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-white text-[#8220ff] font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                { t('aspm.getStarted.buttons.getStarted') }
-              </button>
-              <button className="px-8 py-3 border border-purple-300 text-purple-100 font-semibold rounded-lg hover:bg-[#8220ff]/30 transition-colors duration-200">
-                { t('aspm.getStarted.buttons.viewIntegrations') }
-              </button>
-              <button className="px-8 py-3 border border-purple-300 text-purple-100 font-semibold rounded-lg hover:bg-[#8220ff]/30 transition-colors duration-200">
-                { t('aspm.getStarted.buttons.learnMore') }
-              </button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
