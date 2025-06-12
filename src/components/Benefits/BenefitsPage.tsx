@@ -1,20 +1,20 @@
-"use client"
-import BenefitsHero from "./BenefitsHero"
-import BenefitsGrid from "./BenefitGrid"
-import BenefitsCta from "./BenefitsCta"
+'use client';
+import BenefitsHero from './BenefitsHero';
+import BenefitsGrid from './BenefitGrid';
+import BenefitsCta from './BenefitsCta';
 
-export default function BenefitsPage() {
+export default function BenefitsPage({ lang }) {
   return (
     <main className="min-h-screen">
       <div className="section-bg-white">
-        <BenefitsHero />
+        <BenefitsHero lang={lang} />
       </div>
       <div className="section-bg-purple-light">
-        <BenefitsGrid />
+        <BenefitsGrid lang={lang} />
       </div>
       <div className="section-bg-white">
-        <BenefitsCta />
+        <BenefitsCta lang={lang} />
       </div>
     </main>
-  )
+  );
 }
