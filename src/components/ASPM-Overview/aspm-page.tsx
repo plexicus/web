@@ -9,6 +9,7 @@ import ComplianceAutomation from '@/components/ASPM-Overview/compliance-automati
 import RealWorldImpact from '@/components/ASPM-Overview/real-world-impact';
 import CTASection from '../CTA/section';
 import GetStarted from './get-started';
+import InteractiveAspmSection from './security-co-pilot';
 export default function AspmPage({ lang }) {
   return (
     <main className="min-h-screen bg-white">
@@ -16,8 +17,9 @@ export default function AspmPage({ lang }) {
       <TechnicalProblem lang={lang} />
       <CoreCapabilities lang={lang} />
       <AiRemediation lang={lang} />
+      <InteractiveAspmSection />
       <IntegrationEcosystem lang={lang} />
-      <DevSecOpsIntegration lang={lang} />
+      { /* <DevSecOpsIntegration lang={lang} /> */ }
       <ComplianceAutomation lang={lang} />
       <RealWorldImpact lang={lang} />
       <GetStarted lang={lang} />
