@@ -2,25 +2,28 @@
 
 import { motion } from 'framer-motion';
 import { GitCommit, Play, Shield, CheckCircle, AlertTriangle } from 'lucide-react';
+import { useTranslations } from '@/i18n/utils'; // Assuming correct relative path
 
-export default function CicdIntegration() {
+export default function CicdIntegration({ lang }) {
+  const t = useTranslations(lang);
+
   const pipelineSteps = [
-    { name: 'Code Commit', icon: <GitCommit className="w-5 h-5" />, status: 'complete' },
-    { name: 'Security Scan', icon: <Shield className="w-5 h-5" />, status: 'active' },
-    { name: 'Auto Fix', icon: <Play className="w-5 h-5" />, status: 'pending' },
-    { name: 'Deploy', icon: <CheckCircle className="w-5 h-5" />, status: 'pending' },
+    { name: t('benefits.components.cicd.steps.commit'), icon: <GitCommit className="w-5 h-5" />, status: 'complete' },
+    { name: t('benefits.components.cicd.steps.scan'), icon: <Shield className="w-5 h-5" />, status: 'active' },
+    { name: t('benefits.components.cicd.steps.fix'), icon: <Play className="w-5 h-5" />, status: 'pending' },
+    { name: t('benefits.components.cicd.steps.deploy'), icon: <CheckCircle className="w-5 h-5" />, status: 'pending' },
   ];
 
   const securityChecks = [
-    { name: 'SAST Scan', status: 'passed', issues: 0 },
-    { name: 'Dependency Check', status: 'warning', issues: 2 },
-    { name: 'Secret Detection', status: 'passed', issues: 0 },
-    { name: 'IaC Security', status: 'passed', issues: 0 },
+    { name: t('benefits.components.cicd.checks.sast'), status: 'passed', issues: 0 },
+    { name: t('benefits.components.cicd.checks.dependency'), status: 'warning', issues: 2 },
+    { name: t('benefits.components.cicd.checks.secret'), status: 'passed', issues: 0 },
+    { name: t('benefits.components.cicd.checks.iac'), status: 'passed', issues: 0 },
   ];
 
   return (
     <div className="space-y-6">
-      <h4 className="text-lg font-semibold text-gray-800 mb-4">CI/CD Pipeline with Security Gates</h4>
+      <h4 className="text-lg font-semibold text-gray-800 mb-4">{ t('benefits.components.cicd.title') }</h4>
 
       { /* Pipeline Steps */ }
       <div className="flex items-center justify-between mb-6">
@@ -37,17 +40,13 @@ export default function CicdIntegration() {
             >
               { step.icon }
             </motion.div>
-            <span className="text-xs text-gray-600 text-center">{ step.name }</span>
-            { index < pipelineSteps.length - 1 && (
-              <div className="absolute top-6 left-1/2 w-8 h-0.5 bg-gray-300 transform translate-x-4"></div>
-            ) }
           </div>
         )) }
       </div>
 
       { /* Security Checks */ }
       <div className="bg-gray-50 rounded-lg p-4">
-        <h5 className="font-medium text-gray-800 mb-3">Security Checks</h5>
+        <h5 className="font-medium text-gray-800 mb-3">{ t('benefits.components.cicd.checks.title') }</h5>
         <div className="space-y-2">
           { securityChecks.map((check, index) => (
             <motion.div
@@ -70,7 +69,7 @@ export default function CicdIntegration() {
                   check.status === 'passed' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
                 }`}
               >
-                { check.issues } issues
+                { check.issues } { t('benefits.components.cicd.issues') }
               </span>
             </motion.div>
           )) }

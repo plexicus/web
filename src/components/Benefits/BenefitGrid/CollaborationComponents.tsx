@@ -1,26 +1,29 @@
 'use client';
 
+import { useTranslations } from '@/i18n/utils'; // Assuming this path
 import { motion } from 'framer-motion';
 import { Users, MessageSquare, GitMerge, Shield } from 'lucide-react';
 
-export default function CollaborationComponent() {
+export default function CollaborationComponent({ lang }: { lang: string }) {
+  const t = useTranslations(lang);
+
   const teams = [
     {
-      name: 'Development',
+      name: t('benefits.components.collaboration.teams.development'),
       icon: <GitMerge className="w-4 h-4" />,
       bgColor: 'bg-blue-100',
       textColor: 'text-blue-700',
       members: 8,
     },
     {
-      name: 'Security',
+      name: t('benefits.components.collaboration.teams.security'),
       icon: <Shield className="w-4 h-4" />,
       bgColor: 'bg-red-100',
       textColor: 'text-red-700',
       members: 3,
     },
     {
-      name: 'Operations',
+      name: t('benefits.components.collaboration.teams.operations'),
       icon: <Users className="w-4 h-4" />,
       bgColor: 'bg-green-100',
       textColor: 'text-green-700',
@@ -29,18 +32,18 @@ export default function CollaborationComponent() {
   ];
 
   const collaborationFeatures = [
-    'Unified security dashboard',
-    'Shared vulnerability tracking',
-    'Cross-team notifications',
-    'Integrated chat and comments',
-    'Role-based access control',
+    t('benefits.components.collaboration.features.dashboard'),
+    t('benefits.components.collaboration.features.tracking'),
+    t('benefits.components.collaboration.features.notifications'),
+    t('benefits.components.collaboration.features.chat'),
+    t('benefits.components.collaboration.features.access'),
   ];
 
   const workflowSteps = [
-    { step: 'Issue Detected', team: 'Security', status: 'complete' },
-    { step: 'Code Review', team: 'Development', status: 'active' },
-    { step: 'Testing', team: 'Operations', status: 'pending' },
-    { step: 'Deployment', team: 'Operations', status: 'pending' },
+    { step: t('benefits.components.collaboration.workflow.issueDetected'), team: t('benefits.components.collaboration.teams.security'), status: 'complete' },
+    { step: t('benefits.components.collaboration.workflow.codeReview'), team: t('benefits.components.collaboration.teams.development'), status: 'active' },
+    { step: t('benefits.components.collaboration.workflow.testing'), team: t('benefits.components.collaboration.teams.operations'), status: 'pending' },
+    { step: t('benefits.components.collaboration.workflow.deployment'), team: t('benefits.components.collaboration.teams.operations'), status: 'pending' },
   ];
 
   const getStatusColor = (status) => {
@@ -58,7 +61,7 @@ export default function CollaborationComponent() {
 
   return (
     <div className="space-y-6">
-      <h4 className="text-lg font-semibold text-gray-800 mb-4">Unified Team Workflow</h4>
+      <h4 className="text-lg font-semibold text-gray-800 mb-4">{ t('benefits.components.collaboration.title') }</h4>
 
       { /* Team Overview */ }
       <div className="grid grid-cols-3 gap-3 mb-6">
@@ -78,14 +81,14 @@ export default function CollaborationComponent() {
               { team.icon }
               <span className="font-medium text-sm">{ team.name }</span>
             </div>
-            <div className="text-xs opacity-75">{ team.members } members</div>
+            <div className="text-xs opacity-75">{ team.members } { t('benefits.components.collaboration.members') }</div>
           </motion.div>
         )) }
       </div>
 
       { /* Workflow Visualization */ }
       <div className="bg-gray-50 rounded-lg p-4 mb-6">
-        <h5 className="font-medium text-gray-800 mb-3">Cross-team Workflow</h5>
+        <h5 className="font-medium text-gray-800 mb-3">{ t('benefits.components.collaboration.workflow.title') }</h5>
         <div className="space-y-3">
           { workflowSteps.map((step, index) => (
             <motion.div
@@ -116,7 +119,7 @@ export default function CollaborationComponent() {
       <div className="bg-white border border-gray-200 rounded-lg p-4">
         <div className="flex items-center gap-2 mb-3">
           <MessageSquare className="w-5 h-5 text-purple-600" />
-          <span className="font-medium text-gray-800">Collaboration Features</span>
+          <span className="font-medium text-gray-800">{ t('benefits.components.collaboration.features.title') }</span>
         </div>
         <div className="space-y-2">
           { collaborationFeatures.map((feature, index) => (
@@ -138,11 +141,11 @@ export default function CollaborationComponent() {
       <div className="grid grid-cols-2 gap-4">
         <div className="bg-purple-50 rounded-lg p-3 text-center">
           <div className="text-lg font-bold text-purple-600">60%</div>
-          <div className="text-xs text-purple-700">Faster Resolution</div>
+          <div className="text-xs text-purple-700">{ t('benefits.components.collaboration.metrics.fasterResolution') }</div>
         </div>
         <div className="bg-purple-50 rounded-lg p-3 text-center">
           <div className="text-lg font-bold text-purple-600">3x</div>
-          <div className="text-xs text-purple-700">Better Communication</div>
+          <div className="text-xs text-purple-700">{ t('benefits.components.collaboration.metrics.betterCommunication') }</div>
         </div>
       </div>
     </div>

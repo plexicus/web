@@ -1,43 +1,265 @@
 benefits:
-  hero: 
-    title: "Unlocking Strategic Advantages with PLEXICUS: Enhancing Security in the Development Lifecycle"
+  hero:
+    title: "Unlocking Strategic"
+    titleHighlight: "Advantages"
+    titleEnd: "with PLEXICUS"
+    subtitle: "Enhancing Security in the Development Lifecycle"
     description: "Explore how PLEXICUS transforms your DevSecOps journey by providing a seamless integration of proactive security measures, ensuring a robust and secure development process with cutting-edge tools designed for optimal cybersecurity."
-  title: "Strategic Advantages of PLEXICUS"
-  description: "Our comprehensive security platform provides multiple benefits that transform how teams approach security in the development lifecycle."
-  list:
-    - title: "Seamless Integration with CI/CD Pipelines"
-      description: "Security becomes a built-in part of development, reducing vulnerabilities early in the lifecycle."
-      icon: "Layers"
-
-    - title: "Automated Vulnerability Management"
-      description: "Reduces manual work with AI-driven detection, prioritization, and remediation of vulnerabilities, streamlining the development lifecycle."
-      icon: "ShieldCheck"
-
-    - title: "Intelligent Prioritization with Damage Potential"
-      description: "Enables teams to focus on high-impact issues through smart prioritization metrics, optimizing time and resources."
-      icon: "BarChart"
-
-    - title: "Real-time Security Feedback"
-      description: "Developers are immediately alerted to issues during development, allowing quick fixes at the source."
-      icon: "Bell"
-
-    - title: "Continuous Monitoring and Reporting"
-      description: "Offers ongoing visibility into application security and supports compliance through detailed reporting."
-      icon: "LineChart"
-
-    - title: "Scalability for Growing Teams"
-      description: "Adaptable for both small teams and large enterprises, supporting growth while maintaining strong security practices."
-      icon: "Users"
-
-    - title: "Enhanced Collaboration"
-      description: "Encourages better communication between dev, sec, and ops through integrated workflows, promoting efficient DevSecOps practices."
-      icon: "Zap"
-
-    - title: "Accelerated Time-to-Fix"
-      description: "AI-generated remediation playbooks and code fixes shorten the resolution cycle for identified vulnerabilities."
-      icon: "Clock"
-
-    - title: "Compliance and Visibility"
-      description: "Provides detailed and actionable security reports that align with regulatory standards and organizational policies."
-      icon: "FileCheck"
+    buttons:
+      explore: "Explore Benefits"
+      demo: "View Demo"
   
+  grid:
+    title: "Key Benefits of PLEXICUS ASPM"
+    subtitle: "Discover how PLEXICUS transforms your security posture with these strategic advantages"
+    items:
+      cicd:
+        title: "Seamless Integration with CI/CD Pipelines"
+        description: "Security becomes a built-in part of development, reducing vulnerabilities early in the lifecycle and embedding protection throughout your delivery process."
+      automation:
+        title: "Automated Vulnerability Management"
+        description: "Minimize manual effort with AI-driven detection, prioritization, and remediation, making your development lifecycle more efficient and secure."
+      prioritization:
+        title: "Intelligent Prioritization with Damage Potential"
+        description: "Focus on what matters. Plexicus helps teams prioritize high-impact issues using smart metrics like Damage Potential, saving valuable time and resources."
+      feedback:
+        title: "Real-time Security Feedback"
+        description: "Developers receive instant alerts during development, enabling rapid fixes at the source and preventing issues from moving downstream."
+      monitoring:
+        title: "Continuous Monitoring and Reporting"
+        description: "Maintain ongoing visibility into your application's security posture, and simplify compliance with detailed, actionable reports."
+      scalability:
+        title: "Scalability for Growing Teams"
+        description: "Designed for growth, Plexicus is adaptable for small teams and large enterprises, maintaining strong security practices at any scale."
+      collaboration:
+        title: "Enhanced Collaboration"
+        description: "Break silos and improve teamwork with integrated workflows across development, security, and operations—boosting overall DevSecOps efficiency."
+      timetofix:
+        title: "Accelerated Time-to-Fix"
+        description: "Shorten the time to resolve vulnerabilities with AI-generated remediation playbooks and suggested code fixes."
+      compliance:
+        title: "Compliance and Visibility"
+        description: "Stay audit-ready with comprehensive security reports that align with regulatory standards and your organization's policies."
+
+  components:
+    cicd:
+      title: "CI/CD Pipeline with Security Gates"
+      steps:
+        commit: "Code Commit"
+        scan: "Security Scan"
+        fix: "Auto Fix"
+        deploy: "Deploy"
+      status:
+        active: "Active"
+      checks:
+        title: "Security Checks"
+        sast: "SAST Analysis"
+        dependency: "Dependency Check"
+        secret: "Secret Detection"
+        iac: "IaC Security"
+      issues: "issues"
+
+    vulnerability:
+      title: "AI-Driven Vulnerability Lifecycle"
+      flow:
+        detection: "Detection"
+        analysis: "Analysis"
+        remediation: "Remediation"
+        verification: "Verification"
+      status:
+        detected: "detected"
+        processing: "processing"
+        analyzing: "analyzing"
+        autoFixing: "auto-fixing"
+        fixed: "fixed"
+      severity:
+        high: "HIGH"
+        medium: "MEDIUM"
+        low: "LOW"
+
+    prioritization:
+      title: "Smart Risk Assessment Matrix"
+      algorithm:
+        title: "Damage Potential Algorithm"
+        description: "Combines exploitability, business impact, and asset criticality to prioritize vulnerabilities"
+      metrics:
+        damagePotential: "Damage Potential"
+        exploitability: "Exploitability"
+      vulnerabilities:
+        sqlInjection: "SQL Injection"
+        xss: "XSS Vulnerability"
+        outdatedDependency: "Outdated Dependency"
+        weakEncryption: "Weak Encryption"
+      priority:
+        critical: "CRITICAL"
+        high: "HIGH"
+        medium: "MEDIUM"
+        low: "LOW"
+      timeToFix: "2h"
+
+    feedback:
+      title: "Live Security Alerts"
+      ide:
+        comment: "# auth.py - Line 42"
+        function: "def authenticate_user(username, password):"
+        query: "query = f\"SELECT * FROM users WHERE username = '{username}'\""
+        warning: "⚠️ Potential SQL Injection vulnerability detected"
+      alerts:
+        criticalIssue: "Critical Security Issue"
+        potentialVuln: "Potential Vulnerability"
+        suggestion: "Security Suggestion"
+        checkPassed: "Security Check Passed"
+        hardcodedKey: "Hardcoded API key detected"
+        weakValidation: "Weak password validation"
+        useHttps: "Consider using HTTPS"
+        inputValidation: "Input validation implemented"
+      stats:
+        detectionTime: "Detection Time"
+        feedbackLoop: "Feedback Loop"
+        realtime: "Real-time"
+
+    monitoring:
+      title: "Security Posture Dashboard"
+      metrics:
+        securityScore: "Security Score"
+        activeThreats: "Active Threats"
+        compliance: "Compliance"
+        coverage: "Coverage"
+      activity:
+        title: "Recent Activity"
+        vulnPatched: "Vulnerability patched"
+        depScanned: "New dependency scanned"
+        policyUpdated: "Security policy updated"
+        issueResolved: "Critical issue resolved"
+      status:
+        title: "24/7 Monitoring Active"
+        description: "Continuous scanning across all repositories and environments"
+
+    scalability:
+      title: "Adaptive Scaling"
+      teams:
+        small: "Small Team"
+        medium: "Medium Team"
+        large: "Large Enterprise"
+      ranges:
+        small: "1-10"
+        medium: "11-50"
+        large: "50+"
+      developers: "developers"
+      metrics:
+        title: "Performance at Scale"
+        repositories: "Repositories"
+        developers: "Developers"
+        scansPerDay: "Scans/Day"
+        responseTime: "Response Time"
+      infrastructure:
+        title: "Auto-scaling Infrastructure"
+        description: "Resources automatically adjust based on team size and usage patterns"
+
+    collaboration:
+      title: "Unified Team Workflow"
+      teams:
+        development: "Development"
+        security: "Security"
+        operations: "Operations"
+      members: "members"
+      workflow:
+        title: "Cross-team Workflow"
+        issueDetected: "Issue Detected"
+        codeReview: "Code Review"
+        testing: "Testing"
+        deployment: "Deployment"
+      features:
+        title: "Collaboration Features"
+        dashboard: "Unified security dashboard"
+        tracking: "Shared vulnerability tracking"
+        notifications: "Cross-team notifications"
+        chat: "Integrated chat and comments"
+        access: "Role-based access control"
+      metrics:
+        fasterResolution: "Faster Resolution"
+        betterCommunication: "Better Communication"
+
+    timeToFix:
+      title: "Accelerated Remediation"
+      categories:
+        critical: "Critical Issues"
+        high: "High Priority"
+        medium: "Medium Issues"
+      before: "Before PLEXICUS"
+      after: "After PLEXICUS"
+      faster: "faster"
+      timeline:
+        title: "AI-Powered Remediation Timeline"
+        analysis: "AI Analysis"
+        generation: "Fix Generation"
+        review: "Code Review"
+        deploy: "Auto-Deploy"
+      totalSaved:
+        title: "Average Time Saved"
+        amount: "12.5 days"
+        description: "per critical vulnerability"
+
+    compliance:
+      title: "Compliance Dashboard"
+      standards:
+        soc2: "SOC 2"
+        iso27001: "ISO 27001"
+        pciDss: "PCI DSS"
+        gdpr: "GDPR"
+      status:
+        compliant: "Compliant"
+        review: "In Review"
+      score: "Compliance Score"
+      reports:
+        title: "Available Reports"
+        executive: "Executive Summary"
+        technical: "Technical Details"
+        complianceStatus: "Compliance Status"
+        auditTrail: "Audit Trail"
+      frequency:
+        monthly: "Monthly"
+        weekly: "Weekly"
+        realtime: "Real-time"
+        continuous: "Continuous"
+      activity:
+        title: "Recent Audit Activity"
+        policyUpdated: "Security policy updated"
+        assessmentCompleted: "Vulnerability assessment completed"
+        reportGenerated: "Compliance report generated"
+        accessReviewed: "Access controls reviewed"
+      auditReady:
+        title: "Audit Ready"
+        description: "Comprehensive documentation and evidence automatically maintained"
+
+  cta:
+    title: "Secure Faster. Scale Smarter. Collaborate Better — with PLEXICUS."
+    subtitle: "Transform your DevSecOps journey with cutting-edge security automation that adapts to your team's needs and scales with your growth."
+    features:
+      security: "Enterprise-grade security"
+      automation: "AI-powered automation"
+      collaboration: "Seamless team collaboration"
+    buttons:
+      trial: "Start Your Free Trial"
+      demo: "Schedule Demo"
+      pricing: "View Pricing"
+    trust:
+      title: "Trusted by development teams worldwide"
+      companies: "Companies"
+      developers: "Developers"
+      vulnerabilities: "Vulnerabilities Fixed"
+
+common:
+  time:
+    ago: "ago"
+    now: "now"
+    minutes: "min"
+    hours: "h"
+    days: "d"
+  status:
+    complete: "complete"
+    active: "active"
+    pending: "pending"
+  actions:
+    remove: "Remove"
+    close: "Close"

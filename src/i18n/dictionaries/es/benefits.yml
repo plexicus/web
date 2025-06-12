@@ -1,42 +1,265 @@
 benefits:
-  hero: 
-    title: "Desbloqueando Ventajas Estratégicas con PLEXICUS: Mejorando la Seguridad en el Ciclo de Vida del Desarrollo"
-    description: "Explora cómo PLEXICUS transforma tu viaje DevSecOps al proporcionar una integración fluida de medidas de seguridad proactivas, asegurando un proceso de desarrollo robusto y seguro con herramientas de última generación diseñadas para una ciberseguridad óptima."
-  title: "Ventajas Estratégicas de PLEXICUS"
-  description: "Nuestra plataforma de seguridad integral ofrece múltiples beneficios que transforman la forma en que los equipos abordan la seguridad en el ciclo de vida del desarrollo."
-  list:
-    - title: "Integración Perfecta con Pipelines CI/CD"
-      description: "La seguridad se convierte en una parte integrada del desarrollo, reduciendo vulnerabilidades temprano en el ciclo de vida."
-      icon: "Layers"
+  hero:
+    title: "Desbloqueando Ventajas"
+    titleHighlight: "Estratégicas"
+    titleEnd: "con PLEXICUS"
+    subtitle: "Mejorando la Seguridad en el Ciclo de Vida del Desarrollo"
+    description: "Descubre cómo PLEXICUS transforma tu viaje DevSecOps al proporcionar una integración perfecta de medidas de seguridad proactivas, asegurando un proceso de desarrollo robusto y seguro con herramientas de vanguardia diseñadas para una ciberseguridad óptima."
+    buttons:
+      explore: "Explorar Beneficios"
+      demo: "Ver Demo"
+  
+  grid:
+    title: "Beneficios Clave de PLEXICUS ASPM"
+    subtitle: "Descubre cómo PLEXICUS transforma tu postura de seguridad con estas ventajas estratégicas"
+    items:
+      cicd:
+        title: "Integración Perfecta con Pipelines CI/CD"
+        description: "La seguridad se convierte en una parte integrada del desarrollo, reduciendo las vulnerabilidades en las primeras etapas del ciclo de vida e incrustando la protección a lo largo de tu proceso de entrega."
+      automation:
+        title: "Gestión Automatizada de Vulnerabilidades"
+        description: "Minimiza el esfuerzo manual con detección, priorización y remediación impulsadas por IA, haciendo que tu ciclo de vida de desarrollo sea más eficiente y seguro."
+      prioritization:
+        title: "Priorización Inteligente con Potencial de Daño"
+        description: "Concéntrate en lo que importa. Plexicus ayuda a los equipos a priorizar los problemas de alto impacto utilizando métricas inteligentes como el Potencial de Daño, ahorrando tiempo y recursos valiosos."
+      feedback:
+        title: "Feedback de Seguridad en Tiempo Real"
+        description: "Los desarrolladores reciben alertas instantáneas durante el desarrollo, permitiendo correcciones rápidas en el origen y evitando que los problemas avancen."
+      monitoring:
+        title: "Monitoreo Continuo y Generación de Informes"
+        description: "Mantén una visibilidad constante de la postura de seguridad de tu aplicación y simplifica el cumplimiento con informes detallados y accionables."
+      scalability:
+        title: "Escalabilidad para Equipos en Crecimiento"
+        description: "Diseñado para el crecimiento, Plexicus es adaptable tanto para pequeños equipos como para grandes empresas, manteniendo sólidas prácticas de seguridad a cualquier escala."
+      collaboration:
+        title: "Colaboración Mejorada"
+        description: "Elimina los silos y mejora el trabajo en equipo con flujos de trabajo integrados en desarrollo, seguridad y operaciones, impulsando la eficiencia general de DevSecOps."
+      timetofix:
+        title: "Tiempo de Solución Acelerado"
+        description: "Acorta el tiempo para resolver vulnerabilidades con playbooks de remediación generados por IA y sugerencias de corrección de código."
+      compliance:
+        title: "Cumplimiento y Visibilidad"
+        description: "Mantente listo para auditorías con informes de seguridad completos que se alinean con los estándares regulatorios y las políticas de tu organización."
 
-    - title: "Gestión Automatizada de Vulnerabilidades"
-      description: "Reduce el trabajo manual con detección, priorización y remediación de vulnerabilidades impulsadas por IA, agilizando el ciclo de desarrollo."
-      icon: "ShieldCheck"
+  components:
+    cicd:
+      title: "Pipeline CI/CD con Puertas de Seguridad"
+      steps:
+        commit: "Commit de Código"
+        scan: "Escaneo de Seguridad"
+        fix: "Auto-Corrección"
+        deploy: "Despliegue"
+      status:
+        active: "Activo"
+      checks:
+        title: "Revisiones de Seguridad"
+        sast: "Análisis SAST"
+        dependency: "Verificación de Dependencias"
+        secret: "Detección de Secretos"
+        iac: "Seguridad de IaC"
+      issues: "problemas"
 
-    - title: "Priorización Inteligente con Potencial de Daño"
-      description: "Permite a los equipos enfocarse en problemas de alto impacto mediante métricas inteligentes de priorización, optimizando tiempo y recursos."
-      icon: "BarChart"
+    vulnerability:
+      title: "Ciclo de Vida de Vulnerabilidades Impulsado por IA"
+      flow:
+        detection: "Detección"
+        analysis: "Análisis"
+        remediation: "Remediación"
+        verification: "Verificación"
+      status:
+        detected: "detectado"
+        processing: "procesando"
+        analyzing: "analizando"
+        autoFixing: "auto-corrigiendo"
+        fixed: "corregido"
+      severity:
+        high: "ALTA"
+        medium: "MEDIA"
+        low: "BAJA"
 
-    - title: "Retroalimentación de Seguridad en Tiempo Real"
-      description: "Los desarrolladores reciben alertas inmediatas sobre problemas durante el desarrollo, permitiendo correcciones rápidas en el origen."
-      icon: "Bell"
+    prioritization:
+      title: "Matriz de Evaluación de Riesgos Inteligente"
+      algorithm:
+        title: "Algoritmo de Potencial de Daño"
+        description: "Combina la explotabilidad, el impacto en el negocio y la criticidad del activo para priorizar las vulnerabilidades"
+      metrics:
+        damagePotential: "Potencial de Daño"
+        exploitability: "Explotabilidad"
+      vulnerabilities:
+        sqlInjection: "Inyección SQL"
+        xss: "Vulnerabilidad XSS"
+        outdatedDependency: "Dependencia Obsoleta"
+        weakEncryption: "Cifrado Débil"
+      priority:
+        critical: "CRÍTICO"
+        high: "ALTA"
+        medium: "MEDIA"
+        low: "BAJA"
+      timeToFix: "2h"
 
-    - title: "Monitoreo y Reportes Continuos"
-      description: "Ofrece visibilidad continua sobre la seguridad de la aplicación y soporta el cumplimiento mediante reportes detallados."
-      icon: "LineChart"
+    feedback:
+      title: "Alertas de Seguridad en Vivo"
+      ide:
+        comment: "# auth.py - Línea 42"
+        function: "def authenticate_user(username, password):"
+        query: "query = f\"SELECT * FROM users WHERE username = '{username}'\""
+        warning: "⚠️ Vulnerabilidad potencial de Inyección SQL detectada"
+      alerts:
+        criticalIssue: "Problema de Seguridad Crítico"
+        potentialVuln: "Vulnerabilidad Potencial"
+        suggestion: "Sugerencia de Seguridad"
+        checkPassed: "Verificación de Seguridad Superada"
+        hardcodedKey: "Clave API hardcoded detectada"
+        weakValidation: "Validación de contraseña débil"
+        useHttps: "Considerar usar HTTPS"
+        inputValidation: "Validación de entrada implementada"
+      stats:
+        detectionTime: "Tiempo de Detección"
+        feedbackLoop: "Ciclo de Feedback"
+        realtime: "Tiempo Real"
 
-    - title: "Escalabilidad para Equipos en Crecimiento"
-      description: "Adaptable tanto para equipos pequeños como para grandes empresas, apoyando el crecimiento mientras mantiene prácticas de seguridad sólidas."
-      icon: "Users"
+    monitoring:
+      title: "Panel de Postura de Seguridad"
+      metrics:
+        securityScore: "Puntuación de Seguridad"
+        activeThreats: "Amenazas Activas"
+        compliance: "Cumplimiento"
+        coverage: "Cobertura"
+      activity:
+        title: "Actividad Reciente"
+        vulnPatched: "Vulnerabilidad parcheada"
+        depScanned: "Nueva dependencia escaneada"
+        policyUpdated: "Política de seguridad actualizada"
+        issueResolved: "Problema crítico resuelto"
+      status:
+        title: "Monitoreo 24/7 Activo"
+        description: "Escaneo continuo en todos los repositorios y entornos"
 
-    - title: "Colaboración Mejorada"
-      description: "Fomenta una mejor comunicación entre desarrollo, seguridad y operaciones mediante flujos de trabajo integrados, promoviendo prácticas eficientes de DevSecOps."
-      icon: "Zap"
+    scalability:
+      title: "Escalado Adaptativo"
+      teams:
+        small: "Equipo Pequeño"
+        medium: "Equipo Mediano"
+        large: "Gran Empresa"
+      ranges:
+        small: "1-10"
+        medium: "11-50"
+        large: "50+"
+      developers: "desarrolladores"
+      metrics:
+        title: "Rendimiento a Escala"
+        repositories: "Repositorios"
+        developers: "Desarrolladores"
+        scansPerDay: "Escaneos/Día"
+        responseTime: "Tiempo de Respuesta"
+      infrastructure:
+        title: "Infraestructura con Escalado Automático"
+        description: "Los recursos se ajustan automáticamente según el tamaño del equipo y los patrones de uso"
 
-    - title: "Tiempo de Reparación Acelerado"
-      description: "Las guías de remediación y correcciones de código generadas por IA acortan el ciclo de resolución para las vulnerabilidades identificadas."
-      icon: "Clock"
+    collaboration:
+      title: "Flujo de Trabajo Unificado del Equipo"
+      teams:
+        development: "Desarrollo"
+        security: "Seguridad"
+        operations: "Operaciones"
+      members: "miembros"
+      workflow:
+        title: "Flujo de Trabajo Inter-equipo"
+        issueDetected: "Problema Detectado"
+        codeReview: "Revisión de Código"
+        testing: "Pruebas"
+        deployment: "Despliegue"
+      features:
+        title: "Características de Colaboración"
+        dashboard: "Panel de seguridad unificado"
+        tracking: "Seguimiento de vulnerabilidades compartido"
+        notifications: "Notificaciones inter-equipo"
+        chat: "Chat y comentarios integrados"
+        access: "Control de acceso basado en roles"
+      metrics:
+        fasterResolution: "Resolución Más Rápida"
+        betterCommunication: "Mejor Comunicación"
 
-    - title: "Cumplimiento y Visibilidad"
-      description: "Proporciona reportes de seguridad detallados y accionables que se alinean con estándares regulatorios y políticas organizacionales."
-      icon: "FileCheck"
+    timeToFix:
+      title: "Remediación Acelerada"
+      categories:
+        critical: "Problemas Críticos"
+        high: "Prioridad Alta"
+        medium: "Problemas Medios"
+      before: "Antes de PLEXICUS"
+      after: "Después de PLEXICUS"
+      faster: "más rápido"
+      timeline:
+        title: "Línea de Tiempo de Remediación Impulsada por IA"
+        analysis: "Análisis de IA"
+        generation: "Generación de Corrección"
+        review: "Revisión de Código"
+        deploy: "Auto-Despliegue"
+      totalSaved:
+        title: "Tiempo Promedio Ahorrado"
+        amount: "12.5 días"
+        description: "por vulnerabilidad crítica"
+
+    compliance:
+      title: "Panel de Cumplimiento"
+      standards:
+        soc2: "SOC 2"
+        iso27001: "ISO 27001"
+        pciDss: "PCI DSS"
+        gdpr: "GDPR"
+      status:
+        compliant: "Cumplimiento"
+        review: "En Revisión"
+      score: "Puntuación de Cumplimiento"
+      reports:
+        title: "Informes Disponibles"
+        executive: "Resumen Ejecutivo"
+        technical: "Detalles Técnicos"
+        complianceStatus: "Estado de Cumplimiento"
+        auditTrail: "Ruta de Auditoría"
+      frequency:
+        monthly: "Mensual"
+        weekly: "Semanal"
+        realtime: "Tiempo Real"
+        continuous: "Continuo"
+      activity:
+        title: "Actividad de Auditoría Reciente"
+        policyUpdated: "Política de seguridad actualizada"
+        assessmentCompleted: "Evaluación de vulnerabilidades completada"
+        reportGenerated: "Informe de cumplimiento generado"
+        accessReviewed: "Controles de acceso revisados"
+      auditReady:
+        title: "Listo para Auditoría"
+        description: "Documentación y evidencia completas mantenidas automáticamente"
+
+  cta:
+    title: "Seguridad Más Rápida. Escala Más Inteligentemente. Colabora Mejor — con PLEXICUS."
+    subtitle: "Transforma tu viaje DevSecOps con automatización de seguridad de vanguardia que se adapta a las necesidades de tu equipo y escala con tu crecimiento."
+    features:
+      security: "Seguridad de nivel empresarial"
+      automation: "Automatización impulsada por IA"
+      collaboration: "Colaboración de equipo sin interrupciones"
+    buttons:
+      trial: "Comenzar Tu Prueba Gratuita"
+      demo: "Programar Demo"
+      pricing: "Ver Precios"
+    trust:
+      title: "Confiado por equipos de desarrollo en todo el mundo"
+      companies: "Empresas"
+      developers: "Desarrolladores"
+      vulnerabilities: "Vulnerabilidades Corregidas"
+
+common:
+  time:
+    ago: "hace"
+    now: "ahora"
+    minutes: "min"
+    hours: "h"
+    days: "d"
+  status:
+    complete: "completo"
+    active: "activo"
+    pending: "pendiente"
+  actions:
+    remove: "Eliminar"
+    close: "Cerrar"
