@@ -3,8 +3,6 @@
  * Components
  */
 import Layout from "@/layouts/Layout.astro";
-import HeroBenefits from "@/components/Benefits/Hero.astro";
-import ContentBenefits from "@/components/Benefits/ContentBenefits.astro";
 import BenefitsPage from "@/components/Benefits/BenefitsPage";
 
 /**
@@ -13,7 +11,6 @@ import BenefitsPage from "@/components/Benefits/BenefitsPage";
 import { getLangFromUrl, useTranslations, generateLocalizedPaths } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 export async function getStaticPaths() {
   const paths = await generateLocalizedPaths();
   return paths;
@@ -22,11 +19,5 @@ export async function getStaticPaths() {
 
 
 <Layout>
-  <!-- <<HeroBenefits
-    imageUrl="/images/benefits/illustration-benefits.png"
-    title={t("benefits.hero.title")}
-    description={t("benefits.hero.description")}
-  />
-  <ContentBenefits/>> -->
-  <BenefitsPage />
+  <BenefitsPage lang={lang} client:load/>
 </Layout>
