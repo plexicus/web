@@ -1,174 +1,399 @@
 aspm:
-  pageTitle: "Application Security Posture Management | Plexicus"
   hero:
-    title: "Elevate Your Application Security with Intelligent ASPM"
-    subtitle:
-      "Plexicus delivers a new era of Application Security Posture Management (ASPM), leveraging advanced AI to proactively identify, intelligently analyze, and automatically remediate vulnerabilities across your entire software development lifecycle. Empower your teams to build and deploy secure applications with unprecedented speed and confidence."
-    discoverButton: "Discover Plexicus"
-  landscape:
-    title: "Navigating the Complexities of Modern Application Security"
-    subtitle:
-      "In today's dynamic development environments, organizations face mounting pressure to innovate rapidly while defending against an increasingly sophisticated threat landscape. Common challenges include managing security across complex architectures, addressing vulnerabilities within fast-paced CI/CD pipelines, reducing alert fatigue, and ensuring security empowers development. Traditional approaches often struggle, highlighting the need for a more intelligent and integrated security posture."
-  introduction:
-    title: "Plexicus ASPM: Your Intelligent Security Co-Pilot"
-    paragraph1:
-      "Plexicus ASPM is engineered to overcome these challenges by providing a unified, AI-driven platform that integrates seamlessly into your development workflows. We transform application security from a reactive chore into a proactive, intelligent, and automated process."
-    paragraph2:
-      "Gain comprehensive visibility, actionable insights, and powerful automation to secure your applications from code to cloud."
-    imageAlt: "Unified Security Dashboard Visual"
-  capabilities:
-    title: "How Plexicus Secures Your Applications"
-    subtitle: "Key Pillars of the Plexicus ASPM Platform"
-    discovery:
-      title: "Comprehensive Vulnerability Discovery"
-      description:
-        "Plexicus employs advanced, AI-powered scanning capabilities to continuously and comprehensively identify vulnerabilities across your applications, dependencies, and infrastructure. Our intelligent discovery engine proactively pinpoints potential weaknesses early in the development lifecycle and in production, providing a complete view of your security posture."
-    enrichment:
-      title: "AI-Powered Enrichment"
-      description:
-        "Move beyond alert overload. Plexicus's AI engine enriches raw vulnerability data with critical context, including detailed impact assessments, exploitability analysis, and clear business risk prioritization. We transform basic findings into actionable intelligence, enabling your teams to focus on the threats that matter most."
-    remediation:
-      title: "Automated Remediation"
-      description:
-        "Drastically reduce your mean time to remediate (MTTR). Plexicus's AI agent not only provides precise remediation guidance but also automatically generates code fixes for many detected vulnerabilities. These fixes are delivered as ready-to-review pull requests, allowing your developers to approve and implement solutions with a single click."
-  integrations:
-    title: "Unified Security: Integrating with Your Essential Tools & Platforms"
-    subtitle:
-      "Plexicus enhances your existing security investments by seamlessly integrating with a wide array of tools and platforms across your software development lifecycle. Harness the collective power of your security ecosystem for comprehensive protection and streamlined workflows."
-    connectorsTitle: "Key Security Tool Connectors"
-    providersTitle: "Platform & Infrastructure Integrations"
-    connectors:
-      - key: "sast"
-        title: "SAST"
-        description:
-          "Static Application Security Testing tools that analyze source code for security vulnerabilities."
-        icon: "SAST"
-      - key: "secret"
-        title: "Secret Detection"
-        description: "Tools that detect secrets, credentials, and personally identifiable information in code."
-        icon: "SEC"
-      - key: "sca"
-        title: "SCA"
-        description: "Software Composition Analysis tools that identify vulnerabilities in third-party dependencies."
-        icon: "SCA"
-      - key: "container"
-        title: "Container Security"
-        description: "Tools that scan container images for vulnerabilities and misconfigurations."
-        icon: "CON"
-      - key: "threat"
-        title: "Threat Detection"
-        description: "Tools that detect malware and other threats in code and artifacts."
-        icon: "THR"
-      - key: "scmSecurity"
-        title: "SCM Security"
-        description: "Tools that secure the software supply chain management process."
-        icon: "SCMS"
-      - key: "cicd"
-        title: "CI/CD Security"
-        description: "Tools that assess and secure CI/CD pipelines."
-        icon: "CI/CD"
-      - key: "license"
-        title: "License Management"
-        description: "Tools that identify and manage software licenses."
-        icon: "LIC"
-      - key: "iac"
-        title: "IaC Security"
-        description: "Tools that secure Infrastructure as Code configurations."
-        icon: "IaC"
-      - key: "sbom"
-        title: "SBOM Generation"
-        description: "Tools that generate Software Bill of Materials."
-        icon: "SBOM"
-      - key: "plexicusNative"
-        title: "Plexicus Native Analysis"
-        description:
-          "Plexicus's proprietary security analysis and remediation platform, working in concert with other tools or as a standalone solution."
-        icon: "PX"
-    providers:
-      - key: "scm"
-        title: "SCM Platforms"
-        description: "Source Code Management platforms that host and manage code repositories."
-        icon: "SCM"
+    title: "Never Build"
+    titleHighlight: "Permissions"
+    titleEnd: "Again"
+    problems:
+      - "Your applications ship with vulnerabilities."
+      - "Static scanners miss 40% of critical flaws."
+      - "Manual security reviews bottleneck releases."
+    solution: "Plexicus ASPM fixes the broken application security lifecycle."
+    buttons:
+      getStarted: "Get Started"
+      viewDemo: "View Demo"
+    pipeline:
+      stages:
+        sourceCode:
+          title: "Source Code"
+          issues:
+            - "Secrets"
+            - "SAST Issues"
+            - "PII Exposure"
+        buildPipeline:
+          title: "Build Pipeline"
+          issues:
+            - "Dependencies"
+            - "IaC Misconfig"
+            - "License Risks"
+        production:
+          title: "Production"
+          issues:
+            - "Runtime Vulns"
+            - "API Exposure"
+            - "Supply Chain"
+      plexicus:
+        title: "Plexicus ASPM"
+        components:
+          - "Codex Remedium AI"
+          - "Plexalyzer Orchestrator"
+          - "Unified Dashboard"
+          - "Zero-Touch Compliance"
+
+  technicalProblem:
+    title: "Technical Problem:"
+    titleHighlight: "Fragmented Security Tools"
+    subtitle: "Traditional security approaches create more problems than they solve"
+    before:
+      title: "Before Plexicus"
+      codeComment: "# Developer workflow"
+      commands:
+        - "$ git commit -m \"new feature\""
+        - "$ sonarqube-scan --wait-4-hours"
+        - "$ snyk test --json > snyk.json"
+        - "$ checkov -f main.tf --output sarif"
+        - "$ trivy image myapp:latest"
+        - "$ bandit -r . --format json"
+      resultComment: "# Review 6 different reports, 400+ findings, 80% false positives"
+      resultLabel: "The Result:"
+      results:
+        - "6 different reports to review"
+        - "400+ findings to analyze"
+        - "Hours spent on false positives"
+        - "Development velocity slowed"
+    after:
+      title: "After Plexicus"
+      command: "$ git push origin main"
+      autoComment: "# Plexicus automatically:"
+      autoActions:
+        - "# - Scans code, dependencies, IaC, containers"
+        - "# - Correlates findings across tools"
+        - "# - Generates fixes via Codex Remedium"
+        - "# - Creates single prioritized report"
+      resultComment: "# Result: 12 real issues, 8 auto-fixed, 4 with guided fixes"
+      resultLabel: "The Result:"
+      results:
+        - "12 real issues found"
+        - "8 auto-fixed by Plexicus"
+        - "4 highlighted with clear context"
+        - "Developer merges with confidence"
+
+  coreCapabilities:
+    title: "Core Capabilities"
+    subtitle: "Comprehensive security coverage across your entire application lifecycle"
+    capabilities:
+      staticAnalysis:
+        title: "Static Analysis Engine"
+        description: "Detects vulnerabilities in your code before they reach production."
+        flowTitle: "Code Analysis Flow"
+        steps:
+          - "Source Code"
+          - "AST Parser"
+          - "Rule Engine"
+          - "Codex Remedium"
+        languagesTitle: "Languages Supported:"
+        languages:
+          - "Python"
+          - "Java"
+          - "JavaScript"
+          - "Go"
+          - "C#"
+        vulnerabilitiesTitle: "Vulnerability Types:"
+        vulnerabilities:
+          - "SQL Injection (CWE-89)"
+          - "Cross-Site Scripting (CWE-79)"
+          - "Command Injection (CWE-78)"
+          - "Path Traversal (CWE-22)"
+          - "Insecure Deserialization (CWE-502)"
+          - "Hard-coded Credentials (CWE-798)"
+      secretsDetection:
+        title: "Secrets Detection"
+        description: "Prevents credential leaks across your entire codebase and git history."
+        codeComment: "# Example: Detected secret patterns"
+        detectionMethodsTitle: "Detection Methods:"
+        detectionMethods:
+          - "Entropy analysis for random tokens"
+          - "Pattern matching for known formats"
+          - "Historical git commit scanning"
+          - "Binary file analysis"
+          - "Environment variable inspection"
+        stats:
+          accuracy: "Detection Accuracy"
+          falsePositive: "False Positive Rate"
+      dependencyScanning:
+        title: "Dependency Scanning (SCA)"
+        description: "Tracks vulnerabilities in third-party packages and licenses."
+        flowTitle: "Dependency Tree Analysis"
+        severityLevels:
+          critical: "Critical"
+          high: "High"
+          medium: "Medium"
+      iacSecurity:
+        title: "Infrastructure as Code Security"
+        description: "Validates cloud configurations before deployment."
+        detectedTitle: "Detected Misconfiguration"
+        remediationTitle: "Remediation Suggested"
+        supportedTitle: "Supported Platforms:"
+        platforms:
+          - "Terraform"
+          - "CloudFormation"
+          - "Kubernetes"
+          - "Checkov"
+          - "Terrascan"
+          - "Prisma Cloud"
+      apiSecurity:
+        title: "API Security Testing"
+        description: "Discovers and tests API endpoints for vulnerabilities."
+        scanTitle: "API Security Scan"
+        discoveryTitle: "OpenAPI Spec"
+        discoveryDescription: "Automatically discovers endpoints from OpenAPI/Swagger specifications"
+        runtimeTitle: "Runtime Traffic"
+        runtimeDescription: "Analyzes live API traffic to discover undocumented endpoints"
+        testsTitle: "Security Tests:"
+        stats:
+          endpointsTested: "Endpoints Tested"
+          passedTests: "Passed Tests"
+          issuesFound: "Issues Found"
+
+  aiRemediation:
+    title: "AI-Powered Remediation"
+    subtitle: "Codex Remedium Agent: Your AI security engineer that fixes vulnerabilities automatically"
+    workflowTitle: "Codex Remedium Workflow"
+    steps:
+      vulnerabilityDetected: "Vulnerability Detected"
+      contextAnalysis: "Context Analysis"
+      fixGeneration: "Fix Generation"
+      testingValidation: "Testing & Validation"
+    contextItems:
+      - "Code structure analysis"
+      - "Business logic understanding"
+      - "Framework pattern recognition"
+    exampleTitle: "Example Fix Generation"
+    beforeTitle: "Before (Vulnerable)"
+    afterTitle: "After (Codex Remedium)"
+    artifactsTitle: "Generated Artifacts:"
+    artifacts:
+      - "Secure code implementation"
+      - "Unit tests for validation"
+      - "Documentation updates"
+      - "Performance impact analysis"
+
+  integrationEcosystem:
+    title: "Integration Ecosystem"
+    subtitle: "Seamlessly integrate with your existing security and development tools"
+    pipelineTitle: "CI/CD Pipeline Integration"
+    codeComment: "# .github/workflows/security.yml"
+    categories:
+      sastTools:
+        title: "SAST Tools"
         tools:
-          - key: "github"
-            name: "GitHub"
-            description: "Seamless PR integration for automated fixes, repository scanning, and workflow automation."
-            icon: "GH"
-          - key: "gitlab"
-            name: "GitLab"
-            description: "Repository scanning, merge request automation, and security insights within GitLab."
-            icon: "GL"
-          - key: "bitbucket"
-            name: "Bitbucket"
-            description:
-              "Connect with Bitbucket repositories for comprehensive code analysis and security management."
-            icon: "BB"
-      - key: "registry"
-        title: "Container Registries"
-        description: "Container registries that store and manage container images."
-        icon: "REG"
+          - "Checkmarx"
+          - "Fortify"
+          - "SonarQube"
+          - "Veracode"
+          - "GitHub Advanced Security"
+          - "GitLab Security"
+      scaTools:
+        title: "SCA Tools"
         tools:
-          - key: "ecr"
-            name: "AWS ECR"
-            description: "Scan images for vulnerabilities before deployment."
-            icon: "ECR"
-          - key: "acr"
-            name: "Azure CR"
-            description: "Integrate with Azure Container Registry for image security."
-            icon: "ACR"
-      - key: "cloud"
-        title: "Cloud Platforms"
-        description: "Cloud platforms for deploying and managing applications."
-        icon: "CLOUD"
+          - "Snyk"
+          - "Black Duck"
+          - "WhiteSource"
+          - "GitHub Dependabot"
+          - "GitLab Dependency Scanning"
+      infrastructure:
+        title: "Infrastructure"
         tools:
-          - key: "aws"
-            name: "Amazon Web Services"
-            description: "Secure your AWS workloads and infrastructure."
-            icon: "AWS"
-          - key: "azure"
-            name: "Microsoft Azure"
-            description: "Enhance security for applications deployed on Azure."
-            icon: "AZR"
-          - key: "gcp"
-            name: "Google Cloud Platform"
-            description: "Manage security posture for GCP environments."
-            icon: "GCP"
-      - key: "ticket"
-        title: "Issue Tracking"
-        description: "Issue tracking and project management platforms."
-        icon: "TICKET"
+          - "Terraform"
+          - "CloudFormation"
+          - "Kubernetes"
+          - "Checkov"
+          - "Terrascan"
+          - "Prisma Cloud"
+      cicdPlatforms:
+        title: "CI/CD Platforms"
         tools:
-          - key: "jira"
-            name: "Jira"
-            description: "Automatically create and track security issues in Jira."
-            icon: "JRA"
-          - key: "asana"
-            name: "Asana"
-            description: "Integrate security tasks into your Asana projects."
-            icon: "ASN"
-  advantage:
-    title: "The Plexicus Difference: Secure Smarter, Not Harder"
-    points:
-      - title: "AI-Driven Intelligence"
-        description:
-          "Leverage cutting-edge AI for superior threat detection, contextual understanding, and automated response."
-      - title: "Seamless DevSecOps Integration"
-        description:
-          "Embed security directly into your development pipelines with automated workflows, developer-friendly tools, and extensive ecosystem connectivity."
-      - title: "Reduced Alert Fatigue"
-        description: "Focus on genuine threats with intelligent prioritization and false positive reduction."
-      - title: "Accelerated Remediation"
-        description:
-          "Significantly shorten fix times with AI-generated code suggestions and streamlined approval processes."
-      - title: "Comprehensive Visibility & Control"
-        description:
-          "Gain a unified view of your application security risks across the entire SDLC, enhanced by deep integrations."
-      - title: "Enhanced Efficiency"
-        description:
-          "Free up your security and development teams to focus on strategic initiatives by automating repetitive tasks."
-  cta:
-    title: "Ready to Transform Your Application Security?"
-    subtitle:
-      "Discover how Plexicus can help your organization build and maintain secure applications with confidence. Request a personalized demo to see our AI-powered ASPM platform and its extensive integration capabilities in action."
-    demoButton: "Request a Demo"
-    contactButton: "Contact Sales"
+          - "GitHub Actions"
+          - "GitLab CI"
+          - "Jenkins"
+          - "Azure DevOps"
+          - "CircleCI"
+          - "Travis CI"
+
+  devSecOps:
+    title: "DevSecOps Integration"
+    subtitle: "Security seamlessly integrated into your development workflow"
+    pipelineTitle: "DevSecOps Pipeline Flow"
+    steps:
+      developerCommits:
+        title: "Developer Commits"
+        description: "Code changes pushed to repository"
+      pipelineTrigger:
+        title: "Pipeline Trigger"
+        description: "Automated CI/CD pipeline starts"
+      aspmScan:
+        title: "ASPM Scan"
+        description: "Comprehensive security analysis"
+      autoFix:
+        title: "Auto-Fix"
+        description: "AI-powered vulnerability remediation"
+      productionDeploy:
+        title: "Production Deploy"
+        description: "Secure deployment to production"
+    validationTitle: "Automated Security Validation"
+    securityChecks:
+      - "No High Severity Issues"
+      - "No Exposed Secrets"
+      - "Dependencies Validated"
+      - "Infrastructure Compliant"
+      - "Security Monitoring Active"
+    teams:
+      developers: "Developers"
+      security: "Security"
+      operations: "Operations"
+
+  compliance:
+    title: "Compliance Automation"
+    subtitle: "Automated compliance monitoring and reporting for industry standards"
+    frameworks:
+      soc2:
+        title: "SOC 2 Type II"
+        controlsTitle: "Automated Controls:"
+        controls:
+          - "CC6.1: Logical access controls"
+          - "CC6.7: Access reviews and monitoring"
+          - "CC7.2: System monitoring"
+          - "CC8.1: Change management"
+      iso27001:
+        title: "ISO 27001:2022"
+        controlsTitle: "Automated Controls:"
+        controls:
+          - "A.8.24: Information deletion"
+          - "A.8.28: Secure coding practices"
+          - "A.8.29: Security testing"
+          - "A.8.31: Development environment separation"
+    reportingTitle: "Automated Compliance Reporting"
+    reportingSubtitle: "Real-time compliance status and audit-ready documentation"
+    metrics:
+      complianceScore: "Compliance Score"
+      monitoring: "Monitoring"
+      evidenceCollection: "Evidence Collection"
+      auditReports: "Audit Reports"
+
+  realWorldImpact:
+    title: "Real-World Impact"
+    subtitle: "Measurable improvements in security posture and developer productivity"
+    metrics:
+      securityAlerts:
+        category: "Security Alerts"
+        before:
+          value: "847"
+          label: "alerts across 6 tools"
+        after:
+          value: "43"
+          label: "prioritized, correlated issues"
+        improvement: "95% reduction"
+      triageTime:
+        category: "Weekly Triage Time"
+        before:
+          value: "40"
+          label: "hours/week triaging findings"
+        after:
+          value: "4"
+          label: "hours/week security work"
+        improvement: "90% time saved"
+      falsePositiveRate:
+        category: "False Positive Rate"
+        before:
+          value: "23%"
+          label: "false positive rate"
+        after:
+          value: "3%"
+          label: "false positive rate"
+        improvement: "87% improvement"
+      fixTime:
+        category: "Average Fix Time"
+        before:
+          value: "14"
+          label: "day average fix time"
+        after:
+          value: "2"
+          label: "day average (80% auto-fixed)"
+        improvement: "86% faster"
+    beforeLabel: "Before Plexicus"
+    afterLabel: "After Plexicus"
+    summaryTitle: "Transform Your Security Posture"
+    summaryStats:
+      fewerAlerts: "Fewer Alerts"
+      timeSaved: "Time Saved"
+      accuracyImproved: "Accuracy Improved"
+      fasterFixes: "Faster Fixes"
+
+  getStarted:
+    title: "Get Started"
+    subtitle: "Choose your path to implementing Plexicus ASPM in your organization"
+    userTypes:
+      developers:
+        title: "For Developers"
+        description: "Scan your local repository for vulnerabilities"
+        codeComment: "# Scan your local repository for vulnerabilities"
+      devSecOpsTeams:
+        title: "For DevSecOps Teams"
+        description: "Integrate ASPM into your CI/CD pipeline"
+        codeComment: "# Integrate ASPM into your CI/CD pipeline"
+      securityArchitects:
+        title: "For Security Architects"
+        description: "Configure custom security policies and rules"
+        codeComment: "# Configure custom security policies and rules"
+    terminal: "Terminal"
+    ctaTitle: "Ready to Transform Your Application Security?"
+    ctaSubtitle: "Join thousands of developers and security teams who trust Plexicus to secure their applications"
+    buttons:
+      getStarted: "Get Started"
+      viewIntegrations: "View Integrations"
+      learnMore: "Learn More"
+
+
+  codeSecurityWorkflow:
+    header:
+      userLabel: "You"
+      analysisDescription: "→ Real-time Code Security Analysis"
+      liveScanning: "Live Scanning"
+    ide:
+      fileExplorerTitle: "Explorer"
+    alerts:
+      alertTitle: "SQL Injection Detected"
+      alertDescription: "Lines 5-7: Unsanitized user input"
+      fixNowButton: "Fix Now"
+    analysis:
+      title: "AI Security Analysis"
+      subtitle: "Real-time vulnerability detection and analysis"
+      severity:
+        critical: "Critical"
+        high: "High"
+        medium: "Medium"
+    findings:
+      title: "Security Findings"
+      statusLive: "Live"
+      statuses:
+        detected: "detected"
+        fixing: "fixing"
+        fixed: "fixed"
+      vulnerabilityTypes:
+        sqlInjection: "SQL Injection"
+        xss: "XSS Vulnerability"
+        hardcodedSecret: "Hardcoded Secret"
+        insecureDependency: "Insecure Dependency"
+      fixAllIssuesButton: "Fix All Issues"
+      exportReportButton: "Export Report"
+    integrations:
+      gitIntegration:
+        title: "Git Integration"
+        subtitle: "Auto-commit fixes"
+      teamSync:
+        title: "Team Sync"
+        subtitle: "Real-time collaboration"
+      teamRoles:
+        dev: "Dev"
+        sec: "Sec"
+        ops: "Ops"
+      statusOperational: "All systems operational"

@@ -4,18 +4,11 @@ import { motion } from 'framer-motion';
 import { Code, GitBranch, Cloud, Brain, Eye, CheckCircle, Zap } from 'lucide-react';
 import { useTranslations } from '../../i18n/utils';
 
-export default function AspmHero({ lang }) {
-  console.log({ lang });
-  const t = useTranslations(lang);
+export default function AspmHero() {
+  const t = useTranslations('en');
 
   return (
-    <section
-      className="py-20 md:py-32 text-white relative overflow-hidden"
-      style={{
-        background: 'radial-gradient(circle at right, #000000 0%, #1a1a1a 40%, #4a0ba3 70%, #8220ff 100%)',
-        boxShadow: 'inset 0 0 100px rgba(0,0,0,0.3)',
-      }}
-    >
+    <section className="py-20 md:py-32 bg-gradient-to-br from-black via-purple-900 to-indigo-900 text-white relative overflow-hidden">
       { /* Background decoration */ }
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
@@ -112,7 +105,7 @@ function AspmPipelineVisualization() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="bg-gradient-to-r from-[#8220ff]/80 to-[#6010cc] backdrop-blur-sm rounded-lg p-4 border border-white/20"
+            className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
           >
             <div className="flex items-center gap-3 mb-3">
               <div className={`p-2 rounded-lg bg-gradient-to-r ${stage.color}`}>{ stage.icon }</div>

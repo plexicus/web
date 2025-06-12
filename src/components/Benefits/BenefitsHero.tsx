@@ -8,7 +8,13 @@ export default function BenefitsHero({ lang }) {
   const t = useTranslations(lang); // Use the lang prop for translation
 
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-br from-black via-purple-900 to-indigo-900 text-white relative overflow-hidden">
+    <section
+      className="py-20 md:py-32 text-white relative overflow-hidden"
+      style={{
+        background: 'radial-gradient(circle at right, #000000 0%, #1a1a1a 40%, #4a0ba3 70%, #8220ff 100%)',
+        boxShadow: 'inset 0 0 100px rgba(0,0,0,0.3)',
+      }}
+    >
       { /* Background decoration */ }
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
