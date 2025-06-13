@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { Code, Shield, Settings, Users, BarChart3, CheckCircle, MessageSquare } from 'lucide-react';
+import { useTranslations } from '@/i18n/utils';
 
-export default function CrossFunctionalCollaboration() {
+export default function CrossFunctionalCollaboration({ lang }) {
+  const t = useTranslations(lang);
   const [currentStep, setCurrentStep] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [typedText, setTypedText] = useState('');
@@ -18,43 +20,43 @@ export default function CrossFunctionalCollaboration() {
   const collaborationSteps = [
     {
       icon: Users,
-      label: 'Team Setup',
-      command: 'plexicus teams init --roles=dev,sec,ops',
-      result: '✓ Cross-functional team workspace created',
+      label: t('use-case.cross_functional.steps.setup.label'),
+      command: t('use-case.cross_functional.steps.setup.command'),
+      result: t('use-case.cross_functional.steps.setup.result'),
       color: 'from-purple-500 to-purple-600',
     },
     {
       icon: BarChart3,
-      label: 'Shared Dashboard',
-      command: 'plexicus dashboard --unified-view',
-      result: '✓ Role-based dashboards configured for all teams',
+      label: t('use-case.cross_functional.steps.dashboard.label'),
+      command: t('use-case.cross_functional.steps.dashboard.command'),
+      result: t('use-case.cross_functional.steps.dashboard.result'),
       color: 'from-indigo-500 to-indigo-600',
     },
     {
       icon: MessageSquare,
-      label: 'Real-time Sync',
-      command: 'plexicus sync --cross-team-notifications',
-      result: '✓ Security insights shared across Dev, Sec, and Ops',
+      label: t('use-case.cross_functional.steps.sync.label'),
+      command: t('use-case.cross_functional.steps.sync.command'),
+      result: t('use-case.cross_functional.steps.sync.result'),
       color: 'from-blue-500 to-blue-600',
     },
     {
       icon: CheckCircle,
-      label: 'Coordinated Response',
-      command: 'plexicus respond --collaborative',
-      result: '✓ Incident response coordinated across all teams',
+      label: t('use-case.cross_functional.steps.response.label'),
+      command: t('use-case.cross_functional.steps.response.command'),
+      result: t('use-case.cross_functional.steps.response.result'),
       color: 'from-green-500 to-green-600',
     },
   ];
 
   const teams = [
-    { icon: Code, label: 'Dev', color: 'from-blue-500 to-blue-600', role: 'Development' },
-    { icon: Shield, label: 'Sec', color: 'from-red-500 to-red-600', role: 'Security' },
-    { icon: Settings, label: 'Ops', color: 'from-green-500 to-green-600', role: 'Operations' },
+    { icon: Code, label: t('use-case.cross_functional.teams.dev.label'), color: 'from-blue-500 to-blue-600', role: t('use-case.cross_functional.teams.dev.role') },
+    { icon: Shield, label: t('use-case.cross_functional.teams.sec.label'), color: 'from-red-500 to-red-600', role: t('use-case.cross_functional.teams.sec.role') },
+    { icon: Settings, label: t('use-case.cross_functional.teams.ops.label'), color: 'from-green-500 to-green-600', role: t('use-case.cross_functional.teams.ops.role') },
   ];
 
   const typeText = (text: string, callback: ()=> void) => {
     setIsTyping(true);
-    setTypedText('');
+    setTypedText('use-case.');
     let i = 0;
     const timer = setInterval(() => {
       if (i < text.length) {
@@ -133,10 +135,10 @@ export default function CrossFunctionalCollaboration() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-            🤝 Cross-Functional Security Collaboration
+            🤝 { t('use-case.cross_functional.title') }
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Unifying teams with shared security intelligence and coordinated response
+            { t('use-case.cross_functional.subtitle') }
           </p>
         </motion.div>
 
@@ -155,7 +157,7 @@ export default function CrossFunctionalCollaboration() {
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
-              <span className="ml-4 text-gray-400">PLEXICUS Team Collaboration</span>
+              <span className="ml-4 text-gray-400">{ t('use-case.cross_functional.terminal_title') }</span>
             </div>
 
             <div className="space-y-2">
@@ -175,7 +177,7 @@ export default function CrossFunctionalCollaboration() {
 
               { isProcessing && (
                 <div className="space-y-2">
-                  <div className="text-yellow-400">Synchronizing teams...</div>
+                  <div className="text-yellow-400">{ t('use-case.cross_functional.processing') }</div>
                   <div className="w-full bg-gray-700 rounded-full h-2">
                     <motion.div
                       className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full"
@@ -183,7 +185,7 @@ export default function CrossFunctionalCollaboration() {
                       transition={{ duration: 0.1 }}
                     />
                   </div>
-                  <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }% complete</div>
+                  <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }%{ t('use-case.common.processing.complete') }</div>
                 </div>
               ) }
             </div>
@@ -234,8 +236,8 @@ export default function CrossFunctionalCollaboration() {
               >
                 <div className="text-center">
                   <Users className="w-12 h-12 text-white mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-white mb-2">PLEXICUS Platform</h3>
-                  <p className="text-purple-200">Unified Security Intelligence</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">{ t('use-case.cross_functional.platform.title') }</h3>
+                  <p className="text-purple-200">{ t('use-case.cross_functional.platform.subtitle') }</p>
                 </div>
               </motion.div>
             ) }
