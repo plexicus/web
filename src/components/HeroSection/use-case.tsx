@@ -17,8 +17,10 @@ import {
   Eye,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from '@/i18n/utils';
 
-export default function UseCasesHero() {
+export default function UseCasesHero({ lang }) {
+  const t = useTranslations(lang);
   const [currentStep, setCurrentStep] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -189,22 +191,21 @@ export default function UseCasesHero() {
             className="mb-4"
           >
             <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white mb-8">
-              🚀 PLEXICUS Use Cases:{ ' ' }
+              { t('use-case.hero.titleStart') }
               <span className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
-                Secure DevSecOps
+                { t('use-case.hero.titleCenter') }
               </span>{ ' ' }
-              at Every Stage
+              { t('use-case.hero.titleEnd') }
             </h1>
 
             <div className="flex flex-col mb-8">
               <p className="text-xl md:text-2xl text-purple-100 leading-relaxed mb-6">
-                <strong>Transform your software delivery lifecycle with PLEXICUS</strong> — the intelligent platform for
-                embedding security, streamlining compliance, and accelerating secure development.
+                <strong>{ t('use-case.hero.subtitleStrong') }</strong>
+                { t('use-case.hero.subtitle') }
               </p>
               <div className="flex items-center justify-center gap-2 text-lg text-purple-200">
                 <span>
-                  From code commit to production, discover how leading teams use PLEXICUS to automate, monitor, and
-                  remediate security risks without sacrificing velocity.
+                  { t('use-case.hero.description') }
                 </span>
               </div>
             </div>
@@ -219,7 +220,7 @@ export default function UseCasesHero() {
                 size="lg"
                 className="bg-white text-purple-700 hover:bg-purple-50 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
-                Start Your Free Trial
+                { t('use-case.hero.buttons.trial') }
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
@@ -227,7 +228,7 @@ export default function UseCasesHero() {
                 variant="outline"
                 className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-sm transition-all duration-300"
               >
-                Schedule Demo
+                { t('use-case.hero.buttons.demo') }
               </Button>
             </motion.div>
           </motion.div>
@@ -252,19 +253,19 @@ export default function UseCasesHero() {
                   <div className="p-2 bg-white/10 rounded-full">
                     <Shield className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-lg">Enterprise-grade security</span>
+                  <span className="text-lg">{ t('use-case.hero.features.security') }</span>
                 </div>
                 <div className="flex items-center gap-3 text-purple-100">
                   <div className="p-2 bg-white/10 rounded-full">
                     <Zap className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-lg">AI-powered automation</span>
+                  <span className="text-lg">{ t('use-case.hero.features.automation') }</span>
                 </div>
                 <div className="flex items-center gap-3 text-purple-100">
                   <div className="p-2 bg-white/10 rounded-full">
                     <Users className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-lg">Seamless team collaboration</span>
+                  <span className="text-lg">{ t('use-case.hero.features.collaboration') }</span>
                 </div>
               </motion.div>
             </motion.div>
