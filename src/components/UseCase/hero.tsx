@@ -1,9 +1,9 @@
-'use client';
-
 import { motion } from 'framer-motion';
 import { Shield, Zap, Users, Target } from 'lucide-react';
+import { useTranslations } from '@/i18n/utils';
 
-export default function UseCasesHero() {
+export default function UseCasesHero({ lang }) {
+  const t = useTranslations(lang);
   return (
     <section className="py-20 md:py-32 bg-gradient-to-br from-purple-50 to-indigo-50 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -32,27 +32,10 @@ export default function UseCasesHero() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold leading-tight text-gray-900">
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                PLEXICUS
-              </span>{ ' ' }
-              Use Cases
+              { t('use-case.hero.title') }
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">Secure DevSecOps at Every Stage</p>
-
-            <div className="max-w-3xl mx-auto">
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Transform your software delivery lifecycle with PLEXICUS — the intelligent platform for embedding
-                security, streamlining compliance, and accelerating secure development.
-              </p>
-            </div>
-
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 max-w-2xl mx-auto">
-              <p className="text-purple-700 text-lg">
-                🔍 From code commit to production, discover how leading teams use PLEXICUS to automate, monitor, and
-                remediate security risks without sacrificing velocity.
-              </p>
-            </div>
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">{ t('use-case.hero.subtitle') }</p>
           </motion.div>
         </div>
       </div>
