@@ -182,7 +182,7 @@ export default function AgileWorkflows({ lang }) {
           </motion.div>
 
           { /* Visual Workflow */ }
-          <div className="flex flex-wrap justify-center items-center gap-8 mb-16">
+          <div className="flex flex-wrap justify-between items-center gap-8 mb-16">
             { workflowSteps.map((step, index) => (
               <motion.div
                 key={step.label}
@@ -192,7 +192,7 @@ export default function AgileWorkflows({ lang }) {
                   scale: index < currentStep ? 1 : 0.8,
                 }}
                 transition={{ duration: 0.5 }}
-                className="relative text-center"
+                className="relative text-center flex flex-col items-center"
               >
                 <div
                   className={`w-24 h-24 bg-gradient-to-br ${step.color} rounded-full flex items-center justify-center shadow-lg mb-4 relative`}
