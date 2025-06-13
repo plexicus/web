@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { Calendar, Code, Search, MessageSquare, CheckCircle, Clock } from 'lucide-react';
+import { useTranslations } from '@/i18n/utils';
 
-export default function AgileWorkflows() {
+export default function AgileWorkflows({ lang }) {
+  const t = useTranslations(lang);
   const [currentStep, setCurrentStep] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [typedText, setTypedText] = useState('');
@@ -17,37 +19,37 @@ export default function AgileWorkflows() {
   const workflowSteps = [
     {
       icon: Calendar,
-      label: 'Sprint Planning',
-      command: 'plexicus sprint-init --security-gates',
-      result: '✓ Security requirements integrated into sprint backlog',
+      label: t('use-case.agile_workflows.steps.planning.label'),
+      command: t('use-case.agile_workflows.steps.planning.command'),
+      result: t('use-case.agile_workflows.steps.planning.result'),
       color: 'from-purple-500 to-purple-600',
     },
     {
       icon: Code,
-      label: 'Development',
-      command: 'git push origin feature/user-auth',
-      result: '✓ Code pushed, pre-commit security hooks triggered',
+      label: t('use-case.agile_workflows.steps.development.label'),
+      command: t('use-case.agile_workflows.steps.development.command'),
+      result: t('use-case.agile_workflows.steps.development.result'),
       color: 'from-indigo-500 to-indigo-600',
     },
     {
       icon: Search,
-      label: 'Real-time Scan',
-      command: 'plexicus scan --realtime --feedback',
-      result: '✓ Security feedback delivered in 30 seconds',
+      label: t('use-case.agile_workflows.steps.scan.label'),
+      command: t('use-case.agile_workflows.steps.scan.command'),
+      result: t('use-case.agile_workflows.steps.scan.result'),
       color: 'from-purple-600 to-indigo-600',
     },
     {
       icon: MessageSquare,
-      label: 'Developer Feedback',
-      command: 'plexicus feedback --ide-integration',
-      result: '✓ Security context delivered directly to IDE',
+      label: t('use-case.agile_workflows.steps.feedback.label'),
+      command: t('use-case.agile_workflows.steps.feedback.command'),
+      result: t('use-case.agile_workflows.steps.feedback.result'),
       color: 'from-pink-500 to-purple-500',
     },
   ];
 
   const typeText = (text: string, callback: ()=> void) => {
     setIsTyping(true);
-    setTypedText('');
+    setTypedText('use-case.');
     let i = 0;
     const timer = setInterval(() => {
       if (i < text.length) {
@@ -125,9 +127,9 @@ export default function AgileWorkflows() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">⚡ Agile-Ready Security Workflows</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">⚡ { t('use-case.agile_workflows.title') }</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Real-time security feedback integrated into your agile development process
+            { t('use-case.agile_workflows.subtitle') }
           </p>
         </motion.div>
 
@@ -146,7 +148,7 @@ export default function AgileWorkflows() {
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
-              <span className="ml-4 text-gray-400">PLEXICUS Agile Integration</span>
+              <span className="ml-4 text-gray-400">{ t('use-case.agile_workflows.terminal_title') }</span>
             </div>
 
             <div className="space-y-2">
@@ -166,7 +168,7 @@ export default function AgileWorkflows() {
             </div>
             { isProcessing && (
               <div className="space-y-2">
-                <div className="text-yellow-400">Integrating with agile workflow...</div>
+                <div className="text-yellow-400">{ t('use-case.agile_workflows.processing') }</div>
                 <div className="w-full bg-gray-700 rounded-full h-2">
                   <motion.div
                     className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full"
@@ -174,7 +176,7 @@ export default function AgileWorkflows() {
                     transition={{ duration: 0.1 }}
                   />
                 </div>
-                <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }% complete</div>
+                <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }%{ t('use-case.common.processing.complete') }</div>
               </div>
             ) }
           </motion.div>
