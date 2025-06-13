@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { AlertTriangle, Brain, FileText, CheckCircle, Code } from 'lucide-react';
+import { useTranslations } from '@/i18n/utils';
 
-export default function AIRemediation() {
+export default function AIRemediation({ lang }) {
+  const t = useTranslations(lang);
   const [currentStep, setCurrentStep] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [typedText, setTypedText] = useState('');
@@ -17,37 +19,37 @@ export default function AIRemediation() {
   const remediationFlow = [
     {
       icon: AlertTriangle,
-      label: 'Threat Detected',
-      command: 'plexicus detect --severity=critical',
-      result: '⚠️ SQL Injection vulnerability detected in user-auth.js:42',
+      label: t('use-case.ai_remediation.steps.detection.label'),
+      command: t('use-case.ai_remediation.steps.detection.command'),
+      result: t('use-case.ai_remediation.steps.detection.result'),
       color: 'from-red-500 to-red-600',
     },
     {
       icon: Brain,
-      label: 'AI Analysis',
-      command: 'plexicus analyze --context-aware --ai-engine',
-      result: '🧠 Context analyzed, remediation strategy generated',
+      label: t('use-case.ai_remediation.steps.analysis.label'),
+      command: t('use-case.ai_remediation.steps.analysis.command'),
+      result: t('use-case.ai_remediation.steps.analysis.result'),
       color: 'from-purple-500 to-purple-600',
     },
     {
       icon: FileText,
-      label: 'Generate Fix',
-      command: 'plexicus generate-fix --auto-remediate',
-      result: '📝 Secure code fix generated with parameterized queries',
+      label: t('use-case.ai_remediation.steps.generation.label'),
+      command: t('use-case.ai_remediation.steps.generation.command'),
+      result: t('use-case.ai_remediation.steps.generation.result'),
       color: 'from-indigo-500 to-indigo-600',
     },
     {
       icon: CheckCircle,
-      label: 'Auto-Apply',
-      command: 'plexicus apply-fix --create-pr',
-      result: '✅ Pull request #247 created with security fix',
+      label: t('use-case.ai_remediation.steps.apply.label'),
+      command: t('use-case.ai_remediation.steps.apply.command'),
+      result: t('use-case.ai_remediation.steps.apply.result'),
       color: 'from-green-500 to-green-600',
     },
   ];
 
   const typeText = (text: string, callback: ()=> void) => {
     setIsTyping(true);
-    setTypedText('');
+    setTypedText('use-case.');
     let i = 0;
     const timer = setInterval(() => {
       if (i < text.length) {
@@ -125,9 +127,9 @@ export default function AIRemediation() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">🤖 AI-Powered Automated Remediation</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">🤖 { t('use-case.ai_remediation.title') }</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Watch AI automatically detect, analyze, and fix security vulnerabilities
+            { t('use-case.ai_remediation.subtitle') }
           </p>
         </motion.div>
 
@@ -146,7 +148,7 @@ export default function AIRemediation() {
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
-              <span className="ml-4 text-gray-400">PLEXICUS AI Remediation Engine</span>
+              <span className="ml-4 text-gray-400">{ t('use-case.ai_remediation.terminal_title') }</span>
             </div>
 
             <div className="space-y-2">
@@ -166,7 +168,7 @@ export default function AIRemediation() {
 
               { isProcessing && (
                 <div className="space-y-2">
-                  <div className="text-yellow-400">AI analyzing and generating fix...</div>
+                  <div className="text-yellow-400">{ t('use-case.ai_remediation.processing') }</div>
                   <div className="w-full bg-gray-700 rounded-full h-2">
                     <motion.div
                       className="bg-gradient-to-r from-red-500 to-green-500 h-2 rounded-full"
@@ -174,7 +176,7 @@ export default function AIRemediation() {
                       transition={{ duration: 0.1 }}
                     />
                   </div>
-                  <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }% complete</div>
+                  <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }%{ t('use-case.common.processing.complete') }</div>
                 </div>
               ) }
             </div>
@@ -189,12 +191,11 @@ export default function AIRemediation() {
             >
               <h3 className="text-lg font-semibold mb-4 flex items-center">
                 <Code className="w-5 h-5 mr-2 text-purple-600" />
-                Generated Security Fix
+                { t('use-case.ai_remediation.code_diff.title') }
               </h3>
               <div className="bg-gray-50 rounded p-4 font-mono text-sm">
-                <div className="text-red-600">- const query = `SELECT * FROM users WHERE id = ${ '${userAuthId}' }`;</div>
-                <div className="text-green-600">+ const query = 'SELECT * FROM users WHERE id = ?';</div>
-                <div className="text-green-600">+ const result = await db.query(query, [userAuthId]);</div>
+                <div className="text-red-600">- { t('use-case.ai_remediation.code_diff.before') }</div>
+                <div className="text-green-600">+ { t('use-case.ai_remediation.code_diff.after') }</div>
               </div>
             </motion.div>
           ) }
