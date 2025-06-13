@@ -227,11 +227,11 @@ export default function RuntimeThreatDetection({ lang }) {
                 <div className="bg-white border border-purple-200 rounded-lg p-6 max-w-md w-full shadow-sm relative">
                   <div className="flex items-center space-x-4">
                     <div
-                      className={`w-12 h-12 bg-gradient-to-br ${step.color} rounded-full flex items-center justify-center`}
+                      className={`!w-12 !h-12 bg-gradient-to-br ${step.color} rounded-full flex items-center justify-center`}
                     >
                       <step.icon className="w-6 h-6 text-white" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h3 className="text-lg font-semibold text-gray-900">{ step.label }</h3>
                       <p className="text-purple-600 text-sm">{ step.result }</p>
                     </div>
