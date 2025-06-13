@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { Code, Search, BarChart3, Wrench, Cloud, CheckCircle } from 'lucide-react';
+import { useTranslations } from '@/i18n/utils';
 
-export default function DevSecOpsPipeline() {
+export default function DevSecOpsPipeline({ lang }) {
+  const t = useTranslations(lang);
   const [currentStep, setCurrentStep] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -18,43 +20,43 @@ export default function DevSecOpsPipeline() {
     {
       icon: Code,
       label: 'Code',
-      command: "git commit -m 'Add user authentication'",
-      result: '✓ Code committed to repository',
+      command: t('use-case.devsecops_pipeline.steps.code.command'),
+      result: t('use-case.devsecops_pipeline.steps.code.result'),
       color: 'from-blue-500 to-blue-600',
     },
     {
       icon: Search,
       label: 'Scan',
-      command: 'plexicus scan --type=sast,sca,iac',
-      result: '✓ 3 vulnerabilities detected, 2 critical',
+      command: t('use-case.devsecops_pipeline.steps.scan.command'),
+      result: t('use-case.devsecops_pipeline.steps.scan.result'),
       color: 'from-purple-500 to-purple-600',
     },
     {
       icon: BarChart3,
       label: 'Analyze',
-      command: 'plexicus analyze --ai-correlation',
-      result: '✓ AI risk correlation complete, priority ranking applied',
+      command: t('use-case.devsecops_pipeline.steps.analyze.command'),
+      result: t('use-case.devsecops_pipeline.steps.analyze.result'),
       color: 'from-indigo-500 to-indigo-600',
     },
     {
       icon: Wrench,
       label: 'Fix',
-      command: 'plexicus remediate --auto-fix',
-      result: '✓ 2 vulnerabilities auto-fixed, 1 requires manual review',
+      command: t('use-case.devsecops_pipeline.steps.fix.command'),
+      result: t('use-case.devsecops_pipeline.steps.fix.result'),
       color: 'from-green-500 to-green-600',
     },
     {
       icon: Cloud,
       label: 'Deploy',
-      command: 'kubectl apply -f deployment.yaml',
-      result: '✓ Secure deployment to production complete',
+      command: t('use-case.devsecops_pipeline.steps.deploy.command'),
+      result: t('use-case.devsecops_pipeline.steps.deploy.result'),
       color: 'from-teal-500 to-teal-600',
     },
   ];
 
   const typeText = (text: string, callback: ()=> void) => {
     setIsTyping(true);
-    setTypedText('');
+    setTypedText('use-case.');
     let i = 0;
     const timer = setInterval(() => {
       if (i < text.length) {
@@ -132,9 +134,9 @@ export default function DevSecOpsPipeline() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">🔄 DevSecOps Pipeline Reinvented</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">🔄 { t('use-case.devsecops_pipeline.title') }</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Watch how PLEXICUS transforms your development workflow with embedded security
+            { t('use-case.devsecops_pipeline.subtitle') }
           </p>
         </motion.div>
 
@@ -153,7 +155,7 @@ export default function DevSecOpsPipeline() {
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
-              <span className="ml-4 text-gray-400">PLEXICUS DevSecOps Pipeline</span>
+              <span className="ml-4 text-gray-400">{ t('use-case.devsecops_pipeline.terminal_title') }</span>
             </div>
 
             <div className="space-y-2">
@@ -173,7 +175,7 @@ export default function DevSecOpsPipeline() {
 
               { isProcessing && (
                 <div className="space-y-2">
-                  <div className="text-yellow-400">Processing...</div>
+                  <div className="text-yellow-400">{ t('use-case.devsecops_pipeline.processing') }</div>
                   <div className="w-full bg-gray-700 rounded-full h-2">
                     <motion.div
                       className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full"
@@ -181,7 +183,7 @@ export default function DevSecOpsPipeline() {
                       transition={{ duration: 0.1 }}
                     />
                   </div>
-                  <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }% complete</div>
+                  <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }%{ t('use-case.common.processing.complete') }</div>
                 </div>
               ) }
             </div>
