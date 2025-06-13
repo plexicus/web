@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { Building, MapPin, Eye, FileCheck, CheckCircle } from 'lucide-react';
+import { useTranslations } from '@/i18n/utils';
 
-export default function ComplianceAutomation() {
+export default function ComplianceAutomation({ lang }) {
+  const t = useTranslations(lang);
   const [currentStep, setCurrentStep] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [typedText, setTypedText] = useState('');
@@ -18,39 +20,46 @@ export default function ComplianceAutomation() {
   const complianceFlow = [
     {
       icon: Building,
-      label: 'Standards Setup',
-      command: 'plexicus compliance init --standards=sox,hipaa,pci',
-      result: '✓ SOX, HIPAA, PCI-DSS standards configured',
+      label: t('use-case.compliance.steps.standards.label'),
+      command: t('use-case.compliance.steps.standards.command'),
+      result: t('use-case.compliance.steps.standards.result'),
       color: 'from-blue-500 to-blue-600',
     },
     {
       icon: MapPin,
-      label: 'Control Mapping',
-      command: 'plexicus map-controls --auto-align',
-      result: '✓ 127 controls automatically mapped to security policies',
+      label: t('use-case.compliance.steps.mapping.label'),
+      command: t('use-case.compliance.steps.mapping.command'),
+      result: t('use-case.compliance.steps.mapping.result'),
       color: 'from-purple-500 to-purple-600',
     },
     {
       icon: Eye,
-      label: 'Continuous Monitoring',
-      command: 'plexicus monitor --realtime-tracking',
-      result: '✓ Real-time compliance monitoring activated',
+      label: t('use-case.compliance.steps.monitoring.label'),
+      command: t('use-case.compliance.steps.monitoring.command'),
+      result: t('use-case.compliance.steps.monitoring.result'),
       color: 'from-indigo-500 to-indigo-600',
     },
     {
       icon: FileCheck,
-      label: 'Audit Reports',
-      command: 'plexicus generate-report --audit-ready',
-      result: '✓ Audit-ready compliance report generated',
+      label: t('use-case.compliance.steps.reports.label'),
+      command: t('use-case.compliance.steps.reports.command'),
+      result: t('use-case.compliance.steps.reports.result'),
       color: 'from-green-500 to-green-600',
     },
   ];
 
-  const standards = ['SOX', 'HIPAA', 'PCI-DSS', 'NIST', 'ISO 27001', 'GDPR'];
+  const standards = [
+    t('use-case.compliance.standards.0'),
+    t('use-case.compliance.standards.1'),
+    t('use-case.compliance.standards.2'),
+    t('use-case.compliance.standards.3'),
+    t('use-case.compliance.standards.4'),
+    t('use-case.compliance.standards.5'),
+  ];
 
   const typeText = (text: string, callback: ()=> void) => {
     setIsTyping(true);
-    setTypedText('');
+    setTypedText('use-case.');
     let i = 0;
     const timer = setInterval(() => {
       if (i < text.length) {
@@ -128,9 +137,9 @@ export default function ComplianceAutomation() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">📜 Regulatory Compliance Automation</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">📜 { t('use-case.compliance.title') }</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Automated compliance monitoring with continuous control mapping
+            { t('use-case.compliance.subtitle') }
           </p>
         </motion.div>
 
@@ -176,7 +185,7 @@ export default function ComplianceAutomation() {
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
-              <span className="ml-4 text-gray-400">PLEXICUS Compliance Engine</span>
+              <span className="ml-4 text-gray-400">{ t('use-case.compliance.terminal_title') }</span>
             </div>
 
             <div className="space-y-2">
@@ -196,7 +205,7 @@ export default function ComplianceAutomation() {
             </div>
             { isProcessing && (
               <div className="space-y-2">
-                <div className="text-yellow-400">Validating compliance...</div>
+                <div className="text-yellow-400">{ t('use-case.compliance.processing') }</div>
                 <div className="w-full bg-gray-700 rounded-full h-2">
                   <motion.div
                     className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full"
@@ -204,7 +213,7 @@ export default function ComplianceAutomation() {
                     transition={{ duration: 0.1 }}
                   />
                 </div>
-                <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }% complete</div>
+                <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }%{ t('use-case.common.processing.complete') }</div>
               </div>
             ) }
           </motion.div>
