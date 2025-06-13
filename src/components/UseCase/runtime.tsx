@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { Cloud, Eye, Zap, Bell, CheckCircle, Activity } from 'lucide-react';
+import { useTranslations } from '@/i18n/utils';
 
-export default function RuntimeThreatDetection() {
+export default function RuntimeThreatDetection({ lang }) {
+  const t = useTranslations(lang);
   const [currentStep, setCurrentStep] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [typedText, setTypedText] = useState('');
@@ -18,37 +20,37 @@ export default function RuntimeThreatDetection() {
   const detectionFlow = [
     {
       icon: Cloud,
-      label: 'Deploy Monitoring',
-      command: 'plexicus runtime deploy --cloud-workloads',
-      result: '✓ Runtime monitoring agents deployed to all workloads',
+      label: t('use-case.runtime_detection.steps.deploy.label'),
+      command: t('use-case.runtime_detection.steps.deploy.command'),
+      result: t('use-case.runtime_detection.steps.deploy.result'),
       color: 'from-blue-500 to-blue-600',
     },
     {
       icon: Eye,
-      label: 'Behavior Analysis',
-      command: 'plexicus monitor --behavior-detection',
-      result: '✓ 24/7 behavior-based monitoring activated',
+      label: t('use-case.runtime_detection.steps.behavior.label'),
+      command: t('use-case.runtime_detection.steps.behavior.command'),
+      result: t('use-case.runtime_detection.steps.behavior.result'),
       color: 'from-purple-500 to-purple-600',
     },
     {
       icon: Zap,
-      label: 'Threat Detection',
-      command: 'plexicus detect --realtime-threats',
-      result: '⚠️ Suspicious activity detected: Unusual API calls from 192.168.1.100',
+      label: t('use-case.runtime_detection.steps.detection.label'),
+      command: t('use-case.runtime_detection.steps.detection.command'),
+      result: t('use-case.runtime_detection.steps.detection.result'),
       color: 'from-red-500 to-red-600',
     },
     {
       icon: Bell,
-      label: 'Smart Alerting',
-      command: 'plexicus alert --intelligent-filtering',
-      result: '✅ High-priority alert sent to security team (noise filtered)',
+      label: t('use-case.runtime_detection.steps.alerting.label'),
+      command: t('use-case.runtime_detection.steps.alerting.command'),
+      result: t('use-case.runtime_detection.steps.alerting.result'),
       color: 'from-green-500 to-green-600',
     },
   ];
 
   const typeText = (text: string, callback: ()=> void) => {
     setIsTyping(true);
-    setTypedText('');
+    setTypedText('use-case.');
     let i = 0;
     const timer = setInterval(() => {
       if (i < text.length) {
@@ -126,9 +128,9 @@ export default function RuntimeThreatDetection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">🌐 24/7 Runtime Threat Detection</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">🌐 { t('use-case.runtime_detection.title') }</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Always-on security monitoring with intelligent threat detection for live workloads
+            { t('use-case.runtime_detection.subtitle') }
           </p>
         </motion.div>
 
@@ -147,7 +149,7 @@ export default function RuntimeThreatDetection() {
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
-              <span className="ml-4 text-gray-400">PLEXICUS Runtime Security</span>
+              <span className="ml-4 text-gray-400">{ t('use-case.runtime_detection.terminal_title') }</span>
             </div>
 
             <div className="space-y-2">
@@ -167,7 +169,7 @@ export default function RuntimeThreatDetection() {
 
               { isProcessing && (
                 <div className="space-y-2">
-                  <div className="text-yellow-400">Monitoring runtime threats...</div>
+                  <div className="text-yellow-400">{ t('use-case.runtime_detection.processing') }</div>
                   <div className="w-full bg-gray-700 rounded-full h-2">
                     <motion.div
                       className="bg-gradient-to-r from-red-500 to-blue-500 h-2 rounded-full"
@@ -175,7 +177,7 @@ export default function RuntimeThreatDetection() {
                       transition={{ duration: 0.1 }}
                     />
                   </div>
-                  <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }% complete</div>
+                  <div className="text-gray-400 text-xs">{ Math.round(processingProgress) }%{ t('use-case.common.processing.complete') }</div>
                 </div>
               ) }
             </div>
@@ -190,20 +192,20 @@ export default function RuntimeThreatDetection() {
             >
               <h3 className="text-lg font-semibold mb-4 flex items-center">
                 <Activity className="w-5 h-5 mr-2 text-purple-600" />
-                Live Threat Dashboard
+                { t('use-case.runtime_detection.dashboard.title') }
               </h3>
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-green-50 border border-green-200 rounded p-4 text-center">
-                  <div className="text-2xl font-bold text-green-600">247</div>
-                  <div className="text-sm text-green-700">Workloads Monitored</div>
+                  <div className="text-2xl font-bold text-green-600">{ t('use-case.runtime_detection.dashboard.workloads.count') }</div>
+                  <div className="text-sm text-green-700">{ t('use-case.runtime_detection.dashboard.workloads.label') }</div>
                 </div>
                 <div className="bg-yellow-50 border border-yellow-200 rounded p-4 text-center">
-                  <div className="text-2xl font-bold text-yellow-600">3</div>
-                  <div className="text-sm text-yellow-700">Threats Detected</div>
+                  <div className="text-2xl font-bold text-yellow-600">{ t('use-case.runtime_detection.dashboard.threats.count') }</div>
+                  <div className="text-sm text-yellow-700">{ t('use-case.runtime_detection.dashboard.threats.label') }</div>
                 </div>
                 <div className="bg-red-50 border border-red-200 rounded p-4 text-center">
-                  <div className="text-2xl font-bold text-red-600">1</div>
-                  <div className="text-sm text-red-700">Critical Alerts</div>
+                  <div className="text-2xl font-bold text-red-600">{ t('use-case.runtime_detection.dashboard.alerts.count') }</div>
+                  <div className="text-sm text-red-700">{ t('use-case.runtime_detection.dashboard.alerts.label') }</div>
                 </div>
               </div>
             </motion.div>
