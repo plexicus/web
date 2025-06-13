@@ -1,6 +1,6 @@
 use-case:
   hero:
-    titleStart: "🚀 Casos de Uso de PLEXICUS: "
+    titleStart: "Casos de Uso de PLEXICUS: "
     titleCenter: "DevSecOps Seguro"
     titleEnd: "en Cada Etapa"
     subtitleStrong: "Transforma tu ciclo de vida de entrega de software con PLEXICUS"
