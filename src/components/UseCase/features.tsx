@@ -1,10 +1,12 @@
 'use client';
 
+import { useTranslations } from '@/i18n/utils';
 import { motion } from 'framer-motion';
 import { Code, GitPullRequest, Shield, CheckCircle, ArrowRight, Play } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useTransition } from 'react';
 
-export default function DeveloperWorkflowSection() {
+export default function DeveloperWorkflowSection({ lang }) {
+  const t = useTranslations(lang);
   const [activeStep, setActiveStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
@@ -19,11 +21,11 @@ export default function DeveloperWorkflowSection() {
     {
       id: 0,
       icon: Shield,
-      title: 'Threat Detection',
-      description: 'AI continuously monitors your codebase for security vulnerabilities',
+      title: t('use-case.developer_workflow.steps.threat_detection.title'),
+      description: t('use-case.developer_workflow.steps.threat_detection.description'),
+      processingText: t('use-case.developer_workflow.steps.threat_detection.processing'),
+      result: t('use-case.developer_workflow.steps.threat_detection.result'),
       command: 'plexicus scan --continuous --ai-detection',
-      processingText: 'Scanning codebase for vulnerabilities...',
-      result: '⚠️ SQL Injection vulnerability detected in user-auth.js:42',
       code: '// Vulnerable code detected\nconst query = `SELECT * FROM users WHERE id = ${userId}`',
       status: 'detected',
       color: 'from-red-500 to-red-600',
@@ -31,11 +33,11 @@ export default function DeveloperWorkflowSection() {
     {
       id: 1,
       icon: Code,
-      title: 'AI Analysis & Fix Generation',
-      description: 'Context-aware AI generates secure code replacements',
+      title: t('use-case.developer_workflow.steps.ai_analysis.title'),
+      description: t('use-case.developer_workflow.steps.ai_analysis.description'),
+      processingText: t('use-case.developer_workflow.steps.ai_analysis.processing'),
+      result: t('use-case.developer_workflow.steps.ai_analysis.result'),
       command: 'plexicus analyze --context-aware --generate-fix',
-      processingText: 'AI analyzing vulnerability context and generating secure fix...',
-      result: '🧠 AI analysis complete, secure fix generated',
       code: "// AI-generated secure fix\nconst query = 'SELECT * FROM users WHERE id = ?'\ndb.query(query, [userId])",
       status: 'fixing',
       color: 'from-purple-500 to-purple-600',
@@ -43,11 +45,11 @@ export default function DeveloperWorkflowSection() {
     {
       id: 2,
       icon: GitPullRequest,
-      title: 'Automated PR Creation',
-      description: 'Pull request created with detailed explanation and secure implementation',
+      title: t('use-case.developer_workflow.steps.pr_creation.title'),
+      description: t('use-case.developer_workflow.steps.pr_creation.description'),
+      processingText: t('use-case.developer_workflow.steps.pr_creation.processing'),
+      result: t('use-case.developer_workflow.steps.pr_creation.result'),
       command: 'plexicus create-pr --auto-fix --detailed-explanation',
-      processingText: 'Creating pull request with security fix...',
-      result: '📝 Pull request #247 created with security fix',
       code: 'PR #42: Fix SQL Injection Vulnerability\n✅ Parameterized query implementation\n✅ Input validation added',
       status: 'review',
       color: 'from-indigo-500 to-indigo-600',
@@ -55,11 +57,11 @@ export default function DeveloperWorkflowSection() {
     {
       id: 3,
       icon: CheckCircle,
-      title: 'One-Click Approval',
-      description: 'Review, approve, and merge with confidence',
+      title: t('use-case.developer_workflow.steps.approval.title'),
+      description: t('use-case.developer_workflow.steps.approval.description'),
+      processingText: t('use-case.developer_workflow.steps.approval.processing'),
+      result: t('use-case.developer_workflow.steps.approval.result'),
       command: 'plexicus merge --security-verified',
-      processingText: 'Verifying security fix and merging...',
-      result: '✅ Security fix merged to main branch',
       code: '✅ Security review passed\n✅ Tests passing\n✅ Ready to merge',
       status: 'complete',
       color: 'from-green-500 to-green-600',
@@ -152,9 +154,9 @@ export default function DeveloperWorkflowSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">🚀 Developer-First Security Workflow</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">🚀 { t('use-case.developer_workflow.title') }</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Experience seamless security integration that works with your existing development process
+            { t('use-case.developer_workflow.subtitle') }
           </p>
         </motion.div>
 
