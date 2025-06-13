@@ -10,9 +10,9 @@ import AIRemediation from "@/components/UseCase/ai-remediation";
 import CrossFunctionalCollaboration from "@/components/UseCase/cross-functionability";
 import ComplianceAutomation from "@/components/UseCase/compliance";
 import RuntimeThreatDetection from "@/components/UseCase/runtime";
-import FeaturesSection from "@/components/UseCase/features"
-import DevSecOpsPipeline from "@/components/UseCase/pipeline"
-import UseCaseCTASection from "@/components/UseCase/cta"
+import FeaturesSection from "@/components/UseCase/features";
+import DevSecOpsPipeline from "@/components/UseCase/pipeline";
+import UseCaseCTASection from "@/components/UseCase/cta";
 
 /**
  * Utils
@@ -33,16 +33,16 @@ export async function getStaticPaths() {
 
 
 <Layout>
-  <UseCasesHero client:load />
-    <div class="space-y-20 py-20">
-      <FeaturesSection client:load />
-      <DevSecOpsPipeline client:load />
-      <VulnerabilityIntelligence client:load />
-      <AgileWorkflows client:load />
-      <AIRemediation client:load />
-      <CrossFunctionalCollaboration client:load />
-      <ComplianceAutomation client:load />
-      <RuntimeThreatDetection client:load />
-    </div>
-    <UseCaseCTASection client:load />
+  <UseCasesHero client:load lang={lang} />
+  <div class="space-y-20 py-20">
+    <FeaturesSection client:load lang={lang}/>
+    <DevSecOpsPipeline client:load lang={lang}/>
+    <VulnerabilityIntelligence client:load lang={lang}/>
+    <AgileWorkflows client:load lang={lang}/>
+    <AIRemediation client:load lang={lang}/>
+    <CrossFunctionalCollaboration client:load lang={lang}/>
+    <ComplianceAutomation client:load lang={lang}/>
+    <RuntimeThreatDetection client:load lang={lang}/>
+  </div>
+  <UseCaseCTASection client:load />
 </Layout>
