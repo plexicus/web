@@ -1,196 +1,280 @@
 use-case:
   hero:
-    title: "Transforme su DevSecOps con casos de uso reales de PLEXICUS"
-    subtitle: "Explore implementaciones probadas en pipelines de CI/CD, gestión de vulnerabilidades, remediación automatizada y automatización del cumplimiento. Vea cómo las organizaciones líderes aseguran su ciclo de vida de desarrollo con PLEXICUS."
+    titleStart: "🚀 Casos de Uso de PLEXICUS: "
+    titleCenter: "DevSecOps Seguro"
+    titleEnd: "en Cada Etapa"
+    subtitleStrong: "Transforma tu ciclo de vida de entrega de software con PLEXICUS"
+    subtitle: " — la plataforma inteligente para integrar la seguridad, agilizar el cumplimiento y acelerar el desarrollo seguro."
+    description: "Desde el commit del código hasta la producción, descubre cómo los equipos líderes utilizan PLEXICUS para automatizar, monitorear y remediar los riesgos de seguridad sin sacrificar la velocidad."
+    features:
+      security: "Seguridad de nivel empresarial"
+      automation: "Automatización impulsada por IA"
+      collaboration: "Colaboración de equipo sin interrupciones"
     buttons:
-      - "Explorar Casos de Uso"
-      - "Ver Demostración"
-  cta:
-    title: "¿Listo para proteger su organización?"
-    description: "Descubra cómo PLEXICUS puede revolucionar su flujo de trabajo de seguridad"
-    buttonText: "Iniciar Prueba Gratuita"
-    buttonLink: "/demo"
-    secondaryButtonText: "Agendar Demostración"
-    secondaryButtonLink: "/demo"
-  features:
-    title: "Casos de Uso Prácticos"
-    subtitle: "Descubra cómo PLEXICUS transforma los flujos de trabajo de DevSecOps con automatización inteligente e integración perfecta"
-  labels:
-    code: "Código"
-    scan: "Escanear"
-    analyze: "Analizar"
-    remediate: "Corregir"
-    deploy: "Desplegar"
-    currentProcess: "Proceso Actual"
-    step: "Paso {count} de {total}"
-    legend: "Pipeline de DevSecOps"
-    active: "Activo"
-    done: "Hecho"
-    processComplete: "Proceso Completo"
-    readyForNextCycle: "Listo para el siguiente ciclo"
-  list:
-    - id: "cicd"
-      title: "Integración Perfecta con Pipelines de CI/CD"
-      subtitle: "Automatice la Seguridad en Cada Etapa de su Proceso de Desarrollo"
-      points:
-        - "PLEXICUS se integra directamente en sus flujos de trabajo de CI/CD existentes, proporcionando escaneo de seguridad automatizado sin interrumpir su velocidad de desarrollo."
-        - "La detección de vulnerabilidades y la validación de cumplimiento en tiempo real aseguran que los problemas de seguridad se detecten y resuelvan antes de que lleguen a los entornos de producción."
-      steps:
-        - id: "developer"
-          label: "Desarrollador"
-          description: "Cambios de código iniciados"
-          icon: "code"
-        - id: "commit"
-          label: "Commit en Git"
-          description: "Cambios enviados al repositorio"
-          icon: "git-branch"
-        - id: "plexicus"
-          label: "Escaneo PLEXICUS"
-          description: "Análisis de seguridad automatizado"
-          icon: "shield-check"
-        - id: "security"
-          label: "Validación de Seguridad"
-          description: "Verificaciones de cumplimiento realizadas"
-          icon: "check-circle"
-        - id: "deploy"
-          label: "Despliegue Seguro"
-          description: "Lanzamiento seguro a producción"
-          icon: "rocket"
-    - id: "vulnerability"
-      title: "Gestión Unificada de Vulnerabilidades"
-      subtitle: "Centralice y Optimice su Flujo de Trabajo de Escaneo de Seguridad"
-      points:
-        - "PLEXICUS se integra con múltiples escáneres de vulnerabilidades, creando un panel unificado que consolida los hallazgos de todas sus herramientas de seguridad."
-        - "Los algoritmos avanzados de priorización de amenazas le ayudan a centrarse primero en las vulnerabilidades más críticas, reduciendo el ruido y mejorando los tiempos de respuesta."
-      steps:
-        - id: "scanners"
-          label: "Múltiples Escáneres"
-          description: "Varias herramientas de seguridad activas"
-          icon: "scan"
-        - id: "collection"
-          label: "Recopilación de Datos"
-          description: "Hallazgos recopilados centralmente"
-          icon: "database"
-        - id: "analysis"
-          label: "Análisis PLEXICUS"
-          description: "Priorización de amenazas impulsada por IA"
-          icon: "cpu"
-        - id: "dashboard"
-          label: "Panel Unificado"
-          description: "Vista de panel único"
-          icon: "layout-dashboard"
-    - id: "remediation"
-      title: "Remediación Automatizada Impulsada por IA"
-      subtitle: "De la Detección a la Resolución en Minutos, no en Horas"
-      points:
-        - "PLEXICUS genera playbooks de remediación inteligentes y contextuales que se pueden implementar automáticamente o con una mínima intervención humana."
-        - "Los algoritmos de aprendizaje automático mejoran continuamente las estrategias de remediación basándose en su entorno y en resoluciones exitosas pasadas."
-      steps:
-        - id: "detection"
-          label: "Detección de Amenazas"
-          description: "Problema de seguridad identificado"
-          icon: "alert-triangle"
-        - id: "analysis"
-          label: "Análisis con IA"
-          description: "Evaluación de contexto y análisis de riesgos"
-          icon: "brain"
-        - id: "playbook"
-          label: "Playbook Automático"
-          description: "Estrategia de remediación generada"
-          icon: "book-open"
-        - id: "execution"
-          label: "Ejecución Automática"
-          description: "Corrección aplicada automáticamente"
-          icon: "zap"
-    - id: "collaboration"
-      title: "Colaboración entre Equipos Interfuncionales"
-      subtitle: "Una a los Equipos de Dev, Sec y Ops con Visibilidad Compartida"
-      points:
-        - "PLEXICUS proporciona paneles basados en roles que brindan a cada miembro del equipo la información exacta que necesita sin abrumarlos con datos irrelevantes."
-        - "Las funciones de colaboración en tiempo real permiten una comunicación y coordinación fluidas entre los equipos de desarrollo, seguridad y operaciones."
-      steps:
-        - id: "teams"
-          label: "Equipos Interfuncionales"
-          description: "Dev, Sec, Ops trabajando juntos"
-          icon: "users"
-        - id: "plexicus"
-          label: "Plataforma PLEXICUS"
-          description: "Centro de colaboración central"
-          icon: "layers"
-        - id: "insights"
-          label: "Información Compartida"
-          description: "Visibilidad en tiempo real para todos"
-          icon: "eye"
-        - id: "coordination"
-          label: "Coordinación Fluida"
-          description: "Gestión de flujo de trabajo unificada"
-          icon: "git-merge"
-    - id: "monitoring"
-      title: "Monitoreo de Seguridad Continuo 24/7"
-      subtitle: "No se Pierda Ninguna Amenaza con Detección y Alertas en Tiempo Real"
-      points:
-        - "PLEXICUS mantiene una vigilancia constante sobre sus aplicaciones e infraestructura, detectando nuevas amenazas a medida que surgen en tiempo real."
-        - "Los sistemas de alerta inteligentes reducen los falsos positivos al tiempo que garantizan que los eventos de seguridad críticos reciban atención inmediata de su equipo."
-      steps:
-        - id: "applications"
-          label: "Aplicaciones"
-          description: "Múltiples aplicaciones bajo monitoreo"
-          icon: "app-window"
-        - id: "monitoring"
-          label: "Monitoreo 24/7"
-          description: "Detección continua de amenazas"
-          icon: "activity"
-        - id: "analysis"
-          label: "Análisis en Tiempo Real"
-          description: "Evaluación inteligente de amenazas"
-          icon: "bar-chart"
-        - id: "alerts"
-          label: "Alertas Inteligentes"
-          description: "Notificaciones priorizadas enviadas"
-          icon: "bell"
-    - id: "compliance"
-      title: "Automatización del Cumplimiento Normativo"
-      subtitle: "Cumpla con los Estrictos Estándares de la Industria con Confianza"
-      points:
-        - "PLEXICUS asigna automáticamente los controles de seguridad a marcos regulatorios como SOX, HIPAA, PCI-DSS y otros, garantizando un cumplimiento continuo."
-        - "Los registros de auditoría automatizados y los informes de cumplimiento reducen la carga de las evaluaciones regulatorias mientras se mantienen los más altos estándares de seguridad."
-      steps:
-        - id: "frameworks"
-          label: "Marcos Regulatorios"
-          description: "Estándares SOX, HIPAA, PCI-DSS"
-          icon: "file-text"
-        - id: "mapping"
-          label: "Mapeo de Controles"
-          description: "Alineación automática del cumplimiento"
-          icon: "map"
-        - id: "monitoring"
-          label: "Monitoreo Continuo"
-          description: "Seguimiento del cumplimiento en tiempo real"
-          icon: "line-chart"
-        - id: "reporting"
-          label: "Informes Automatizados"
-          description: "Documentación lista para auditoría"
-          icon: "clipboard-check"
-    - id: "agile"
-      title: "Integración de Seguridad Preparada para Agile"
-      subtitle: "Seguridad que se Mueve a la Velocidad del Desarrollo"
-      points:
-        - "PLEXICUS se adapta a los ciclos de desarrollo rápidos, proporcionando retroalimentación de seguridad en minutos en lugar de días o semanas."
-        - "Las comprobaciones de seguridad ligeras se integran perfectamente en los flujos de trabajo de sprint, asegurando que la seguridad nunca se convierta en un cuello de botella para la innovación."
-      steps:
-        - id: "planning"
-          label: "Planificación del Sprint"
-          description: "Requisitos de seguridad definidos"
-          icon: "calendar"
-        - id: "development"
-          label: "Desarrollo"
-          description: "Código escrito pensando en la seguridad"
-          icon: "code"
-        - id: "scanning"
-          label: "Escaneo Continuo"
-          description: "Validación de seguridad en tiempo real"
-          icon: "search"
-        - id: "integration"
-          label: "Integración Perfecta"
-          description: "Seguridad integrada en el flujo de trabajo"
-          icon: "link"
+      trial: "Comenzar Tu Prueba Gratuita"
+      demo: "Programar Demo"
+
+  developer_workflow:
+    title: "Flujo de Trabajo de Seguridad Enfocado en el Desarrollador"
+    subtitle: "Experimenta una integración de seguridad perfecta que funciona con tu proceso de desarrollo existente"
+    steps:
+      threat_detection:
+        title: "Detección de Amenazas"
+        description: "La IA monitorea continuamente tu código en busca de vulnerabilidades de seguridad"
+        command: "plexicus scan --continuous --ai-detection"
+        processing: "Escaneando el código en busca de vulnerabilidades..."
+        result: "⚠️ Vulnerabilidad de inyección SQL detectada en user-auth.js:42"
+        code: "// Código vulnerable detectado\nconst query = `SELECT * FROM users WHERE id = ${userId}`"
+      ai_analysis:
+        title: "Análisis de IA y Generación de Correcciones"
+        description: "La IA consciente del contexto genera reemplazos de código seguros"
+        command: "plexicus analyze --context-aware --generate-fix"
+        processing: "IA analizando el contexto de la vulnerabilidad y generando la corrección segura..."
+        result: "🧠 Análisis de IA completo, corrección segura generada"
+        code: "// Corrección segura generada por IA\nconst query = 'SELECT * FROM users WHERE id = ?'\ndb.query(query, [userId])"
+      pr_creation:
+        title: "Creación Automática de PR"
+        description: "Solicitud de extracción creada con explicación detallada e implementación segura"
+        command: "plexicus create-pr --auto-fix --detailed-explanation"
+        processing: "Creando solicitud de extracción con la corrección de seguridad..."
+        result: "📝 Solicitud de extracción #247 creada con la corrección de seguridad"
+        code: "PR #42: Corrección de Vulnerabilidad de Inyección SQL\n✅ Implementación de consulta parametrizada\n✅ Validación de entrada añadida"
+      approval:
+        title: "Aprobación con Un Clic"
+        description: "Revisa, aprueba y fusiona con confianza"
+        command: "plexicus merge --security-verified"
+        processing: "Verificando la corrección de seguridad y fusionando..."
+        result: "✅ Corrección de seguridad fusionada en la rama principal"
+        code: "✅ Revisión de seguridad aprobada\n✅ Pruebas superadas\n✅ Listo para fusionar"
+    demo:
+      title: "Ver en Acción"
+      description: "Observa cómo Plexicus transforma tu flujo de trabajo de seguridad en menos de 2 minutos"
+      button: "Ver Demo"
+    completion:
+      title: "¡Flujo de Trabajo Completado!"
+      description: "Seguridad integrada perfectamente en tu proceso de desarrollo"
+
+  devsecops_pipeline:
+    title: "Pipeline DevSecOps Reinventado"
+    subtitle: "Observa cómo PLEXICUS transforma tu flujo de trabajo de desarrollo con seguridad integrada"
+    terminal_title: "Pipeline DevSecOps de PLEXICUS"
+    processing: "Procesando..."
+    steps:
+      code:
+        label: "Código"
+        command: "git commit -m 'Add user authentication'"
+        result: "✓ Código enviado al repositorio"
+      scan:
+        label: "Escanear"
+        command: "plexicus scan --type=sast,sca,iac"
+        result: "✓ 3 vulnerabilidades detectadas, 2 críticas"
+      analyze:
+        label: "Analizar"
+        command: "plexicus analyze --ai-correlation"
+        result: "✓ Correlación de riesgo por IA completada, clasificación de prioridad aplicada"
+      fix:
+        label: "Corregir"
+        command: "plexicus remediate --auto-fix"
+        result: "✓ 2 vulnerabilidades auto-corregidas, 1 requiere revisión manual"
+      deploy:
+        label: "Desplegar"
+        command: "kubectl apply -f deployment.yaml"
+        result: "✓ Despliegue seguro en producción completado"
+    completion:
+      title: "¡Pipeline Completado!"
+      description: "Tu código ya está desplegado de forma segura en producción"
+
+  vulnerability_intelligence:
+    title: "Inteligencia Unificada de Vulnerabilidades"
+    subtitle: "La correlación de amenazas impulsada por IA une todas tus herramientas de seguridad"
+    terminal_title: "Inteligencia de Amenazas de PLEXICUS"
+    processing: "Analizando amenazas..."
+    steps:
+      scanners:
+        label: "Múltiples Escáneres"
+        command: "plexicus integrate --scanners=sonarqube,snyk,checkmarx"
+        result: "✓ 3 escáneres integrados, ingesta de datos activa"
+      collection:
+        label: "Recopilación de Datos"
+        command: "plexicus collect --unified-ingestion"
+        result: "✓ 247 vulnerabilidades recopiladas de todas las fuentes"
+      analysis:
+        label: "Análisis de IA"
+        command: "plexicus analyze --ai-threat-engine"
+        result: "✓ Análisis consciente del contexto completado, duplicados eliminados"
+      prioritization:
+        label: "Priorización Inteligente"
+        command: "plexicus prioritize --impact-based"
+        result: "✓ 15 problemas críticos priorizados por impacto comercial"
+    completion:
+      title: "¡Inteligencia Completa!"
+      description: "Todas las vulnerabilidades analizadas y priorizadas por IA"
+
+  agile_workflows:
+    title: "Flujos de Trabajo de Seguridad Ágiles"
+    subtitle: "Feedback de seguridad en tiempo real integrado en tu proceso de desarrollo ágil"
+    terminal_title: "Integración Ágil de PLEXICUS"
+    processing: "Integrando con el flujo de trabajo ágil..."
+    steps:
+      planning:
+        label: "Planificación de Sprint"
+        command: "plexicus sprint-init --security-gates"
+        result: "✓ Requisitos de seguridad integrados en el backlog del sprint"
+      development:
+        label: "Desarrollo"
+        command: "git push origin feature/user-auth"
+        result: "✓ Código enviado, hooks de seguridad pre-commit activados"
+      scan:
+        label: "Escaneo en Tiempo Real"
+        command: "plexicus scan --realtime --feedback"
+        result: "✓ Feedback de seguridad entregado en 30 segundos"
+      feedback:
+        label: "Feedback del Desarrollador"
+        command: "plexicus feedback --ide-integration"
+        result: "✓ Contexto de seguridad entregado directamente al IDE"
+    completion:
+      title: "¡Sprint Asegurado!"
+      description: "Feedback de seguridad entregado en minutos, no en días"
+
+  ai_remediation:
+    title: "Remediación Automatizada Impulsada por IA"
+    subtitle: "Observa cómo la IA detecta, analiza y corrige automáticamente las vulnerabilidades de seguridad"
+    terminal_title: "Motor de Remediación de IA de PLEXICUS"
+    processing: "IA analizando y generando la corrección..."
+    steps:
+      detection:
+        label: "Amenaza Detectada"
+        command: "plexicus detect --severity=critical"
+        result: "⚠️ Vulnerabilidad de inyección SQL detectada en user-auth.js:42"
+      analysis:
+        label: "Análisis de IA"
+        command: "plexicus analyze --context-aware --ai-engine"
+        result: "🧠 Contexto analizado, estrategia de remediación generada"
+      generation:
+        label: "Generar Corrección"
+        command: "plexicus generate-fix --auto-remediate"
+        result: "📝 Corrección de código segura generada con consultas parametrizadas"
+      apply:
+        label: "Aplicar Automáticamente"
+        command: "plexicus apply-fix --create-pr"
+        result: "✅ Solicitud de extracción #247 creada con la corrección de seguridad"
+    code_diff:
+      title: "Corrección de Seguridad Generada"
+      before: "const query = `SELECT * FROM users WHERE id = ${userAuthId}`;"
+      after: "const query = 'SELECT * FROM users WHERE id = ?';\nconst result = await db.query(query, [userAuthId]);"
+    completion:
+      title: "¡Remediación Completa!"
+      description: "Vulnerabilidad corregida automáticamente y lista para revisión"
+
+  cross_functional:
+    title: "Colaboración de Seguridad Transfuncional"
+    subtitle: "Unificando equipos con inteligencia de seguridad compartida y respuesta coordinada"
+    terminal_title: "Colaboración de Equipo PLEXICUS"
+    processing: "Sincronizando equipos..."
+    steps:
+      setup:
+        label: "Configuración del Equipo"
+        command: "plexicus teams init --roles=dev,sec,ops"
+        result: "✓ Espacio de trabajo de equipo transfuncional creado"
+      dashboard:
+        label: "Panel Compartido"
+        command: "plexicus dashboard --unified-view"
+        result: "✓ Paneles basados en roles configurados para todos los equipos"
+      sync:
+        label: "Sincronización en Tiempo Real"
+        command: "plexicus sync --cross-team-notifications"
+        result: "✓ Información de seguridad compartida entre Desarrollo, Seguridad y Operaciones"
+      response:
+        label: "Respuesta Coordinada"
+        command: "plexicus respond --collaborative"
+        result: "✓ Respuesta a incidentes coordinada entre todos los equipos"
+    teams:
+      dev:
+        label: "Dev"
+        role: "Desarrollo"
+      sec:
+        label: "Sec"
+        role: "Seguridad"
+      ops:
+        label: "Ops"
+        role: "Operaciones"
+    platform:
+      title: "Plataforma PLEXICUS"
+      subtitle: "Inteligencia de Seguridad Unificada"
+    completion:
+      title: "¡Equipos Unidos!"
+      description: "Todos los equipos ahora comparten información de seguridad unificada"
+
+  compliance:
+    title: "Automatización del Cumplimiento Normativo"
+    subtitle: "Monitoreo automatizado del cumplimiento con mapeo continuo de controles"
+    terminal_title: "Motor de Cumplimiento de PLEXICUS"
+    processing: "Validando cumplimiento..."
+    steps:
+      standards:
+        label: "Configuración de Estándares"
+        command: "plexicus compliance init --standards=sox,hipaa,pci"
+        result: "✓ Estándares SOX, HIPAA, PCI-DSS configurados"
+      mapping:
+        label: "Mapeo de Controles"
+        command: "plexicus map-controls --auto-align"
+        result: "✓ 127 controles mapeados automáticamente a políticas de seguridad"
+      monitoring:
+        label: "Monitoreo Continuo"
+        command: "plexicus monitor --realtime-tracking"
+        result: "✓ Monitoreo de cumplimiento en tiempo real activado"
+      reports:
+        label: "Informes de Auditoría"
+        command: "plexicus generate-report --audit-ready"
+        result: "✓ Informe de cumplimiento listo para auditoría generado"
+    standards:
+      - "SOX"
+      - "HIPAA"
+      - "PCI-DSS"
+      - "NIST"
+      - "ISO 27001"
+      - "GDPR"
+    completion:
+      title: "¡Cumplimiento Logrado!"
+      description: "Todos los estándares monitoreados e informes listos para auditoría generados"
+
+  runtime_detection:
+    title: "Detección de Amenazas en Tiempo de Ejecución 24/7"
+    subtitle: "Monitoreo de seguridad siempre activo con detección inteligente de amenazas para cargas de trabajo en vivo"
+    terminal_title: "Seguridad en Tiempo de Ejecución de PLEXICUS"
+    processing: "Monitoreando amenazas en tiempo de ejecución..."
+    steps:
+      deploy:
+        label: "Desplegar Monitoreo"
+        command: "plexicus runtime deploy --cloud-workloads"
+        result: "✓ Agentes de monitoreo en tiempo de ejecución desplegados en todas las cargas de trabajo"
+      behavior:
+        label: "Análisis de Comportamiento"
+        command: "plexicus monitor --behavior-detection"
+        result: "✓ Monitoreo basado en el comportamiento 24/7 activado"
+      detection:
+        label: "Detección de Amenazas"
+        command: "plexicus detect --realtime-threats"
+        result: "⚠️ Actividad sospechosa detectada: Llamadas API inusuales desde 192.168.1.100"
+      alerting:
+        label: "Alertas Inteligentes"
+        command: "plexicus alert --intelligent-filtering"
+        result: "✅ Alerta de alta prioridad enviada al equipo de seguridad (ruido filtrado)"
+    dashboard:
+      title: "Panel de Amenazas en Vivo"
+      workloads:
+        count: "247"
+        label: "Cargas de Trabajo Monitoreadas"
+      threats:
+        count: "3"
+        label: "Amenazas Detectadas"
+      alerts:
+        count: "1"
+        label: "Alertas Críticas"
+    completion:
+      title: "¡Protección en Tiempo de Ejecución Activa!"
+      description: "Monitoreo 24/7 con detección inteligente de amenazas habilitado"
+
+  common:
+    processing:
+      complete: "completo"

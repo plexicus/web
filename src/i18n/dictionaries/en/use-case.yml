@@ -1,196 +1,280 @@
 use-case:
   hero:
-    title: "Transform Your DevSecOps with Real-World PLEXICUS Use Cases"
-    subtitle: "Explore proven implementations across CI/CD pipelines, vulnerability management, automated remediation, and compliance automation. See how leading organizations secure their development lifecycle with PLEXICUS."
+    titleStart: "🚀 PLEXICUS Use Cases: "
+    titleCenter: "Secure DevSecOps"
+    titleEnd: "at Every Stage"
+    subtitleStrong: "Transform your software delivery lifecycle with PLEXICUS"
+    subtitle: " — the intelligent platform for embedding security, streamlining compliance, and accelerating secure development."
+    description: "From code commit to production, discover how leading teams use PLEXICUS to automate, monitor, and remediate security risks without sacrificing velocity."
+    features:
+      security: "Enterprise-grade security"
+      automation: "AI-powered automation"
+      collaboration: "Seamless team collaboration"
     buttons:
-      - "Explore Use Cases"
-      - "Watch Demo"
-  cta:
-    title: "Ready to secure your organization?"
-    description: "Discover how PLEXICUS can revolutionize your security workflow"
-    buttonText: "Start Free Trial"
-    buttonLink: "/demo"
-    secondaryButtonText: "Schedule Demo"
-    secondaryButtonLink: "/demo"
-  features:
-    title: "Practical Use Cases"
-    subtitle: "Discover how PLEXICUS transforms DevSecOps workflows with intelligent automation and seamless integration"
-  labels:
-    code: "Code"
-    scan: "Scan"
-    analyze: "Analyze"
-    remediate: "Fix"
-    deploy: "Deploy"
-    currentProcess: "Current Process"
-    step: "Step {count} of {total}"
-    legend: "DevSecOps Pipeline"
-    active: "Active"
-    done: "Done"
-    processComplete: "Process Complete"
-    readyForNextCycle: "Ready for next cycle"
-  list:
-    - id: "cicd"
-      title: "Seamless CI/CD Pipeline Integration"
-      subtitle: "Automate Security at Every Stage of Your Development Process"
-      points:
-        - "PLEXICUS embeds directly into your existing CI/CD workflows, providing automated security scanning without disrupting your development velocity."
-        - "Real-time vulnerability detection and compliance validation ensure that security issues are caught and resolved before they reach production environments."
-      steps:
-        - id: "developer"
-          label: "Developer"
-          description: "Code changes initiated"
-          icon: "code"
-        - id: "commit"
-          label: "Git Commit"
-          description: "Changes pushed to repository"
-          icon: "git-branch"
-        - id: "plexicus"
-          label: "PLEXICUS Scan"
-          description: "Automated security analysis"
-          icon: "shield-check"
-        - id: "security"
-          label: "Security Validation"
-          description: "Compliance checks performed"
-          icon: "check-circle"
-        - id: "deploy"
-          label: "Safe Deployment"
-          description: "Secure release to production"
-          icon: "rocket"
-    - id: "vulnerability"
-      title: "Unified Vulnerability Management"
-      subtitle: "Centralize and Streamline Your Security Scanning Workflow"
-      points:
-        - "PLEXICUS integrates with multiple vulnerability scanners, creating a unified dashboard that consolidates findings from all your security tools."
-        - "Advanced threat prioritization algorithms help you focus on the most critical vulnerabilities first, reducing noise and improving response times."
-      steps:
-        - id: "scanners"
-          label: "Multiple Scanners"
-          description: "Various security tools active"
-          icon: "scan"
-        - id: "collection"
-          label: "Data Collection"
-          description: "Findings gathered centrally"
-          icon: "database"
-        - id: "analysis"
-          label: "PLEXICUS Analysis"
-          description: "AI-powered threat prioritization"
-          icon: "cpu"
-        - id: "dashboard"
-          label: "Unified Dashboard"
-          description: "Single pane of glass view"
-          icon: "layout-dashboard"
-    - id: "remediation"
-      title: "AI-Powered Automated Remediation"
-      subtitle: "From Detection to Resolution in Minutes, Not Hours"
-      points:
-        - "PLEXICUS generates intelligent, context-aware remediation playbooks that can be deployed automatically or with minimal human intervention."
-        - "Machine learning algorithms continuously improve remediation strategies based on your environment and past successful resolutions."
-      steps:
-        - id: "detection"
-          label: "Threat Detection"
-          description: "Security issue identified"
-          icon: "alert-triangle"
-        - id: "analysis"
-          label: "AI Analysis"
-          description: "Context evaluation & risk assessment"
-          icon: "brain"
-        - id: "playbook"
-          label: "Auto Playbook"
-          description: "Remediation strategy generated"
-          icon: "book-open"
-        - id: "execution"
-          label: "Auto Execution"
-          description: "Fix applied automatically"
-          icon: "zap"
-    - id: "collaboration"
-      title: "Cross-Functional Team Collaboration"
-      subtitle: "Unite Dev, Sec, and Ops Teams with Shared Visibility"
-      points:
-        - "PLEXICUS provides role-based dashboards that give each team member the exact information they need without overwhelming them with irrelevant data."
-        - "Real-time collaboration features enable seamless communication and coordination between development, security, and operations teams."
-      steps:
-        - id: "teams"
-          label: "Cross-Functional Teams"
-          description: "Dev, Sec, Ops working together"
-          icon: "users"
-        - id: "plexicus"
-          label: "PLEXICUS Platform"
-          description: "Central collaboration hub"
-          icon: "layers"
-        - id: "insights"
-          label: "Shared Insights"
-          description: "Real-time visibility for all"
-          icon: "eye"
-        - id: "coordination"
-          label: "Seamless Coordination"
-          description: "Unified workflow management"
-          icon: "git-merge"
-    - id: "monitoring"
-      title: "24/7 Continuous Security Monitoring"
-      subtitle: "Never Miss a Threat with Real-Time Detection and Alerting"
-      points:
-        - "PLEXICUS maintains constant vigilance over your applications and infrastructure, detecting new threats as they emerge in real-time."
-        - "Intelligent alerting systems reduce false positives while ensuring that critical security events receive immediate attention from your team."
-      steps:
-        - id: "applications"
-          label: "Applications"
-          description: "Multiple apps under monitoring"
-          icon: "app-window"
-        - id: "monitoring"
-          label: "24/7 Monitoring"
-          description: "Continuous threat detection"
-          icon: "activity"
-        - id: "analysis"
-          label: "Real-time Analysis"
-          description: "Intelligent threat assessment"
-          icon: "bar-chart"
-        - id: "alerts"
-          label: "Smart Alerts"
-          description: "Prioritized notifications sent"
-          icon: "bell"
-    - id: "compliance"
-      title: "Regulatory Compliance Automation"
-      subtitle: "Meet Strict Industry Standards with Confidence"
-      points:
-        - "PLEXICUS automatically maps security controls to regulatory frameworks like SOX, HIPAA, PCI-DSS, and others, ensuring continuous compliance."
-        - "Automated audit trails and compliance reporting reduce the burden of regulatory assessments while maintaining the highest security standards."
-      steps:
-        - id: "frameworks"
-          label: "Regulatory Frameworks"
-          description: "SOX, HIPAA, PCI-DSS standards"
-          icon: "file-text"
-        - id: "mapping"
-          label: "Control Mapping"
-          description: "Automatic compliance alignment"
-          icon: "map"
-        - id: "monitoring"
-          label: "Continuous Monitoring"
-          description: "Real-time compliance tracking"
-          icon: "line-chart"
-        - id: "reporting"
-          label: "Automated Reporting"
-          description: "Audit-ready documentation"
-          icon: "clipboard-check"
-    - id: "agile"
-      title: "Agile-Ready Security Integration"
-      subtitle: "Security That Moves at the Speed of Development"
-      points:
-        - "PLEXICUS adapts to rapid development cycles, providing security feedback within minutes rather than days or weeks."
-        - "Lightweight security checks integrate seamlessly into sprint workflows, ensuring that security never becomes a bottleneck to innovation."
-      steps:
-        - id: "planning"
-          label: "Sprint Planning"
-          description: "Security requirements defined"
-          icon: "calendar"
-        - id: "development"
-          label: "Development"
-          description: "Code written with security in mind"
-          icon: "code"
-        - id: "scanning"
-          label: "Continuous Scanning"
-          description: "Real-time security validation"
-          icon: "search"
-        - id: "integration"
-          label: "Seamless Integration"
-          description: "Security embedded in workflow"
-          icon: "link"
+      trial: "Start Your Free Trial"
+      demo: "Schedule Demo"
+
+  developer_workflow:
+    title: "Developer-First Security Workflow"
+    subtitle: "Experience seamless security integration that works with your existing development process"
+    steps:
+      threat_detection:
+        title: "Threat Detection"
+        description: "AI continuously monitors your codebase for security vulnerabilities"
+        command: "plexicus scan --continuous --ai-detection"
+        processing: "Scanning codebase for vulnerabilities..."
+        result: "⚠️ SQL Injection vulnerability detected in user-auth.js:42"
+        code: "// Vulnerable code detected\nconst query = `SELECT * FROM users WHERE id = ${userId}`"
+      ai_analysis:
+        title: "AI Analysis & Fix Generation"
+        description: "Context-aware AI generates secure code replacements"
+        command: "plexicus analyze --context-aware --generate-fix"
+        processing: "AI analyzing vulnerability context and generating secure fix..."
+        result: "🧠 AI analysis complete, secure fix generated"
+        code: "// AI-generated secure fix\nconst query = 'SELECT * FROM users WHERE id = ?'\ndb.query(query, [userId])"
+      pr_creation:
+        title: "Automated PR Creation"
+        description: "Pull request created with detailed explanation and secure implementation"
+        command: "plexicus create-pr --auto-fix --detailed-explanation"
+        processing: "Creating pull request with security fix..."
+        result: "📝 Pull request #247 created with security fix"
+        code: "PR #42: Fix SQL Injection Vulnerability\n✅ Parameterized query implementation\n✅ Input validation added"
+      approval:
+        title: "One-Click Approval"
+        description: "Review, approve, and merge with confidence"
+        command: "plexicus merge --security-verified"
+        processing: "Verifying security fix and merging..."
+        result: "✅ Security fix merged to main branch"
+        code: "✅ Security review passed\n✅ Tests passing\n✅ Ready to merge"
+    demo:
+      title: "See It In Action"
+      description: "Watch how Plexicus transforms your security workflow in under 2 minutes"
+      button: "Watch Demo"
+    completion:
+      title: "Workflow Complete!"
+      description: "Security integrated seamlessly into your development process"
+
+  devsecops_pipeline:
+    title: "DevSecOps Pipeline Reinvented"
+    subtitle: "Watch how PLEXICUS transforms your development workflow with embedded security"
+    terminal_title: "PLEXICUS DevSecOps Pipeline"
+    processing: "Processing..."
+    steps:
+      code:
+        label: "Code"
+        command: "git commit -m 'Add user authentication'"
+        result: "✓ Code committed to repository"
+      scan:
+        label: "Scan"
+        command: "plexicus scan --type=sast,sca,iac"
+        result: "✓ 3 vulnerabilities detected, 2 critical"
+      analyze:
+        label: "Analyze"
+        command: "plexicus analyze --ai-correlation"
+        result: "✓ AI risk correlation complete, priority ranking applied"
+      fix:
+        label: "Fix"
+        command: "plexicus remediate --auto-fix"
+        result: "✓ 2 vulnerabilities auto-fixed, 1 requires manual review"
+      deploy:
+        label: "Deploy"
+        command: "kubectl apply -f deployment.yaml"
+        result: "✓ Secure deployment to production complete"
+    completion:
+      title: "Pipeline Complete!"
+      description: "Your code is now securely deployed to production"
+
+  vulnerability_intelligence:
+    title: "Unified Vulnerability Intelligence"
+    subtitle: "AI-powered threat correlation brings all your security tools together"
+    terminal_title: "PLEXICUS Threat Intelligence"
+    processing: "Analyzing threats..."
+    steps:
+      scanners:
+        label: "Multiple Scanners"
+        command: "plexicus integrate --scanners=sonarqube,snyk,checkmarx"
+        result: "✓ 3 scanners integrated, data ingestion active"
+      collection:
+        label: "Data Collection"
+        command: "plexicus collect --unified-ingestion"
+        result: "✓ 247 vulnerabilities collected from all sources"
+      analysis:
+        label: "AI Analysis"
+        command: "plexicus analyze --ai-threat-engine"
+        result: "✓ Context-aware analysis complete, duplicates removed"
+      prioritization:
+        label: "Smart Prioritization"
+        command: "plexicus prioritize --impact-based"
+        result: "✓ 15 critical issues prioritized by business impact"
+    completion:
+      title: "Intelligence Complete!"
+      description: "All vulnerabilities analyzed and prioritized by AI"
+
+  agile_workflows:
+    title: "Agile-Ready Security Workflows"
+    subtitle: "Real-time security feedback integrated into your agile development process"
+    terminal_title: "PLEXICUS Agile Integration"
+    processing: "Integrating with agile workflow..."
+    steps:
+      planning:
+        label: "Sprint Planning"
+        command: "plexicus sprint-init --security-gates"
+        result: "✓ Security requirements integrated into sprint backlog"
+      development:
+        label: "Development"
+        command: "git push origin feature/user-auth"
+        result: "✓ Code pushed, pre-commit security hooks triggered"
+      scan:
+        label: "Real-time Scan"
+        command: "plexicus scan --realtime --feedback"
+        result: "✓ Security feedback delivered in 30 seconds"
+      feedback:
+        label: "Developer Feedback"
+        command: "plexicus feedback --ide-integration"
+        result: "✓ Security context delivered directly to IDE"
+    completion:
+      title: "Sprint Secured!"
+      description: "Security feedback delivered in minutes, not days"
+
+  ai_remediation:
+    title: "AI-Powered Automated Remediation"
+    subtitle: "Watch AI automatically detect, analyze, and fix security vulnerabilities"
+    terminal_title: "PLEXICUS AI Remediation Engine"
+    processing: "AI analyzing and generating fix..."
+    steps:
+      detection:
+        label: "Threat Detected"
+        command: "plexicus detect --severity=critical"
+        result: "⚠️ SQL Injection vulnerability detected in user-auth.js:42"
+      analysis:
+        label: "AI Analysis"
+        command: "plexicus analyze --context-aware --ai-engine"
+        result: "🧠 Context analyzed, remediation strategy generated"
+      generation:
+        label: "Generate Fix"
+        command: "plexicus generate-fix --auto-remediate"
+        result: "📝 Secure code fix generated with parameterized queries"
+      apply:
+        label: "Auto-Apply"
+        command: "plexicus apply-fix --create-pr"
+        result: "✅ Pull request #247 created with security fix"
+    code_diff:
+      title: "Generated Security Fix"
+      before: "const query = `SELECT * FROM users WHERE id = ${userAuthId}`;"
+      after: "const query = 'SELECT * FROM users WHERE id = ?';\nconst result = await db.query(query, [userAuthId]);"
+    completion:
+      title: "Remediation Complete!"
+      description: "Vulnerability automatically fixed and ready for review"
+
+  cross_functional:
+    title: "Cross-Functional Security Collaboration"
+    subtitle: "Unifying teams with shared security intelligence and coordinated response"
+    terminal_title: "PLEXICUS Team Collaboration"
+    processing: "Synchronizing teams..."
+    steps:
+      setup:
+        label: "Team Setup"
+        command: "plexicus teams init --roles=dev,sec,ops"
+        result: "✓ Cross-functional team workspace created"
+      dashboard:
+        label: "Shared Dashboard"
+        command: "plexicus dashboard --unified-view"
+        result: "✓ Role-based dashboards configured for all teams"
+      sync:
+        label: "Real-time Sync"
+        command: "plexicus sync --cross-team-notifications"
+        result: "✓ Security insights shared across Dev, Sec, and Ops"
+      response:
+        label: "Coordinated Response"
+        command: "plexicus respond --collaborative"
+        result: "✓ Incident response coordinated across all teams"
+    teams:
+      dev:
+        label: "Dev"
+        role: "Development"
+      sec:
+        label: "Sec"
+        role: "Security"
+      ops:
+        label: "Ops"
+        role: "Operations"
+    platform:
+      title: "PLEXICUS Platform"
+      subtitle: "Unified Security Intelligence"
+    completion:
+      title: "Teams United!"
+      description: "All teams now share unified security insights"
+
+  compliance:
+    title: "Regulatory Compliance Automation"
+    subtitle: "Automated compliance monitoring with continuous control mapping"
+    terminal_title: "PLEXICUS Compliance Engine"
+    processing: "Validating compliance..."
+    steps:
+      standards:
+        label: "Standards Setup"
+        command: "plexicus compliance init --standards=sox,hipaa,pci"
+        result: "✓ SOX, HIPAA, PCI-DSS standards configured"
+      mapping:
+        label: "Control Mapping"
+        command: "plexicus map-controls --auto-align"
+        result: "✓ 127 controls automatically mapped to security policies"
+      monitoring:
+        label: "Continuous Monitoring"
+        command: "plexicus monitor --realtime-tracking"
+        result: "✓ Real-time compliance monitoring activated"
+      reports:
+        label: "Audit Reports"
+        command: "plexicus generate-report --audit-ready"
+        result: "✓ Audit-ready compliance report generated"
+    standards:
+      - "SOX"
+      - "HIPAA"
+      - "PCI-DSS"
+      - "NIST"
+      - "ISO 27001"
+      - "GDPR"
+    completion:
+      title: "Compliance Achieved!"
+      description: "All standards monitored and audit-ready reports generated"
+
+  runtime_detection:
+    title: "24/7 Runtime Threat Detection"
+    subtitle: "Always-on security monitoring with intelligent threat detection for live workloads"
+    terminal_title: "PLEXICUS Runtime Security"
+    processing: "Monitoring runtime threats..."
+    steps:
+      deploy:
+        label: "Deploy Monitoring"
+        command: "plexicus runtime deploy --cloud-workloads"
+        result: "✓ Runtime monitoring agents deployed to all workloads"
+      behavior:
+        label: "Behavior Analysis"
+        command: "plexicus monitor --behavior-detection"
+        result: "✓ 24/7 behavior-based monitoring activated"
+      detection:
+        label: "Threat Detection"
+        command: "plexicus detect --realtime-threats"
+        result: "⚠️ Suspicious activity detected: Unusual API calls from 192.168.1.100"
+      alerting:
+        label: "Smart Alerting"
+        command: "plexicus alert --intelligent-filtering"
+        result: "✅ High-priority alert sent to security team (noise filtered)"
+    dashboard:
+      title: "Live Threat Dashboard"
+      workloads:
+        count: "247"
+        label: "Workloads Monitored"
+      threats:
+        count: "3"
+        label: "Threats Detected"
+      alerts:
+        count: "1"
+        label: "Critical Alerts"
+    completion:
+      title: "Runtime Protection Active!"
+      description: "24/7 monitoring with intelligent threat detection enabled"
+
+  common:
+    processing:
+      complete: "complete"
