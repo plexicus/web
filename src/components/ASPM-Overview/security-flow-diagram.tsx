@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { GitBranch, Rocket, AlertTriangle, Clock, Shield, CheckCircle, Brain, Zap, Eye, ArrowRight } from 'lucide-react';
+import { useTranslations } from '@/i18n/utils';
+import { type ui } from '@/i18n/ui';
 
-export default function SecurityFlowDiagram() {
+export default function SecurityFlowDiagram({ lang }: { lang: keyof typeof ui }) {
   const [activeStep, setActiveStep] = useState(0);
   const primaryColor = '#8220ff';
-
+  const t = useTranslations(lang);
   // Auto-cycle through steps
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,26 +20,26 @@ export default function SecurityFlowDiagram() {
 
   const challenges = [
     {
-      title: 'Complex Architectures',
-      stat: '73% increase',
+      title: t('aspm.securityFlowDiagram.complexArchitectures'),
+      stat: t('aspm.securityFlowDiagram.complexArchitecturesStat'),
       icon: <GitBranch size={18} />,
       color: '#ef4444',
     },
     {
-      title: 'Fast-Paced CI/CD',
-      stat: '5x faster deployments',
+      title: t('aspm.securityFlowDiagram.fastPacedCicd'),
+      stat: t('aspm.securityFlowDiagram.fastPacedCicdStat'),
       icon: <Rocket size={18} />,
       color: '#f59e0b',
     },
     {
-      title: 'Alert Fatigue',
-      stat: '1000+ daily alerts',
+      title: t('aspm.securityFlowDiagram.alertFatigue'),
+      stat: t('aspm.securityFlowDiagram.alertFatigueStat'),
       icon: <AlertTriangle size={18} />,
       color: '#dc2626',
     },
     {
-      title: 'Security vs Speed',
-      stat: '40% slower releases',
+      title: t('aspm.securityFlowDiagram.securityVsSpeed'),
+      stat: t('aspm.securityFlowDiagram.securityVsSpeedStat'),
       icon: <Clock size={18} />,
       color: '#7c3aed',
     },
@@ -55,8 +57,8 @@ export default function SecurityFlowDiagram() {
                   <Shield className="w-6 h-6 text-gray-600" />
                 </div>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Security Team</h3>
-              <p className="text-sm text-gray-600">Facing Modern Challenges</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{ t('aspm.securityFlowDiagram.securityTeam') }</h3>
+              <p className="text-sm text-gray-600">{ t('aspm.securityFlowDiagram.facingModernChallenges') }</p>
             </div>
 
             { /* Challenge Input */ }

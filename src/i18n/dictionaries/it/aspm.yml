@@ -178,46 +178,31 @@ aspm:
       - "Analisi dell'impatto sulle prestazioni"
 
   integrationEcosystem:
-    title: "Ecosistema di Integrazione"
-    subtitle: "Integrazione perfetta con i tuoi strumenti di sicurezza e sviluppo esistenti"
-    pipelineTitle: "Integrazione Pipeline CI/CD"
-    codeComment: "# .github/workflows/security.yml"
-    categories:
-      sastTools:
-        title: "Strumenti SAST"
-        tools:
-          - "Checkmarx"
-          - "Fortify"
-          - "SonarQube"
-          - "Veracode"
-          - "GitHub Advanced Security"
-          - "GitLab Security"
-      scaTools:
-        title: "Strumenti SCA"
-        tools:
-          - "Snyk"
-          - "Black Duck"
-          - "WhiteSource"
-          - "GitHub Dependabot"
-          - "GitLab Dependency Scanning"
-      infrastructure:
-        title: "Infrastruttura"
-        tools:
-          - "Terraform"
-          - "CloudFormation"
-          - "Kubernetes"
-          - "Checkov"
-          - "Terrascan"
-          - "Prisma Cloud"
-      cicdPlatforms:
-        title: "Piattaforme CI/CD"
-        tools:
-          - "GitHub Actions"
-          - "GitLab CI"
-          - "Jenkins"
-          - "Azure DevOps"
-          - "CircleCI"
-          - "Travis CI"
+    aspmIntegrationTitle: "Integrazione ASPM"
+    newLabel: "Nuovo"
+    description: "Integra la sicurezza in modo trasparente lungo l'intero ciclo di vita dello sviluppo software con automazione intelligente e monitoraggio continuo."
+    phases:
+      code:
+        phase: "Codice"
+        title: "Analisi Statica e Rilevamento Segreti"
+        description: "Scansione delle vulnerabilità in tempo reale e applicazione di pattern di codifica sicura direttamente nel tuo IDE e nei repository."
+      build:
+        phase: "Build"
+        title: "Sicurezza delle Dipendenze e dei Container"
+        description: "Scansione automatizzata delle dipendenze e delle immagini dei container con blocco delle vulnerabilità prima del deployment."
+      testing:
+        phase: "Testing"
+        title: "Test di Sicurezza Dinamici"
+        description: "Generazione intelligente di test di sicurezza e penetration testing automatizzati con copertura completa."
+      deploy:
+        phase: "Deployment"
+        title: "Validazione della Sicurezza dell'Infrastruttura"
+        description: "Scansione della configurazione e controlli di conformità che garantiscono pratiche di deployment sicure."
+      monitor:
+        phase: "Monitor"
+        title: "Protezione e Monitoraggio Runtime"
+        description: "Rilevamento continuo delle minacce e risposta automatica agli incidenti con insight di sicurezza in tempo reale."
+    learnMore: "Scopri di più"
 
   devSecOps:
     title: "Integrazione DevSecOps"
@@ -397,3 +382,33 @@ aspm:
         sec: "Sicurezza"
         ops: "Operazioni"
       statusOperational: "Tutti i sistemi operativi"
+  securityFlowDiagram:
+    securityTeam: "Team di Sicurezza"
+    facingModernChallenges: "Affrontando Sfide Moderne"
+    complexArchitectures: "Architetture Complesse"
+    fastPacedCicd: "CI/CD Veloce"
+    alertFatigue: "Fatica da Avvisi"
+    securityVsSpeed: "Sicurezza vs Velocità"
+    handleEffectively: "Come gestiamo {challenge} in modo efficace?"
+    complexArchitecturesStat: "Aumento del 73%"
+    fastPacedCicdStat: "Deployment 5 volte più veloci"
+    alertFatigueStat: "Oltre 1000 avvisi al giorno"
+    securityVsSpeedStat: "Rilasci del 40% più lenti"
+    plexicusAspm: "PLEXICUS ASPM"
+    discovery: "Rilevamento"
+    comprehensiveScanning: "Scansione completa"
+    aiAnalysis: "Analisi AI"
+    contextEnrichment: "Arricchimento del contesto"
+    smartPrioritization: "Prioritizzazione Intelligente"
+    riskBasedRanking: "Classificazione basata sul rischio"
+    automatedResponse: "Risposta Automatica"
+    fixGeneration: "Generazione della correzione"
+    secure: "Sicuro"
+    application: "Applicazione"
+    fast: "Veloce"
+    deployment: "Deployment"
+    processingChallengeOf: "Elaborazione Sfida {currentStep} di {totalSteps}"
+    fasterFixes: "Correzioni più Veloci"
+    lessAlerts: "Meno Avvisi"
+    lessOverhead: "Meno Overhead"
+    monitoring: "Monitoraggio"

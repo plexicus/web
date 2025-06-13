@@ -1,56 +1,56 @@
-'use client';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from '@/components/ui/image';
-import { Shield, Zap, Eye, Brain, ArrowRight, TrendingUp, Clock, Users, Target } from 'lucide-react';
+import { Shield, Zap, Eye, Brain, TrendingUp, Clock, Users, Target } from 'lucide-react';
+import { useTranslations } from '@/i18n/utils';
 
-const features = [
-  {
-    id: 'visibility',
-    title: 'Complete Visibility',
-    description: 'Gain comprehensive insights across your entire application security landscape',
-    icon: <Eye className="w-6 h-6" />,
-    stats: '360° Coverage',
-    color: 'from-blue-500 to-cyan-500',
-  },
-  {
-    id: 'intelligence',
-    title: 'AI-Powered Intelligence',
-    description: 'Advanced machine learning algorithms that understand context and prioritize threats',
-    icon: <Brain className="w-6 h-6" />,
-    stats: '85% Accuracy',
-    color: 'from-purple-500 to-pink-500',
-  },
-  {
-    id: 'automation',
-    title: 'Smart Automation',
-    description: 'Automated workflows that integrate seamlessly into your development process',
-    icon: <Zap className="w-6 h-6" />,
-    stats: '90% Automated',
-    color: 'from-amber-500 to-orange-500',
-  },
-  {
-    id: 'protection',
-    title: 'Proactive Protection',
-    description: 'Stay ahead of threats with predictive security measures and real-time monitoring',
-    icon: <Shield className="w-6 h-6" />,
-    stats: '24/7 Monitoring',
-    color: 'from-green-500 to-emerald-500',
-  },
-];
-
-const benefits = [
-  { icon: <TrendingUp className="w-5 h-5" />, text: '75% faster vulnerability remediation' },
-  { icon: <Clock className="w-5 h-5" />, text: 'Reduce security overhead by 60%' },
-  { icon: <Users className="w-5 h-5" />, text: 'Empower development teams with security insights' },
-  { icon: <Target className="w-5 h-5" />, text: 'Focus on high-impact security issues' },
-];
-
-export default function InteractiveAspmSection() {
+export default function InteractiveAspmSection({ lang }) {
+  const t = useTranslations(lang);
   const [activeFeature, setActiveFeature] = useState(0);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
+  const features = [
+    {
+      id: 'visibility',
+      title: t('aspm.securityCoPilot.features.visibility.title'),
+      description: t('aspm.securityCoPilot.features.visibility.description'),
+      icon: <Eye className="w-6 h-6" />,
+      stats: t('aspm.securityCoPilot.features.visibility.stats'),
+      color: 'from-blue-500 to-cyan-500',
+    },
+    {
+      id: 'intelligence',
+      title: t('aspm.securityCoPilot.features.intelligence.title'),
+      description: t('aspm.securityCoPilot.features.intelligence.description'),
+      icon: <Brain className="w-6 h-6" />,
+      stats: t('aspm.securityCoPilot.features.intelligence.stats'),
+      color: 'from-purple-500 to-pink-500',
+    },
+    {
+      id: 'automation',
+      title: t('aspm.securityCoPilot.features.automation.title'),
+      description: t('aspm.securityCoPilot.features.automation.description'),
+      icon: <Zap className="w-6 h-6" />,
+      stats: t('aspm.securityCoPilot.features.automation.stats'),
+      color: 'from-amber-500 to-orange-500',
+    },
+    {
+      id: 'protection',
+      title: t('aspm.securityCoPilot.features.protection.title'),
+      description: t('aspm.securityCoPilot.features.protection.description'),
+      icon: <Shield className="w-6 h-6" />,
+      stats: t('aspm.securityCoPilot.features.protection.stats'),
+      color: 'from-green-500 to-emerald-500',
+    },
+  ];
+  
+  const benefits = [
+    { icon: <TrendingUp className="w-5 h-5" />, text: t('aspm.securityCoPilot.benefits.0.text') },
+    { icon: <Clock className="w-5 h-5" />, text: t('aspm.securityCoPilot.benefits.1.text') },
+    { icon: <Users className="w-5 h-5" />, text: t('aspm.securityCoPilot.benefits.2.text') },
+    { icon: <Target className="w-5 h-5" />, text: t('aspm.securityCoPilot.benefits.3.text') },
+  ];
   // Auto-cycle through features
   useEffect(() => {
     const interval = setInterval(() => {
@@ -137,15 +137,13 @@ export default function InteractiveAspmSection() {
           <div className="lg:w-1/2 space-y-8">
             <motion.div variants={itemVariants}>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Plexicus ASPM: Your{ ' ' }
+                { t('aspm.securityCoPilot.titlePart1') } { ' ' }
                 <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                  Intelligent Security Co-Pilot
+                  { t('aspm.securityCoPilot.titleHighlight') }
                 </span>
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Plexicus ASPM is engineered to overcome modern security challenges by providing a unified, AI-driven
-                platform that integrates seamlessly into your development workflows. We transform application security
-                from a reactive chore into a proactive, intelligent, and automated process.
+                { t('aspm.securityCoPilot.description') }
               </p>
             </motion.div>
 
@@ -177,11 +175,6 @@ export default function InteractiveAspmSection() {
                     </div>
                     <div className="text-right">
                       <div className="text-sm font-bold text-purple-600">{ feature.stats }</div>
-                      <ArrowRight
-                        className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${
-                          activeFeature === index ? 'translate-x-1' : ''
-                        }`}
-                      />
                     </div>
                   </div>
                 </motion.div>

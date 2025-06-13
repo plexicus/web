@@ -16,7 +16,7 @@ export default function AspmPage({ lang }) {
       <TechnicalProblem lang={lang} />
       <CoreCapabilities lang={lang} />
       <AiRemediation lang={lang} />
-      <InteractiveAspmSection />
+      <InteractiveAspmSection lang={lang} />
       <IntegrationEcosystem lang={lang} />
       { /* <DevSecOpsIntegration lang={lang} /> */ }
       <ComplianceAutomation lang={lang} />

@@ -43,40 +43,21 @@ aspm:
     title: "Problema Técnico:"
     titleHighlight: "Herramientas de Seguridad Fragmentadas"
     subtitle: "Los enfoques de seguridad tradicionales crean más problemas de los que resuelven"
-    before:
-      title: "Antes de Plexicus"
-      codeComment: "# Flujo de trabajo del desarrollador"
-      commands:
-        - "$ git commit -m \"nueva característica\""
-        - "$ sonarqube-scan --wait-4-hours"
-        - "$ snyk test --json > snyk.json"
-        - "$ checkov -f main.tf --output sarif"
-        - "$ trivy image myapp:latest"
-        - "$ bandit -r . --format json"
-      resultComment: "# Revisar 6 informes diferentes, más de 400 hallazgos, 80% falsos positivos"
-      resultLabel: "El Resultado:"
-      results:
-        - "6 informes diferentes para revisar"
-        - "Más de 400 hallazgos para analizar"
-        - "Horas dedicadas a falsos positivos"
-        - "Velocidad de desarrollo ralentizada"
-    after:
-      title: "Después de Plexicus"
-      command: "$ git push origin main"
-      autoComment: "# Plexicus automáticamente:"
-      autoActions:
-        - "# - Escanea código, dependencias, IaC, contenedores"
-        - "# - Correlaciona hallazgos entre herramientas"
-        - "# - Genera correcciones a través de Codex Remedium"
-        - "# - Crea un único informe priorizado"
-      resultComment: "# Resultado: 12 problemas reales, 8 autofijados, 4 con correcciones guiadas"
-      resultLabel: "El Resultado:"
-      results:
-        - "12 problemas reales encontrados"
-        - "8 autofijados por Plexicus"
-        - "4 resaltados con contexto claro"
-        - "El desarrollador fusiona con confianza"
-
+    keyChallengesTitle: "Desafíos Clave:"
+    challenges:
+      - title: "Arquitecturas Complejas"
+        description: "Gestionar la seguridad en microservicios, contenedores y entornos nativos de la nube"
+        stat: "73% de aumento en la complejidad"
+      - title: "CI/CD de Ritmo Rápido"
+        description: "Abordar las vulnerabilidades dentro de ciclos de despliegue rápidos"
+        stat: "Despliegues 5 veces más rápidos"
+      - title: "Fatiga de Alertas"
+        description: "Reducir el ruido de herramientas de seguridad dispares"
+        stat: "Más de 1000 alertas diarias"
+      - title: "Seguridad vs. Velocidad"
+        description: "Asegurar que la seguridad impulse en lugar de obstaculizar el desarrollo"
+        stat: "Lanzamientos 40% más lentos"
+    italicText: "Los enfoques de seguridad tradicionales luchan con estos desafíos, destacando la necesidad de una solución de gestión de postura de seguridad más inteligente e integrada."
   coreCapabilities:
     title: "Capacidades Clave"
     subtitle: "Cobertura de seguridad integral a lo largo de todo el ciclo de vida de tu aplicación"
@@ -153,6 +134,34 @@ aspm:
           endpointsTested: "Puntos Finales Probados"
           passedTests: "Pruebas Superadas"
           issuesFound: "Problemas Encontrados"
+  securityCoPilot:
+      titlePart1: "Plexicus ASPM: Tu"
+      titleHighlight: "Copiloto de Seguridad Inteligente"
+      description: "Plexicus ASPM está diseñado para superar los desafíos de seguridad modernos al proporcionar una plataforma unificada impulsada por IA que se integra perfectamente en tus flujos de trabajo de desarrollo. Transformamos la seguridad de las aplicaciones de una tarea reactiva a un proceso proactivo, inteligente y automatizado."
+      featuresTitle: "Características Clave:"
+      features:
+        visibility:
+          title: "Visibilidad Completa"
+          description: "Obtén información completa de todo tu panorama de seguridad de aplicaciones"
+          stats: "Cobertura 360°"
+        intelligence:
+          title: "Inteligencia Impulsada por IA"
+          description: "Algoritmos avanzados de aprendizaje automático que comprenden el contexto y priorizan las amenazas"
+          stats: "85% de Precisión"
+        automation:
+          title: "Automatización Inteligente"
+          description: "Flujos de trabajo automatizados que se integran perfectamente en tu proceso de desarrollo"
+          stats: "90% Automatizado"
+        protection:
+          title: "Protección Proactiva"
+          description: "Mantente un paso adelante de las amenazas con medidas de seguridad predictivas y monitoreo en tiempo real"
+          stats: "Monitoreo 24/7"
+      benefitsTitle: "Beneficios Clave:"
+      benefits:
+        - text: "75% más rápido en la remediación de vulnerabilidades"
+        - text: "Reduce los costos de seguridad en un 60%"
+        - text: "Empodera a los equipos de desarrollo con información de seguridad"
+        - text: "Concéntrate en problemas de seguridad de alto impacto"
 
   aiRemediation:
     title: "Remediación Impulsada por IA"
@@ -178,46 +187,31 @@ aspm:
       - "Análisis de impacto en el rendimiento"
 
   integrationEcosystem:
-    title: "Ecosistema de Integración"
-    subtitle: "Integra sin problemas con tus herramientas de seguridad y desarrollo existentes"
-    pipelineTitle: "Integración de Pipeline CI/CD"
-    codeComment: "# .github/workflows/seguridad.yml"
-    categories:
-      sastTools:
-        title: "Herramientas SAST"
-        tools:
-          - "Checkmarx"
-          - "Fortify"
-          - "SonarQube"
-          - "Veracode"
-          - "GitHub Advanced Security"
-          - "GitLab Security"
-      scaTools:
-        title: "Herramientas SCA"
-        tools:
-          - "Snyk"
-          - "Black Duck"
-          - "WhiteSource"
-          - "GitHub Dependabot"
-          - "GitLab Escaneo de Dependencias"
-      infrastructure:
-        title: "Infraestructura"
-        tools:
-          - "Terraform"
-          - "CloudFormation"
-          - "Kubernetes"
-          - "Checkov"
-          - "Terrascan"
-          - "Prisma Cloud"
-      cicdPlatforms:
-        title: "Plataformas CI/CD"
-        tools:
-          - "GitHub Actions"
-          - "GitLab CI"
-          - "Jenkins"
-          - "Azure DevOps"
-          - "CircleCI"
-          - "Travis CI"
+    aspmIntegrationTitle: "Integración ASPM"
+    newLabel: "Nuevo"
+    description: "Integra la seguridad de forma transparente en todo tu ciclo de vida de desarrollo de software con automatización inteligente y monitoreo continuo."
+    phases:
+      code:
+        phase: "Código"
+        title: "Análisis Estático y Detección de Secretos"
+        description: "Escaneo de vulnerabilidades en tiempo real y aplicación de patrones de codificación segura directamente en tu IDE y repositorios."
+      build:
+        phase: "Construcción"
+        title: "Seguridad de Dependencias y Contenedores"
+        description: "Escaneo automatizado de dependencias e imágenes de contenedores con bloqueo de vulnerabilidades antes del despliegue."
+      testing:
+        phase: "Pruebas"
+        title: "Pruebas de Seguridad Dinámicas"
+        description: "Generación inteligente de pruebas de seguridad y pruebas de penetración automatizadas con cobertura completa."
+      deploy:
+        phase: "Despliegue"
+        title: "Validación de Seguridad de Infraestructura"
+        description: "Escaneo de configuración y comprobaciones de cumplimiento que garantizan prácticas de despliegue seguras."
+      monitor:
+        phase: "Monitoreo"
+        title: "Protección y Monitoreo en Tiempo de Ejecución"
+        description: "Detección continua de amenazas y respuesta automática a incidentes con información de seguridad en tiempo real."
+    learnMore: "Aprender Más"
 
   devSecOps:
     title: "Integración DevSecOps"
@@ -396,3 +390,33 @@ aspm:
         sec: "Seg"
         ops: "Ops"
       statusOperational: "Todos los sistemas operativos"
+  securityFlowDiagram:
+    securityTeam: "Equipo de Seguridad"
+    facingModernChallenges: "Enfrentando Desafíos Modernos"
+    complexArchitectures: "Arquitecturas Complejas"
+    fastPacedCicd: "CI/CD de Ritmo Rápido"
+    alertFatigue: "Fatiga de Alertas"
+    securityVsSpeed: "Seguridad vs Velocidad"
+    handleEffectively: "¿Cómo manejamos {challenge} de manera efectiva?"
+    complexArchitecturesStat: "73% de aumento"
+    fastPacedCicdStat: "Despliegues 5 veces más rápidos"
+    alertFatigueStat: "Más de 1000 alertas diarias"
+    securityVsSpeedStat: "Lanzamientos 40% más lentos"
+    plexicusAspm: "PLEXICUS ASPM"
+    discovery: "Descubrimiento"
+    comprehensiveScanning: "Escaneo completo"
+    aiAnalysis: "Análisis de IA"
+    contextEnrichment: "Enriquecimiento de contexto"
+    smartPrioritization: "Priorización Inteligente"
+    riskBasedRanking: "Clasificación basada en riesgos"
+    automatedResponse: "Respuesta Automatizada"
+    fixGeneration: "Generación de correcciones"
+    secure: "Seguro"
+    application: "Aplicación"
+    fast: "Rápido"
+    deployment: "Despliegue"
+    processingChallengeOf: "Procesando Desafío {currentStep} de {totalSteps}"
+    fasterFixes: "Soluciones Más Rápidas"
+    lessAlerts: "Menos Alertas"
+    lessOverhead: "Menos Sobrecarga"
+    monitoring: "Monitoreo"

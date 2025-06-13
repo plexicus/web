@@ -19,50 +19,49 @@ export default function IntegrationEcosystem({ lang }) {
             className="space-y-6"
           >
             <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">ASPM Integration</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{ t('aspm.integrationEcosystem.aspmIntegrationTitle') }</h2>
               <span
                 className="px-3 py-1 rounded-full text-sm font-semibold text-white"
                 style={{ backgroundColor: '#8220ff' }}
               >
-                New
+                { t('aspm.integrationEcosystem.newLabel') }
               </span>
             </div>
 
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
-              Seamlessly integrate security across your entire software development lifecycle with intelligent
-              automation and continuous monitoring.
+              { t('aspm.integrationEcosystem.description') }
             </p>
 
             <div className="space-y-6">
               { [
                 {
-                  phase: 'Code',
-                  title: 'Static Analysis & Secret Detection',
+                  phase: t('aspm.integrationEcosystem.phases.code.phase'),
+                  title: t('aspm.integrationEcosystem.phases.code.title'),
                   description:
-                  'Real-time vulnerability scanning and secure coding pattern enforcement directly in your IDE and repositories.',
+                  t('aspm.integrationEcosystem.phases.code.description'),
                 },
                 {
-                  phase: 'Build',
-                  title: 'Dependency & Container Security',
+                  phase: t('aspm.integrationEcosystem.phases.build.phase'),
+                  title: t('aspm.integrationEcosystem.phases.build.title'),
                   description:
-                  'Automated scanning of dependencies and container images with vulnerability blocking before deployment.',
+                  t('aspm.integrationEcosystem.phases.build.description'),
                 },
                 {
-                  phase: 'Testing',
-                  title: 'Dynamic Security Testing',
+                  phase: t('aspm.integrationEcosystem.phases.testing.phase'),
+                  title: t('aspm.integrationEcosystem.phases.testing.title'),
                   description:
-                  'Intelligent security test generation and automated penetration testing with comprehensive coverage.',
+                  t('aspm.integrationEcosystem.phases.testing.description'),
                 },
                 {
-                  phase: 'Deploy',
-                  title: 'Infrastructure Security Validation',
-                  description: 'Configuration scanning and compliance checks ensuring secure deployment practices.',
+                  phase: t('aspm.integrationEcosystem.phases.deploy.phase'),
+                  title: t('aspm.integrationEcosystem.phases.deploy.title'),
+                  description: t('aspm.integrationEcosystem.phases.deploy.description'),
                 },
                 {
-                  phase: 'Monitor',
-                  title: 'Runtime Protection & Monitoring',
+                  phase: t('aspm.integrationEcosystem.phases.monitor.phase'),
+                  title: t('aspm.integrationEcosystem.phases.monitor.title'),
                   description:
-                  'Continuous threat detection and automated incident response with real-time security insights.',
+                  t('aspm.integrationEcosystem.phases.monitor.description'),
                 },
               ].map((item, index) => (
                 <motion.div
@@ -98,7 +97,7 @@ export default function IntegrationEcosystem({ lang }) {
                 className="inline-flex items-center gap-2 font-semibold hover:underline transition-colors duration-200"
                 style={{ color: '#8220ff' }}
               >
-                Learn More
+                { t('aspm.integrationEcosystem.learnMore') }
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"

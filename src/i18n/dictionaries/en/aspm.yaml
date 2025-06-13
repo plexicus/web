@@ -39,44 +39,6 @@ aspm:
           - "Unified Dashboard"
           - "Zero-Touch Compliance"
 
-  technicalProblem:
-    title: "Technical Problem:"
-    titleHighlight: "Fragmented Security Tools"
-    subtitle: "Traditional security approaches create more problems than they solve"
-    before:
-      title: "Before Plexicus"
-      codeComment: "# Developer workflow"
-      commands:
-        - "$ git commit -m \"new feature\""
-        - "$ sonarqube-scan --wait-4-hours"
-        - "$ snyk test --json > snyk.json"
-        - "$ checkov -f main.tf --output sarif"
-        - "$ trivy image myapp:latest"
-        - "$ bandit -r . --format json"
-      resultComment: "# Review 6 different reports, 400+ findings, 80% false positives"
-      resultLabel: "The Result:"
-      results:
-        - "6 different reports to review"
-        - "400+ findings to analyze"
-        - "Hours spent on false positives"
-        - "Development velocity slowed"
-    after:
-      title: "After Plexicus"
-      command: "$ git push origin main"
-      autoComment: "# Plexicus automatically:"
-      autoActions:
-        - "# - Scans code, dependencies, IaC, containers"
-        - "# - Correlates findings across tools"
-        - "# - Generates fixes via Codex Remedium"
-        - "# - Creates single prioritized report"
-      resultComment: "# Result: 12 real issues, 8 auto-fixed, 4 with guided fixes"
-      resultLabel: "The Result:"
-      results:
-        - "12 real issues found"
-        - "8 auto-fixed by Plexicus"
-        - "4 highlighted with clear context"
-        - "Developer merges with confidence"
-
   coreCapabilities:
     title: "Core Capabilities"
     subtitle: "Comprehensive security coverage across your entire application lifecycle"
@@ -176,48 +138,6 @@ aspm:
       - "Unit tests for validation"
       - "Documentation updates"
       - "Performance impact analysis"
-
-  integrationEcosystem:
-    title: "Integration Ecosystem"
-    subtitle: "Seamlessly integrate with your existing security and development tools"
-    pipelineTitle: "CI/CD Pipeline Integration"
-    codeComment: "# .github/workflows/security.yml"
-    categories:
-      sastTools:
-        title: "SAST Tools"
-        tools:
-          - "Checkmarx"
-          - "Fortify"
-          - "SonarQube"
-          - "Veracode"
-          - "GitHub Advanced Security"
-          - "GitLab Security"
-      scaTools:
-        title: "SCA Tools"
-        tools:
-          - "Snyk"
-          - "Black Duck"
-          - "WhiteSource"
-          - "GitHub Dependabot"
-          - "GitLab Dependency Scanning"
-      infrastructure:
-        title: "Infrastructure"
-        tools:
-          - "Terraform"
-          - "CloudFormation"
-          - "Kubernetes"
-          - "Checkov"
-          - "Terrascan"
-          - "Prisma Cloud"
-      cicdPlatforms:
-        title: "CI/CD Platforms"
-        tools:
-          - "GitHub Actions"
-          - "GitLab CI"
-          - "Jenkins"
-          - "Azure DevOps"
-          - "CircleCI"
-          - "Travis CI"
 
   devSecOps:
     title: "DevSecOps Integration"
@@ -350,8 +270,115 @@ aspm:
     buttons:
       getStarted: "Get Started"
       viewIntegrations: "View Integrations"
-      learnMore: "Learn More"
+    learnMore: "Learn More"
 
+  securityCoPilot:
+    titlePart1: "Plexicus ASPM: Your"
+    titleHighlight: "Intelligent Security Co-Pilot"
+    description: "Plexicus ASPM is engineered to overcome modern security challenges by providing a unified, AI-driven platform that integrates seamlessly into your development workflows. We transform application security from a reactive chore into a proactive, intelligent, and automated process."
+    featuresTitle: "Key Features:"
+    features:
+      visibility:
+        title: "Complete Visibility"
+        description: "Gain comprehensive insights across your entire application security landscape"
+        stats: "360° Coverage"
+      intelligence:
+        title: "AI-Powered Intelligence"
+        description: "Advanced machine learning algorithms that understand context and prioritize threats"
+        stats: "85% Accuracy"
+      automation:
+        title: "Smart Automation"
+        description: "Automated workflows that integrate seamlessly into your development process"
+        stats: "90% Automated"
+      protection:
+        title: "Proactive Protection"
+        description: "Stay ahead of threats with predictive security measures and real-time monitoring"
+        stats: "24/7 Monitoring"
+    benefitsTitle: "Key Benefits:"
+    benefits:
+      - text: "75% faster vulnerability remediation"
+      - text: "Reduce security overhead by 60%"
+      - text: "Empower development teams with security insights"
+      - text: "Focus on high-impact security issues"
+
+
+  securityFlowDiagram:
+    securityTeam: "Security Team"
+    facingModernChallenges: "Facing Modern Challenges"
+    complexArchitectures: "Complex Architectures"
+    fastPacedCicd: "Fast-Paced CI/CD"
+    alertFatigue: "Alert Fatigue"
+    securityVsSpeed: "Security vs Speed"
+    handleEffectively: "How do we handle {challenge} effectively?"
+    complexArchitecturesStat: "73% increase"
+    fastPacedCicdStat: "5x faster deployments"
+    alertFatigueStat: "1000+ daily alerts"
+    securityVsSpeedStat: "40% slower releases"
+    plexicusAspm: "PLEXICUS ASPM"
+    discovery: "Discovery"
+    comprehensiveScanning: "Comprehensive scanning"
+    aiAnalysis: "AI Analysis"
+    contextEnrichment: "Context enrichment"
+    smartPrioritization: "Smart Prioritization"
+    riskBasedRanking: "Risk-based ranking"
+    automatedResponse: "Automated Response"
+    fixGeneration: "Fix generation"
+    secure: "Secure"
+    application: "Application"
+    fast: "Fast"
+    deployment: "Deployment"
+    processingChallengeOf: "Processing Challenge {currentStep} of {totalSteps}"
+    fasterFixes: "Faster Fixes"
+    lessAlerts: "Less Alerts"
+    lessOverhead: "Less Overhead"
+    monitoring: "Monitoring"
+
+  technicalProblem:
+    title: "Technical Problem:"
+    titleHighlight: "Fragmented Security Tools"
+    subtitle: "Traditional security approaches create more problems than they solve"
+    keyChallengesTitle: "Key Challenges:"
+    challenges:
+      - title: "Complex Architectures"
+        description: "Managing security across microservices, containers, and cloud-native environments"
+        stat: "73% increase in complexity"
+      - title: "Fast-Paced CI/CD"
+        description: "Addressing vulnerabilities within rapid deployment cycles"
+        stat: "5x faster deployments"
+      - title: "Alert Fatigue"
+        description: "Reducing noise from disparate security tools"
+        stat: "1000+ daily alerts"
+      - title: "Security vs Speed"
+        description: "Ensuring security empowers rather than hinders development"
+        stat: "40% slower releases"
+    italicText: "Traditional security approaches struggle with these challenges, highlighting the need for a more intelligent and integrated security posture management solution."
+
+  integrationEcosystem:
+    aspmIntegrationTitle: "ASPM Integration"
+    newLabel: "New"
+    description: "Seamlessly integrate security across your entire software development lifecycle with intelligent automation and continuous monitoring."
+    phases:
+      code:
+        phase: "Code"
+        title: "Static Analysis & Secret Detection"
+        description: "Real-time vulnerability scanning and secure coding pattern enforcement directly in your IDE and repositories."
+      build:
+        phase: "Build"
+        title: "Dependency & Container Security"
+        description: "Automated scanning of dependencies and container images with vulnerability blocking before deployment."
+      testing:
+        phase: "Testing"
+        title: "Dynamic Security Testing"
+        description: "Intelligent security test generation and automated penetration testing with comprehensive coverage."
+      deploy:
+        phase: "Deploy"
+        title: "Infrastructure Security Validation"
+        description: "Configuration scanning and compliance checks ensuring secure deployment practices."
+      monitor:
+        phase: "Monitor"
+        title: "Runtime Protection & Monitoring"
+        description: "Continuous threat detection and automated incident response with real-time security insights."
+    learnMore: "Learn More"
 
   codeSecurityWorkflow:
     header:
