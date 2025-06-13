@@ -34,30 +34,9 @@ export default function TechnicalProblemSection({ lang }) {
               </p>
 
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-800">Key Challenges:</h3>
+                <h3 className="text-xl font-semibold text-gray-800">{ t('aspm.technicalProblem.keyChallengesTitle') }</h3>
                 <div className="space-y-3">
-                  { [
-                    {
-                      title: 'Complex Architectures',
-                      description: 'Managing security across microservices, containers, and cloud-native environments',
-                      stat: '73% increase in complexity',
-                    },
-                    {
-                      title: 'Fast-Paced CI/CD',
-                      description: 'Addressing vulnerabilities within rapid deployment cycles',
-                      stat: '5x faster deployments',
-                    },
-                    {
-                      title: 'Alert Fatigue',
-                      description: 'Reducing noise from disparate security tools',
-                      stat: '1000+ daily alerts',
-                    },
-                    {
-                      title: 'Security vs Speed',
-                      description: 'Ensuring security empowers rather than hinders development',
-                      stat: '40% slower releases',
-                    },
-                  ].map((challenge, index) => (
+                  { (t('aspm.technicalProblem.challenges') as any).map((challenge, index) => (
                     <motion.div
                       key={index}
                       className="flex items-start space-x-3 p-3 rounded-lg bg-white border border-purple-100 shadow-sm"
@@ -81,8 +60,7 @@ export default function TechnicalProblemSection({ lang }) {
 
               <div className="pt-4">
                 <p className="text-gray-600 italic">
-                  Traditional security approaches struggle with these challenges, highlighting the need for a more
-                  intelligent and integrated security posture management solution.
+                  { t('aspm.technicalProblem.italicText') }
                 </p>
               </div>
             </motion.div>
@@ -94,7 +72,7 @@ export default function TechnicalProblemSection({ lang }) {
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <SecurityFlowDiagram />
+              <SecurityFlowDiagram lang={lang} />
             </motion.div>
           </div>
         </div>
